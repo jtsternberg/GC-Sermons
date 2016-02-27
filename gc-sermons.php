@@ -102,7 +102,7 @@ class GC_Sermons_Plugin {
 	 *
 	 * @var GCS_Sermon_Series
 	 */
-	protected $gc_sermon_series;
+	protected $sermon_series;
 
 	/**
 	 * Creates or returns an instance of this class.
