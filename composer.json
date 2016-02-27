@@ -13,11 +13,13 @@
 	"minimum-stability": "dev",
 	"type": "wordpress-plugin",
 	"autoload": {
-		"classmap": ["gc-sermons.php", "includes/"]
+		"classmap": ["gc-sermons.php", "includes/"],
+		"files": ["vendor/webdevstudios/cmb2/init.php"]
 	},
 	"require": {
 		"php": ">=5.2",
-		"xrstf/composer-php52": "1.*"
+		"xrstf/composer-php52": "1.*",
+		"webdevstudios/cmb2": "dev-master"
 	},
 	"scripts": {
         "post-install-cmd": [
@@ -29,5 +31,6 @@
         "post-autoload-dump": [
             "xrstf\\Composer52\\Generator::onPostInstallCmd"
         ]
-    }
+	},
+	"minimum-stability": "dev"
 }
