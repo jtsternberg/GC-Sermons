@@ -30,7 +30,10 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 		// First parameter should be an array with Singular, Plural, and Registered name.
 		parent::__construct( $plugin, array(
 			'labels' => array( __( 'Sermon', 'gc-sermons' ), __( 'Sermons', 'gc-sermons' ), 'gc-sermons' ),
-			'args' => array( 'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail' ) ),
+			'args' => array(
+				'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail' ),
+				'menu_icon' => 'dashicons-playlist-video',
+			),
 		) );
 
 	}
@@ -43,6 +46,13 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 	 */
 	public function hooks() {
 		add_action( 'cmb2_admin_init', array( $this, 'fields' ) );
+		add_action( 'dbx_post_advanced', array( $this, 'remove_excerpt_box' ) );
+		add_filter( 'cmb2_override_excerpt_meta_value', array( $this, 'get_excerpt' ), 10, 2 );
+		add_filter( 'cmb2_override_excerpt_meta_save', '__return_true' );
+	}
+
+	public function remove_excerpt_box() {
+		remove_meta_box( 'postexcerpt', null, 'normal' );
 	}
 
 	/**
@@ -54,11 +64,43 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 	public function fields() {
 		$prefix = 'gc_sermons_';
 
-		$cmb = new_cmb2_box( array(
-			'id'           => $prefix . 'metabox',
-			'title'        => __( 'Sermons Details', 'gc-sermons' ),
+
+		$this->new_cmb2( array(
+			'id'           => 'gc_sermon_metabox',
+			'title'        => __( 'Sermon Details', 'gc-sermons' ),
 			'object_types' => array( $this->post_type() ),
+			'fields'       => array(
+				'gc_sermon_video_url' => array(
+					'id'   => 'gc_sermon_video_url',
+					'name' => __( 'Video URL', 'gc-sermons' ),
+					'desc' => __( 'Enter a youtube, or vimeo URL. Supports services listed at <a href="http://codex.wordpress.org/Embeds">http://codex.wordpress.org/Embeds</a>.', 'cmb2' ),
+					'type' => 'oembed',
+				),
+				'gc_sermon_video_src' => array(
+					'id'   => 'gc_sermon_video_src',
+					'name' => __( 'Video File', 'gc-sermons' ),
+					'desc' => __( 'Alternatively upload/select video from your media library.', 'gc-sermons' ),
+					'type' => 'file',
+				),
+				'excerpt' => array(
+					'id'   => 'excerpt',
+					'name' => __( 'Excerpt', 'gc-sermons' ),
+					'desc' => __( 'Excerpts are optional hand-crafted summaries of your content that can be used in your theme. <a href="https://codex.wordpress.org/Excerpt" target="_blank">Learn more about manual excerpts.</a>' ),
+					'type' => 'textarea',
+					'escape_cb' => false,
+				),
+				'gc_sermon_notes' => array(
+					'id'   => 'gc_sermon_notes',
+					'name' => __( 'Sermon Questions', 'gc-sermons' ),
+					'type' => 'wysiwyg',
+				),
+			),
 		) );
+
+	}
+
+	public function get_excerpt( $data, $post_id ) {
+		return get_post_field( 'post_excerpt', $post_id );
 	}
 
 	/**
@@ -69,7 +111,8 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 	 * @return array          Modified array
 	 */
 	public function columns( $columns ) {
-		$new_column = array();
+		$new_column = array(
+		);
 		return array_merge( $new_column, $columns );
 	}
 

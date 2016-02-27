@@ -85,4 +85,9 @@ abstract class GCS_Post_Types_Base extends CPT_Core {
 	 * @return void
 	 */
 	abstract function hooks();
+
+	public function new_cmb2( $args ) {
+		$cmb_id = $args['id'];
+		return new_cmb2_box( apply_filters( "gcs_cmb2_box_args_{$this->post_type}_{$cmb_id}", $args ) );
+	}
 }
