@@ -1,0 +1,178 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "6724a9095bc444ee57214ada81de60da",
+    "content-hash": "efd01e5a478ac9d3c34e744b37b405d3",
+    "packages": [
+        {
+            "name": "webdevstudios/cmb2",
+            "version": "v2.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/WebDevStudios/CMB2.git",
+                "reference": "b3b78a569f63560d2f8a039c4c1ff412a28f0156"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/WebDevStudios/CMB2/zipball/b3b78a569f63560d2f8a039c4c1ff412a28f0156",
+                "reference": "b3b78a569f63560d2f8a039c4c1ff412a28f0156",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">5.2.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "suggest": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "WebDevStudios",
+                    "email": "contact@webdevstudios.com",
+                    "homepage": "https://github.com/WebDevStudios",
+                    "role": "Developer"
+                }
+            ],
+            "description": "CMB2 is a metabox, custom fields, and forms library for WordPress that will blow your mind.",
+            "homepage": "https://github.com/WebDevStudios/CMB2",
+            "keywords": [
+                "metabox",
+                "plugin",
+                "wordpress"
+            ],
+            "time": "2015-10-01 12:58:23"
+        },
+        {
+            "name": "webdevstudios/cpt-core",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/WebDevStudios/CPT_Core.git",
+                "reference": "3f73135702b4331194a8e43311e940663840ead2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/WebDevStudios/CPT_Core/zipball/3f73135702b4331194a8e43311e940663840ead2",
+                "reference": "3f73135702b4331194a8e43311e940663840ead2",
+                "shasum": ""
+            },
+            "suggest": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "autoload": {
+                "files": [
+                    "CPT_Core.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPLv2"
+            ],
+            "authors": [
+                {
+                    "name": "WebDevStudios",
+                    "email": "contact@webdevstudios.com",
+                    "homepage": "https://github.com/WebDevStudios",
+                    "role": "Developer"
+                }
+            ],
+            "description": "WordPress Custom Post Type OO wrapper",
+            "homepage": "https://github.com/WebDevStudios/CPT_Core",
+            "keywords": [
+                "metabox",
+                "plugin",
+                "wordpress"
+            ],
+            "time": "2016-02-27 20:22:54"
+        },
+        {
+            "name": "webdevstudios/taxonomy_core",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/WebDevStudios/Taxonomy_Core.git",
+                "reference": "80393ecb126d24ef3940ab7fa06635fe782701d8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/WebDevStudios/Taxonomy_Core/zipball/80393ecb126d24ef3940ab7fa06635fe782701d8",
+                "reference": "80393ecb126d24ef3940ab7fa06635fe782701d8",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "Taxonomy_Core.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPLv2"
+            ],
+            "authors": [
+                {
+                    "name": "WebDevStudios",
+                    "email": "contact@webdevstudios.com"
+                }
+            ],
+            "description": "A tool to make custom taxonomy registration just a bit simpler. Automatically registers taxonomy labels, and provides helpful methods.",
+            "time": "2016-02-27 20:21:38"
+        },
+        {
+            "name": "xrstf/composer-php52",
+            "version": "dev-default",
+            "source": {
+                "type": "hg",
+                "url": "https://bitbucket.org/xrstf/composer-php52",
+                "reference": "724d62b7fdcf102a6c4097f5f1c2026f124583a5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://bitbucket.org/xrstf/composer-php52/get/724d62b7fdcf102a6c4097f5f1c2026f124583a5.zip",
+                "reference": "724d62b7fdcf102a6c4097f5f1c2026f124583a5",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-default": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "xrstf\\Composer52": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "homepage": "http://www.xrstf.de/",
+            "time": "2015-10-01 14:12:30"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "webdevstudios/cpt-core": 20,
+        "webdevstudios/taxonomy_core": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=5.2"
+    },
+    "platform-dev": []
+}
