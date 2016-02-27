@@ -135,9 +135,6 @@ class GC_Sermons {
 	 * @return void
 	 */
 	public function hooks() {
-		register_activation_hook( __FILE__, array( $this, '_activate' ) );
-		register_deactivation_hook( __FILE__, array( $this, '_deactivate' ) );
-
 		add_action( 'init', array( $this, 'init' ) );
 	}
 
@@ -147,7 +144,7 @@ class GC_Sermons {
 	 * @since  0.1.0
 	 * @return void
 	 */
-	function _activate() {
+	public static function activate() {
 		// Make sure any rewrite functionality has been loaded.
 		flush_rewrite_rules();
 	}
@@ -159,7 +156,7 @@ class GC_Sermons {
 	 * @since  0.1.0
 	 * @return void
 	 */
-	function _deactivate() {}
+	public static function deactivate() {}
 
 	/**
 	 * Init hooks
@@ -213,9 +210,7 @@ class GC_Sermons {
 	 */
 	public static function meets_requirements() {
 		// Do checks for required classes / functions
-		// function_exists('') & class_exists('').
-		// We have met all requirements.
-		return true;
+		return defined( 'CMB2_LOADED' );
 	}
 
 	/**
@@ -266,3 +261,6 @@ function gc_sermons() {
 
 // Kick it off.
 add_action( 'plugins_loaded', array( gc_sermons(), 'hooks' ) );
+register_activation_hook( __FILE__, array( 'GC_Sermons', 'activate' ) );
+register_deactivation_hook( __FILE__, array( 'GC_Sermons', 'deactivate' ) );
+
