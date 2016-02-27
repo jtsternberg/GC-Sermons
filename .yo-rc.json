@@ -1,0 +1,17 @@
+{
+  "generator-plugin-wp": {
+    "name": "GC Sermons",
+    "homepage": "http://dsgnwrks.pro",
+    "description": "Manage sermons and sermon content in WordPress",
+    "version": "0.1.0",
+    "author": "jtsternberg",
+    "authoremail": "justin@dsgnwrks.pro",
+    "authorurl": "http://dsgnwrks.pro",
+    "license": "GPLv2",
+    "slug": "gc-sermons",
+    "classname": "GC_Sermons",
+    "classprefix": "GCS_",
+    "prefix": "gc_sermons",
+    "year": 2015
+  }
+}
