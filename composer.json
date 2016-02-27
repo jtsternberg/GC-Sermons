@@ -13,13 +13,15 @@
 	"minimum-stability": "dev",
 	"type": "wordpress-plugin",
 	"autoload": {
-		"classmap": ["gc-sermons.php", "includes/"],
+		"classmap": ["gc-sermons.php", "includes/", "vendor/webdevstudios/cpt-core/CPT_Core.php", "vendor/webdevstudios/taxonomy_core/Taxonomy_Core.php"],
 		"files": ["vendor/webdevstudios/cmb2/init.php"]
 	},
 	"require": {
 		"php": ">=5.2",
 		"xrstf/composer-php52": "1.*",
-		"webdevstudios/cmb2": "dev-master"
+		"webdevstudios/cmb2": "^2.1",
+		"webdevstudios/cpt-core": "dev-master",
+		"webdevstudios/taxonomy_core": "dev-master"
 	},
 	"scripts": {
         "post-install-cmd": [
@@ -31,6 +33,5 @@
         "post-autoload-dump": [
             "xrstf\\Composer52\\Generator::onPostInstallCmd"
         ]
-	},
-	"minimum-stability": "dev"
+	}
 }

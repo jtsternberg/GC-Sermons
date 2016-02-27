@@ -48,7 +48,7 @@ require 'vendor/autoload_52.php';
  * @var  string $url      Plugin URL
  * @var  string $path     Plugin Path
  */
-class GC_Sermons {
+class GC_Sermons_Plugin {
 
 	/**
 	 * Current version
@@ -85,16 +85,30 @@ class GC_Sermons {
 	/**
 	 * Singleton instance of plugin
 	 *
-	 * @var GC_Sermons
+	 * @var GC_Sermons_Plugin
 	 * @since  0.1.0
 	 */
 	protected static $single_instance = null;
 
 	/**
+	 * Instance of GCS_Sermons
+	 *
+	 * @var GCS_Sermons
+	 */
+	protected $sermons;
+
+	/**
+	 * Instance of GCS_Sermon_Series
+	 *
+	 * @var GCS_Sermon_Series
+	 */
+	protected $gc_sermon_series;
+
+	/**
 	 * Creates or returns an instance of this class.
 	 *
 	 * @since  0.1.0
-	 * @return GC_Sermons A single instance of this class.
+	 * @return GC_Sermons_Plugin A single instance of this class.
 	 */
 	public static function get_instance() {
 		if ( null === self::$single_instance ) {
@@ -125,7 +139,8 @@ class GC_Sermons {
 	 */
 	public function plugin_classes() {
 		// Attach other plugin classes to the base plugin class.
-		// $this->plugin_class = new GCS_Plugin_Class( $this );
+		$this->sermons = new GCS_Sermons( $this );
+		$this->sermon_series = new GCS_Sermon_Series( $this );
 	} // END OF PLUGIN CLASSES FUNCTION
 
 	/**
@@ -241,6 +256,8 @@ class GC_Sermons {
 			case 'basename':
 			case 'url':
 			case 'path':
+			case 'sermons':
+			case 'sermon_series':
 				return $this->$field;
 			default:
 				throw new Exception( 'Invalid '. __CLASS__ .' property: ' . $field );
@@ -249,18 +266,18 @@ class GC_Sermons {
 }
 
 /**
- * Grab the GC_Sermons object and return it.
- * Wrapper for GC_Sermons::get_instance()
+ * Grab the GC_Sermons_Plugin object and return it.
+ * Wrapper for GC_Sermons_Plugin::get_instance()
  *
  * @since  0.1.0
- * @return GC_Sermons  Singleton instance of plugin class.
+ * @return GC_Sermons_Plugin  Singleton instance of plugin class.
  */
 function gc_sermons() {
-	return GC_Sermons::get_instance();
+	return GC_Sermons_Plugin::get_instance();
 }
 
 // Kick it off.
 add_action( 'plugins_loaded', array( gc_sermons(), 'hooks' ) );
-register_activation_hook( __FILE__, array( 'GC_Sermons', 'activate' ) );
-register_deactivation_hook( __FILE__, array( 'GC_Sermons', 'deactivate' ) );
+register_activation_hook( __FILE__, array( 'GC_Sermons_Plugin', 'activate' ) );
+register_deactivation_hook( __FILE__, array( 'GC_Sermons_Plugin', 'deactivate' ) );
 
