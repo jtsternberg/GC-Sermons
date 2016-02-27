@@ -1,0 +1,33 @@
+{
+	"name": "gc-sermons",
+	"description": "Manage sermons and sermon content in WordPress",
+	"keywords": ["wordpress", "plugin", "generator-plugin-wp"],
+	"homepage": "http://dsgnwrks.pro",
+	"license": "GPLv2",
+	"authors": [
+	{
+		"name": "jtsternberg",
+		"homepage": "http://dsgnwrks.pro"
+	}
+	],
+	"minimum-stability": "dev",
+	"type": "wordpress-plugin",
+	"autoload": {
+		"classmap": ["gc-sermons.php", "includes/"]
+	},
+	"require": {
+		"php": ">=5.2",
+		"xrstf/composer-php52": "1.*"
+	},
+	"scripts": {
+        "post-install-cmd": [
+            "xrstf\\Composer52\\Generator::onPostInstallCmd"
+        ],
+        "post-update-cmd": [
+            "xrstf\\Composer52\\Generator::onPostInstallCmd"
+        ],
+        "post-autoload-dump": [
+            "xrstf\\Composer52\\Generator::onPostInstallCmd"
+        ]
+    }
+}

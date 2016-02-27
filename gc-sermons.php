@@ -13,7 +13,7 @@
  */
 
 /**
- * Copyright (c) 2015 jtsternberg (email : justin@dsgnwrks.pro)
+ * Copyright (c) 2016 jtsternberg (email : justin@dsgnwrks.pro)
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License, version 2 or, at
@@ -35,27 +35,8 @@
  */
 
 
-/**
- * Autoloads files with classes when needed
- *
- * @since  0.1.0
- * @param  string $class_name Name of the class being requested
- * @return  null
- */
-function gc_sermons_autoload_classes( $class_name ) {
-	if ( 0 !== strpos( $class_name, 'GCS_' ) ) {
-		return;
-	}
-
-	$filename = strtolower( str_replace(
-		array( 'GCS_', '_' ),
-		array( '', '-' ),
-		$class_name
-	) );
-
-	GC_Sermons::include_file( $filename );
-}
-spl_autoload_register( 'gc_sermons_autoload_classes' );
+// User composer autoload.
+require 'vendor/autoload_52.php';
 
 
 /**
@@ -134,25 +115,24 @@ class GC_Sermons {
 		$this->path     = plugin_dir_path( __FILE__ );
 
 		$this->plugin_classes();
-		$this->hooks();
 	}
 
 	/**
 	 * Attach other plugin classes to the base plugin class.
 	 *
-	 * @since 0.1.0
-	 * @return  null
+	 * @since  0.1.0
+	 * @return void
 	 */
-	function plugin_classes() {
+	public function plugin_classes() {
 		// Attach other plugin classes to the base plugin class.
-		// $this->admin = new GCS_Admin( $this );
-	}
+		// $this->plugin_class = new GCS_Plugin_Class( $this );
+	} // END OF PLUGIN CLASSES FUNCTION
 
 	/**
 	 * Add hooks and filters
 	 *
-	 * @since 0.1.0
-	 * @return null
+	 * @since  0.1.0
+	 * @return void
 	 */
 	public function hooks() {
 		register_activation_hook( __FILE__, array( $this, '_activate' ) );
@@ -165,10 +145,10 @@ class GC_Sermons {
 	 * Activate the plugin
 	 *
 	 * @since  0.1.0
-	 * @return null
+	 * @return void
 	 */
 	function _activate() {
-		// Make sure any rewrite functionality has been loaded
+		// Make sure any rewrite functionality has been loaded.
 		flush_rewrite_rules();
 	}
 
@@ -177,7 +157,7 @@ class GC_Sermons {
 	 * Uninstall routines should be in uninstall.php
 	 *
 	 * @since  0.1.0
-	 * @return null
+	 * @return void
 	 */
 	function _deactivate() {}
 
@@ -185,26 +165,12 @@ class GC_Sermons {
 	 * Init hooks
 	 *
 	 * @since  0.1.0
-	 * @return null
+	 * @return void
 	 */
 	public function init() {
 		if ( $this->check_requirements() ) {
 			load_plugin_textdomain( 'gc-sermons', false, dirname( $this->basename ) . '/languages/' );
 		}
-	}
-
-	/**
-	 * Check that all plugin requirements are met
-	 *
-	 * @since  0.1.0
-	 * @return boolean
-	 */
-	public static function meets_requirements() {
-		// Do checks for required classes / functions
-		// function_exists('') & class_exists('')
-
-		// We have met all requirements
-		return true;
 	}
 
 	/**
@@ -217,11 +183,11 @@ class GC_Sermons {
 	public function check_requirements() {
 		if ( ! $this->meets_requirements() ) {
 
-			// Add a dashboard notice
+			// Add a dashboard notice.
 			add_action( 'all_admin_notices', array( $this, 'requirements_not_met_notice' ) );
 
-			// Deactivate our plugin
-			deactivate_plugins( $this->basename );
+			// Deactivate our plugin.
+			add_action( 'admin_init', array( $this, 'deactivate_me' ) );
 
 			return false;
 		}
@@ -230,13 +196,36 @@ class GC_Sermons {
 	}
 
 	/**
+	 * Deactivates this plugin, hook this function on admin_init.
+	 *
+	 * @since  0.1.0
+	 * @return void
+	 */
+	public function deactivate_me() {
+		deactivate_plugins( $this->basename );
+	}
+
+	/**
+	 * Check that all plugin requirements are met
+	 *
+	 * @since  0.1.0
+	 * @return boolean True if requirements are met.
+	 */
+	public static function meets_requirements() {
+		// Do checks for required classes / functions
+		// function_exists('') & class_exists('').
+		// We have met all requirements.
+		return true;
+	}
+
+	/**
 	 * Adds a notice to the dashboard if the plugin requirements are not met
 	 *
 	 * @since  0.1.0
-	 * @return null
+	 * @return void
 	 */
 	public function requirements_not_met_notice() {
-		// Output our error
+		// Output our error.
 		echo '<div id="message" class="error">';
 		echo '<p>' . sprintf( __( 'GC Sermons is missing requirements and has been <a href="%s">deactivated</a>. Please make sure all requirements are available.', 'gc-sermons' ), admin_url( 'plugins.php' ) ) . '</p>';
 		echo '</div>';
@@ -246,7 +235,7 @@ class GC_Sermons {
 	 * Magic getter for our object.
 	 *
 	 * @since  0.1.0
-	 * @param string $field
+	 * @param string $field Field to get.
 	 * @throws Exception Throws an exception if the field is invalid.
 	 * @return mixed
 	 */
@@ -262,47 +251,6 @@ class GC_Sermons {
 				throw new Exception( 'Invalid '. __CLASS__ .' property: ' . $field );
 		}
 	}
-
-	/**
-	 * Include a file from the includes directory
-	 *
-	 * @since  0.1.0
-	 * @param  string  $filename Name of the file to be included
-	 * @return bool    Result of include call.
-	 */
-	public static function include_file( $filename ) {
-		$file = self::dir( 'includes/'. $filename .'.php' );
-		if ( file_exists( $file ) ) {
-			return include_once( $file );
-		}
-		return false;
-	}
-
-	/**
-	 * This plugin's directory
-	 *
-	 * @since  0.1.0
-	 * @param  string $path (optional) appended path
-	 * @return string       Directory and path
-	 */
-	public static function dir( $path = '' ) {
-		static $dir;
-		$dir = $dir ? $dir : trailingslashit( dirname( __FILE__ ) );
-		return $dir . $path;
-	}
-
-	/**
-	 * This plugin's url
-	 *
-	 * @since  0.1.0
-	 * @param  string $path (optional) appended path
-	 * @return string       URL and path
-	 */
-	public static function url( $path = '' ) {
-		static $url;
-		$url = $url ? $url : trailingslashit( plugin_dir_url( __FILE__ ) );
-		return $url . $path;
-	}
 }
 
 /**
@@ -316,5 +264,5 @@ function gc_sermons() {
 	return GC_Sermons::get_instance();
 }
 
-// Kick it off
-gc_sermons();
+// Kick it off.
+add_action( 'plugins_loaded', array( gc_sermons(), 'hooks' ) );
