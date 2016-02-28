@@ -1,14 +1,12 @@
 <?php
 /**
- * GC Sermons Sermon Series
+ * GC Sermons Speaker
  *
  * @version 0.1.0
  * @package GC Sermons
  */
 
-
-
-class GCS_Sermon_Series extends GCS_Taxonomies_Base {
+class GCS_Speaker extends GCS_Taxonomies_Base {
 	/**
 	 * Parent plugin class
 	 *
@@ -27,7 +25,7 @@ class GCS_Sermon_Series extends GCS_Taxonomies_Base {
 	 */
 	public function __construct( $plugin ) {
 		parent::__construct( $plugin, array(
-			'labels'     => array( __( 'Sermon Series', 'gc-sermons' ), __( 'Sermon Series', 'gc-sermons' ), 'gc-sermon-series' ),
+			'labels'     => array( __( 'Speaker', 'gc-sermons' ), __( 'Speakers', 'gc-sermons' ), 'gcs-speaker' ),
 			'args'       => array( 'hierarchical' => false ),
 			'post_types' => array( $plugin->sermons->post_type() )
 		) );
@@ -51,15 +49,15 @@ class GCS_Sermon_Series extends GCS_Taxonomies_Base {
 	 */
 	public function fields() {
 		$cmb = $this->new_cmb2( array(
-			'id'           => 'gc_sermon_series_metabox',
+			'id'           => 'gc_sermon_speaker_metabox',
 			'taxonomies'   => array( $this->taxonomy() ), // Tells CMB2 which taxonomies should
 			'object_types' => array( 'term' ), // Tells CMB2 to use term_meta vs post_meta
 			'fields'       => array(
-				'gc_sermon_series_image' => array(
-					'name' => __( 'Sermon Series Image', 'gc-sermons' ),
-					'desc' => __( 'Select the series\' branding image', 'gc-sermons' ),
-					'id'   => 'gc_sermon_series_image',
-					'type' => 'file'
+				'gc_sermon_speaker_connected_user' => array(
+					'name'  => __( 'Author', 'gc-sermons' ),
+					'id'    => 'gc_sermon_speaker_connected_user',
+					'desc'  => __( 'Type the name of the WordPress user and select from the suggested options.', 'gc-sermons' ),
+					'type'  => 'user_select_text',
 				),
 			),
 		) );

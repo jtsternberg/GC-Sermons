@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6724a9095bc444ee57214ada81de60da",
-    "content-hash": "efd01e5a478ac9d3c34e744b37b405d3",
+    "hash": "42d18a6a0cc04f691a9bb889e27fc8a5",
+    "content-hash": "e5b5e92217c7edb79bf826bb4420b836",
     "packages": [
         {
             "name": "webdevstudios/cmb2",
-            "version": "v2.1.2",
+            "version": "v2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WebDevStudios/CMB2.git",
-                "reference": "b3b78a569f63560d2f8a039c4c1ff412a28f0156"
+                "reference": "d8be6bfa203e08aabb88e9b557d03ac19bcfeae5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WebDevStudios/CMB2/zipball/b3b78a569f63560d2f8a039c4c1ff412a28f0156",
-                "reference": "b3b78a569f63560d2f8a039c4c1ff412a28f0156",
+                "url": "https://api.github.com/repos/WebDevStudios/CMB2/zipball/d8be6bfa203e08aabb88e9b557d03ac19bcfeae5",
+                "reference": "d8be6bfa203e08aabb88e9b557d03ac19bcfeae5",
                 "shasum": ""
             },
             "require": {
@@ -50,7 +50,51 @@
                 "plugin",
                 "wordpress"
             ],
-            "time": "2015-10-01 12:58:23"
+            "time": "2016-02-28 04:31:02"
+        },
+        {
+            "name": "webdevstudios/cmb2-user-select",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/WebDevStudios/CMB2-User-Select.git",
+                "reference": "39b11744a09dbb8fc2c9703c13251c7388105c5d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/WebDevStudios/CMB2-User-Select/zipball/39b11744a09dbb8fc2c9703c13251c7388105c5d",
+                "reference": "39b11744a09dbb8fc2c9703c13251c7388105c5d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "cmb2-user-select.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "WebDevStudios",
+                    "email": "contact@webdevstudios.com",
+                    "homepage": "https://github.com/WebDevStudios",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Special CMB2 Field that allows users to define an autocomplete text field for users",
+            "homepage": "https://github.com/WebDevStudios/CMB2-User-Select",
+            "keywords": [
+                "CMB2",
+                "meta",
+                "wordpress"
+            ],
+            "time": "2016-02-28 05:03:36"
         },
         {
             "name": "webdevstudios/cpt-core",
@@ -98,7 +142,7 @@
         },
         {
             "name": "webdevstudios/taxonomy_core",
-            "version": "dev-master",
+            "version": "v0.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WebDevStudios/Taxonomy_Core.git",
@@ -166,8 +210,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "webdevstudios/cpt-core": 20,
-        "webdevstudios/taxonomy_core": 20
+        "webdevstudios/cpt-core": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

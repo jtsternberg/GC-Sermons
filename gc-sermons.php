@@ -105,6 +105,27 @@ class GC_Sermons_Plugin {
 	protected $sermon_series;
 
 	/**
+	 * Instance of GCS_Speaker
+	 *
+	 * @var GCS_Speaker
+	 */
+	protected $speaker;
+
+	/**
+	 * Instance of GCS_Topic
+	 *
+	 * @var GCS_Topic
+	 */
+	protected $topic;
+
+	/**
+	 * Instance of GCS_Tag
+	 *
+	 * @var GCS_Tag
+	 */
+	protected $tag;
+
+	/**
 	 * Creates or returns an instance of this class.
 	 *
 	 * @since  0.1.0
@@ -141,6 +162,9 @@ class GC_Sermons_Plugin {
 		// Attach other plugin classes to the base plugin class.
 		$this->sermons = new GCS_Sermons( $this );
 		$this->sermon_series = new GCS_Sermon_Series( $this );
+		$this->speaker = new GCS_Speaker( $this );
+		$this->topic = new GCS_Topic( $this );
+		$this->tag = new GCS_Tag( $this );
 	} // END OF PLUGIN CLASSES FUNCTION
 
 	/**
@@ -258,6 +282,9 @@ class GC_Sermons_Plugin {
 			case 'path':
 			case 'sermons':
 			case 'sermon_series':
+			case 'speaker':
+			case 'topic':
+			case 'tag':
 				return $this->$field;
 			default:
 				throw new Exception( 'Invalid '. __CLASS__ .' property: ' . $field );

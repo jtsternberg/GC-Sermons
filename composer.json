@@ -21,7 +21,8 @@
 		"xrstf/composer-php52": "1.*",
 		"webdevstudios/cmb2": "^2.1",
 		"webdevstudios/cpt-core": "dev-master",
-		"webdevstudios/taxonomy_core": "dev-master"
+		"webdevstudios/taxonomy_core": "^0.2.4",
+		"webdevstudios/cmb2-user-select": "^0.1.0"
 	},
 	"scripts": {
         "post-install-cmd": [

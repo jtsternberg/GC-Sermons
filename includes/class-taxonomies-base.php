@@ -66,4 +66,9 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	 * @return void
 	 */
 	abstract function hooks();
+
+	public function new_cmb2( $args ) {
+		$cmb_id = $args['id'];
+		return new_cmb2_box( apply_filters( "gcs_cmb2_box_args_{$this->taxonomy}_{$cmb_id}", $args ) );
+	}
 }
