@@ -13,13 +13,11 @@
 	"minimum-stability": "dev",
 	"type": "wordpress-plugin",
 	"autoload": {
-		"classmap": ["gc-sermons.php", "includes/", "vendor/webdevstudios/cpt-core/CPT_Core.php", "vendor/webdevstudios/taxonomy_core/Taxonomy_Core.php"],
-		"files": ["vendor/webdevstudios/cmb2/init.php"]
+		"classmap": ["gc-sermons.php", "includes/", "vendor/webdevstudios/cpt-core/CPT_Core.php", "vendor/webdevstudios/taxonomy_core/Taxonomy_Core.php"]
 	},
 	"require": {
 		"php": ">=5.2",
 		"xrstf/composer-php52": "1.*",
-		"webdevstudios/cmb2": "^2.1",
 		"webdevstudios/cpt-core": "dev-master",
 		"webdevstudios/taxonomy_core": "^0.2.4",
 		"webdevstudios/cmb2-user-select": "^0.1.0"

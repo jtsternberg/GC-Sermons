@@ -4,54 +4,9 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "42d18a6a0cc04f691a9bb889e27fc8a5",
-    "content-hash": "e5b5e92217c7edb79bf826bb4420b836",
+    "hash": "40b640e7fb29b7267ad415ef0f414336",
+    "content-hash": "56220c62f9083c9d2dd5142d7bd59336",
     "packages": [
-        {
-            "name": "webdevstudios/cmb2",
-            "version": "v2.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/WebDevStudios/CMB2.git",
-                "reference": "d8be6bfa203e08aabb88e9b557d03ac19bcfeae5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/WebDevStudios/CMB2/zipball/d8be6bfa203e08aabb88e9b557d03ac19bcfeae5",
-                "reference": "d8be6bfa203e08aabb88e9b557d03ac19bcfeae5",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">5.2.4"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "3.7.*"
-            },
-            "suggest": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "WebDevStudios",
-                    "email": "contact@webdevstudios.com",
-                    "homepage": "https://github.com/WebDevStudios",
-                    "role": "Developer"
-                }
-            ],
-            "description": "CMB2 is a metabox, custom fields, and forms library for WordPress that will blow your mind.",
-            "homepage": "https://github.com/WebDevStudios/CMB2",
-            "keywords": [
-                "metabox",
-                "plugin",
-                "wordpress"
-            ],
-            "time": "2016-02-28 04:31:02"
-        },
         {
             "name": "webdevstudios/cmb2-user-select",
             "version": "v0.1.0",
