@@ -83,6 +83,22 @@ class GC_Sermons_Plugin {
 	protected $basename = '';
 
 	/**
+	 * Array of plugin requirements, keyed by admin notice label.
+	 *
+	 * @var array
+	 * @since  0.1.0
+	 */
+	protected $requirements = array();
+
+	/**
+	 * Array of plugin requirements which are not met.
+	 *
+	 * @var array
+	 * @since  0.1.0
+	 */
+	protected $missed_requirements = array();
+
+	/**
 	 * Singleton instance of plugin
 	 *
 	 * @var GC_Sermons_Plugin
@@ -175,6 +191,65 @@ class GC_Sermons_Plugin {
 	 */
 	public function hooks() {
 		add_action( 'init', array( $this, 'init' ) );
+		if ( ! defined( 'CMB2_LOADED' ) ) {
+			add_action( 'tgmpa_register', array( $this, 'register_required_plugin' ) );
+		}
+	}
+
+	/**
+	 * Requires CMB2 to be installed
+	 */
+	public function register_required_plugin() {
+
+		$plugins = array(
+			array(
+				'name'               => 'CMB2',
+				'slug'               => 'cmb2',
+				'required'           => true,
+				'version'            => '2.2.1',
+			),
+		);
+
+		$config = array(
+			'domain'       => 'gc-sermons',
+			'parent_slug'  => 'plugins.php',
+			'capability'   => 'install_plugins',
+			'menu'         => 'install-required-plugins',
+			'has_notices'  => true,
+			'is_automatic' => true,
+			'message'      => '',
+			'strings'      => array(
+				'page_title'                      => __( 'Install Required Plugins', 'cool-shortcode' ),
+				'menu_title'                      => __( 'Install Plugins', 'cool-shortcode' ),
+				'installing'                      => __( 'Installing Plugin: %s', 'cool-shortcode' ),
+				// %1$s = plugin name
+				'oops'                            => __( 'Something went wrong with the plugin API.', 'cool-shortcode' ),
+				'notice_can_install_required'     => _n_noop( 'The "WDS Shortcodes" plugin requires the following plugin: %1$s.', 'This plugin requires the following plugins: %1$s.' ),
+				// %1$s = plugin name(s)
+				'notice_can_install_recommended'  => _n_noop( 'This plugin recommends the following plugin: %1$s.', 'This plugin recommends the following plugins: %1$s.' ),
+				// %1$s = plugin name(s)
+				'notice_cannot_install'           => _n_noop( 'Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed.', 'Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed.' ),
+				// %1$s = plugin name(s)
+				'notice_can_activate_required'    => _n_noop( 'The following required plugin is currently inactive: %1$s.', 'The following required plugins are currently inactive: %1$s.' ),
+				// %1$s = plugin name(s)
+				'notice_can_activate_recommended' => _n_noop( 'The following recommended plugin is currently inactive: %1$s.', 'The following recommended plugins are currently inactive: %1$s.' ),
+				// %1$s = plugin name(s)
+				'notice_cannot_activate'          => _n_noop( 'Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated.', 'Sorry, but you do not have the correct permissions to activate the %s plugins. Contact the administrator of this site for help on getting the plugins activated.' ),
+				// %1$s = plugin name(s)
+				'notice_ask_to_update'            => _n_noop( 'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this plugin: %1$s.', 'The following plugins need to be updated to their latest version to ensure maximum compatibility with this plugin: %1$s.' ),
+				// %1$s = plugin name(s)
+				'notice_cannot_update'            => _n_noop( 'Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated.', 'Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated.' ),
+				// %1$s = plugin name(s)
+				'install_link'                    => _n_noop( 'Begin installing plugin', 'Begin installing plugins' ),
+				'activate_link'                   => _n_noop( 'Activate installed plugin', 'Activate installed plugins' ),
+				'return'                          => __( 'Return to Required Plugins Installer', 'cool-shortcode' ),
+				'plugin_activated'                => __( 'Plugin activated successfully.', 'cool-shortcode' ),
+				'complete'                        => __( 'All plugins installed and activated successfully. %s', 'cool-shortcode' ),
+				// %1$s = dashboard link
+			),
+		);
+
+		tgmpa( $plugins, $config );
 	}
 
 	/**
@@ -223,7 +298,7 @@ class GC_Sermons_Plugin {
 			add_action( 'all_admin_notices', array( $this, 'requirements_not_met_notice' ) );
 
 			// Deactivate our plugin.
-			add_action( 'admin_init', array( $this, 'deactivate_me' ) );
+			// add_action( 'admin_init', array( $this, 'deactivate_me' ) );
 
 			return false;
 		}
@@ -247,9 +322,22 @@ class GC_Sermons_Plugin {
 	 * @since  0.1.0
 	 * @return boolean True if requirements are met.
 	 */
-	public static function meets_requirements() {
-		// Do checks for required classes / functions
-		return defined( 'CMB2_LOADED' );
+	public function meets_requirements() {
+		$this->requirements = array(
+			array(
+				sprintf( '<a href="%s">%s</a>', network_admin_url( 'plugin-install.php?tab=search&s=cmb2' ), __( 'CMB2', 'gc-sermons' ) ),
+				defined( 'CMB2_LOADED' ),
+			)
+		);
+
+		foreach ( $this->requirements as $requirement ) {
+			list( $label, $condition ) = $requirement;
+			if ( ! $condition ) {
+				$this->missed_requirements[] = $label;
+			}
+		}
+
+		return empty( $this->missed_requirements );
 	}
 
 	/**
@@ -261,7 +349,8 @@ class GC_Sermons_Plugin {
 	public function requirements_not_met_notice() {
 		// Output our error.
 		echo '<div id="message" class="error">';
-		echo '<p>' . sprintf( __( 'GC Sermons is missing requirements and has been <a href="%s">deactivated</a>. Please make sure all requirements are available.', 'gc-sermons' ), admin_url( 'plugins.php' ) ) . '</p>';
+		echo '<p>' . sprintf( __( 'GC Sermons is missing requirements and has been <a href="%s">deactivated</a>. Please make sure all requirements are available. Requirements:', 'gc-sermons' ), admin_url( 'plugins.php' ) ) . '</p>';
+		echo '<ol><li>'. implode( '</li><li>', $this->missed_requirements ) . '</li></ol>';
 		echo '</div>';
 	}
 

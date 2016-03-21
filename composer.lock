@@ -4,21 +4,76 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "40b640e7fb29b7267ad415ef0f414336",
-    "content-hash": "56220c62f9083c9d2dd5142d7bd59336",
+    "hash": "dbdfedac3bae8a5123f8e1bfe0615277",
+    "content-hash": "e337f957f917ecb655df8f250fb655b7",
     "packages": [
         {
-            "name": "webdevstudios/cmb2-user-select",
-            "version": "v0.1.0",
+            "name": "tgmpa/tgm-plugin-activation",
+            "version": "2.5.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/WebDevStudios/CMB2-User-Select.git",
-                "reference": "39b11744a09dbb8fc2c9703c13251c7388105c5d"
+                "url": "https://github.com/TGMPA/TGM-Plugin-Activation.git",
+                "reference": "ba41c10e821a10d3d6c3b8e468a16716bb03f125"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WebDevStudios/CMB2-User-Select/zipball/39b11744a09dbb8fc2c9703c13251c7388105c5d",
-                "reference": "39b11744a09dbb8fc2c9703c13251c7388105c5d",
+                "url": "https://api.github.com/repos/TGMPA/TGM-Plugin-Activation/zipball/ba41c10e821a10d3d6c3b8e468a16716bb03f125",
+                "reference": "ba41c10e821a10d3d6c3b8e468a16716bb03f125",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "class-tgm-plugin-activation.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Thomas Griffin",
+                    "homepage": "http://thomasgriffinmedia.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Gary Jones",
+                    "homepage": "https://github.com/GaryJones",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Juliette Reinders Folmer",
+                    "homepage": "https://github.com/jrfnl",
+                    "role": "Developer"
+                }
+            ],
+            "description": "TGM Plugin Activation is a PHP library that allows you to easily require or recommend plugins for your WordPress themes (and plugins).",
+            "homepage": "http://tgmpluginactivation.com",
+            "keywords": [
+                "activation",
+                "library",
+                "plugins",
+                "theme",
+                "wordpress"
+            ],
+            "time": "2015-07-16 08:59:11"
+        },
+        {
+            "name": "webdevstudios/cmb2-user-select",
+            "version": "v0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/WebDevStudios/CMB2-User-Select.git",
+                "reference": "9061f1512a56922914cde421a804c0c123551936"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/WebDevStudios/CMB2-User-Select/zipball/9061f1512a56922914cde421a804c0c123551936",
+                "reference": "9061f1512a56922914cde421a804c0c123551936",
                 "shasum": ""
             },
             "require": {
@@ -49,7 +104,7 @@
                 "meta",
                 "wordpress"
             ],
-            "time": "2016-02-28 05:03:36"
+            "time": "2016-03-21 04:20:55"
         },
         {
             "name": "webdevstudios/cpt-core",
