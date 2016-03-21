@@ -58,6 +58,9 @@ class GCS_Speaker extends GCS_Taxonomies_Base {
 					'id'    => 'gc_sermon_speaker_connected_user',
 					'desc'  => __( 'Type the name of the WordPress user and select from the suggested options.', 'gc-sermons' ),
 					'type'  => 'user_select_text',
+					'options' => array(
+						'minimum_user_level' => 0,
+					),
 				),
 			),
 		) );
