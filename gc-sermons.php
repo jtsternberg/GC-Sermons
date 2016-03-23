@@ -142,6 +142,14 @@ class GC_Sermons_Plugin {
 	protected $tag;
 
 	/**
+	 * Instance of GCS_Play_Button_Shortcode
+	 *
+	 * @since NEXT
+	 * @var GCS_Play_Button_Shortcode
+	 */
+	protected $play_button_shortcode;
+
+	/**
 	 * Creates or returns an instance of this class.
 	 *
 	 * @since  0.1.0
@@ -181,6 +189,7 @@ class GC_Sermons_Plugin {
 		$this->speaker = new GCS_Speaker( $this );
 		$this->topic = new GCS_Topic( $this );
 		$this->tag = new GCS_Tag( $this );
+		$this->play_button_shortcode = new GCS_Play_Button_Shortcode( $this );
 	} // END OF PLUGIN CLASSES FUNCTION
 
 	/**
@@ -374,6 +383,7 @@ class GC_Sermons_Plugin {
 			case 'speaker':
 			case 'topic':
 			case 'tag':
+			case 'play_button_shortcode':
 				return $this->$field;
 			default:
 				throw new Exception( 'Invalid '. __CLASS__ .' property: ' . $field );
