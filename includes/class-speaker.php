@@ -7,27 +7,19 @@
  */
 
 class GCS_Speaker extends GCS_Taxonomies_Base {
-	/**
-	 * Parent plugin class
-	 *
-	 * @var class
-	 * @since  0.1.0
-	 */
-	protected $plugin = null;
 
 	/**
 	 * Constructor
 	 * Register Taxonomy. See documentation in Taxonomy_Core, and in wp-includes/taxonomy.php
 	 *
 	 * @since 0.1.0
-	 * @param  object $plugin Main plugin object.
+	 * @param  object $sermons GCS_Sermons object.
 	 * @return void
 	 */
-	public function __construct( $plugin ) {
-		parent::__construct( $plugin, array(
-			'labels'     => array( __( 'Speaker', 'gc-sermons' ), __( 'Speakers', 'gc-sermons' ), 'gcs-speaker' ),
-			'args'       => array( 'hierarchical' => false ),
-			'post_types' => array( $plugin->sermons->post_type() )
+	public function __construct( $sermons ) {
+		parent::__construct( $sermons, array(
+			'labels' => array( __( 'Speaker', 'gc-sermons' ), __( 'Speakers', 'gc-sermons' ), 'gcs-speaker' ),
+			'args'   => array( 'hierarchical' => false ),
 		) );
 	}
 

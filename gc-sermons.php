@@ -114,32 +114,12 @@ class GC_Sermons_Plugin {
 	protected $sermons;
 
 	/**
-	 * Instance of GCS_Sermon_Series
+	 * Instance of GCS_Taxonomies
 	 *
-	 * @var GCS_Sermon_Series
+	 * @since NEXT
+	 * @var GCS_Taxonomies
 	 */
-	protected $sermon_series;
-
-	/**
-	 * Instance of GCS_Speaker
-	 *
-	 * @var GCS_Speaker
-	 */
-	protected $speaker;
-
-	/**
-	 * Instance of GCS_Topic
-	 *
-	 * @var GCS_Topic
-	 */
-	protected $topic;
-
-	/**
-	 * Instance of GCS_Tag
-	 *
-	 * @var GCS_Tag
-	 */
-	protected $tag;
+	protected $taxonomies;
 
 	/**
 	 * Instance of GCS_Play_Button_Shortcode
@@ -185,10 +165,7 @@ class GC_Sermons_Plugin {
 	public function plugin_classes() {
 		// Attach other plugin classes to the base plugin class.
 		$this->sermons = new GCS_Sermons( $this );
-		$this->sermon_series = new GCS_Sermon_Series( $this );
-		$this->speaker = new GCS_Speaker( $this );
-		$this->topic = new GCS_Topic( $this );
-		$this->tag = new GCS_Tag( $this );
+		$this->taxonomies = new GCS_Taxonomies( $this->sermons );
 	} // END OF PLUGIN CLASSES FUNCTION
 
 	/**
@@ -389,12 +366,13 @@ class GC_Sermons_Plugin {
 			case 'url':
 			case 'path':
 			case 'sermons':
+			case 'taxonomies':
+				return $this->{$field};
 			case 'sermon_series':
 			case 'speaker':
 			case 'topic':
 			case 'tag':
-			case 'play_button_shortcode':
-				return $this->$field;
+				return $this->taxonomies->{$field};
 			default:
 				throw new Exception( 'Invalid '. __CLASS__ .' property: ' . $field );
 		}

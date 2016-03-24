@@ -6,9 +6,8 @@
  * @package GC Sermons
  */
 
-
-
 class GCS_Sermons extends GCS_Post_Types_Base {
+
 	/**
 	 * Parent plugin class
 	 *
@@ -16,6 +15,27 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 	 * @since  0.1.0
 	 */
 	protected $plugin = null;
+
+	/**
+	 * Bypass temp. cache
+	 *
+	 * @var boolean
+	 * @since  0.1.0
+	 */
+	public $flush = false;
+
+	/**
+	 * Default WP_Query args
+	 *
+	 * @var   array
+	 * @since NEXT
+	 */
+	protected $query_args = array(
+		'post_type'      => 'THIS(REPLACE)',
+		'post_status'    => 'publish',
+		'posts_per_page' => 1,
+		'no_found_rows'  => true,
+	);
 
 	/**
 	 * Constructor
@@ -35,7 +55,7 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 				'menu_icon' => 'dashicons-playlist-video',
 			),
 		) );
-
+		$this->query_args['post_type'] = $this->post_type();
 	}
 
 	/**
@@ -74,10 +94,24 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 					'type' => 'oembed',
 				),
 				'gc_sermon_video_src' => array(
-					'id'   => 'gc_sermon_video_src',
-					'name' => __( 'Video File', 'gc-sermons' ),
-					'desc' => __( 'Alternatively upload/select video from your media library.', 'gc-sermons' ),
-					'type' => 'file',
+					'id'      => 'gc_sermon_video_src',
+					'name'    => __( 'Video File', 'gc-sermons' ),
+					'desc'    => __( 'Alternatively upload/select video from your media library.', 'gc-sermons' ),
+					'type'    => 'file',
+					'options' => array( 'url' => false ),
+				),
+				'gc_sermon_audio_url' => array(
+					'id'   => 'gc_sermon_audio_url',
+					'name' => __( 'Audio URL', 'gc-sermons' ),
+					'desc' => __( 'Enter a soundcloud, spotify, or other oembed-supported web audio URL. Supports services listed at <a href="http://codex.wordpress.org/Embeds">http://codex.wordpress.org/Embeds</a>.', 'cmb2' ),
+					'type' => 'oembed',
+				),
+				'gc_sermon_audio_src' => array(
+					'id'      => 'gc_sermon_audio_src',
+					'name'    => __( 'Audio File', 'gc-sermons' ),
+					'desc'    => __( 'Alternatively upload/select audio from your media library.', 'gc-sermons' ),
+					'type'    => 'file',
+					'options' => array( 'url' => false ),
 				),
 				'excerpt' => array(
 					'id'   => 'excerpt',
@@ -124,4 +158,174 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 		switch ( $column ) {
 		}
 	}
+
+	/**
+	 * Retrieve the most recent sermon with video media.
+	 *
+	 * @since  NEXT
+	 *
+	 * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
+	 */
+	public function most_recent_with_video() {
+		static $sermon = null;
+
+		if ( null === $sermon || $this->flush ) {
+			$sermon = $this->most_recent();
+
+			if ( empty( $sermon->media['video'] ) ) {
+				$sermon = $this->most_recent_with_media( 'video' );
+			}
+		}
+
+		return $sermon;
+	}
+
+	/**
+	 * Retrieve the most recent sermon with audio media.
+	 *
+	 * @since  NEXT
+	 *
+	 * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
+	 */
+	public function most_recent_with_audio() {
+		static $sermon = null;
+
+		if ( null === $sermon || $this->flush ) {
+			$sermon = $this->most_recent();
+
+			if ( empty( $sermon->media['video'] ) ) {
+				$sermon = $this->most_recent_with_media( 'video' );
+			}
+		}
+
+		return $sermon;
+	}
+
+	/**
+	 * Retrieve the most recent sermon.
+	 *
+	 * @since  NEXT
+	 *
+	 * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
+	 */
+	public function most_recent() {
+		static $sermon = null;
+
+		if ( null === $sermon || $this->flush ) {
+			$sermons = new WP_Query( apply_filters( 'gcs_recent_sermon_args', $this->query_args ) );
+			$sermon = false;
+			if ( $sermons->have_posts() ) {
+				$sermon = new GCS_Sermon_Post( $sermons->posts[0] );
+			}
+		}
+
+		return $sermon;
+	}
+
+	/**
+	 * Retrieve the most recent sermon with audio media.
+	 *
+	 * @since  NEXT
+	 *
+	 * @param  string  $type Media type (audio or video)
+	 *
+	 * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
+	 */
+	protected function most_recent_with_media( $type = 'video' ) {
+		$sermon = false;
+
+		// Only audio/video allowed.
+		$type = 'video' === $type ? $type : 'audio';
+
+		$args = $this->query_args;
+		$args['meta_query'] = array(
+			'relation' => 'OR',
+			array(
+				'key' => "gc_sermon_{$type}_url",
+			),
+			array(
+				'key' => "gc_sermon_{$type}_src",
+			),
+		);
+
+		$sermons = new WP_Query( apply_filters( "gcs_recent_sermon_with_{$type}_args", $args ) );
+
+		if ( $sermons->have_posts() ) {
+			$sermon = new GCS_Sermon_Post( $sermons->posts[0] );
+		}
+
+		return $sermon;
+	}
+
+	/**
+	 * Retrieve the most recent sermon which has terms in specified taxonomy.
+	 *
+	 * @since  NEXT
+	 *
+	 * @param  string $taxonomy Taxonomy slug
+	 *
+	 * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
+	 */
+	public function most_recent_with_taxonomy( $taxonomy ) {
+		$sermon = $this->plugin->sermons->most_recent();
+
+		// No sermon post found at all.. oops
+		if ( ! $sermon ) {
+			return false;
+		}
+
+		try {
+			$terms = $sermon->{$taxonomy};
+		} catch ( Exception $e ) {
+			return new WP_Error( __( '"%s" is not a valid taxonomy for %s.', 'gc-sermons' ), $taxonomy, $this->post_type( 'plural' ) );
+		}
+
+		if ( ! $terms || is_wp_error( $terms ) ) {
+			$sermon = $this->find_sermon_with_taxonomy( $taxonomy, array( $sermon->ID ) );
+		}
+
+		return $sermon;
+	}
+
+	/**
+	 * Searches for posts which have terms in a given taxonomy, while excluding previous tries.
+	 *
+	 * @since  NEXT
+	 *
+	 * @param  string  $taxonomy Taxonomy slug
+	 * @param  array   $exclude  Array of excluded post IDs
+	 *
+	 * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
+	 */
+	protected function find_sermon_with_taxonomy( $taxonomy, $exclude ) {
+		static $count = 0;
+
+		$args = $this->query_args;
+		$args['post__not_in'] = $exclude;
+		$args = apply_filters( 'gcs_find_sermon_with_taxonomy_args', $args );
+
+		$sermons = new WP_Query( $args );
+
+		if ( ! $sermons->have_posts() ) {
+			return false;
+		}
+
+		$sermon = new GCS_Sermon_Post( $sermons->posts[0] );
+
+		$terms = $sermon ? $sermon->{$taxonomy} : false;
+
+		if ( ! $terms || is_wp_error( $terms ) ) {
+			// Only try this up to 5 times
+			if ( ++$count > 5 ) {
+				return false;
+			}
+
+			$exclude = array_merge( $exclude, array( $sermon->ID ) );
+			$terms = $this->find_sermon_with_taxonomy( $taxonomy, $exclude );
+		}
+
+		return $terms;
+	}
+
+
 }

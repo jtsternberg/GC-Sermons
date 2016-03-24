@@ -7,24 +7,25 @@
  */
 
 abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
+
 	/**
-	 * Parent plugin class
+	 * GCS_Sermons object
 	 *
-	 * @var class
+	 * @var GCS_Sermons
 	 * @since  0.1.0
 	 */
-	protected $plugin = null;
+	protected $sermons = null;
 
 	/**
 	 * Constructor
 	 * Register Taxonomy. See documentation in Taxonomy_Core, and in wp-includes/taxonomy.php
 	 *
 	 * @since 0.1.0
-	 * @param  object $plugin Main plugin object.
+	 * @param  object $sermons GCS_Sermons object.
 	 * @return void
 	 */
-	public function __construct( $plugin, $args ) {
-		$this->plugin = $plugin;
+	public function __construct( $sermons, $args ) {
+		$this->sermons = $sermons;
 		$this->hooks();
 
 		// Register this taxonomy
@@ -34,7 +35,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 		parent::__construct(
 			$args['labels'],
 			$args['args'],
-			$args['post_types']
+			array( $this->sermons->post_type() )
 		);
 
 		add_action( 'init', array( $this, 'filter_values' ), 4 );
@@ -70,5 +71,33 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	public function new_cmb2( $args ) {
 		$cmb_id = $args['id'];
 		return new_cmb2_box( apply_filters( "gcs_cmb2_box_args_{$this->taxonomy}_{$cmb_id}", $args ) );
+	}
+
+	/**
+	 * Retrieve the terms for the most recent post which has this taxonomy set.
+	 *
+	 * @since  NEXT
+	 *
+	 * @param  boolean $get_single_term Whether to get the first term or all of them.
+	 *
+	 * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
+	 */
+	public function most_recent( $get_single_term = false ) {
+		static $terms = null;
+
+		if ( null === $terms ) {
+			$taxonomy = $this->taxonomy();
+			$sermon = $this->sermons->most_recent_with_taxonomy( $taxonomy );
+
+			if ( ! $sermon ) {
+				$terms = false;
+				return $terms;
+			}
+
+			$terms = $sermon->{$taxonomy}();
+			$terms = $terms && $get_single_term && is_array( $terms ) ? array_shift( $terms ) : $terms;
+		}
+
+		return $terms;
 	}
 }
