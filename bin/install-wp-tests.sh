@@ -87,6 +87,23 @@ install_test_suite() {
 
 }
 
+install_required_plugins() {
+	WDS_SHORTCODES="$WP_CORE_DIR/wp-content/plugins/wds-shortcodes"
+	CMB2="$WP_CORE_DIR/wp-content/plugins/cmb2"
+
+	if [ ! -d WDS_SHORTCODES ]; then
+		mkdir -p WDS_SHORTCODES
+		download https://raw.githubusercontent.com/WebDevStudios/WDS-Shortcodes/master/wds-shortcodes.zip /tmp/wds-shortcodes.zip
+		unzip /tmp/wds-shortcodes.zip -d WDS_SHORTCODES
+	fi
+
+	if [ ! -d CMB2 ]; then
+		mkdir -p CMB2
+		download https://downloads.wordpress.org/plugin/cmb2.zip /tmp/cmb2.zip
+		unzip /tmp/cmb2.zip -d CMB2
+	fi
+}
+
 install_db() {
 	# parse DB_HOST for port or socket references
 	local PARTS=(${DB_HOST//\:/ })
@@ -110,4 +127,5 @@ install_db() {
 
 install_wp
 install_test_suite
+install_required_plugins
 install_db
