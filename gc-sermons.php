@@ -189,7 +189,6 @@ class GC_Sermons_Plugin {
 		$this->speaker = new GCS_Speaker( $this );
 		$this->topic = new GCS_Topic( $this );
 		$this->tag = new GCS_Tag( $this );
-		$this->play_button_shortcode = new GCS_Play_Button_Shortcode( $this );
 	} // END OF PLUGIN CLASSES FUNCTION
 
 	/**
@@ -200,8 +199,10 @@ class GC_Sermons_Plugin {
 	 */
 	public function hooks() {
 		add_action( 'init', array( $this, 'init' ) );
-		if ( ! defined( 'CMB2_LOADED' ) ) {
+		if ( ! defined( 'CMB2_LOADED' ) || ! defined( 'WDS_SHORTCODES_LOADED' ) ) {
 			add_action( 'tgmpa_register', array( $this, 'register_required_plugin' ) );
+		} else {
+			$this->play_button_shortcode = new GCS_Play_Button_Shortcode( $this );
 		}
 	}
 
@@ -216,6 +217,13 @@ class GC_Sermons_Plugin {
 				'slug'               => 'cmb2',
 				'required'           => true,
 				'version'            => '2.2.1',
+			),
+			array(
+				'name'         => 'WDS Shortcodes',
+				'slug'         => 'wds-shortcodes',
+				'source'       => 'https://raw.githubusercontent.com/WebDevStudios/WDS-Shortcodes/master/wds-shortcodes.zip',
+				'required'     => true,
+				'external_url' => 'https://github.com/WebDevStudios/WDS-Shortcodes',
 			),
 		);
 
@@ -268,7 +276,7 @@ class GC_Sermons_Plugin {
 	 * @return void
 	 */
 	public static function activate() {
-		// Make sure any rewrite functionality has been loaded.
+		self::get_instance();
 		flush_rewrite_rules();
 	}
 
@@ -279,7 +287,9 @@ class GC_Sermons_Plugin {
 	 * @since  0.1.0
 	 * @return void
 	 */
-	public static function deactivate() {}
+	public static function deactivate() {
+		flush_rewrite_rules();
+	}
 
 	/**
 	 * Init hooks

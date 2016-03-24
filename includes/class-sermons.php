@@ -62,9 +62,6 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 	 * @return void
 	 */
 	public function fields() {
-		$prefix = 'gc_sermons_';
-
-
 		$this->new_cmb2( array(
 			'id'           => 'gc_sermon_metabox',
 			'title'        => __( 'Sermon Details', 'gc-sermons' ),

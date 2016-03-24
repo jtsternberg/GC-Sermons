@@ -6,13 +6,6 @@
  */
 
 class GCS_Play_Button_Shortcode {
-	/**
-	 * Parent plugin class
-	 *
-	 * @var   class
-	 * @since NEXT
-	 */
-	protected $plugin = null;
 
 	/**
 	 * Constructor
@@ -22,16 +15,12 @@ class GCS_Play_Button_Shortcode {
 	 * @return void
 	 */
 	public function __construct( $plugin ) {
-		$this->plugin = $plugin;
-		$this->hooks();
+		$this->run = new GCS_PBS_Run();
+		$this->run->set_post_type( $plugin->sermons->post_type() );
+		$this->admin = new GCS_PBS_Admin( $this->run, $plugin->sermons->post_type() );
+
+		$this->run->hooks();
+		$this->admin->hooks();
 	}
 
-	/**
-	 * Initiate our hooks
-	 *
-	 * @since  NEXT
-	 * @return void
-	 */
-	public function hooks() {
-	}
 }
