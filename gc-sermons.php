@@ -122,12 +122,12 @@ class GC_Sermons_Plugin {
 	protected $taxonomies;
 
 	/**
-	 * Instance of GCS_Play_Button_Shortcode
+	 * Instance of GCS_Shortcodes
 	 *
 	 * @since NEXT
-	 * @var GCS_Play_Button_Shortcode
+	 * @var GCS_Shortcodes
 	 */
-	protected $play_button_shortcode;
+	protected $shortcodes;
 
 	/**
 	 * Creates or returns an instance of this class.
@@ -179,7 +179,7 @@ class GC_Sermons_Plugin {
 		if ( ! defined( 'CMB2_LOADED' ) || ! defined( 'WDS_SHORTCODES_LOADED' ) ) {
 			add_action( 'tgmpa_register', array( $this, 'register_required_plugin' ) );
 		} else {
-			$this->play_button_shortcode = new GCS_Play_Button_Shortcode( $this );
+			$this->shortcodes = new GCS_Shortcodes( $this );
 		}
 	}
 
@@ -367,6 +367,7 @@ class GC_Sermons_Plugin {
 			case 'path':
 			case 'sermons':
 			case 'taxonomies':
+			case 'shortcodes':
 				return $this->{$field};
 			case 'sermon_series':
 			case 'speaker':

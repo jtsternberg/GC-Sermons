@@ -5,7 +5,7 @@
  * @package GC Sermons
  */
 
-class GCS_Play_Button_Shortcode {
+class GCS_Shortcodes_Play_Button {
 
 	/**
 	 * Constructor
@@ -16,7 +16,8 @@ class GCS_Play_Button_Shortcode {
 	 */
 	public function __construct( $plugin ) {
 		$this->run = new GCS_PBS_Run();
-		$this->run->set_post_type( $plugin->sermons->post_type() );
+		$this->run->sermons = $plugin->sermons;
+
 		$this->admin = new GCS_PBS_Admin( $this->run, $plugin->sermons->post_type() );
 
 		$this->run->hooks();

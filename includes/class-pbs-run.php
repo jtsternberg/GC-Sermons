@@ -1,19 +1,15 @@
 <?php
 /**
  * GC Sermons Play Button Shortcode - Run
+ *
+ * @todo Add overlay/video popup JS, etc
+ * @todo Use dashicons as fallback.
+ *
  * @version 0.1.0
  * @package GC Sermons
  */
 
 class GCS_PBS_Run extends WDS_Shortcodes {
-
-	/**
-	 * Sermon post type
-	 *
-	 * @var   string
-	 * @since NEXT
-	 */
-	public $post_type = '';
 
 	/**
 	 * The Shortcode Tag
@@ -33,6 +29,14 @@ class GCS_PBS_Run extends WDS_Shortcodes {
 		'icon_color' => '#000000',
 		'icon_size'  => 'large',
 	);
+
+	/**
+	 * GCS_Sermon_Post object
+	 *
+	 * @var   GCS_Sermon_Post
+	 * @since NEXT
+	 */
+	public $sermons;
 
 	/**
 	 * Whether css has been output yet.
@@ -100,17 +104,7 @@ class GCS_PBS_Run extends WDS_Shortcodes {
 
 		if ( ! $sermon_id || 'recent' === $sermon_id || '0' === $sermon_id || 0 === $sermon_id ) {
 
-			$sermons = new WP_Query( array(
-				'post_type'      => $this->post_type,
-				'post_status'    => 'publish',
-				'posts_per_page' => 1,
-				'nopaging'       => true,
-				'no_found_rows'  => true,
-			) );
-
-			if ( $sermons->have_posts() ) {
-				$sermon = $sermons->posts[0];
-			}
+			$sermon = $this->sermons->most_recent_with_video();
 
 		} elseif ( is_numeric( $sermon_id ) ) {
 			$sermon = get_post( absint( $sermon_id ) );
@@ -153,17 +147,6 @@ class GCS_PBS_Run extends WDS_Shortcodes {
 		self::$css_done = true;
 
 		return ob_get_clean();
-	}
-
-	/**
-	 * Set the post type parameter
-	 *
-	 * @since NEXT
-	 *
-	 * @param string  $post_type Post type
-	 */
-	public function set_post_type( $post_type ) {
-		$this->post_type = $post_type;
 	}
 
 }
