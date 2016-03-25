@@ -59,7 +59,7 @@ class GCS_PBS_Admin extends WDS_Shortcode_Admin {
 			'desc'            => __( 'Blank, "recent", or "0" will play the most recent video. Otherwise enter a post ID. click the magnifying glass to search for a Sermon post.', 'gc-sermon-series' ),
 			'id'              => 'sermon_id',
 			'type'            => 'post_search_text',
-			'post_type'       => $this->run->post_type,
+			'post_type'       => $this->run->sermons->post_type(),
 			'select_type'     => 'radio',
 			'select_behavior' => 'replace',
 		);

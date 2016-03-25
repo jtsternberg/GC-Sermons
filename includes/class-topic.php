@@ -9,6 +9,13 @@
 class GCS_Topic extends GCS_Taxonomies_Base {
 
 	/**
+	 * The identifier for this object
+	 *
+	 * @var string
+	 */
+	protected $id = 'topic';
+
+	/**
 	 * Constructor
 	 * Register Taxonomy. See documentation in Taxonomy_Core, and in wp-includes/taxonomy.php
 	 *

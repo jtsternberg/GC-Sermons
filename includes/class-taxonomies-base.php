@@ -9,6 +9,13 @@
 abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 
 	/**
+	 * The identifier for this object
+	 *
+	 * @var string
+	 */
+	protected $id = '';
+
+	/**
 	 * GCS_Sermons object
 	 *
 	 * @var GCS_Sermons
@@ -50,7 +57,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 			'object_types'  => $this->object_types,
 		);
 
-		$filtered_args = apply_filters( 'gcs_taxonomies_'. $this->taxonomy(), $args, $this );
+		$filtered_args = apply_filters( 'gcs_taxonomies_'. $this->id, $args, $this );
 		if ( $filtered_args !== $args ) {
 			foreach ( $args as $arg => $val ) {
 				if ( isset( $filtered_args[ $arg ] ) ) {
@@ -86,18 +93,33 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 		static $terms = null;
 
 		if ( null === $terms ) {
-			$taxonomy = $this->taxonomy();
-			$sermon = $this->sermons->most_recent_with_taxonomy( $taxonomy );
+			$sermon = $this->sermons->most_recent_with_taxonomy( $this->id );
 
 			if ( ! $sermon ) {
 				$terms = false;
 				return $terms;
 			}
 
-			$terms = $sermon->{$taxonomy}();
+			$terms = $sermon->{$this->id}();
 			$terms = $terms && $get_single_term && is_array( $terms ) ? array_shift( $terms ) : $terms;
 		}
 
 		return $terms;
+	}
+
+	/**
+	 * Magic getter for our object. Allows getting but not setting.
+	 *
+	 * @param string $field
+	 * @throws Exception Throws an exception if the field is invalid.
+	 * @return mixed
+	 */
+	public function __get( $field ) {
+		switch ( $field ) {
+			case 'id':
+				return $this->id;
+			default:
+				throw new Exception( 'Invalid ' . __CLASS__ . ' property: ' . $field );
+		}
 	}
 }

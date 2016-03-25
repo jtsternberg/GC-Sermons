@@ -9,6 +9,13 @@
 class GCS_Sermons extends GCS_Post_Types_Base {
 
 	/**
+	 * The identifier for this object
+	 *
+	 * @var string
+	 */
+	protected $id = 'sermon';
+
+	/**
 	 * Parent plugin class
 	 *
 	 * @var class
@@ -262,11 +269,11 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 	 *
 	 * @since  0.1.0
 	 *
-	 * @param  string $taxonomy Taxonomy slug
+	 * @param  string $taxonomy_id GCS_Taxonomies_Base taxonomy id
 	 *
 	 * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
 	 */
-	public function most_recent_with_taxonomy( $taxonomy ) {
+	public function most_recent_with_taxonomy( $taxonomy_id ) {
 		$sermon = $this->plugin->sermons->most_recent();
 
 		// No sermon post found at all.. oops
@@ -275,13 +282,13 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 		}
 
 		try {
-			$terms = $sermon->{$taxonomy};
+			$terms = $sermon->{$taxonomy_id};
 		} catch ( Exception $e ) {
-			return new WP_Error( __( '"%s" is not a valid taxonomy for %s.', 'gc-sermons' ), $taxonomy, $this->post_type( 'plural' ) );
+			return new WP_Error( __( '"%s" is not a valid taxonomy for %s.', 'gc-sermons' ), $taxonomy_id, $this->post_type( 'plural' ) );
 		}
 
 		if ( ! $terms || is_wp_error( $terms ) ) {
-			$sermon = $this->find_sermon_with_taxonomy( $taxonomy, array( $sermon->ID ) );
+			$sermon = $this->find_sermon_with_taxonomy( $taxonomy_id, array( $sermon->ID ) );
 		}
 
 		return $sermon;
@@ -292,12 +299,12 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 	 *
 	 * @since  0.1.0
 	 *
-	 * @param  string  $taxonomy Taxonomy slug
-	 * @param  array   $exclude  Array of excluded post IDs
+	 * @param  string  $taxonomy_id GCS_Taxonomies_Base taxonomy id
+	 * @param  array   $exclude     Array of excluded post IDs
 	 *
 	 * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
 	 */
-	protected function find_sermon_with_taxonomy( $taxonomy, $exclude ) {
+	protected function find_sermon_with_taxonomy( $taxonomy_id, $exclude ) {
 		static $count = 0;
 
 		$args = $this->query_args;
@@ -312,7 +319,7 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 
 		$sermon = new GCS_Sermon_Post( $sermons->posts[0] );
 
-		$terms = $sermon ? $sermon->{$taxonomy} : false;
+		$terms = $sermon ? $sermon->{$taxonomy_id} : false;
 
 		if ( ! $terms || is_wp_error( $terms ) ) {
 			// Only try this up to 5 times
@@ -321,7 +328,7 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 			}
 
 			$exclude = array_merge( $exclude, array( $sermon->ID ) );
-			$terms = $this->find_sermon_with_taxonomy( $taxonomy, $exclude );
+			$terms = $this->find_sermon_with_taxonomy( $taxonomy_id, $exclude );
 		}
 
 		return $terms;

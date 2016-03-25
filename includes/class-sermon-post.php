@@ -172,7 +172,7 @@ class GCS_Sermon_Post {
 	}
 
 	/**
-	 * Wrapper for get_the_terms for the sermon_series taxonomy
+	 * Wrapper for get_the_terms for the series taxonomy
 	 *
 	 * @since  0.1.0
 	 *
@@ -180,7 +180,7 @@ class GCS_Sermon_Post {
 	 */
 	public function series() {
 		if ( empty( $this->series ) ) {
-			$this->series = $this->init_taxonomy( 'sermon_series' );
+			$this->series = $this->init_taxonomy( 'series' );
 		}
 
 		return $this->series;
@@ -319,9 +319,6 @@ class GCS_Sermon_Post {
 	protected function translate_property( $property ) {
 		// Translate
 		switch ( $property ) {
-			case 'sermon_series':
-				$property = 'series';
-				break;
 			case 'speaker':
 				$property = 'speakers';
 				break;

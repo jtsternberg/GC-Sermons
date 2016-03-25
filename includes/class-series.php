@@ -6,9 +6,14 @@
  * @package GC Sermons
  */
 
+class GCS_Series extends GCS_Taxonomies_Base {
 
-
-class GCS_Sermon_Series extends GCS_Taxonomies_Base {
+	/**
+	 * The identifier for this object
+	 *
+	 * @var string
+	 */
+	protected $id = 'series';
 
 	/**
 	 * Constructor
@@ -44,8 +49,8 @@ class GCS_Sermon_Series extends GCS_Taxonomies_Base {
 	public function fields() {
 		$cmb = $this->new_cmb2( array(
 			'id'           => 'gc_sermon_series_metabox',
-			'taxonomies'   => array( $this->taxonomy() ), // Tells CMB2 which taxonomies should
-			'object_types' => array( 'term' ), // Tells CMB2 to use term_meta vs post_meta
+			'taxonomies'   => array( $this->taxonomy() ),
+			'object_types' => array( 'term' ),
 			'fields'       => array(
 				'gc_sermon_series_image' => array(
 					'name' => __( 'Sermon Series Image', 'gc-sermons' ),

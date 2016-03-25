@@ -7,6 +7,7 @@
  */
 
 abstract class GCS_Post_Types_Base extends CPT_Core {
+
 	/**
 	 * Parent plugin class
 	 *
@@ -14,6 +15,13 @@ abstract class GCS_Post_Types_Base extends CPT_Core {
 	 * @since  0.1.0
 	 */
 	protected $plugin = null;
+
+	/**
+	 * The identifier for this object
+	 *
+	 * @var string
+	 */
+	protected $id = '';
 
 	protected $overrides_processed = false;
 
@@ -51,7 +59,7 @@ abstract class GCS_Post_Types_Base extends CPT_Core {
 			'arg_overrides' => $this->arg_overrides,
 		);
 
-		$filtered_args = apply_filters( 'gcs_post_types_'. $this->post_type, $args, $this );
+		$filtered_args = apply_filters( 'gcs_post_types_'. $this->id, $args, $this );
 
 		if ( $filtered_args !== $args ) {
 			foreach ( $args as $arg => $val ) {
@@ -86,8 +94,33 @@ abstract class GCS_Post_Types_Base extends CPT_Core {
 	 */
 	abstract function hooks();
 
+	/**
+	 * Wrapper for new_cmb2_box
+	 *
+	 * @since  NEXT
+	 *
+	 * @param  array  $args Array of CMB2 args
+	 *
+	 * @return CMB2
+	 */
 	public function new_cmb2( $args ) {
 		$cmb_id = $args['id'];
-		return new_cmb2_box( apply_filters( "gcs_cmb2_box_args_{$this->post_type}_{$cmb_id}", $args ) );
+		return new_cmb2_box( apply_filters( "gcs_cmb2_box_args_{$this->id}_{$cmb_id}", $args ) );
+	}
+
+	/**
+	 * Magic getter for our object. Allows getting but not setting.
+	 *
+	 * @param string $field
+	 * @throws Exception Throws an exception if the field is invalid.
+	 * @return mixed
+	 */
+	public function __get( $field ) {
+		switch ( $field ) {
+			case 'id':
+				return $this->id;
+			default:
+				throw new Exception( 'Invalid ' . __CLASS__ . ' property: ' . $field );
+		}
 	}
 }

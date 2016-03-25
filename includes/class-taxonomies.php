@@ -8,11 +8,11 @@
 class GCS_Taxonomies {
 
 	/**
-	 * Instance of GCS_Sermon_Series
+	 * Instance of GCS_Series
 	 *
-	 * @var GCS_Sermon_Series
+	 * @var GCS_Series
 	 */
-	protected $sermon_series;
+	protected $series;
 
 	/**
 	 * Instance of GCS_Speaker
@@ -43,7 +43,7 @@ class GCS_Taxonomies {
 	 * @return void
 	 */
 	public function __construct( $sermons ) {
-		$this->sermon_series = new GCS_Sermon_Series( $sermons );
+		$this->series = new GCS_Series( $sermons );
 		$this->speaker = new GCS_Speaker( $sermons );
 		$this->topic = new GCS_Topic( $sermons );
 		$this->tag = new GCS_Tag( $sermons );
@@ -58,7 +58,7 @@ class GCS_Taxonomies {
 	 */
 	public function __get( $field ) {
 		switch ( $field ) {
-			case 'sermon_series':
+			case 'series':
 			case 'speaker':
 			case 'topic':
 			case 'tag':

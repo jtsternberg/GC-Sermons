@@ -369,7 +369,7 @@ class GC_Sermons_Plugin {
 			case 'taxonomies':
 			case 'shortcodes':
 				return $this->{$field};
-			case 'sermon_series':
+			case 'series':
 			case 'speaker':
 			case 'topic':
 			case 'tag':

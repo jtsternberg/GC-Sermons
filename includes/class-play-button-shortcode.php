@@ -18,7 +18,7 @@ class GCS_Shortcodes_Play_Button {
 		$this->run = new GCS_PBS_Run();
 		$this->run->sermons = $plugin->sermons;
 
-		$this->admin = new GCS_PBS_Admin( $this->run, $plugin->sermons->post_type() );
+		$this->admin = new GCS_PBS_Admin( $this->run );
 
 		$this->run->hooks();
 		$this->admin->hooks();

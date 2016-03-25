@@ -9,6 +9,13 @@
 class GCS_Speaker extends GCS_Taxonomies_Base {
 
 	/**
+	 * The identifier for this object
+	 *
+	 * @var string
+	 */
+	protected $id = 'speaker';
+
+	/**
 	 * Constructor
 	 * Register Taxonomy. See documentation in Taxonomy_Core, and in wp-includes/taxonomy.php
 	 *
