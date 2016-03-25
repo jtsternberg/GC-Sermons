@@ -76,7 +76,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	/**
 	 * Retrieve the terms for the most recent post which has this taxonomy set.
 	 *
-	 * @since  NEXT
+	 * @since  0.1.0
 	 *
 	 * @param  boolean $get_single_term Whether to get the first term or all of them.
 	 *

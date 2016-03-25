@@ -38,7 +38,7 @@ class GCS_Taxonomies {
 	/**
 	 * Constructor
 	 *
-	 * @since  NEXT
+	 * @since  0.1.0
 	 * @param  object $sermons GCS_Sermons object.
 	 * @return void
 	 */

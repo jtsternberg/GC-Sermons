@@ -116,7 +116,7 @@ class GC_Sermons_Plugin {
 	/**
 	 * Instance of GCS_Taxonomies
 	 *
-	 * @since NEXT
+	 * @since 0.1.0
 	 * @var GCS_Taxonomies
 	 */
 	protected $taxonomies;
@@ -124,7 +124,7 @@ class GC_Sermons_Plugin {
 	/**
 	 * Instance of GCS_Shortcodes
 	 *
-	 * @since NEXT
+	 * @since 0.1.0
 	 * @var GCS_Shortcodes
 	 */
 	protected $shortcodes;

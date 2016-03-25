@@ -28,7 +28,7 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 	 * Default WP_Query args
 	 *
 	 * @var   array
-	 * @since NEXT
+	 * @since 0.1.0
 	 */
 	protected $query_args = array(
 		'post_type'      => 'THIS(REPLACE)',
@@ -162,7 +162,7 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 	/**
 	 * Retrieve the most recent sermon with video media.
 	 *
-	 * @since  NEXT
+	 * @since  0.1.0
 	 *
 	 * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
 	 */
@@ -183,7 +183,7 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 	/**
 	 * Retrieve the most recent sermon with audio media.
 	 *
-	 * @since  NEXT
+	 * @since  0.1.0
 	 *
 	 * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
 	 */
@@ -204,7 +204,7 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 	/**
 	 * Retrieve the most recent sermon.
 	 *
-	 * @since  NEXT
+	 * @since  0.1.0
 	 *
 	 * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
 	 */
@@ -225,7 +225,7 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 	/**
 	 * Retrieve the most recent sermon with audio media.
 	 *
-	 * @since  NEXT
+	 * @since  0.1.0
 	 *
 	 * @param  string  $type Media type (audio or video)
 	 *
@@ -260,7 +260,7 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 	/**
 	 * Retrieve the most recent sermon which has terms in specified taxonomy.
 	 *
-	 * @since  NEXT
+	 * @since  0.1.0
 	 *
 	 * @param  string $taxonomy Taxonomy slug
 	 *
@@ -290,7 +290,7 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 	/**
 	 * Searches for posts which have terms in a given taxonomy, while excluding previous tries.
 	 *
-	 * @since  NEXT
+	 * @since  0.1.0
 	 *
 	 * @param  string  $taxonomy Taxonomy slug
 	 * @param  array   $exclude  Array of excluded post IDs

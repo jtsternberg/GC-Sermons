@@ -11,7 +11,7 @@ class GCS_Sermon_Post {
 	 * Post object to wrap
 	 *
 	 * @var   WP_Post
-	 * @since NEXT
+	 * @since 0.1.0
 	 */
 	protected $post;
 
@@ -60,7 +60,7 @@ class GCS_Sermon_Post {
 	/**
 	 * Constructor
 	 *
-	 * @since  NEXT
+	 * @since  0.1.0
 	 * @param  WP_Post $post Post object to wrap
 	 * @return void
 	 */
@@ -77,7 +77,7 @@ class GCS_Sermon_Post {
 	/**
 	 * Initate the video/audio media object
 	 *
-	 * @since  NEXT
+	 * @since  0.1.0
 	 *
 	 * @return array Array of video/audio media info.
 	 */
@@ -94,7 +94,7 @@ class GCS_Sermon_Post {
 	/**
 	 * Add media info to the media array for $type
 	 *
-	 * @since NEXT
+	 * @since 0.1.0
 	 *
 	 * @param string  $type type of media
 	 */
@@ -131,7 +131,7 @@ class GCS_Sermon_Post {
 	/**
 	 * Wrapper for get_the_post_thumbnail which stores the results to the object
 	 *
-	 * @since  NEXT
+	 * @since  0.1.0
 	 *
 	 * @param  string|array $size  Optional. Image size to use. Accepts any valid image size, or
 	 *	                            an array of width and height values in pixels (in that order).
@@ -163,7 +163,7 @@ class GCS_Sermon_Post {
 	/**
 	 * Wrapper for get_post_thumbnail_id
 	 *
-	 * @since  NEXT
+	 * @since  0.1.0
 	 *
 	 * @return string|int Post thumbnail ID or empty string.
 	 */
@@ -174,7 +174,7 @@ class GCS_Sermon_Post {
 	/**
 	 * Wrapper for get_the_terms for the sermon_series taxonomy
 	 *
-	 * @since  NEXT
+	 * @since  0.1.0
 	 *
 	 * @return array  Array of series terms
 	 */
@@ -189,7 +189,7 @@ class GCS_Sermon_Post {
 	/**
 	 * Wrapper for get_the_terms for the speaker taxonomy
 	 *
-	 * @since  NEXT
+	 * @since  0.1.0
 	 *
 	 * @return array  Array of speaker terms
 	 */
@@ -204,7 +204,7 @@ class GCS_Sermon_Post {
 	/**
 	 * Wrapper for get_the_terms for the topic taxonomy
 	 *
-	 * @since  NEXT
+	 * @since  0.1.0
 	 *
 	 * @return array  Array of topic terms
 	 */
@@ -219,7 +219,7 @@ class GCS_Sermon_Post {
 	/**
 	 * Wrapper for get_the_terms for the tag taxonomy
 	 *
-	 * @since  NEXT
+	 * @since  0.1.0
 	 *
 	 * @return array  Array of tag terms
 	 */
@@ -234,7 +234,7 @@ class GCS_Sermon_Post {
 	/**
 	 * Initate the taxonomy.
 	 *
-	 * @since  NEXT
+	 * @since  0.1.0
 	 *
 	 * @param  string  $taxonomy Taxonomy to initiate
 	 *

@@ -10,7 +10,7 @@ class GCS_Shortcodes_Play_Button {
 	/**
 	 * Constructor
 	 *
-	 * @since  NEXT
+	 * @since  0.1.0
 	 * @param  object $plugin Main plugin object.
 	 * @return void
 	 */

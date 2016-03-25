@@ -74,7 +74,44 @@ module.exports = function( grunt ) {
 			}
 		},
 
-		// make a zipfile
+		githooks: {
+			all: {
+				// create zip and deploy changes to ftp
+				'pre-push': 'compress'
+			}
+		},
+
+		replace: {
+			version_php: {
+				src: [
+					'**/*.php',
+					'!vendor/**',
+				],
+				overwrite: true,
+				replacements: [ {
+						from: /Version:(\s*?)[a-zA-Z0-9\.\-\+]+$/m,
+						to: 'Version:$1' + pkg.version
+				}, {
+						from: /@version(\s*?)[a-zA-Z0-9\.\-\+]+$/m,
+						to: '@version$1' + pkg.version
+				}, {
+						from: /@since(.*?)NEXT/mg,
+						to: '@since$1' + pkg.version
+				}, {
+						from: /VERSION(\s*?)=(\s*?['"])[a-zA-Z0-9\.\-\+]+/mg,
+						to: 'VERSION$1=$2' + pkg.version
+				} ]
+			},
+			version_readme: {
+				src: ['README.md', 'readme.txt'],
+				overwrite: true,
+				replacements: [ {
+						from: /^\*\*Stable tag:\*\*(\s*?)[a-zA-Z0-9.-]+(\s*?)$/mi,
+						to: '**Stable tag:**$1<%= pkg.version %>$2'
+				} ]
+			},
+		},
+
 		compress: {
 			main: {
 				options: {
@@ -83,11 +120,10 @@ module.exports = function( grunt ) {
 				},
 				files: [ {
 						expand: true,
-						// cwd: '/',
 						src: [
 							'**',
 							'!**/**dandelion**.yml',
-							'!**/phpunit.xml',
+							'!**/**.xml',
 							'!**/Dockunit.json',
 							'!**/package.json',
 							'!**/node_modules/**',
@@ -103,7 +139,7 @@ module.exports = function( grunt ) {
 							'!**/**bower.json',
  							'!vendor/tgmpa/tgm-plugin-activation/plugins/**'
 						],
-						dest: '/'
+						dest: '/gc-sermons'
 				} ]
 			}
 		},
@@ -122,6 +158,8 @@ module.exports = function( grunt ) {
 	grunt.registerTask( 'styles', [] );
 	grunt.registerTask( 'php', [ 'addtextdomain', 'makepot' ] );
 	grunt.registerTask( 'default', ['styles', 'scripts', 'php', 'compress'] );
+
+	grunt.registerTask( 'version', [ 'default', 'replace:version_php', 'replace:version_readme', 'compress' ] );
 
 	grunt.util.linefeed = '\n';
 };

@@ -1,19 +1,20 @@
 {
-	"name": "gc-sermons",
-	"title": "GC Sermons",
-	"version": "0.1.0",
-	"description": "Manage sermons and sermon content in WordPress",
-	"author": {
-		"name": "jtsternberg",
-		"url": "http://dsgnwrks.pro"
-	},
-	"license": "GPLv2",
-	"devDependencies": {
-	    "grunt": "latest",
-	    "grunt-contrib-watch": "latest",
-	    "grunt-wp-i18n": "latest",
-	    "grunt-contrib-compress": "~0.11.0",
-	    "grunt-githooks": "~0.3.1",
-	    "load-grunt-tasks": "latest"
-	}
+  "name": "gc-sermons",
+  "title": "GC Sermons",
+  "version": "0.1.0",
+  "description": "Manage sermons and sermon content in WordPress",
+  "author": {
+    "name": "jtsternberg",
+    "url": "http://dsgnwrks.pro"
+  },
+  "license": "GPLv2",
+  "devDependencies": {
+    "grunt": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-wp-i18n": "latest",
+    "grunt-contrib-compress": "~0.11.0",
+    "grunt-githooks": "~0.3.1",
+    "grunt-text-replace": "latest",
+    "load-grunt-tasks": "latest"
+  }
 }

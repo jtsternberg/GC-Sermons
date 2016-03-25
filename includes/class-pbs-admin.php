@@ -10,14 +10,14 @@ class GCS_PBS_Admin extends WDS_Shortcode_Admin {
 	 * Parent plugin class
 	 *
 	 * @var   GCS_PBS_Run
-	 * @since NEXT
+	 * @since 0.1.0
 	 */
 	protected $run;
 
 	/**
 	 * Constructor
 	 *
-	 * @since  NEXT
+	 * @since  0.1.0
 	 * @param  object $run Main plugin object.
 	 * @return void
 	 */

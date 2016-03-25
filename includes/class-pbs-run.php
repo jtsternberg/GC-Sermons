@@ -14,14 +14,14 @@ class GCS_PBS_Run extends WDS_Shortcodes {
 	/**
 	 * The Shortcode Tag
 	 * @var string
-	 * @since NEXT
+	 * @since 0.1.0
 	 */
 	public $shortcode = 'sermon_play_button';
 
 	/**
 	 * Default attributes applied to the shortcode.
 	 * @var array
-	 * @since NEXT
+	 * @since 0.1.0
 	 */
 	public $atts_defaults = array(
 		'sermon_id'  => 0,
@@ -34,7 +34,7 @@ class GCS_PBS_Run extends WDS_Shortcodes {
 	 * GCS_Sermon_Post object
 	 *
 	 * @var   GCS_Sermon_Post
-	 * @since NEXT
+	 * @since 0.1.0
 	 */
 	public $sermons;
 
