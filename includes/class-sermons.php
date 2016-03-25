@@ -222,7 +222,7 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 			$sermons = new WP_Query( apply_filters( 'gcs_recent_sermon_args', $this->query_args ) );
 			$sermon = false;
 			if ( $sermons->have_posts() ) {
-				$sermon = new GCS_Sermon_Post( $sermons->posts[0] );
+				$sermon = new GCS_Sermon_Post( $sermons->post );
 			}
 		}
 
@@ -258,7 +258,7 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 		$sermons = new WP_Query( apply_filters( "gcs_recent_sermon_with_{$type}_args", $args ) );
 
 		if ( $sermons->have_posts() ) {
-			$sermon = new GCS_Sermon_Post( $sermons->posts[0] );
+			$sermon = new GCS_Sermon_Post( $sermons->post );
 		}
 
 		return $sermon;
@@ -317,21 +317,21 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 			return false;
 		}
 
-		$sermon = new GCS_Sermon_Post( $sermons->posts[0] );
+		$sermon = new GCS_Sermon_Post( $sermons->post );
 
 		$terms = $sermon ? $sermon->{$taxonomy_id} : false;
 
 		if ( ! $terms || is_wp_error( $terms ) ) {
 			// Only try this up to 5 times
-			if ( ++$count > 5 ) {
+			if ( ++$count > 6 ) {
 				return false;
 			}
 
 			$exclude = array_merge( $exclude, array( $sermon->ID ) );
-			$terms = $this->find_sermon_with_taxonomy( $taxonomy_id, $exclude );
+			$sermon = $this->find_sermon_with_taxonomy( $taxonomy_id, $exclude );
 		}
 
-		return $terms;
+		return $sermon;
 	}
 
 

@@ -93,18 +93,29 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 		static $terms = null;
 
 		if ( null === $terms ) {
-			$sermon = $this->sermons->most_recent_with_taxonomy( $this->id );
+			$sermon = $this->most_recent_sermon();
 
 			if ( ! $sermon ) {
 				$terms = false;
 				return $terms;
 			}
 
-			$terms = $sermon->{$this->id}();
+			$terms = $sermon->{$this->id};
 			$terms = $terms && $get_single_term && is_array( $terms ) ? array_shift( $terms ) : $terms;
 		}
 
 		return $terms;
+	}
+
+	/**
+	 * Retrieve the most recent sermon which has terms in this taxonomy.
+	 *
+	 * @since  0.2.0
+	 *
+	 * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
+	 */
+	public function most_recent_sermon() {
+		return $this->sermons->most_recent_with_taxonomy( $this->id );
 	}
 
 	/**
