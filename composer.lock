@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5163b6227eb3ed0c23563e42029a3e4c",
-    "content-hash": "0f0f3d594d7cfdd740f300a2bb003d43",
+    "hash": "74f54cadba6325e142364530efb8fd5c",
+    "content-hash": "e310db139e104dbfc347729a0e0e619b",
     "packages": [
         {
             "name": "jtsternberg/cmb2-related-links",
@@ -50,6 +50,50 @@
                 "wordpress"
             ],
             "time": "2016-03-28 05:40:41"
+        },
+        {
+            "name": "jtsternberg/shortcode-button",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jtsternberg/Shortcode_Button.git",
+                "reference": "f1d4ed23f8bb456b34456c6c9b7931a17b0337ef"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jtsternberg/Shortcode_Button/zipball/f1d4ed23f8bb456b34456c6c9b7931a17b0337ef",
+                "reference": "f1d4ed23f8bb456b34456c6c9b7931a17b0337ef",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">5.2"
+            },
+            "type": "wordpress-plugin",
+            "autoload": {
+                "classmap": [
+                    "shortcode-button.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "jtsternberg",
+                    "email": "justin@dsgnwrks.pro",
+                    "homepage": "http://dsgnwrks.pro/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Tinymce and Quicktag buttons (and modals) for outputting shortcodes. Built to work with CMB2.",
+            "homepage": "https://github.com/jtsternberg/Shortcode_Button",
+            "keywords": [
+                "CMB2",
+                "shortcodes",
+                "wordpress"
+            ],
+            "time": "2016-03-28 01:33:26"
         },
         {
             "name": "tgmpa/tgm-plugin-activation",
@@ -270,6 +314,56 @@
             ],
             "description": "A tool to make custom taxonomy registration just a bit simpler. Automatically registers taxonomy labels, and provides helpful methods.",
             "time": "2016-02-27 20:21:38"
+        },
+        {
+            "name": "webdevstudios/wds-shortcodes",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/WebDevStudios/WDS-Shortcodes.git",
+                "reference": "0002d27e06e078cd9e909c6b63f74525f6fb5e7a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/WebDevStudios/WDS-Shortcodes/zipball/0002d27e06e078cd9e909c6b63f74525f6fb5e7a",
+                "reference": "0002d27e06e078cd9e909c6b63f74525f6fb5e7a",
+                "shasum": ""
+            },
+            "require": {
+                "jtsternberg/shortcode-button": "^v1.0.1",
+                "php": ">5.2",
+                "tgmpa/tgm-plugin-activation": "2.5.2"
+            },
+            "type": "wordpress-plugin",
+            "autoload": {
+                "classmap": [
+                    "includes",
+                    "vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php"
+                ],
+                "files": [
+                    "vendor/jtsternberg/shortcode-button/shortcode-button.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "WebDevStudios",
+                    "email": "contact@webdevstudios.com",
+                    "homepage": "https://github.com/WebDevStudios",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Base plugin/classes/functionality for creating shortcodes.",
+            "homepage": "https://github.com/WebDevStudios/WDS-Shortcodes",
+            "keywords": [
+                "json",
+                "wordpress",
+                "wp-api"
+            ],
+            "time": "2016-03-28 22:18:27"
         },
         {
             "name": "xrstf/composer-php52",
