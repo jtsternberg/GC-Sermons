@@ -37,11 +37,25 @@ class GCS_Sermon_Post {
 	protected $series = array();
 
 	/**
+	 * Single series term for the sermon post.
+	 *
+	 * @var array
+	 */
+	protected $single_series = null;
+
+	/**
 	 * Speakers terms for the sermon post.
 	 *
 	 * @var array
 	 */
 	protected $speakers = array();
+
+	/**
+	 * Single speaker term for the sermon post.
+	 *
+	 * @var array
+	 */
+	protected $speaker = null;
 
 	/**
 	 * Topics terms for the sermon post.
@@ -70,7 +84,6 @@ class GCS_Sermon_Post {
 			wp_die( 'Sorry, '. __CLASS__ .' expects a '. $post_type .' object.' );
 		}
 
-		// $this->taxonomies = gc_sermons()->taxonomies;
 		$this->post = $post;
 	}
 
@@ -169,6 +182,48 @@ class GCS_Sermon_Post {
 	 */
 	public function featured_image_id() {
 		return get_post_thumbnail_id( $this->ID );
+	}
+
+	/**
+	 * Get single speaker for this sermon
+	 *
+	 * @since  NEXT
+	 *
+	 * @param  array         Args to pass to GCS_Taxonomies_Base::get()
+	 *
+	 * @return WP_Term|false Speaker term object.
+	 */
+	public function get_speaker( $args = array() ) {
+		$speakers = $this->speakers();
+		if ( empty( $speakers ) ) {
+			return false;
+		}
+
+		if ( null === $this->speaker ) {
+			$this->speaker = gc_sermons()->taxonomies->speaker->get( $speakers[0], $args );
+		}
+
+		return $this->speaker;
+	}
+
+	/**
+	 * Get single series for this sermon
+	 *
+	 * @since  NEXT
+	 *
+	 * @return WP_Term|false Series term object.
+	 */
+	public function get_series( $args = array() ) {
+		$series = $this->series();
+		if ( empty( $series ) ) {
+			return false;
+		}
+
+		if ( null === $this->single_series ) {
+			$this->single_series = gc_sermons()->taxonomies->series->get( $series[0], $args );
+		}
+
+		return $this->single_series;
 	}
 
 	/**
