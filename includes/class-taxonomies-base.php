@@ -24,6 +24,24 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	protected $sermons = null;
 
 	/**
+	 * The image meta key for this taxonomy, if applicable
+	 *
+	 * @var string
+	 * @since  NEXT
+	 */
+	protected $image_meta_key = '';
+
+	/**
+	 * The default args array for self::get()
+	 *
+	 * @var array
+	 * @since  NEXT
+	 */
+	protected $term_get_args_defaults = array(
+		'image_size' => 512,
+	);
+
+	/**
 	 * Constructor
 	 * Register Taxonomy. See documentation in Taxonomy_Core, and in wp-includes/taxonomy.php
 	 *
@@ -116,6 +134,85 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	 */
 	public function most_recent_sermon() {
 		return $this->sermons->most_recent_with_taxonomy( $this->id );
+	}
+
+	/**
+	 * Get a single term object
+	 *
+	 * @since  NEXT
+	 *
+	 * @param  object|int $term Term id or object
+	 * @param  array      $args Array of arguments.
+	 *
+	 * @return WP_Term|false    Term object or false
+	 */
+	public function get( $term, $args = array() ) {
+		$term = isset( $term->term_id ) ? $term : get_term_by( 'id', $term_id, $this->taxonomy() );
+		if ( ! isset( $term->term_id ) ) {
+			return false;
+		}
+
+		$args = wp_parse_args( $args, $this->term_get_args_defaults );
+		$args = apply_filters( "gcs_get_{$this->id}_default_args", $args, $term, $this );
+
+		$term->term_link = get_term_link( $term );
+		$term = $this->extra_term_data( $term, $args );
+
+		return $term;
+	}
+
+	/**
+	 * Sets extra term data on the the term object, including the image, if applicable
+	 *
+	 * @since  NEXT
+	 *
+	 * @param  WP_Term $term Term object
+	 * @param  array   $args Array of arguments.
+	 *
+	 * @return WP_Term|false
+	 */
+	protected function extra_term_data( $term, $args ) {
+		if ( $this->image_meta_key ) {
+			$term = $this->add_image( $term, $args['image_size'] );
+		}
+
+		return $term;
+	}
+
+	/**
+	 * Add term's image
+	 *
+	 * @since  NEXT
+	 *
+	 * @param  WP_Term $term Term object
+	 * @param  string  $size Size of the image to retrieve
+	 *
+	 * @return mixed         URL if successful or set
+	 */
+	protected function add_image( $term, $size = '' ) {
+		if ( ! $this->image_meta_key ) {
+			return $term;
+		}
+
+		$img_id = get_term_meta( $term->term_id, $this->image_meta_key . '_id', 1 );
+		if ( ! $img_id ) {
+
+			$term->image = '';
+			$term->image_url = get_term_meta( $term->term_id, $this->image_meta_key, 1 );
+
+			return $term;
+		}
+
+		if ( $size ) {
+			$size = is_numeric( $size ) ? array( $size, $size ) : $size;
+		}
+
+		$term->image = wp_get_attachment_image( $img_id, $size ? $size : 'thumbnail' );
+
+		$src = wp_get_attachment_image_src( $img_id, $size ? $size : 'thumbnail' );
+		$term->image_url = isset( $src[0] ) ? $src[0] : '';
+
+		return $term;
 	}
 
 	/**

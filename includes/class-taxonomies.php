@@ -43,10 +43,10 @@ class GCS_Taxonomies {
 	 * @return void
 	 */
 	public function __construct( $sermons ) {
-		$this->series = new GCS_Series( $sermons );
+		$this->series  = new GCS_Series( $sermons );
 		$this->speaker = new GCS_Speaker( $sermons );
-		$this->topic = new GCS_Topic( $sermons );
-		$this->tag = new GCS_Tag( $sermons );
+		$this->topic   = new GCS_Topic( $sermons );
+		$this->tag     = new GCS_Tag( $sermons );
 	}
 
 	/**

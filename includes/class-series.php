@@ -16,6 +16,24 @@ class GCS_Series extends GCS_Taxonomies_Base {
 	protected $id = 'series';
 
 	/**
+	 * The image meta key for this taxonomy, if applicable
+	 *
+	 * @var string
+	 * @since  NEXT
+	 */
+	protected $image_meta_key = 'gc_sermon_series_image';
+
+	/**
+	 * The default args array for self::get()
+	 *
+	 * @var array
+	 * @since  NEXT
+	 */
+	protected $term_get_args_defaults = array(
+		'image_size' => 'medium',
+	);
+
+	/**
 	 * Constructor
 	 * Register Taxonomy. See documentation in Taxonomy_Core, and in wp-includes/taxonomy.php
 	 *
@@ -52,10 +70,10 @@ class GCS_Series extends GCS_Taxonomies_Base {
 			'taxonomies'   => array( $this->taxonomy() ),
 			'object_types' => array( 'term' ),
 			'fields'       => array(
-				'gc_sermon_series_image' => array(
+				$this->image_meta_key => array(
 					'name' => __( 'Sermon Series Image', 'gc-sermons' ),
 					'desc' => __( 'Select the series\' branding image', 'gc-sermons' ),
-					'id'   => 'gc_sermon_series_image',
+					'id'   => $this->image_meta_key,
 					'type' => 'file'
 				),
 			),
