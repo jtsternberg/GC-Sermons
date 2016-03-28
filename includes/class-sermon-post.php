@@ -328,6 +328,19 @@ class GCS_Sermon_Post {
 	}
 
 	/**
+	 * Wrapper for get_post_meta
+	 *
+	 * @since  NEXT
+	 *
+	 * @param  string  $key Meta key
+	 *
+	 * @return mixed        Value of post meta
+	 */
+	public function get_meta( $key ) {
+		return get_post_meta( $this->ID, $key, 1 );
+	}
+
+	/**
 	 * Magic getter for our object.
 	 *
 	 * @param string $property
