@@ -4,9 +4,53 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6624feb10983d6dc99e4b96a4f16bbb2",
-    "content-hash": "17a94d6e5adaa1c54ece0e2a9758acb6",
+    "hash": "5163b6227eb3ed0c23563e42029a3e4c",
+    "content-hash": "0f0f3d594d7cfdd740f300a2bb003d43",
     "packages": [
+        {
+            "name": "jtsternberg/cmb2-related-links",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jtsternberg/CMB2-Related-Links.git",
+                "reference": "7ce4076f78b3a4e377b5409f35fe97c1361bdb7b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jtsternberg/CMB2-Related-Links/zipball/7ce4076f78b3a4e377b5409f35fe97c1361bdb7b",
+                "reference": "7ce4076f78b3a4e377b5409f35fe97c1361bdb7b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "cmb2-related-links.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "jtsternberg",
+                    "email": "justin@dsgnwrks.pro",
+                    "homepage": "http://dsgnwrks.pro/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Custom field for CMB2 which adds a releated links repeatable group field.",
+            "homepage": "https://github.com/jtsternberg/CMB2-Related-Links",
+            "keywords": [
+                "CMB2",
+                "meta",
+                "wordpress"
+            ],
+            "time": "2016-03-28 05:40:41"
+        },
         {
             "name": "tgmpa/tgm-plugin-activation",
             "version": "2.5.2",
@@ -68,12 +112,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/WebDevStudios/CMB2-Post-Search-field.git",
-                "reference": "1d22e975f13abb2fe2c96d04ab668776b329b565"
+                "reference": "50413ef784a4d1cd23e10a54bb036ea473443324"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WebDevStudios/CMB2-Post-Search-field/zipball/1d22e975f13abb2fe2c96d04ab668776b329b565",
-                "reference": "1d22e975f13abb2fe2c96d04ab668776b329b565",
+                "url": "https://api.github.com/repos/WebDevStudios/CMB2-Post-Search-field/zipball/50413ef784a4d1cd23e10a54bb036ea473443324",
+                "reference": "50413ef784a4d1cd23e10a54bb036ea473443324",
                 "shasum": ""
             },
             "require": {
@@ -104,20 +148,20 @@
                 "search",
                 "wordpress"
             ],
-            "time": "2016-01-04 15:01:52"
+            "time": "2016-03-28 02:50:41"
         },
         {
             "name": "webdevstudios/cmb2-user-select",
-            "version": "v0.2.0",
+            "version": "v0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WebDevStudios/CMB2-User-Select.git",
-                "reference": "9061f1512a56922914cde421a804c0c123551936"
+                "reference": "ef5f087e00fcf9b108b55414a0cf9b1ad50667d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WebDevStudios/CMB2-User-Select/zipball/9061f1512a56922914cde421a804c0c123551936",
-                "reference": "9061f1512a56922914cde421a804c0c123551936",
+                "url": "https://api.github.com/repos/WebDevStudios/CMB2-User-Select/zipball/ad506e47c5fd064d78097efc538c172504799206",
+                "reference": "ef5f087e00fcf9b108b55414a0cf9b1ad50667d2",
                 "shasum": ""
             },
             "require": {
@@ -148,7 +192,7 @@
                 "meta",
                 "wordpress"
             ],
-            "time": "2016-03-21 04:20:55"
+            "time": "2016-03-27 04:42:17"
         },
         {
             "name": "webdevstudios/cpt-core",

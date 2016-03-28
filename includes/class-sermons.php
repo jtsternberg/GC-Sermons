@@ -90,52 +90,71 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 	 * @return void
 	 */
 	public function fields() {
+		$fields = array(
+			'gc_sermon_video_url' => array(
+				'id'   => 'gc_sermon_video_url',
+				'name' => __( 'Video URL', 'gc-sermons' ),
+				'desc' => __( 'Enter a youtube, or vimeo URL. Supports services listed at <a href="http://codex.wordpress.org/Embeds">http://codex.wordpress.org/Embeds</a>.', 'gc-sermons' ),
+				'type' => 'oembed',
+			),
+			'gc_sermon_video_src' => array(
+				'id'      => 'gc_sermon_video_src',
+				'name'    => __( 'Video File', 'gc-sermons' ),
+				'desc'    => __( 'Alternatively upload/select video from your media library.', 'gc-sermons' ),
+				'type'    => 'file',
+				'options' => array( 'url' => false ),
+			),
+			'gc_sermon_audio_url' => array(
+				'id'   => 'gc_sermon_audio_url',
+				'name' => __( 'Audio URL', 'gc-sermons' ),
+				'desc' => __( 'Enter a soundcloud, spotify, or other oembed-supported web audio URL. Supports services listed at <a href="http://codex.wordpress.org/Embeds">http://codex.wordpress.org/Embeds</a>.', 'gc-sermons' ),
+				'type' => 'oembed',
+			),
+			'gc_sermon_audio_src' => array(
+				'id'      => 'gc_sermon_audio_src',
+				'name'    => __( 'Audio File', 'gc-sermons' ),
+				'desc'    => __( 'Alternatively upload/select audio from your media library.', 'gc-sermons' ),
+				'type'    => 'file',
+				'options' => array( 'url' => false ),
+			),
+			'excerpt' => array(
+				'id'   => 'excerpt',
+				'name' => __( 'Excerpt', 'gc-sermons' ),
+				'desc' => __( 'Excerpts are optional hand-crafted summaries of your content that can be used in your theme. <a href="https://codex.wordpress.org/Excerpt" target="_blank">Learn more about manual excerpts.</a>' ),
+				'type' => 'textarea',
+				'escape_cb' => false,
+			),
+			'gc_sermon_notes' => array(
+				'id'   => 'gc_sermon_notes',
+				'name' => __( 'Sermon Questions', 'gc-sermons' ),
+				'type' => 'wysiwyg',
+			),
+		);
+
 		$this->new_cmb2( array(
 			'id'           => 'gc_sermon_metabox',
 			'title'        => __( 'Sermon Details', 'gc-sermons' ),
 			'object_types' => array( $this->post_type() ),
-			'fields'       => array(
-				'gc_sermon_video_url' => array(
-					'id'   => 'gc_sermon_video_url',
-					'name' => __( 'Video URL', 'gc-sermons' ),
-					'desc' => __( 'Enter a youtube, or vimeo URL. Supports services listed at <a href="http://codex.wordpress.org/Embeds">http://codex.wordpress.org/Embeds</a>.', 'cmb2' ),
-					'type' => 'oembed',
-				),
-				'gc_sermon_video_src' => array(
-					'id'      => 'gc_sermon_video_src',
-					'name'    => __( 'Video File', 'gc-sermons' ),
-					'desc'    => __( 'Alternatively upload/select video from your media library.', 'gc-sermons' ),
-					'type'    => 'file',
-					'options' => array( 'url' => false ),
-				),
-				'gc_sermon_audio_url' => array(
-					'id'   => 'gc_sermon_audio_url',
-					'name' => __( 'Audio URL', 'gc-sermons' ),
-					'desc' => __( 'Enter a soundcloud, spotify, or other oembed-supported web audio URL. Supports services listed at <a href="http://codex.wordpress.org/Embeds">http://codex.wordpress.org/Embeds</a>.', 'cmb2' ),
-					'type' => 'oembed',
-				),
-				'gc_sermon_audio_src' => array(
-					'id'      => 'gc_sermon_audio_src',
-					'name'    => __( 'Audio File', 'gc-sermons' ),
-					'desc'    => __( 'Alternatively upload/select audio from your media library.', 'gc-sermons' ),
-					'type'    => 'file',
-					'options' => array( 'url' => false ),
-				),
-				'excerpt' => array(
-					'id'   => 'excerpt',
-					'name' => __( 'Excerpt', 'gc-sermons' ),
-					'desc' => __( 'Excerpts are optional hand-crafted summaries of your content that can be used in your theme. <a href="https://codex.wordpress.org/Excerpt" target="_blank">Learn more about manual excerpts.</a>' ),
-					'type' => 'textarea',
-					'escape_cb' => false,
-				),
-				'gc_sermon_notes' => array(
-					'id'   => 'gc_sermon_notes',
-					'name' => __( 'Sermon Questions', 'gc-sermons' ),
-					'type' => 'wysiwyg',
-				),
-			),
+			'fields'       => $fields,
 		) );
 
+		$this->new_cmb2( array(
+			'id'           => 'gc_related_links_metabox',
+			'title'        => __( 'Related Links', 'gc-sermons' ),
+			'object_types' => array( $this->post_type() ),
+			'closed'       => true,
+			'context'      => 'side',
+			'priority'     => 'core',
+			'fields'       => array(
+				cmb2_related_links_field( array( 'id' => 'gc_related_links' ), array(
+					'description' => __( 'Add links, or select from related content by clicking the search icon.', 'gc-sermons' ),
+					'group_title' => __( 'Link {#}', 'gc-sermons' ),
+					'link_title'  => __( 'Title', 'gc-sermons' ),
+					'link_url'    => __( 'URL', 'gc-sermons' ),
+					'find_text'   => __( 'Find/Select related content', 'gc-sermons' ),
+				) ),
+			),
+		) );
 	}
 
 	public function get_excerpt( $data, $post_id ) {
