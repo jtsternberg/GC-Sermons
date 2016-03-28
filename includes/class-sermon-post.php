@@ -142,6 +142,33 @@ class GCS_Sermon_Post {
 	}
 
 	/**
+	 * Wrapper for wp_audio_shortcode
+	 *
+	 * @since  NEXT
+	 *
+	 * @return mixed The audio player if successful.
+	 */
+	public function get_audio_player() {
+		$audio = $this->media['audio'];
+		if ( ! isset( $audio['type'] ) ) {
+			return '';
+		}
+
+		$audio_url = '';
+		if ( 'url' === $audio['type'] ) {
+			$audio_url = $audio['value'];
+		} elseif ( 'attachment_id' === $audio['type'] ) {
+			$audio_url = $audio['attachment_url'];
+		}
+
+		if ( $audio_player = wp_audio_shortcode( array( 'src' => $audio_url ) ) ) {
+			$audio_player = '<div class="audio-wrap">' . $audio_player . '</div><!-- .audio-wrap -->';
+		}
+
+		return $audio_player;
+	}
+
+	/**
 	 * Wrapper for get_the_post_thumbnail which stores the results to the object
 	 *
 	 * @since  0.1.0
