@@ -28,6 +28,7 @@ class GCS_PBS_Run extends WDS_Shortcodes {
 		'icon_class' => 'fa-youtube-play',
 		'icon_color' => '#000000',
 		'icon_size'  => 'large',
+		'do_scripts' => true,
 	);
 
 	/**
@@ -78,14 +79,35 @@ class GCS_PBS_Run extends WDS_Shortcodes {
 		$video_url = get_post_meta( $sermon->ID, 'gc_sermon_video_url', 1 );
 
 		$output = '';
-		$output .= $this->css();
-		$output .= '<a class="gc-sermons-play-button fa ' . $extra_class . '"' . $style . ' href="'. $video_url .'">';
+		$output .= $this->output_css();
+		$output .= '<a data-sermonid="'. $sermon->ID .'" class="gc-sermons-play-button fa ' . $extra_class . '"' . $style . ' href="'. $video_url .'">';
 		$output .= '</a>';
 
-		wp_enqueue_style( 'qode_font_awesome-css' );
-		wp_enqueue_style( 'font_awesome' );
-		wp_enqueue_style( 'fontawesome' );
+		if ( $this->att( 'do_scripts' ) ) {
+			wp_enqueue_style( 'qode_font_awesome-css' );
+			wp_enqueue_style( 'font_awesome' );
+			wp_enqueue_style( 'fontawesome' );
+
+			add_action( 'wp_footer', array( $this, 'video_modal' ) );
+			wp_enqueue_script( 'fitvids', GC_Sermons_Plugin::$url . 'assets/js/vendor/jquery.fitvids.js', array( 'jquery' ), '1.1', true );
+			wp_enqueue_script( 'gc-sermon-videos', GC_Sermons_Plugin::$url . 'assets/js/gc-sermon-videos.js', array( 'fitvids' ), GC_Sermons_Plugin::VERSION, true );
+		}
+
 		return $output;
+	}
+
+	public function get_sermon() {
+		$sermon_id = $this->att( 'sermon_id' );
+
+		if ( ! $sermon_id || 'recent' === $sermon_id || '0' === $sermon_id || 0 === $sermon_id ) {
+
+			$this->shortcode_object->set_att( 'sermon', $this->sermons->most_recent_with_video() );
+
+		} elseif ( is_numeric( $sermon_id ) ) {
+			$this->shortcode_object->set_att( 'sermon', new GCS_Sermon_Post( get_post( absint( $sermon_id ) ) ) );
+		}
+
+		return $this->att( 'sermon' );
 	}
 
 	public function get_extra_classes( $has_icon_font_size = false ) {
@@ -98,22 +120,51 @@ class GCS_PBS_Run extends WDS_Shortcodes {
 		return $classes;
 	}
 
-	public function get_sermon() {
-		$sermon = false;
-		$sermon_id = $this->att( 'sermon_id' );
+	public function video_modal() {
+		static $done;
 
-		if ( ! $sermon_id || 'recent' === $sermon_id || '0' === $sermon_id || 0 === $sermon_id ) {
+		// Get shortcode instances
+		$shortcodes = WDS_Shortcode_Instances::get( $this->shortcode );
 
-			$sermon = $this->sermons->most_recent_with_video();
-
-		} elseif ( is_numeric( $sermon_id ) ) {
-			$sermon = get_post( absint( $sermon_id ) );
+		if ( $done || empty( $shortcodes ) ) {
+			return;
 		}
 
-		return $sermon;
+		$videos = '';
+		foreach ( $shortcodes as $shortcode ) {
+			// Check for found sermons
+			if ( ! ( $sermon = $shortcode->att( 'sermon' ) ) ) {
+				continue;
+			}
+
+			// Check for video player
+			if ( ! ( $player = $sermon->get_video_player() ) ) {
+				return;
+			}
+
+			// Ok, add the video markup
+			$videos .= $this->video_wrap( $sermon->ID, $player );
+		}
+
+		if ( $videos ) {
+			// Output the video modal wrapper/overlay
+			echo '<div id="gc-video-overlay" style="display:none;">'. $videos .'</div>';
+		}
+
+		$done = true;
 	}
 
-	public function css() {
+	public function video_wrap( $sermon_id, $player ) {
+		return '
+		<div id="gc-sermons-video-' . $sermon_id . '" class="gc-sermons-modal gcinvisible">
+			<div class="gc-sermons-video-container"></div>
+			<script type="text/template" class="tmpl-videoModal">
+				' . $player . '
+			</script>
+		</div>';
+	}
+
+	public function output_css() {
 		// Only output once, not once per shortcode.
 		if ( self::$css_done ) {
 			return '';
@@ -122,25 +173,40 @@ class GCS_PBS_Run extends WDS_Shortcodes {
 		ob_start();
 		?>
 		<style type="text/css" media="screen">
-		.gc-sermons-play-button {
-			padding: 1em;
-			/*background: red;*/
-		}
-		.gc-sermons-play-button.icon-size-large {
-			font-size: 2em;
-		}
-		.gc-sermons-play-button.icon-size-medium {
-			font-size: 1em;
-		}
-		.gc-sermons-play-button.icon-size-small {
-			font-size: .5em;
-		}
-		/*.becool-shortcode:before {
-			margin-right: .78em;
-			font-size: 2em;
-			margin-top: -.05em;
-			margin-left: -.05em;
-		}*/
+			.gc-sermons-play-button {
+				padding: 1em;
+				/*background: red;*/
+			}
+			.gc-sermons-play-button.icon-size-large {
+				font-size: 2em;
+			}
+			.gc-sermons-play-button.icon-size-medium {
+				font-size: 1em;
+			}
+			.gc-sermons-play-button.icon-size-small {
+				font-size: .5em;
+			}
+			#gc-video-overlay {
+				display: block;
+				width: 100%;
+				position: fixed;
+				left: 0;
+				top: 0;
+				height: 100%;
+				background: rgba(0,0,0,.62);
+				z-index: 9999998;
+			}
+			.gc-sermons-modal {
+				position: absolute;
+				display: block;
+				top: 50%;
+				left: 0;
+				width: 90%;
+				margin-left: 5%;
+			}
+			.gcinvisible {
+				visibility: hidden;
+			}
 		</style>
 		<?php
 
