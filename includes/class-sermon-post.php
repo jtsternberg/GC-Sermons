@@ -142,6 +142,38 @@ class GCS_Sermon_Post {
 	}
 
 	/**
+	 * Wrapper for wp_oembed_get/wp_video_shortcode
+	 *
+	 * @since  NEXT
+	 *
+	 * @param  array $args Optional. Args are passed to either WP_Embed::shortcode,
+	 *                     or wp_video_shortcode.
+	 * @return mixed       The video player if successful.
+	 */
+	public function get_video_player( $args = array() ) {
+		global $wp_embed;
+
+		$media = empty( $this->media ) ? $this->init_media() : $this->media;
+		$video = isset( $media['video'] ) ? $media['video'] : array();
+		if ( ! isset( $video['type'] ) ) {
+			return '';
+		}
+
+		$video_url = '';
+		if ( 'url' === $video['type'] ) {
+			$video_player = $wp_embed->shortcode( $args, $video['value'] );
+		} elseif ( 'attachment_id' === $video['type'] ) {
+
+			$args['src'] = $video['attachment_url'];
+			if ( $video_player = wp_video_shortcode( $args ) ) {
+				$video_player = '<div class="gc-video-wrap">' . $video_player . '</div><!-- .gc-video-wrap -->';
+			}
+		}
+
+		return $video_player;
+	}
+
+	/**
 	 * Wrapper for wp_audio_shortcode
 	 *
 	 * @since  NEXT
