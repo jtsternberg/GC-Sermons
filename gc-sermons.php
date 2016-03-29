@@ -34,10 +34,8 @@
  * Built using generator-plugin-wp
  */
 
-
 // User composer autoload.
 require 'vendor/autoload_52.php';
-
 
 /**
  * Main initiation class
@@ -64,7 +62,7 @@ class GC_Sermons_Plugin {
 	 * @var string
 	 * @since  0.1.0
 	 */
-	protected $url = '';
+	public static $url = '';
 
 	/**
 	 * Path of plugin directory
@@ -72,7 +70,7 @@ class GC_Sermons_Plugin {
 	 * @var string
 	 * @since  0.1.0
 	 */
-	protected $path = '';
+	public static $path = '';
 
 	/**
 	 * Plugin basename
@@ -80,7 +78,7 @@ class GC_Sermons_Plugin {
 	 * @var string
 	 * @since  0.1.0
 	 */
-	protected $basename = '';
+	public static $basename = '';
 
 	/**
 	 * Array of plugin requirements, keyed by admin notice label.
@@ -149,9 +147,9 @@ class GC_Sermons_Plugin {
 	 * @since  0.1.0
 	 */
 	protected function __construct() {
-		$this->basename = plugin_basename( __FILE__ );
-		$this->url      = plugin_dir_url( __FILE__ );
-		$this->path     = plugin_dir_path( __FILE__ );
+		self::$basename = plugin_basename( __FILE__ );
+		self::$url      = plugin_dir_url( __FILE__ );
+		self::$path     = plugin_dir_path( __FILE__ );
 
 		$this->plugin_classes();
 	}
@@ -276,7 +274,7 @@ class GC_Sermons_Plugin {
 	 */
 	public function init() {
 		if ( $this->check_requirements() ) {
-			load_plugin_textdomain( 'gc-sermons', false, dirname( $this->basename ) . '/languages/' );
+			load_plugin_textdomain( 'gc-sermons', false, dirname( self::$basename ) . '/languages/' );
 		}
 	}
 
@@ -309,7 +307,7 @@ class GC_Sermons_Plugin {
 	 * @return void
 	 */
 	public function deactivate_me() {
-		deactivate_plugins( $this->basename );
+		deactivate_plugins( self::$basename );
 	}
 
 	/**
@@ -362,9 +360,6 @@ class GC_Sermons_Plugin {
 		switch ( $field ) {
 			case 'version':
 				return self::VERSION;
-			case 'basename':
-			case 'url':
-			case 'path':
 			case 'sermons':
 			case 'taxonomies':
 			case 'shortcodes':
