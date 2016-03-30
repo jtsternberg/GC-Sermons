@@ -201,6 +201,28 @@ class GCS_Sermon_Post {
 	}
 
 	/**
+	 * Wrapper for get_permalink
+	 *
+	 * @since  NEXT
+	 *
+	 * @return string Sermon post permalink
+	 */
+	public function permalink() {
+		return get_permalink( $this->ID );
+	}
+
+	/**
+	 * Wrapper for get_the_title
+	 *
+	 * @since  NEXT
+	 *
+	 * @return string Sermon post title
+	 */
+	public function title() {
+		return get_the_title( $this->ID );
+	}
+
+	/**
 	 * Wrapper for get_the_post_thumbnail which stores the results to the object
 	 *
 	 * @since  0.1.0
@@ -230,6 +252,24 @@ class GCS_Sermon_Post {
 		$this->images[ $size ][ $id ] = get_the_post_thumbnail( $this->ID, $size, $attr );
 
 		return $this->images[ $size ][ $id ];
+	}
+
+	/**
+	 * Get the series image.
+	 *
+	 * @since  0.1.0
+	 *
+	 * @param  string|array $size  Optional. Image size to use. Accepts any valid image size, or
+	 *	                            an array of width and height values in pixels (in that order).
+	 *	                            Default 'full'.
+	 * @param  string|array $attr Optional. Query string or array of attributes. Default empty.
+	 * @return string             The series image tag.
+	 */
+	public function series_image( $size = 'full', $attr = '' ) {
+		$args = array( 'image_size' => $size );
+		$series = $this->get_series( $args );
+
+		return $series->image;
 	}
 
 	/**
@@ -283,6 +323,68 @@ class GCS_Sermon_Post {
 		}
 
 		return $this->single_series;
+	}
+
+	/**
+	 * Get other sermons in the same series.
+	 *
+	 * @since  NEXT
+	 *
+	 * @param  array  $args Array of WP_Query arguments.
+	 *
+	 * @return mixed        WP_Query instance if successful.
+	 */
+	public function get_others_in_series( $args = array() ) {
+		$series = $this->get_series();
+		if ( ! $series ) {
+			return new WP_Error( 'no_series_for_sermon', __( 'There is no series associated with this sermon.', 'gc-sermons' ), $this->ID );
+		}
+
+		$args = wp_parse_args( $args, array(
+			'post__not_in' => array( $this->ID ),
+			'posts_per_page' => 10,
+		) );
+
+		$args['tax_query'] = array(
+			array(
+				'taxonomy' => $series->taxonomy,
+				'field'    => 'slug',
+				'terms'    => $series->slug,
+			),
+		);
+
+		return gc_sermons()->sermons->get_many( $args );
+	}
+
+	/**
+	 * Get other sermons by the same speaker.
+	 *
+	 * @since  NEXT
+	 *
+	 * @param  array  $args Array of WP_Query arguments.
+	 *
+	 * @return mixed        WP_Query instance if successful.
+	 */
+	public function get_others_by_speaker( $args = array() ) {
+		$speaker = $this->get_speaker();
+		if ( ! $speaker ) {
+			return new WP_Error( 'no_speaker_for_sermon', __( 'There is no speaker associated with this sermon.', 'gc-sermons' ), $this->ID );
+		}
+
+		$args = wp_parse_args( $args, array(
+			'post__not_in' => array( $this->ID ),
+			'posts_per_page' => 10,
+		) );
+
+		$args['tax_query'] = array(
+			array(
+				'taxonomy' => $speaker->taxonomy,
+				'field'    => 'slug',
+				'terms'    => $speaker->slug,
+			),
+		);
+
+		return gc_sermons()->sermons->get_many( $args );
 	}
 
 	/**
