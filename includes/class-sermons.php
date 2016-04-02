@@ -250,6 +250,54 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 	}
 
 	/**
+	 * Retrieve a specific sermon.
+	 *
+	 * @since  0.1.0
+	 *
+	 * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
+	 */
+	public function get( $args ) {
+		$args = wp_parse_args( $args, $this->query_args );
+		$sermons = new WP_Query( apply_filters( 'gcs_get_sermon_args', $args ) );
+		$sermon = false;
+		if ( $sermons->have_posts() ) {
+			$sermon = new GCS_Sermon_Post( $sermons->post );
+		}
+
+		return $sermon;
+	}
+
+	/**
+	 * Retrieve sermons.
+	 *
+	 * @since  0.1.0
+	 *
+	 * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
+	 */
+	public function get_many( $args ) {
+		$defaults = $this->query_args;
+		unset( $defaults['posts_per_page'] );
+		$args['augment_posts'] = true;
+
+		$args = apply_filters( 'gcs_get_sermons_args', wp_parse_args( $args, $defaults ) );
+		$sermons = new WP_Query( $args );
+
+		if (
+			isset( $args['augment_posts'] )
+			&& $args['augment_posts']
+			&& $sermons->have_posts()
+			// Don't augment for queries w/ greater than 100 posts, for perf. reasons.
+			&& $sermons->post_count < 100
+		) {
+			foreach ( $sermons->posts as $key => $post ) {
+				$sermons->posts[ $key ] = new GCS_Sermon_Post( $post );
+			}
+		}
+
+		return $sermons;
+	}
+
+	/**
 	 * Retrieve the most recent sermon with audio media.
 	 *
 	 * @since  0.1.0
