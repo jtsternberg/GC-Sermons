@@ -151,13 +151,16 @@ class GCS_Speaker extends GCS_Taxonomies_Base {
 
 		$speaker = $this->add_image( $speaker, $args['image_size'] );
 
-		// Add avatar
-		$speaker->image = get_avatar( $speaker->term_id, $args['image_size'], $speaker->image, $speaker->name );
+		if ( ! $speaker->image ) {
+			// Add avatar
+			$speaker->image = get_avatar( $user->ID, $args['image_size'], '', $speaker->name );
+		}
 
-		$speaker->image_url = get_avatar_url( $user->ID, array(
-			'size'    => $args['image_size'],
-			'default' => $speaker->image_url,
-		) );
+		if ( ! $speaker->image_url ) {
+			$speaker->image_url = get_avatar_url( $user->ID, array(
+				'size'    => $args['image_size'],
+			) );
+		}
 
 		return $speaker;
 	}
