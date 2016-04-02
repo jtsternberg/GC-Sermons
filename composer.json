@@ -32,6 +32,7 @@
 	"require": {
 		"php": ">=5.2",
 		"xrstf/composer-php52": "1.*",
+		"techcrunch/wp-async-task": "dev-master",
 		"TGMPA/TGM-Plugin-Activation": "^2.5.2",
 		"webdevstudios/cpt-core": "dev-master",
 		"webdevstudios/taxonomy_core": "^0.2.4",

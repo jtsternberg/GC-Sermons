@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "74f54cadba6325e142364530efb8fd5c",
-    "content-hash": "e310db139e104dbfc347729a0e0e619b",
+    "hash": "229befcf43fef5e9464721ac2b8b3421",
+    "content-hash": "7f59f550ea817d025cae5390ed83d3c2",
     "packages": [
         {
             "name": "jtsternberg/cmb2-related-links",
@@ -94,6 +94,57 @@
                 "wordpress"
             ],
             "time": "2016-03-28 01:33:26"
+        },
+        {
+            "name": "techcrunch/wp-async-task",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/techcrunch/wp-async-task.git",
+                "reference": "9bdbbf9df4ff5179711bb58b9a2451296f6753dc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/techcrunch/wp-async-task/zipball/9bdbbf9df4ff5179711bb58b9a2451296f6753dc",
+                "reference": "9bdbbf9df4ff5179711bb58b9a2451296f6753dc",
+                "shasum": ""
+            },
+            "require-dev": {
+                "10up/wp_mock": "dev-master",
+                "phpunit/phpunit": "*@stable"
+            },
+            "type": "wordpress-plugin",
+            "autoload": {
+                "classmap": [
+                    "wp-async-task.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alex Khadiwala",
+                    "role": "developer"
+                },
+                {
+                    "name": "Nicolas Vincent",
+                    "role": "developer"
+                },
+                {
+                    "name": "Eric Mann",
+                    "email": "eric.mann@10up.com",
+                    "role": "developer"
+                },
+                {
+                    "name": "John P. Bloch",
+                    "email": "john.bloch@10up.com",
+                    "role": "developer"
+                }
+            ],
+            "description": "Run asynchronous tasks for long-running operations in WordPress",
+            "time": "2016-03-10 17:37:13"
         },
         {
             "name": "tgmpa/tgm-plugin-activation",
@@ -402,6 +453,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "techcrunch/wp-async-task": 20,
         "webdevstudios/cpt-core": 20,
         "webdevstudios/cmb2-post-search-field": 20
     },

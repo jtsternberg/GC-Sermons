@@ -128,6 +128,14 @@ class GC_Sermons_Plugin {
 	protected $shortcodes;
 
 	/**
+	 * Instance of GCS_Async
+	 *
+	 * @since NEXT
+	 * @var GCS_Async
+	 */
+	protected $async;
+
+	/**
 	 * Creates or returns an instance of this class.
 	 *
 	 * @since  0.1.0
@@ -164,6 +172,7 @@ class GC_Sermons_Plugin {
 		// Attach other plugin classes to the base plugin class.
 		$this->sermons = new GCS_Sermons( $this );
 		$this->taxonomies = new GCS_Taxonomies( $this->sermons );
+		$this->async = new GCS_Async( $this );
 	} // END OF PLUGIN CLASSES FUNCTION
 
 	/**
