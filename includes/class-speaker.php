@@ -133,8 +133,8 @@ class GCS_Speaker extends GCS_Taxonomies_Base {
 		$speaker->connected_user = $user->data;
 		$speaker->user_link = get_author_posts_url( $user->ID );
 
-		// Override speaker description with user description
-		if ( $user_desc = $user->get( 'description' ) ) {
+		// Fallback to user description
+		if ( ! $speaker->description && ( $user_desc = $user->get( 'description' ) ) ) {
 			$speaker->description = $user_desc;
 		}
 

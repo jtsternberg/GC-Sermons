@@ -155,8 +155,6 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	/**
 	 * Wrapper for get_terms
 	 *
-	 * @todo  Build method to get terms ordered by most recent sermon (for series, speaker, etc)
-	 *
 	 * @since  NEXT
 	 *
 	 * @param  array $args Array of arguments.

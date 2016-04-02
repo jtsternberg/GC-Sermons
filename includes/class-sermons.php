@@ -272,7 +272,7 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 	 *
 	 * @since  0.1.0
 	 *
-	 * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
+	 * @return WP_Query WP_Query object
 	 */
 	public function get_many( $args ) {
 		$defaults = $this->query_args;
