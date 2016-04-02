@@ -237,6 +237,13 @@ class GCS_Sermon_Post {
 		// Unique id for the passed-in attributes.
 		$id = md5( $attr );
 
+		if ( ! isset( $attr['series_image_fallback'] ) || false !== $attr['series_image_fallback'] ) {
+			$series_image_fallback = true;
+			if ( isset( $attr['series_image_fallback'] ) ) {
+				unset( $attr['series_image_fallback'] );
+			}
+		}
+
 		if ( isset( $this->images[ $size ] ) ) {
 			// If we got it already, then send it back
 			if ( isset( $this->images[ $size ][ $id ] ) ) {
@@ -245,11 +252,11 @@ class GCS_Sermon_Post {
 				$this->images[ $size ][ $id ] = array();
 			}
 		} else {
-			$this->images[ $size ] = array( $id = array() );
+			$this->images[ $size ][ $id ] = array();
 		}
 
-
-		$this->images[ $size ][ $id ] = get_the_post_thumbnail( $this->ID, $size, $attr );
+		$img = get_the_post_thumbnail( $this->ID, $size, $attr );
+		$this->images[ $size ][ $id ] = $img ? $img : $this->series_image( $size, $attr );
 
 		return $this->images[ $size ][ $id ];
 	}
