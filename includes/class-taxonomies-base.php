@@ -250,11 +250,12 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 			return $term;
 		}
 
-		$img_id = get_term_meta( $term->term_id, $this->image_meta_key . '_id', 1 );
-		if ( ! $img_id ) {
+		$term->image_id = get_term_meta( $term->term_id, $this->image_meta_key . '_id', 1 );
+		if ( ! $term->image_id ) {
 
-			$term->image = '';
 			$term->image_url = get_term_meta( $term->term_id, $this->image_meta_key, 1 );
+
+			$term->image = $term->image_url ? '<img src="'. esc_url( $term->image_url ) .'" alt="'. $term->name .'"/>' : '';
 
 			return $term;
 		}
