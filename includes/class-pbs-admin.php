@@ -38,8 +38,8 @@ class GCS_PBS_Admin extends WDS_Shortcode_Admin {
 	 */
 	function js_button_data() {
 		return array(
-			'qt_button_text' => __( 'GC Sermon Play', 'gc-sermon-series' ),
-			'button_tooltip' => __( 'GC Sermon Play Button', 'gc-sermon-series' ),
+			'qt_button_text' => __( 'GC Sermon Play', 'gc-sermons' ),
+			'button_tooltip' => __( 'GC Sermon Play Button', 'gc-sermons' ),
 			'icon'           => 'dashicons-controls-play',
 			'mceView'        => true, // The future
 		);
@@ -55,8 +55,8 @@ class GCS_PBS_Admin extends WDS_Shortcode_Admin {
 	 */
 	function fields( $fields, $button_data ) {
 		$fields[] = array(
-			'name'            => __( 'Sermon to play', 'gc-sermon-series' ),
-			'desc'            => __( 'Blank, "recent", or "0" will play the most recent video. Otherwise enter a post ID. click the magnifying glass to search for a Sermon post.', 'gc-sermon-series' ),
+			'name'            => __( 'Sermon to play', 'gc-sermons' ),
+			'desc'            => __( 'Blank, "recent", or "0" will play the most recent video. Otherwise enter a post ID. click the magnifying glass to search for a Sermon post.', 'gc-sermons' ),
 			'id'              => 'sermon_id',
 			'type'            => 'post_search_text',
 			'post_type'       => $this->run->sermons->post_type(),
@@ -65,15 +65,15 @@ class GCS_PBS_Admin extends WDS_Shortcode_Admin {
 		);
 
 		$fields[] = array(
-			'name'    => __( 'Icon Color', 'gc-sermon-series' ),
+			'name'    => __( 'Icon Color', 'gc-sermons' ),
 			'type'    => 'colorpicker',
 			'id'      => 'icon_color',
 			'default' => $this->atts_defaults['icon_color'],
 		);
 
 		$fields[] = array(
-			'name'    => __( 'Icon Size', 'gc-sermon-series' ),
-			'desc'    => __( 'Select a font-size (in <code>em</code>s, <strong>or</strong> enter either "medium", "large", or "small".', 'gc-sermon-series' ),
+			'name'    => __( 'Icon Size', 'gc-sermons' ),
+			'desc'    => __( 'Select a font-size (in <code>em</code>s, <strong>or</strong> enter either "medium", "large", or "small".', 'gc-sermons' ),
 			'type'    => 'text',
 			'id'      => 'icon_size',
 			'default' => $this->atts_defaults['icon_size'],
@@ -81,7 +81,7 @@ class GCS_PBS_Admin extends WDS_Shortcode_Admin {
 
 		$fields[] = array(
 			'name'    => __( 'Extra CSS Classes', 'cool-shortcode' ),
-			'desc'    => __( 'Enter classes separated by spaces (e.g. "class1 class2")', 'gc-sermon-series' ),
+			'desc'    => __( 'Enter classes separated by spaces (e.g. "class1 class2")', 'gc-sermons' ),
 			'type'    => 'text',
 			'id'      => 'icon_class',
 			'default' => $this->atts_defaults['icon_class'],
