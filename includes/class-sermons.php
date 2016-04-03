@@ -74,9 +74,20 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 	 */
 	public function hooks() {
 		add_action( 'cmb2_admin_init', array( $this, 'fields' ) );
-		add_action( 'dbx_post_advanced', array( $this, 'remove_excerpt_box' ) );
 		add_filter( 'cmb2_override_excerpt_meta_value', array( $this, 'get_excerpt' ), 10, 2 );
 		add_filter( 'cmb2_override_excerpt_meta_save', '__return_true' );
+		add_filter( 'admin_init', array( $this, 'admin_hooks' ) );
+	}
+
+	/**
+	 * Initiate our admin hooks
+	 *
+	 * @since  NEXT
+	 * @return void
+	 */
+	public function admin_hooks() {
+		add_action( 'dbx_post_advanced', array( $this, 'remove_excerpt_box' ) );
+		add_filter( "manage_edit-{$this->post_type()}_columns", array( $this, 'columns' ) );
 	}
 
 	public function remove_excerpt_box() {
@@ -162,16 +173,17 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 	}
 
 	/**
-	 * Registers admin columns to display. Hooked in via CPT_Core.
-	 *
+	 * Registers admin columns to display.
 	 * @since  0.1.0
-	 * @param  array $columns Array of registered column names/labels.
-	 * @return array          Modified array
+	 * @param  array  $columns Array of registered column names/labels
+	 * @return array           Modified array
 	 */
 	public function columns( $columns ) {
-		$new_column = array(
-		);
-		return array_merge( $new_column, $columns );
+		$last = array_splice( $columns, 2 );
+		$columns[ 'tax-'. $this->plugin->series->id ] = $this->plugin->series->taxonomy( 'singular' );
+
+		// placeholder
+		return array_merge( $columns, $last );
 	}
 
 	/**
@@ -182,8 +194,62 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 	 * @param int   $post_id ID of post to display column for.
 	 */
 	public function columns_display( $column, $post_id ) {
-		switch ( $column ) {
+		if ( 'tax-'. $this->plugin->series->id === $column ) {
+			add_action( 'admin_footer', array( $this, 'admin_column_css' ) );
+			// Get sermon post object
+			$sermon = new GCS_Sermon_Post( get_post( $post_id ) );
+			// If we have sermon series...
+			if ( is_array( $sermon->series ) ) {
+				// Then loop them (typically only one)
+				foreach ( $sermon->series as $series ) {
+					// Get augmented term object to get the thumbnail url
+					$series = $this->plugin->series->get( $series, array( 'image_size' => 'thumb' ) );
+
+					// Edit-term link
+					$edit_link = get_edit_term_link( $series->term_id, $series->taxonomy, $this->post_type() );
+
+					// Add the image, or the term name.
+					if ( $series->image_url ) {
+						$class = ' with-image';
+						$title = ' title="'. esc_attr( $series->name ) .'"';
+						$term = '<img style="max-width: 100px;" src="'. esc_url( $series->image_url ) .'" /></a>';
+					} else {
+						$class = $title = '';
+						$term = $series->name;
+					}
+
+					echo '<div class="sermon-series'. $class .'"><a'. $title .' href="'. esc_url( $edit_link ) .'">'. $term .'</a></div>';
+				}
+			}
 		}
+	}
+
+	public function admin_column_css() {
+		?>
+		<style type="text/css" media="screen">
+			#tax-series {
+				width: 150px;
+			}
+			.sermon-series.with-image a {
+				display: block;
+				position: relative;
+				text-align: center;
+			}
+			.sermon-series.with-image a:hover img {
+				opacity: .05;
+			}
+			.sermon-series.with-image a:hover:after {
+				content: attr(title);
+				position: absolute;
+				top: 0;
+				left: 0;
+				padding: 8px 10%;
+				z-index: 98;
+				width: 80%;
+				min-height: 40px;
+			}
+		</style>
+		<?php
 	}
 
 	/**
@@ -342,7 +408,7 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 	 * @return GCS_Sermon_Post|false  GC Sermon post object if successful.
 	 */
 	public function most_recent_with_taxonomy( $taxonomy_id ) {
-		$sermon = $this->plugin->sermons->most_recent();
+		$sermon = $this->most_recent();
 
 		// No sermon post found at all.. oops
 		if ( ! $sermon ) {

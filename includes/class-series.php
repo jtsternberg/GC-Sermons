@@ -44,7 +44,10 @@ class GCS_Series extends GCS_Taxonomies_Base {
 	public function __construct( $sermons ) {
 		parent::__construct( $sermons, array(
 			'labels' => array( __( 'Sermon Series', 'gc-sermons' ), __( 'Sermon Series', 'gc-sermons' ), 'gc-sermon-series' ),
-			'args'   => array( 'hierarchical' => false ),
+			'args'   => array(
+				'hierarchical' => false,
+				'show_admin_column' => false,
+			),
 		) );
 	}
 
