@@ -86,12 +86,17 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 	 * @return void
 	 */
 	public function admin_hooks() {
-		add_action( 'dbx_post_advanced', array( $this, 'remove_excerpt_box' ) );
+		add_action( 'dbx_post_advanced', array( $this, 'remove_default_boxes' ) );
 		add_filter( "manage_edit-{$this->post_type()}_columns", array( $this, 'columns' ) );
 	}
 
-	public function remove_excerpt_box() {
-		remove_meta_box( 'postexcerpt', null, 'normal' );
+	public function remove_default_boxes() {
+		$screen = get_current_screen();
+
+		if ( isset( $screen->post_type ) && $this->post_type() === $screen->post_type ) {
+			remove_meta_box( 'postexcerpt', null, 'normal' );
+			remove_meta_box( 'postimagediv', null, 'side' );
+		}
 	}
 
 	/**
@@ -134,6 +139,12 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 				'desc' => __( 'Excerpts are optional hand-crafted summaries of your content that can be used in your theme. <a href="https://codex.wordpress.org/Excerpt" target="_blank">Learn more about manual excerpts.</a>' ),
 				'type' => 'textarea',
 				'escape_cb' => false,
+			),
+			'_thumbnail' => array(
+				'id'   => '_thumbnail',
+				'name' => __( 'Image', 'gc-staff' ),
+				'desc' => __( 'Select an image if you want to override the series image for this sermon.', 'gc-sermons' ),
+				'type' => 'file',
 			),
 			'gc_sermon_notes' => array(
 				'id'   => 'gc_sermon_notes',
