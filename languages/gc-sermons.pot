@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GC Sermons 0.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/gc-sermons\n"
-"POT-Creation-Date: 2016-03-25 01:12:19+00:00\n"
+"POT-Creation-Date: 2016-04-04 02:10:55+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,39 +13,47 @@ msgstr ""
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: grunt-wp-i18n 0.5.4\n"
 
-#: gc-sermons.php:216
+#: gc-sermons.php:223
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:333
+#: vendor/webdevstudios/wds-shortcodes/includes/init.php:113
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:333
 msgid "Install Required Plugins"
 msgstr ""
 
-#: gc-sermons.php:217
+#: gc-sermons.php:224
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:334
+#: vendor/webdevstudios/wds-shortcodes/includes/init.php:114
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:334
 msgid "Install Plugins"
 msgstr ""
 
-#: gc-sermons.php:218
+#: gc-sermons.php:225
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:335
+#: vendor/webdevstudios/wds-shortcodes/includes/init.php:115
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:335
 msgid "Installing Plugin: %s"
 msgstr ""
 
-#: gc-sermons.php:220
+#: gc-sermons.php:227
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:336
+#: vendor/webdevstudios/wds-shortcodes/includes/init.php:117
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:336
 msgid "Something went wrong with the plugin API."
 msgstr ""
 
-#: gc-sermons.php:221
+#: gc-sermons.php:228 vendor/webdevstudios/wds-shortcodes/includes/init.php:118
 msgid "The \"WDS Shortcodes\" plugin requires the following plugin: %1$s."
 msgid_plural "This plugin requires the following plugins: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: gc-sermons.php:223
+#: gc-sermons.php:230 vendor/webdevstudios/wds-shortcodes/includes/init.php:120
 msgid "This plugin recommends the following plugin: %1$s."
 msgid_plural "This plugin recommends the following plugins: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: gc-sermons.php:225
+#: gc-sermons.php:232 vendor/webdevstudios/wds-shortcodes/includes/init.php:122
 msgid ""
 "Sorry, but you do not have the correct permissions to install the %s "
 "plugin. Contact the administrator of this site for help on getting the "
@@ -57,21 +65,25 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: gc-sermons.php:227
+#: gc-sermons.php:234
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:367
+#: vendor/webdevstudios/wds-shortcodes/includes/init.php:124
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:367
 msgid "The following required plugin is currently inactive: %1$s."
 msgid_plural "The following required plugins are currently inactive: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: gc-sermons.php:229
+#: gc-sermons.php:236
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:372
+#: vendor/webdevstudios/wds-shortcodes/includes/init.php:126
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:372
 msgid "The following recommended plugin is currently inactive: %1$s."
 msgid_plural "The following recommended plugins are currently inactive: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: gc-sermons.php:231
+#: gc-sermons.php:238 vendor/webdevstudios/wds-shortcodes/includes/init.php:128
 msgid ""
 "Sorry, but you do not have the correct permissions to activate the %s "
 "plugin. Contact the administrator of this site for help on getting the "
@@ -83,7 +95,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: gc-sermons.php:233
+#: gc-sermons.php:240 vendor/webdevstudios/wds-shortcodes/includes/init.php:130
 msgid ""
 "The following plugin needs to be updated to its latest version to ensure "
 "maximum compatibility with this plugin: %1$s."
@@ -93,7 +105,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: gc-sermons.php:235
+#: gc-sermons.php:242 vendor/webdevstudios/wds-shortcodes/includes/init.php:132
 msgid ""
 "Sorry, but you do not have the correct permissions to update the %s plugin. "
 "Contact the administrator of this site for help on getting the plugin "
@@ -105,39 +117,46 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: gc-sermons.php:237
+#: gc-sermons.php:244
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:382
+#: vendor/webdevstudios/wds-shortcodes/includes/init.php:134
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:382
 msgid "Begin installing plugin"
 msgid_plural "Begin installing plugins"
 msgstr[0] ""
 msgstr[1] ""
 
-#: gc-sermons.php:238
+#: gc-sermons.php:245 vendor/webdevstudios/wds-shortcodes/includes/init.php:135
 msgid "Activate installed plugin"
 msgid_plural "Activate installed plugins"
 msgstr[0] ""
 msgstr[1] ""
 
-#: gc-sermons.php:239
+#: gc-sermons.php:246
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:397
+#: vendor/webdevstudios/wds-shortcodes/includes/init.php:136
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:397
 msgid "Return to Required Plugins Installer"
 msgstr ""
 
-#: gc-sermons.php:240
+#: gc-sermons.php:247
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:399
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3029
+#: vendor/webdevstudios/wds-shortcodes/includes/init.php:137
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:399
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3029
 msgid "Plugin activated successfully."
 msgstr ""
 
-#: gc-sermons.php:241
+#: gc-sermons.php:248 vendor/webdevstudios/wds-shortcodes/includes/init.php:138
 msgid "All plugins installed and activated successfully. %s"
 msgstr ""
 
-#: gc-sermons.php:324
+#: gc-sermons.php:331
 msgid "CMB2"
 msgstr ""
 
-#: gc-sermons.php:348
+#: gc-sermons.php:355
 msgid ""
 "GC Sermons is missing requirements and has been <a "
 "href=\"%s\">deactivated</a>. Please make sure all requirements are "
@@ -184,54 +203,58 @@ msgstr ""
 msgid "Enter classes separated by spaces (e.g. \"class1 class2\")"
 msgstr ""
 
-#: includes/class-sermon-series.php:23
+#: includes/class-series.php:46
 msgid "Sermon Series"
 msgstr ""
 
-#: includes/class-sermon-series.php:51
+#: includes/class-series.php:77
 msgid "Sermon Series Image"
 msgstr ""
 
-#: includes/class-sermon-series.php:52
+#: includes/class-series.php:78
 msgid "Select the series' branding image"
 msgstr ""
 
-#: includes/class-sermons.php:52
+#: includes/class-sermon-post.php:347
+msgid "There is no series associated with this sermon."
+msgstr ""
+
+#: includes/class-sermon-post.php:378
+msgid "There is no speaker associated with this sermon."
+msgstr ""
+
+#: includes/class-sermons.php:59
 msgid "Sermon"
 msgstr ""
 
-#: includes/class-sermons.php:52
+#: includes/class-sermons.php:59
 msgid "Sermons"
 msgstr ""
 
-#: includes/class-sermons.php:87
-msgid "Sermon Details"
-msgstr ""
-
-#: includes/class-sermons.php:92
+#: includes/class-sermons.php:112
 msgid "Video URL"
 msgstr ""
 
-#: includes/class-sermons.php:93
+#: includes/class-sermons.php:113
 msgid ""
 "Enter a youtube, or vimeo URL. Supports services listed at <a "
 "href=\"http://codex.wordpress.org/Embeds\">http://codex.wordpress.org/"
 "Embeds</a>."
 msgstr ""
 
-#: includes/class-sermons.php:98
+#: includes/class-sermons.php:118
 msgid "Video File"
 msgstr ""
 
-#: includes/class-sermons.php:99
+#: includes/class-sermons.php:119
 msgid "Alternatively upload/select video from your media library."
 msgstr ""
 
-#: includes/class-sermons.php:105
+#: includes/class-sermons.php:125
 msgid "Audio URL"
 msgstr ""
 
-#: includes/class-sermons.php:106
+#: includes/class-sermons.php:126
 msgid ""
 "Enter a soundcloud, spotify, or other oembed-supported web audio URL. "
 "Supports services listed at <a "
@@ -239,78 +262,183 @@ msgid ""
 "Embeds</a>."
 msgstr ""
 
-#: includes/class-sermons.php:111
+#: includes/class-sermons.php:131
 msgid "Audio File"
 msgstr ""
 
-#: includes/class-sermons.php:112
+#: includes/class-sermons.php:132
 msgid "Alternatively upload/select audio from your media library."
 msgstr ""
 
-#: includes/class-sermons.php:118
+#: includes/class-sermons.php:138
 msgid "Excerpt"
 msgstr ""
 
-#: includes/class-sermons.php:119
+#: includes/class-sermons.php:139
 msgid ""
 "Excerpts are optional hand-crafted summaries of your content that can be "
 "used in your theme. <a href=\"https://codex.wordpress.org/Excerpt\" "
 "target=\"_blank\">Learn more about manual excerpts.</a>"
 msgstr ""
 
-#: includes/class-sermons.php:125
+#: includes/class-sermons.php:145
+#: vendor/webdevstudios/wds-shortcodes/tests/includes/testing-shortcode-admin.php:19
+msgid "Image"
+msgstr ""
+
+#: includes/class-sermons.php:146
+msgid "Select an image if you want to override the series image for this sermon."
+msgstr ""
+
+#: includes/class-sermons.php:151
 msgid "Sermon Questions"
 msgstr ""
 
-#: includes/class-sermons.php:280
+#: includes/class-sermons.php:158
+msgid "Sermon Details"
+msgstr ""
+
+#: includes/class-sermons.php:165
+msgid "Related Links"
+msgstr ""
+
+#: includes/class-sermons.php:172
+msgid "Add links, or select from related content by clicking the search icon."
+msgstr ""
+
+#: includes/class-sermons.php:173
+msgid "Link {#}"
+msgstr ""
+
+#: includes/class-sermons.php:174
+msgid "Title"
+msgstr ""
+
+#: includes/class-sermons.php:175
+msgid "URL"
+msgstr ""
+
+#: includes/class-sermons.php:176
+msgid "Find/Select related content"
+msgstr ""
+
+#: includes/class-sermons.php:432
 msgid "\"%s\" is not a valid taxonomy for %s."
 msgstr ""
 
-#: includes/class-speaker.php:21
+#: includes/class-speaker.php:36
 msgid "Speaker"
 msgstr ""
 
-#: includes/class-speaker.php:21
+#: includes/class-speaker.php:36
 msgid "Speakers"
 msgstr ""
 
-#: includes/class-speaker.php:49
-msgid "Author"
+#: includes/class-speaker.php:60
+msgid "Connected User"
 msgstr ""
 
-#: includes/class-speaker.php:51
-msgid "Type the name of the WordPress user and select from the suggested options."
+#: includes/class-speaker.php:62
+msgid ""
+"Type the name of the WordPress user and select from the suggested options. "
+"By associating a speaker with a WordPress user, that WordPress user account "
+"details (first/last name, avatar, bio, etc) will be used as a fallback to "
+"the information here."
 msgstr ""
 
-#: includes/class-tag.php:21
+#: includes/class-speaker.php:69
+msgid "Speaker Avatar"
+msgstr ""
+
+#: includes/class-speaker.php:70
+msgid ""
+"Select the speaker's avatar. Will only show if \"Connected User\" is not "
+"chosen, or if the \"Connected User\" does not have an avatar."
+msgstr ""
+
+#: includes/class-speaker.php:83
+msgid "Connected %s"
+msgstr ""
+
+#: includes/class-speaker.php:85
+msgid ""
+"Type the name of the %1$s and select from the suggested options. By "
+"associating a speaker with a %1$s, that %1$s account details (first/last "
+"name, image, description, etc) will be used as a fallback to the "
+"information here."
+msgstr ""
+
+#: includes/class-tag.php:28
 msgid "Tag"
 msgstr ""
 
-#: includes/class-tag.php:21
+#: includes/class-tag.php:28
 msgid "Tags"
 msgstr ""
 
-#: includes/class-topic.php:21
+#: includes/class-topic.php:28
 msgid "Topic"
 msgstr ""
 
-#: includes/class-topic.php:21
+#: includes/class-topic.php:28
 msgid "Topics"
 msgstr ""
 
+#: vendor/jtsternberg/shortcode-button/lib/class-shortcode-button.php:52
+#: vendor/webdevstudios/wds-shortcodes/includes/shortcode-admin.php:62
+#: vendor/webdevstudios/wds-shortcodes/vendor/jtsternberg/shortcode-button/lib/class-shortcode-button.php:52
+msgid "Cancel"
+msgstr ""
+
+#: vendor/jtsternberg/shortcode-button/lib/class-shortcode-button.php:53
+#: vendor/webdevstudios/wds-shortcodes/includes/shortcode-admin.php:63
+#: vendor/webdevstudios/wds-shortcodes/vendor/jtsternberg/shortcode-button/lib/class-shortcode-button.php:53
+msgid "Insert Shortcode"
+msgstr ""
+
+#: vendor/jtsternberg/shortcode-button/lib/class-shortcode-button.php:54
+#: vendor/webdevstudios/wds-shortcodes/vendor/jtsternberg/shortcode-button/lib/class-shortcode-button.php:54
+msgid "Update Shortcode"
+msgstr ""
+
+#: vendor/jtsternberg/shortcode-button/lib/class-shortcode-button.php:55
+#: vendor/webdevstudios/wds-shortcodes/vendor/jtsternberg/shortcode-button/lib/class-shortcode-button.php:55
+msgid "Shortcode Contents"
+msgstr ""
+
+#: vendor/jtsternberg/shortcode-button/lib/class-shortcode-button.php:341
+#: vendor/webdevstudios/wds-shortcodes/vendor/jtsternberg/shortcode-button/lib/class-shortcode-button.php:341
+msgid "failed verification"
+msgstr ""
+
+#: vendor/jtsternberg/shortcode-button/lib/class-shortcode-button.php:434
+#: vendor/webdevstudios/wds-shortcodes/vendor/jtsternberg/shortcode-button/lib/class-shortcode-button.php:434
+msgid "No items found."
+msgstr ""
+
+#: vendor/jtsternberg/shortcode-button/templates/modal.php:6
+#: vendor/jtsternberg/shortcode-button/templates/modal.php:9
+#: vendor/webdevstudios/wds-shortcodes/vendor/jtsternberg/shortcode-button/templates/modal.php:6
+#: vendor/webdevstudios/wds-shortcodes/vendor/jtsternberg/shortcode-button/templates/modal.php:9
+msgid "Close"
+msgstr ""
+
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:337
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:337
 msgid "This theme requires the following plugin: %1$s."
 msgid_plural "This theme requires the following plugins: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:342
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:342
 msgid "This theme recommends the following plugin: %1$s."
 msgid_plural "This theme recommends the following plugins: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:347
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:347
 msgid ""
 "Sorry, but you do not have the correct permissions to install the %1$s "
 "plugin."
@@ -321,6 +449,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:352
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:352
 msgid ""
 "The following plugin needs to be updated to its latest version to ensure "
 "maximum compatibility with this theme: %1$s."
@@ -331,12 +460,14 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:357
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:357
 msgid "There is an update available for: %1$s."
 msgid_plural "There are updates available for the following plugins: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:362
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:362
 msgid ""
 "Sorry, but you do not have the correct permissions to update the %1$s "
 "plugin."
@@ -347,6 +478,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:377
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:377
 msgid ""
 "Sorry, but you do not have the correct permissions to activate the %1$s "
 "plugin."
@@ -357,66 +489,82 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:387
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:387
 msgid "Begin updating plugin"
 msgid_plural "Begin updating plugins"
 msgstr[0] ""
 msgstr[1] ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:392
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:392
 msgid "Begin activating plugin"
 msgid_plural "Begin activating plugins"
 msgstr[0] ""
 msgstr[1] ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:398
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:398
 msgid "Return to the dashboard"
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:400
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2832
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:400
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2832
 msgid "The following plugin was activated successfully:"
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:401
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:401
 msgid "No action taken. Plugin %1$s was already active."
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:402
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:402
 msgid ""
 "Plugin not activated. A higher version of %s is needed for this theme. "
 "Please update the plugin."
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:403
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:403
 msgid "All plugins installed and activated successfully. %1$s"
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:404
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:404
 msgid "Dismiss this notice"
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:405
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:405
 msgid "Please contact the administrator of this site for help."
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:520
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:520
 msgid "This plugin needs to be updated to be compatible with your theme."
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:521
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:521
 msgid "Update Required"
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:635
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:635
 msgid "Set the parent_slug config variable instead."
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:828
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3438
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:828
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3438
 msgid "Return to the Dashboard"
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:935
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:935
 msgid ""
 "The remote plugin package does not contain a folder with the desired slug "
 "and renaming did not work."
@@ -424,224 +572,276 @@ msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:935
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:938
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:935
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:938
 msgid ""
 "Please contact the plugin provider and ask them to package their plugin "
 "according to the WordPress guidelines."
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:938
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:938
 msgid ""
 "The remote plugin package consists of more than one file, but the files are "
 "not packaged in a folder."
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2167
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2167
 msgid "Required"
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2170
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2170
 msgid "Recommended"
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2186
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2186
 msgid "WordPress Repository"
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2189
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2189
 msgid "External Source"
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2192
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2192
 msgid "Pre-Packaged"
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2209
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2209
 msgid "Not Installed"
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2213
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2213
 msgid "Installed But Not Activated"
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2215
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2215
 msgid "Active"
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2221
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2221
 msgid "Required Update not Available"
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2224
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2224
 msgid "Requires Update"
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2227
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2227
 msgid "Update recommended"
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2283
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2283
 msgid "To Install <span class=\"count\">(%s)</span>"
 msgid_plural "To Install <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2286
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2286
 msgid "Update Available <span class=\"count\">(%s)</span>"
 msgid_plural "Update Available <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2289
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2289
 msgid "To Activate <span class=\"count\">(%s)</span>"
 msgid_plural "To Activate <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2379
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2379
 msgid "Installed version:"
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2387
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2387
 msgid "Minimum required version:"
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2399
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2399
 msgid "Available version:"
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2422
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2422
 msgid ""
 "No plugins to install, update or activate. <a href=\"%1$s\">Return to the "
 "Dashboard</a>"
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2436
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2436
 msgid "Plugin"
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2437
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2437
 msgid "Source"
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2438
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2438
 msgid "Type"
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2442
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2442
 msgid "Version"
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2443
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2443
 msgid "Status"
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2570
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2570
 msgid "Upgrade message from the plugin author:"
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2603
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2603
 msgid "Install"
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2609
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2609
 msgid "Update"
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2612
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2612
 msgid "Activate"
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2643
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2643
 msgid "No plugins were selected to be installed. No action taken."
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2645
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2645
 msgid "No plugins were selected to be updated. No action taken."
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2681
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2681
 msgid "No plugins are available to be installed at this time."
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2683
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2683
 msgid "No plugins are available to be updated at this time."
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2788
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2788
 msgid "No plugins were selected to be activated. No action taken."
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2814
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2814
 msgid "No plugins are available to be activated at this time."
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3028
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3028
 msgid "Plugin activation failed."
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3362
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3362
 msgid "Updating Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3364
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3364
 msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3365
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3365
 msgid "The installation of %1$s failed."
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3369
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3369
 msgid ""
 "The installation and activation process is starting. This process may take "
 "a while on some hosts, so please be patient."
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3370
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3370
 msgid "%1$s installed and activated successfully."
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3370
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3376
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3370
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3376
 msgid "Show Details"
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3370
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3376
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3370
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3376
 msgid "Hide Details"
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3371
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3371
 msgid "All installations and activations have been completed."
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3372
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3372
 msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3375
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3375
 msgid ""
 "The installation process is starting. This process may take a while on some "
 "hosts, so please be patient."
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3376
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3376
 msgid "%1$s installed successfully."
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3377
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3377
 msgid "All installations have been completed."
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3378
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3378
 msgid "Installing Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
-#: vendor/webdevstudios/cmb2-post-search-field/cmb2_post_search_field.php:18
+#: vendor/webdevstudios/cmb2-post-search-field/lib/init.php:47
 msgid "An error has occurred. Please reload the page and try again."
 msgstr ""
 
-#: vendor/webdevstudios/cmb2-post-search-field/cmb2_post_search_field.php:19
+#: vendor/webdevstudios/cmb2-post-search-field/lib/init.php:48
 msgid "Find Posts or Pages"
 msgstr ""
 
@@ -804,6 +1004,22 @@ msgstr ""
 msgid "Choose from the most used %s"
 msgstr ""
 
+#: vendor/webdevstudios/wds-shortcodes/tests/includes/testing-shortcode-admin.php:25
+msgid "Image Display Options"
+msgstr ""
+
+#: vendor/webdevstudios/wds-shortcodes/tests/includes/testing-shortcode-admin.php:29
+msgid "Full Bleed"
+msgstr ""
+
+#: vendor/webdevstudios/wds-shortcodes/tests/includes/testing-shortcode-admin.php:30
+msgid "Text Box on Left"
+msgstr ""
+
+#: vendor/webdevstudios/wds-shortcodes/tests/includes/testing-shortcode-admin.php:31
+msgid "Text Box on Right"
+msgstr ""
+
 #. Plugin Name of the plugin/theme
 msgid "GC Sermons"
 msgstr ""
@@ -822,21 +1038,26 @@ msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:1116
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2828
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:1116
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2828
 msgctxt "plugin A *and* plugin B"
 msgid "and"
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:1881
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:1881
 msgctxt "%s = version number"
 msgid "TGMPA v%s"
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2235
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2235
 msgctxt "%1$s = install status, %2$s = update status"
 msgid "%1$s, %2$s"
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2280
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2280
 msgctxt "plugins"
 msgid "All <span class=\"count\">(%s)</span>"
 msgid_plural "All <span class=\"count\">(%s)</span>"
@@ -844,21 +1065,25 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2371
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2371
 msgctxt "as in: \"version nr unknown\""
 msgid "unknown"
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2491
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2491
 msgctxt "%2$s = plugin name in screen reader markup"
 msgid "Install %2$s"
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2495
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2495
 msgctxt "%2$s = plugin name in screen reader markup"
 msgid "Update %2$s"
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2500
+#: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2500
 msgctxt "%2$s = plugin name in screen reader markup"
 msgid "Activate %2$s"
 msgstr ""
