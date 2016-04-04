@@ -78,7 +78,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 			array( $this->sermons->post_type() )
 		);
 
-		add_action( 'init', array( $this, 'filter_values' ), 4 );
+		add_action( 'plugins_loaded', array( $this, 'filter_values' ), 4 );
 		add_action( 'wp_async_set_sermon_terms', array( $this, 'trigger_cache_flush' ), 10, 2 );
 	}
 

@@ -44,7 +44,7 @@ abstract class GCS_Post_Types_Base extends CPT_Core {
 		);
 
 		$this->hooks();
-		add_action( 'init', array( $this, 'filter_values' ), 4 );
+		add_action( 'plugins_loaded', array( $this, 'filter_values' ), 4 );
 	}
 
 	public function filter_values() {
