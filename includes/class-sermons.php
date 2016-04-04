@@ -148,7 +148,7 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 			),
 			'gc_sermon_notes' => array(
 				'id'   => 'gc_sermon_notes',
-				'name' => __( 'Sermon Questions', 'gc-sermons' ),
+				'name' => __( 'Sermon Notes', 'gc-sermons' ),
 				'type' => 'wysiwyg',
 			),
 		);
