@@ -181,6 +181,11 @@ class GCS_Sermon_Post {
 	 * @return mixed The audio player if successful.
 	 */
 	public function get_audio_player() {
+		// Lazy-load the media-getting
+		if ( empty( $this->media ) ) {
+			$this->init_media();
+		}
+
 		$audio = $this->media['audio'];
 		if ( ! isset( $audio['type'] ) ) {
 			return '';
