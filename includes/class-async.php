@@ -1,7 +1,7 @@
 <?php
 /**
  * GC Sermons Async
- * @version 0.1.0
+ * @version 0.1.1
  * @package GC Sermons
  */
 
@@ -11,7 +11,7 @@ class GCS_Async extends WP_Async_Task {
 	 * Parent plugin class
 	 *
 	 * @var   class
-	 * @since NEXT
+	 * @since 0.1.1
 	 */
 	protected $plugin = null;
 
@@ -23,7 +23,7 @@ class GCS_Async extends WP_Async_Task {
 	/**
 	 * Constructor
 	 *
-	 * @since  NEXT
+	 * @since  0.1.1
 	 * @param  object $plugin Main plugin object.
 	 * @return void
 	 */

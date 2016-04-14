@@ -2,7 +2,7 @@
 /**
  * GC Sermons Taxonomies Base
  *
- * @version 0.1.0
+ * @version 0.1.1
  * @package GC Sermons
  */
 
@@ -27,7 +27,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	 * The image meta key for this taxonomy, if applicable
 	 *
 	 * @var string
-	 * @since  NEXT
+	 * @since  0.1.1
 	 */
 	protected $image_meta_key = '';
 
@@ -35,7 +35,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	 * The default args array for self::get()
 	 *
 	 * @var array
-	 * @since  NEXT
+	 * @since  0.1.1
 	 */
 	protected $term_get_args_defaults = array(
 		'image_size' => 512,
@@ -45,7 +45,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	 * The default args array for self::get_many()
 	 *
 	 * @var array
-	 * @since  NEXT
+	 * @since  0.1.1
 	 */
 	protected $term_get_many_args_defaults = array(
 		'orderby'       => 'name',
@@ -155,7 +155,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	/**
 	 * Wrapper for get_terms
 	 *
-	 * @since  NEXT
+	 * @since  0.1.1
 	 *
 	 * @param  array $args Array of arguments.
 	 *
@@ -193,7 +193,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	/**
 	 * Get a single term object
 	 *
-	 * @since  NEXT
+	 * @since  0.1.1
 	 *
 	 * @param  object|int $term Term id or object
 	 * @param  array      $args Array of arguments.
@@ -218,7 +218,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	/**
 	 * Sets extra term data on the the term object, including the image, if applicable
 	 *
-	 * @since  NEXT
+	 * @since  0.1.1
 	 *
 	 * @param  WP_Term $term Term object
 	 * @param  array   $args Array of arguments.
@@ -236,7 +236,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	/**
 	 * Add term's image
 	 *
-	 * @since  NEXT
+	 * @since  0.1.1
 	 *
 	 * @param  WP_Term $term Term object
 	 * @param  string  $size Size of the image to retrieve
@@ -273,7 +273,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	/**
 	 * Gets terms in the sermon date order. Result is cached for a max. of a day.
 	 *
-	 * @since  NEXT
+	 * @since  0.1.1
 	 *
 	 * @param  bool $flush_cache Whether to get fresh results (flush cache)
 	 *
@@ -313,7 +313,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	/**
 	 * Hooks into the wp_async_set_sermon_terms action, which is triggered when a post is saved.
 	 *
-	 * @since NEXT
+	 * @since 0.1.1
 	 *
 	 * @param int    $post_id  Post ID
 	 * @param string $taxonomy Taxonomy

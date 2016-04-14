@@ -2,7 +2,7 @@
 /**
  * GC Sermons Sermons
  *
- * @version 0.1.0
+ * @version 0.1.1
  * @package GC Sermons
  */
 
@@ -82,7 +82,7 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 	/**
 	 * Initiate our admin hooks
 	 *
-	 * @since  NEXT
+	 * @since  0.1.1
 	 * @return void
 	 */
 	public function admin_hooks() {

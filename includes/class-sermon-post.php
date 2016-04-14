@@ -1,7 +1,7 @@
 <?php
 /**
  * GC Sermons Sermon Post
- * @version 0.1.0
+ * @version 0.1.1
  * @package GC Sermons
  */
 
@@ -144,7 +144,7 @@ class GCS_Sermon_Post {
 	/**
 	 * Wrapper for wp_oembed_get/wp_video_shortcode
 	 *
-	 * @since  NEXT
+	 * @since  0.1.1
 	 *
 	 * @param  array $args Optional. Args are passed to either WP_Embed::shortcode,
 	 *                     or wp_video_shortcode.
@@ -176,7 +176,7 @@ class GCS_Sermon_Post {
 	/**
 	 * Wrapper for wp_audio_shortcode
 	 *
-	 * @since  NEXT
+	 * @since  0.1.1
 	 *
 	 * @return mixed The audio player if successful.
 	 */
@@ -208,7 +208,7 @@ class GCS_Sermon_Post {
 	/**
 	 * Wrapper for get_permalink
 	 *
-	 * @since  NEXT
+	 * @since  0.1.1
 	 *
 	 * @return string Sermon post permalink
 	 */
@@ -219,7 +219,7 @@ class GCS_Sermon_Post {
 	/**
 	 * Wrapper for get_the_title
 	 *
-	 * @since  NEXT
+	 * @since  0.1.1
 	 *
 	 * @return string Sermon post title
 	 */
@@ -298,7 +298,7 @@ class GCS_Sermon_Post {
 	/**
 	 * Get single speaker for this sermon
 	 *
-	 * @since  NEXT
+	 * @since  0.1.1
 	 *
 	 * @param  array         Args to pass to GCS_Taxonomies_Base::get()
 	 *
@@ -320,7 +320,7 @@ class GCS_Sermon_Post {
 	/**
 	 * Get single series for this sermon
 	 *
-	 * @since  NEXT
+	 * @since  0.1.1
 	 *
 	 * @return WP_Term|false Series term object.
 	 */
@@ -340,7 +340,7 @@ class GCS_Sermon_Post {
 	/**
 	 * Get other sermons in the same series.
 	 *
-	 * @since  NEXT
+	 * @since  0.1.1
 	 *
 	 * @param  array  $args Array of WP_Query arguments.
 	 *
@@ -371,7 +371,7 @@ class GCS_Sermon_Post {
 	/**
 	 * Get other sermons by the same speaker.
 	 *
-	 * @since  NEXT
+	 * @since  0.1.1
 	 *
 	 * @param  array  $args Array of WP_Query arguments.
 	 *
@@ -476,7 +476,7 @@ class GCS_Sermon_Post {
 	/**
 	 * Wrapper for get_post_meta
 	 *
-	 * @since  NEXT
+	 * @since  0.1.1
 	 *
 	 * @param  string  $key Meta key
 	 *

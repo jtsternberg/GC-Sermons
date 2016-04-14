@@ -2,7 +2,7 @@
 /**
  * GC Sermons Sermon Series
  *
- * @version 0.1.0
+ * @version 0.1.1
  * @package GC Sermons
  */
 
@@ -19,7 +19,7 @@ class GCS_Series extends GCS_Taxonomies_Base {
 	 * The image meta key for this taxonomy, if applicable
 	 *
 	 * @var string
-	 * @since  NEXT
+	 * @since  0.1.1
 	 */
 	protected $image_meta_key = 'gc_sermon_series_image';
 
@@ -27,7 +27,7 @@ class GCS_Series extends GCS_Taxonomies_Base {
 	 * The default args array for self::get()
 	 *
 	 * @var array
-	 * @since  NEXT
+	 * @since  0.1.1
 	 */
 	protected $term_get_args_defaults = array(
 		'image_size' => 'medium',

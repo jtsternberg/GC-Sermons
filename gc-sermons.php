@@ -3,7 +3,7 @@
  * Plugin Name: GC Sermons
  * Plugin URI:  http://dsgnwrks.pro
  * Description: Manage sermons and sermon content in WordPress
- * Version:     0.1.0
+ * Version:     0.1.1
  * Author:      jtsternberg
  * Author URI:  http://dsgnwrks.pro
  * Donate link: http://dsgnwrks.pro
@@ -54,7 +54,7 @@ class GC_Sermons_Plugin {
 	 * @var  string
 	 * @since  0.1.0
 	 */
-	const VERSION = '0.1.0';
+	const VERSION = '0.1.1';
 
 	/**
 	 * URL of plugin directory
@@ -130,7 +130,7 @@ class GC_Sermons_Plugin {
 	/**
 	 * Instance of GCS_Async
 	 *
-	 * @since NEXT
+	 * @since 0.1.1
 	 * @var GCS_Async
 	 */
 	protected $async;

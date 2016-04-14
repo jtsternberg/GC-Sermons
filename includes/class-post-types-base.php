@@ -2,7 +2,7 @@
 /**
  * GC Sermons Post Types Base
  *
- * @version 0.1.0
+ * @version 0.1.1
  * @package GC Sermons
  */
 
@@ -97,7 +97,7 @@ abstract class GCS_Post_Types_Base extends CPT_Core {
 	/**
 	 * Wrapper for new_cmb2_box
 	 *
-	 * @since  NEXT
+	 * @since  0.1.1
 	 *
 	 * @param  array  $args Array of CMB2 args
 	 *

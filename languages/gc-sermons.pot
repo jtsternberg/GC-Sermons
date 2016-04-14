@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GC Sermons 0.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/gc-sermons\n"
-"POT-Creation-Date: 2016-04-04 02:10:55+00:00\n"
+"POT-Creation-Date: 2016-04-14 14:14:59+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -207,19 +207,19 @@ msgstr ""
 msgid "Sermon Series"
 msgstr ""
 
-#: includes/class-series.php:77
+#: includes/class-series.php:78
 msgid "Sermon Series Image"
 msgstr ""
 
-#: includes/class-series.php:78
+#: includes/class-series.php:79
 msgid "Select the series' branding image"
 msgstr ""
 
-#: includes/class-sermon-post.php:347
+#: includes/class-sermon-post.php:352
 msgid "There is no series associated with this sermon."
 msgstr ""
 
-#: includes/class-sermon-post.php:378
+#: includes/class-sermon-post.php:383
 msgid "There is no speaker associated with this sermon."
 msgstr ""
 
@@ -291,7 +291,7 @@ msgid "Select an image if you want to override the series image for this sermon.
 msgstr ""
 
 #: includes/class-sermons.php:151
-msgid "Sermon Questions"
+msgid "Sermon Notes"
 msgstr ""
 
 #: includes/class-sermons.php:158
@@ -334,11 +334,11 @@ msgstr ""
 msgid "Speakers"
 msgstr ""
 
-#: includes/class-speaker.php:60
+#: includes/class-speaker.php:63
 msgid "Connected User"
 msgstr ""
 
-#: includes/class-speaker.php:62
+#: includes/class-speaker.php:65
 msgid ""
 "Type the name of the WordPress user and select from the suggested options. "
 "By associating a speaker with a WordPress user, that WordPress user account "
@@ -346,21 +346,21 @@ msgid ""
 "the information here."
 msgstr ""
 
-#: includes/class-speaker.php:69
+#: includes/class-speaker.php:72
 msgid "Speaker Avatar"
 msgstr ""
 
-#: includes/class-speaker.php:70
+#: includes/class-speaker.php:73
 msgid ""
 "Select the speaker's avatar. Will only show if \"Connected User\" is not "
 "chosen, or if the \"Connected User\" does not have an avatar."
 msgstr ""
 
-#: includes/class-speaker.php:83
+#: includes/class-speaker.php:86
 msgid "Connected %s"
 msgstr ""
 
-#: includes/class-speaker.php:85
+#: includes/class-speaker.php:88
 msgid ""
 "Type the name of the %1$s and select from the suggested options. By "
 "associating a speaker with a %1$s, that %1$s account details (first/last "

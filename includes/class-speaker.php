@@ -2,7 +2,7 @@
 /**
  * GC Sermons Speaker
  *
- * @version 0.1.0
+ * @version 0.1.1
  * @package GC Sermons
  */
 
@@ -19,7 +19,7 @@ class GCS_Speaker extends GCS_Taxonomies_Base {
 	 * The image meta key for this taxonomy, if applicable
 	 *
 	 * @var string
-	 * @since  NEXT
+	 * @since  0.1.1
 	 */
 	protected $image_meta_key = 'gc_sermon_speaker_image';
 
@@ -104,7 +104,7 @@ class GCS_Speaker extends GCS_Taxonomies_Base {
 	/**
 	 * Sets extra term data on the the term object, including the image and connected user object.
 	 *
-	 * @since  NEXT
+	 * @since  0.1.1
 	 *
 	 * @param  WP_Term $term Term object
 	 * @param  array   $args Array of arguments.
@@ -141,7 +141,7 @@ class GCS_Speaker extends GCS_Taxonomies_Base {
 	/**
 	 * Takes a user ID and augments a speaker term object with user data.
 	 *
-	 * @since  NEXT
+	 * @since  0.1.1
 	 *
 	 * @param  WP_Term $speaker Speaker term object.
 	 * @param  int     $user_id Connected user ID.
@@ -204,7 +204,7 @@ class GCS_Speaker extends GCS_Taxonomies_Base {
 	/**
 	 * Takes a staff member post ID and augments a speaker term object with staff data.
 	 *
-	 * @since  NEXT
+	 * @since  0.1.1
 	 *
 	 * @param  WP_Term $speaker            Speaker term object.
 	 * @param  int     $connected_staff_id Connected staff member post ID.
