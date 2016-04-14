@@ -34,7 +34,10 @@ class GCS_Speaker extends GCS_Taxonomies_Base {
 	public function __construct( $sermons ) {
 		parent::__construct( $sermons, array(
 			'labels' => array( __( 'Speaker', 'gc-sermons' ), __( 'Speakers', 'gc-sermons' ), 'gcs-speaker' ),
-			'args'   => array( 'hierarchical' => false ),
+			'args'   => array(
+				'hierarchical' => false,
+				'rewrite' => array( 'slug' => 'speaker' ),
+			),
 		) );
 	}
 

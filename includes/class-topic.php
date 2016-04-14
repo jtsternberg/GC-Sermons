@@ -26,7 +26,9 @@ class GCS_Topic extends GCS_Taxonomies_Base {
 	public function __construct( $sermons ) {
 		parent::__construct( $sermons, array(
 			'labels' => array( __( 'Topic', 'gc-sermons' ), __( 'Topics', 'gc-sermons' ), 'gcs-topic' ),
-			'args'   => array(),
+			'args' => array(
+				'rewrite' => array( 'slug' => 'sermon-topic' ),
+			),
 		) );
 	}
 

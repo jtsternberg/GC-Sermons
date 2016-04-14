@@ -26,7 +26,10 @@ class GCS_Tag extends GCS_Taxonomies_Base {
 	public function __construct( $sermons ) {
 		parent::__construct( $sermons, array(
 			'labels' => array( __( 'Tag', 'gc-sermons' ), __( 'Tags', 'gc-sermons' ), 'gcs-tag' ),
-			'args'   => array( 'hierarchical' => false ),
+			'args'   => array(
+				'hierarchical' => false,
+				'rewrite' => array( 'slug' => 'sermon-tag' ),
+			),
 		) );
 	}
 

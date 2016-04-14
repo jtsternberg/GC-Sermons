@@ -47,6 +47,7 @@ class GCS_Series extends GCS_Taxonomies_Base {
 			'args'   => array(
 				'hierarchical' => false,
 				'show_admin_column' => false,
+				'rewrite' => array( 'slug' => 'sermon-series' ),
 			),
 		) );
 	}
