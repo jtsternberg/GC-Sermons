@@ -236,31 +236,9 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 	}
 
 	public function admin_column_css() {
-		?>
-		<style type="text/css" media="screen">
-			#tax-series {
-				width: 150px;
-			}
-			.sermon-series.with-image a {
-				display: block;
-				position: relative;
-				text-align: center;
-			}
-			.sermon-series.with-image a:hover img {
-				opacity: .05;
-			}
-			.sermon-series.with-image a:hover:after {
-				content: attr(title);
-				position: absolute;
-				top: 0;
-				left: 0;
-				padding: 8px 10%;
-				z-index: 98;
-				width: 80%;
-				min-height: 40px;
-			}
-		</style>
-		<?php
+		echo '<style type="text/css" media="screen">';
+		include_once GC_Sermons_Plugin::$path . 'templates/admin-column.css';
+		echo '</style>';
 	}
 
 	/**
