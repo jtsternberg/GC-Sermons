@@ -159,7 +159,7 @@ module.exports = function( grunt ) {
 	grunt.registerTask( 'php', [ 'addtextdomain', 'makepot' ] );
 	grunt.registerTask( 'default', ['styles', 'scripts', 'php', 'compress'] );
 
-	grunt.registerTask( 'version', [ 'default', 'replace:version_php', 'replace:version_readme', 'compress' ] );
+	grunt.registerTask( 'version', [ 'styles', 'scripts', 'php', 'replace:version_php', 'replace:version_readme', 'compress' ] );
 
 	grunt.util.linefeed = '\n';
 };
