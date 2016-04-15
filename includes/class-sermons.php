@@ -297,8 +297,8 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 		if ( null === $sermon || $this->flush ) {
 			$sermon = $this->most_recent();
 
-			if ( empty( $sermon->media['video'] ) ) {
-				$sermon = $this->most_recent_with_media( 'video' );
+			if ( empty( $sermon->media['audio'] ) ) {
+				$sermon = $this->most_recent_with_media( 'audio' );
 			}
 		}
 
