@@ -2,9 +2,9 @@
 # This file is distributed under the GPLv2.
 msgid ""
 msgstr ""
-"Project-Id-Version: GC Sermons 0.1.1\n"
+"Project-Id-Version: GC Sermons 0.1.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/gc-sermons\n"
-"POT-Creation-Date: 2016-04-15 00:31:48+00:00\n"
+"POT-Creation-Date: 2016-05-06 15:03:28+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -203,6 +203,14 @@ msgstr ""
 msgid "Enter classes separated by spaces (e.g. \"class1 class2\")"
 msgstr ""
 
+#: includes/class-scripture.php:32
+msgid "Scripture Reference"
+msgstr ""
+
+#: includes/class-scripture.php:32
+msgid "Scripture References"
+msgstr ""
+
 #: includes/class-series.php:46
 msgid "Sermon Series"
 msgstr ""
@@ -322,7 +330,7 @@ msgstr ""
 msgid "Find/Select related content"
 msgstr ""
 
-#: includes/class-sermons.php:432
+#: includes/class-sermons.php:410
 msgid "\"%s\" is not a valid taxonomy for %s."
 msgstr ""
 

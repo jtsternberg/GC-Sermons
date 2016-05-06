@@ -2,7 +2,7 @@
 /**
  * GC Sermons Taxonomies Base
  *
- * @version 0.1.2
+ * @version 0.1.3
  * @package GC Sermons
  */
 
@@ -111,7 +111,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 
 	public function new_cmb2( $args ) {
 		$cmb_id = $args['id'];
-		return new_cmb2_box( apply_filters( "gcs_cmb2_box_args_{$this->taxonomy}_{$cmb_id}", $args ) );
+		return new_cmb2_box( apply_filters( "gcs_cmb2_box_args_{$this->id}_{$cmb_id}", $args ) );
 	}
 
 	/**

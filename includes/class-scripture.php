@@ -1,33 +1,37 @@
 <?php
 /**
- * GC Sermons Topic
+ * GC Sermons Scripture References
  *
  * @version 0.1.3
  * @package GC Sermons
  */
 
-class GCS_Topic extends GCS_Taxonomies_Base {
+/**
+ * GCS_Scripture
+ * @since 0.1.3
+ */
+class GCS_Scripture extends GCS_Taxonomies_Base {
 
 	/**
 	 * The identifier for this object
 	 *
 	 * @var string
 	 */
-	protected $id = 'topic';
+	protected $id = 'scripture';
 
 	/**
 	 * Constructor
 	 * Register Taxonomy. See documentation in Taxonomy_Core, and in wp-includes/taxonomy.php
 	 *
-	 * @since 0.1.0
+	 * @since 0.1.3
 	 * @param  object $sermons GCS_Sermons object.
 	 * @return void
 	 */
 	public function __construct( $sermons ) {
 		parent::__construct( $sermons, array(
-			'labels' => array( __( 'Topic', 'gc-sermons' ), __( 'Topics', 'gc-sermons' ), 'gcs-topic' ),
+			'labels' => array( __( 'Scripture Reference', 'gc-sermons' ), __( 'Scripture References', 'gc-sermons' ), 'gcs-scripture' ),
 			'args' => array(
-				'rewrite' => array( 'slug' => 'sermon-topic' ),
+				'rewrite' => array( 'slug' => 'scripture-reference' ),
 			),
 		) );
 	}
@@ -35,7 +39,7 @@ class GCS_Topic extends GCS_Taxonomies_Base {
 	/**
 	 * Initiate our hooks
 	 *
-	 * @since 0.1.0
+	 * @since 0.1.3
 	 * @return void
 	 */
 	public function hooks() {

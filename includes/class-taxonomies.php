@@ -1,7 +1,7 @@
 <?php
 /**
  * GC Sermons Taxonomies
- * @version 0.1.2
+ * @version 0.1.3
  * @package GC Sermons
  */
 
@@ -36,6 +36,13 @@ class GCS_Taxonomies {
 	protected $tag;
 
 	/**
+	 * Instance of GCS_Scripture
+	 *
+	 * @var GCS_Scripture
+	 */
+	protected $scripture;
+
+	/**
 	 * Constructor
 	 *
 	 * @since  0.1.0
@@ -43,10 +50,11 @@ class GCS_Taxonomies {
 	 * @return void
 	 */
 	public function __construct( $sermons ) {
-		$this->series  = new GCS_Series( $sermons );
-		$this->speaker = new GCS_Speaker( $sermons );
-		$this->topic   = new GCS_Topic( $sermons );
-		$this->tag     = new GCS_Tag( $sermons );
+		$this->series    = new GCS_Series( $sermons );
+		$this->speaker   = new GCS_Speaker( $sermons );
+		$this->topic     = new GCS_Topic( $sermons );
+		$this->tag       = new GCS_Tag( $sermons );
+		$this->scripture = new GCS_Scripture( $sermons );
 	}
 
 	/**

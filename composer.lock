@@ -251,12 +251,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/WebDevStudios/CMB2-User-Select.git",
-                "reference": "ef5f087e00fcf9b108b55414a0cf9b1ad50667d2"
+                "reference": "ad506e47c5fd064d78097efc538c172504799206"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/WebDevStudios/CMB2-User-Select/zipball/ad506e47c5fd064d78097efc538c172504799206",
-                "reference": "ef5f087e00fcf9b108b55414a0cf9b1ad50667d2",
+                "reference": "ad506e47c5fd064d78097efc538c172504799206",
                 "shasum": ""
             },
             "require": {
