@@ -80,7 +80,7 @@ class GCS_PBS_Admin extends WDS_Shortcode_Admin {
 		);
 
 		$fields[] = array(
-			'name'    => __( 'Extra CSS Classes', 'cool-shortcode' ),
+			'name'    => __( 'Extra CSS Classes', 'gc-sermons' ),
 			'desc'    => __( 'Enter classes separated by spaces (e.g. "class1 class2")', 'gc-sermons' ),
 			'type'    => 'text',
 			'id'      => 'icon_class',

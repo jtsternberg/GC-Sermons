@@ -8,6 +8,20 @@
 class GCS_Shortcodes_Play_Button {
 
 	/**
+	 * Instance of GCS_PBS_Run
+	 *
+	 * @var GCS_PBS_Run
+	 */
+	protected $run;
+
+	/**
+	 * Instance of GCS_PBS_Admin
+	 *
+	 * @var GCS_PBS_Admin
+	 */
+	protected $admin;
+
+	/**
 	 * Constructor
 	 *
 	 * @since  0.1.0
