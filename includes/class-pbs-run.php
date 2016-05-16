@@ -50,48 +50,36 @@ class GCS_PBS_Run extends WDS_Shortcodes {
 	 */
 	public function shortcode() {
 
-		$style = '';
-		$has_icon_font_size = false;
-
-		if ( $this->att( 'icon_color' ) || $this->att( 'icon_size' ) ) {
-			$style = ' style="';
-			// Get/check our text_color attribute
-			if ( $this->att( 'icon_color' ) ) {
-				$text_color = sanitize_text_field( $this->att( 'icon_color' ) );
-				$style .= 'color: ' . $text_color .';';
-			}
-			if ( is_numeric( $this->att( 'icon_size' ) ) ) {
-				$has_icon_font_size = absint( $this->att( 'icon_size' ) );
-				$style .= 'font-size: ' . $has_icon_font_size .'em;';
-			}
-			$style .= '"';
-		}
-
-		// Get our extra_class attribute
-		$extra_class = $this->get_extra_classes( $has_icon_font_size );
-
 		$sermon = $this->get_sermon();
 
 		if ( ! $sermon || ! isset( $sermon->ID ) ) {
-			return '<!-- no sermons found -->';
+			return apply_filters( 'gcs_sermon_play_button_shortcode_output', GCS_Template_Loader::get_template( 'play-button-shortcode-not-found' ), $this );
 		}
-
-		$video_url = get_post_meta( $sermon->ID, 'gc_sermon_video_url', 1 );
-
-		$output = '';
-		$output .= $this->output_css();
-		$output .= '<a data-sermonid="'. $sermon->ID .'" class="gc-sermons-play-button fa ' . $extra_class . '"' . $style . ' href="'. $video_url .'">';
-		$output .= '</a>';
 
 		if ( $this->att( 'do_scripts' ) ) {
-			wp_enqueue_style( 'qode_font_awesome-css' );
-			wp_enqueue_style( 'font_awesome' );
-			wp_enqueue_style( 'fontawesome' );
-
-			add_action( 'wp_footer', array( $this, 'video_modal' ) );
-			wp_enqueue_script( 'fitvids', GC_Sermons_Plugin::$url . 'assets/js/vendor/jquery.fitvids.js', array( 'jquery' ), '1.1', true );
-			wp_enqueue_script( 'gc-sermon-videos', GC_Sermons_Plugin::$url . 'assets/js/gc-sermon-videos.js', array( 'fitvids' ), GC_Sermons_Plugin::VERSION, true );
+			$this->do_scripts();
 		}
+
+		$output = '';
+
+		// Only output once, not once per shortcode.
+		if ( ! self::$css_done ) {
+			self::$css_done = true;
+			$output .= GCS_Template_Loader::get_template( 'play-button-shortcode-css' );
+		}
+
+		list( $style, $has_icon_font_size ) = $this->get_inline_styles();
+
+		$output .= apply_filters( 'gcs_sermon_play_button_shortcode_output', GCS_Template_Loader::get_template(
+			'play-button-shortcode',
+			array(
+				// Get our extra_class attribute
+				'extra_classes' => $this->get_extra_classes( $has_icon_font_size ),
+				'sermond_id'    => $sermon->ID,
+				'style'         => $style,
+				'video_url'     => get_post_meta( $sermon->ID, 'gc_sermon_video_url', 1 ),
+			)
+		), $this );
 
 		return $output;
 	}
@@ -110,6 +98,27 @@ class GCS_PBS_Run extends WDS_Shortcodes {
 		return $this->att( 'sermon' );
 	}
 
+	public function get_inline_styles() {
+		$style = '';
+		$has_icon_font_size = false;
+
+		if ( $this->att( 'icon_color' ) || $this->att( 'icon_size' ) ) {
+			$style = ' style="';
+			// Get/check our text_color attribute
+			if ( $this->att( 'icon_color' ) ) {
+				$text_color = sanitize_text_field( $this->att( 'icon_color' ) );
+				$style .= 'color: ' . $text_color .';';
+			}
+			if ( is_numeric( $this->att( 'icon_size' ) ) ) {
+				$has_icon_font_size = absint( $this->att( 'icon_size' ) );
+				$style .= 'font-size: ' . $has_icon_font_size .'em;';
+			}
+			$style .= '"';
+		}
+
+		return array( $style, $has_icon_font_size );
+	}
+
 	public function get_extra_classes( $has_icon_font_size = false ) {
 		$classes = ' ' . implode( ' ', array_map( 'esc_attr', explode( ' ', $this->att( 'icon_class' ) ) ) );
 
@@ -118,6 +127,42 @@ class GCS_PBS_Run extends WDS_Shortcodes {
 		}
 
 		return $classes;
+	}
+
+	public function style_block() {
+		// Only output once, not once per shortcode.
+		if ( ! self::$css_done ) {
+			self::$css_done = true;
+			return GCS_Template_Loader::get_template( 'play-button-shortcode-css' );
+		}
+
+	}
+
+	public function do_scripts() {
+
+		// Enqueue whatever version of fontawesome that's registereed (if it is registered)
+		wp_enqueue_style( 'qode_font_awesome-css' );
+		wp_enqueue_style( 'font_awesome' );
+		wp_enqueue_style( 'font-awesome' );
+		wp_enqueue_style( 'fontawesome' );
+
+		add_action( 'wp_footer', array( $this, 'video_modal' ) );
+
+		wp_enqueue_script(
+			'fitvids',
+			GC_Sermons_Plugin::$url . 'assets/js/vendor/jquery.fitvids.js',
+			array( 'jquery' ),
+			'1.1',
+			true
+		);
+
+		wp_enqueue_script(
+			'gc-sermon-videos',
+			GC_Sermons_Plugin::$url . 'assets/js/gc-sermon-videos.js',
+			array( 'fitvids' ),
+			GC_Sermons_Plugin::VERSION,
+			true
+		);
 	}
 
 	public function video_modal() {
@@ -130,7 +175,7 @@ class GCS_PBS_Run extends WDS_Shortcodes {
 			return;
 		}
 
-		$videos = '';
+		$videos = array();
 		foreach ( $shortcodes as $shortcode ) {
 			// Check for found sermons
 			if ( ! ( $sermon = $shortcode->att( 'sermon' ) ) ) {
@@ -142,41 +187,17 @@ class GCS_PBS_Run extends WDS_Shortcodes {
 				return;
 			}
 
-			// Ok, add the video markup
-			$videos .= $this->video_wrap( $sermon->ID, $player );
+			// Ok, add the video player
+			$videos[ $sermon->ID ] = $player;
 		}
 
-		if ( $videos ) {
-			// Output the video modal wrapper/overlay
-			echo '<div id="gc-video-overlay" style="display:none;">'. $videos .'</div>';
+		if ( ! empty( $videos ) ) {
+			echo new GCS_Template_Loader( 'play-button-shortcode-modal-videos', array(
+				'videos' => $videos,
+			) );
 		}
 
 		$done = true;
-	}
-
-	public function video_wrap( $sermon_id, $player ) {
-		return '
-		<div id="gc-sermons-video-' . $sermon_id . '" class="gc-sermons-modal gcinvisible">
-			<div class="gc-sermons-video-container"></div>
-			<script type="text/template" class="tmpl-videoModal">
-				' . $player . '
-			</script>
-		</div>';
-	}
-
-	public function output_css() {
-		// Only output once, not once per shortcode.
-		if ( self::$css_done ) {
-			return '';
-		}
-
-		ob_start();
-		include_once GC_Sermons_Plugin::$path . 'templates/sermon-play-button.css';
-		$css = ob_get_clean();
-
-		self::$css_done = true;
-
-		return '<style type="text/css" media="screen">' . $css . '</style>';
 	}
 
 }

@@ -1,6 +1,6 @@
+<style type="text/css" media="screen">
 .gc-sermons-play-button {
 	padding: 1em;
-	/*background: red;*/
 }
 .gc-sermons-play-button.icon-size-large {
 	font-size: 2em;
@@ -32,3 +32,4 @@
 .gcinvisible {
 	visibility: hidden;
 }
+</style>
