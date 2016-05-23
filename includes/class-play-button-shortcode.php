@@ -12,14 +12,14 @@ class GCS_Shortcodes_Play_Button {
 	 *
 	 * @var GCS_PBS_Run
 	 */
-	protected $run;
+	public $run;
 
 	/**
 	 * Instance of GCS_PBS_Admin
 	 *
 	 * @var GCS_PBS_Admin
 	 */
-	protected $admin;
+	public $admin;
 
 	/**
 	 * Constructor
