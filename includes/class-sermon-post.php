@@ -199,7 +199,7 @@ class GCS_Sermon_Post {
 		}
 
 		if ( $audio_player = wp_audio_shortcode( array( 'src' => $audio_url ) ) ) {
-			$audio_player = '<div class="audio-wrap">' . $audio_player . '</div><!-- .audio-wrap -->';
+			$audio_player = '<div class="gc-audio-wrap">' . $audio_player . '</div><!-- .gc-audio-wrap -->';
 		}
 
 		return $audio_player;
