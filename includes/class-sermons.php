@@ -77,6 +77,20 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 		add_filter( 'cmb2_override_excerpt_meta_value', array( $this, 'get_excerpt' ), 10, 2 );
 		add_filter( 'cmb2_override_excerpt_meta_save', '__return_true' );
 		add_filter( 'admin_init', array( $this, 'admin_hooks' ) );
+
+		/**
+		 * Enable future posts to be displayed.
+		 *
+		 * If false, future posts will be 'scheduled', WordPress' default behavior.
+		 *
+		 * To disable:
+		 * 	add_filter( 'gc_display_future_sermsons', '__return_false' );
+		 *
+		 */
+		if ( apply_filters( 'gc_display_future_sermsons', true ) ) {
+			add_filter( 'wp_insert_post_data', array( $this, 'save_future_as_published' ), 10, 2 );
+			add_filter( 'the_title', array( $this, 'label_coming_soon' ), 10, 2 );
+		}
 	}
 
 	/**
@@ -97,6 +111,53 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 			remove_meta_box( 'postexcerpt', null, 'normal' );
 			remove_meta_box( 'postimagediv', null, 'side' );
 		}
+	}
+
+	/**
+	 * When a scheduled message post is saved, change the status back to 'publish'.
+	 * This allows the future-date sermons to show on the front-end.
+	 *
+	 * @since  NEXT
+	 *
+	 * @param  array  $data    Array of post data for update.
+	 * @param  array  $postarr Full array of post data.
+	 *
+	 * @return array           Modified post data array.
+	 */
+	public function save_future_as_published( $data, $postarr ) {
+		if (
+			! isset( $postarr['ID'], $data['post_status'], $data['post_type'] )
+			|| 'future' !== $data['post_status']
+			|| 'sermonaudio' !== $data['post_type']
+		) {
+			return $data;
+		}
+
+		$data['post_status'] = 'publish';
+
+		return $data;
+	}
+
+	public function label_coming_soon( $title, $post_id = 0 ) {
+		static $now = null;
+		static $done = array();
+
+		$post_id = $post_id ? $post_id : get_the_id();
+
+		if ( isset( $done[ $post_id ] ) ) {
+			return $done[ $post_id ];
+		}
+
+		$now = null === $now ? gmdate( 'Y-m-d H:i:59' ) : $now;
+
+		if ( mysql2date( 'U', get_post( $post_id )->post_date_gmt, false ) > mysql2date( 'U', $now, false ) ) {
+			$coming_soon_prefix = apply_filters( 'gcs_sermon_coming_soon_prefix', '<span class="coming-soon-prefix">' . __( 'Coming Soon:', 'gc-sermons' ) . '</span> ', $post_id, $this );
+			$title = $coming_soon_prefix . $title ;
+		}
+
+		$done[ $post_id ] = $title;
+
+		return $title;
 	}
 
 	/**
