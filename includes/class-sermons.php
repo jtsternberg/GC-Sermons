@@ -78,6 +78,8 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 		add_filter( 'cmb2_override_excerpt_meta_save', '__return_true' );
 		add_filter( 'admin_init', array( $this, 'admin_hooks' ) );
 
+		add_filter( 'get_post_metadata', array( $this, 'featured_image_fallback_to_series_image' ), 10, 3 );
+
 		/**
 		 * Enable future posts to be displayed.
 		 *
@@ -100,17 +102,64 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 	 * @return void
 	 */
 	public function admin_hooks() {
-		add_action( 'dbx_post_advanced', array( $this, 'remove_default_boxes' ) );
+		add_action( 'dbx_post_advanced', array( $this, 'remove_default_boxes_for_sermons' ) );
 		add_filter( "manage_edit-{$this->post_type()}_columns", array( $this, 'columns' ) );
 	}
 
-	public function remove_default_boxes() {
+	/**
+	 * Remove default excerpt/feat-image metaboxes for Sermons
+	 *
+	 * @since  NEXT
+	 *
+	 * @return void
+	 */
+	public function remove_default_boxes_for_sermons() {
 		$screen = get_current_screen();
 
 		if ( isset( $screen->post_type ) && $this->post_type() === $screen->post_type ) {
 			remove_meta_box( 'postexcerpt', null, 'normal' );
 			remove_meta_box( 'postimagediv', null, 'side' );
 		}
+	}
+
+	/**
+	 * This provides a backup featured image for sermons by checking the sermon series
+	 * for the series featured image. If a sermon has a featured image set, that will be used.
+	 *
+	 * @since  NEXT
+	 *
+	 * @param null|array|string $value The value get_metadata() should return - a single metadata value,
+	 *                                 or an array of values.
+	 * @param  int    $object_id       Object ID.
+	 * @param  string $meta_key        Meta key.
+	 *
+	 * @return mixed Sermon featured image id, or Series image id, or nothing.
+	 */
+	public function featured_image_fallback_to_series_image( $meta, $object_id, $meta_key ) {
+
+		// Override thumbnail_id check and get the series image id as a fallback.
+		if ( '_thumbnail_id' === $meta_key && $this->post_type() === get_post_type( $object_id ) ) {
+
+			// Have to remove this filter to get the actual value to see if we need to do the work.
+			remove_filter( 'get_post_metadata', array( $this, 'featured_image_fallback_to_series_image' ), 10, 3 );
+			$id = get_post_thumbnail_id( $object_id );
+			add_filter( 'get_post_metadata', array( $this, 'featured_image_fallback_to_series_image' ), 10, 3 );
+
+			// Ok, no feat img id.
+			if ( ! $id || ! get_post( $id ) ) {
+
+				// Get sermon.
+				$sermon = new GCS_Sermon_Post( get_post( $object_id ) );
+
+				// Get series.
+				$series = $sermon->get_series();
+
+				// Send series image id.
+				return isset( $series->image_id ) ? $series->image_id : $id;
+			}
+		}
+
+		return $meta;
 	}
 
 	/**

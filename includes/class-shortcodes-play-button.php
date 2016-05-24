@@ -8,16 +8,16 @@
 class GCS_Shortcodes_Play_Button {
 
 	/**
-	 * Instance of GCS_PBS_Run
+	 * Instance of GCSS_Play_Button_Run
 	 *
-	 * @var GCS_PBS_Run
+	 * @var GCSS_Play_Button_Run
 	 */
 	public $run;
 
 	/**
-	 * Instance of GCS_PBS_Admin
+	 * Instance of GCSS_Play_Button_Admin
 	 *
-	 * @var GCS_PBS_Admin
+	 * @var GCSS_Play_Button_Admin
 	 */
 	public $admin;
 
@@ -29,10 +29,8 @@ class GCS_Shortcodes_Play_Button {
 	 * @return void
 	 */
 	public function __construct( $plugin ) {
-		$this->run = new GCS_PBS_Run();
-		$this->run->sermons = $plugin->sermons;
-
-		$this->admin = new GCS_PBS_Admin( $this->run );
+		$this->run = new GCSS_Play_Button_Run( $plugin->sermons );
+		$this->admin = new GCSS_Play_Button_Admin( $this->run );
 
 		$this->run->hooks();
 		$this->admin->hooks();

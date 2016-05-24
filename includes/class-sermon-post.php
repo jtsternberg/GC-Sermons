@@ -81,7 +81,7 @@ class GCS_Sermon_Post {
 	public function __construct( WP_Post $post ) {
 		$post_type = gc_sermons()->sermons->post_type();
 		if ( $post->post_type !== $post_type ) {
-			wp_die( 'Sorry, '. __CLASS__ .' expects a '. $post_type .' object.' );
+			throw new Exception( 'Sorry, '. __CLASS__ .' expects a '. $post_type .' object.' );
 		}
 
 		$this->post = $post;

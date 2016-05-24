@@ -9,7 +9,7 @@
  * @package GC Sermons
  */
 
-class GCS_PBS_Run extends WDS_Shortcodes {
+class GCSS_Play_Button_Run extends GCS_Shortcodes_Base {
 
 	/**
 	 * The Shortcode Tag
@@ -30,14 +30,6 @@ class GCS_PBS_Run extends WDS_Shortcodes {
 		'icon_size'  => 'large',
 		'do_scripts' => true,
 	);
-
-	/**
-	 * GCS_Sermon_Post object
-	 *
-	 * @var   GCS_Sermon_Post
-	 * @since 0.1.0
-	 */
-	public $sermons;
 
 	/**
 	 * Whether css has been output yet.
@@ -84,18 +76,8 @@ class GCS_PBS_Run extends WDS_Shortcodes {
 		return $output;
 	}
 
-	public function get_sermon() {
-		$sermon_id = $this->att( 'sermon_id' );
-
-		if ( ! $sermon_id || 'recent' === $sermon_id || '0' === $sermon_id || 0 === $sermon_id ) {
-
-			$this->shortcode_object->set_att( 'sermon', $this->sermons->most_recent_with_video() );
-
-		} elseif ( is_numeric( $sermon_id ) ) {
-			$this->shortcode_object->set_att( 'sermon', new GCS_Sermon_Post( get_post( absint( $sermon_id ) ) ) );
-		}
-
-		return $this->att( 'sermon' );
+	protected function most_recent_sermon() {
+		return $this->sermons->most_recent_with_video();
 	}
 
 	public function get_inline_styles() {

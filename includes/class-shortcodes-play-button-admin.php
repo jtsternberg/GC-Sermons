@@ -5,31 +5,7 @@
  * @package GC Sermons
  */
 
-class GCS_PBS_Admin extends WDS_Shortcode_Admin {
-	/**
-	 * Parent plugin class
-	 *
-	 * @var   GCS_PBS_Run
-	 * @since 0.1.0
-	 */
-	protected $run;
-
-	/**
-	 * Constructor
-	 *
-	 * @since  0.1.0
-	 * @param  object $run Main plugin object.
-	 * @return void
-	 */
-	public function __construct( GCS_PBS_Run $run ) {
-		$this->run = $run;
-
-		parent::__construct(
-			$this->run->shortcode,
-			GC_Sermons_Plugin::VERSION,
-			$this->run->atts_defaults
-		);
-	}
+class GCSS_Play_Button_Admin extends GCS_Shortcodes_Admin_Base {
 
 	/**
 	 * Sets up the button
@@ -56,7 +32,7 @@ class GCS_PBS_Admin extends WDS_Shortcode_Admin {
 	function fields( $fields, $button_data ) {
 		$fields[] = array(
 			'name'            => __( 'Sermon to play', 'gc-sermons' ),
-			'desc'            => __( 'Blank, "recent", or "0" will play the most recent video. Otherwise enter a post ID. click the magnifying glass to search for a Sermon post.', 'gc-sermons' ),
+			'desc'            => __( 'Blank, "recent", or "0" will play the most recent video. Otherwise enter a post ID. Click the magnifying glass to search for a Sermon post.', 'gc-sermons' ),
 			'id'              => 'sermon_id',
 			'type'            => 'post_search_text',
 			'post_type'       => $this->run->sermons->post_type(),

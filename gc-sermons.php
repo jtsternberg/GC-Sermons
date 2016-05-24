@@ -169,6 +169,8 @@ class GC_Sermons_Plugin {
 	 * @return void
 	 */
 	public function plugin_classes() {
+		require_once self::$path . 'functions.php';
+
 		// Attach other plugin classes to the base plugin class.
 		$this->sermons = new GCS_Sermons( $this );
 		$this->taxonomies = new GCS_Taxonomies( $this->sermons );

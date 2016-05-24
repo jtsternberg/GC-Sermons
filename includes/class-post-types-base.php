@@ -118,7 +118,9 @@ abstract class GCS_Post_Types_Base extends CPT_Core {
 	public function __get( $field ) {
 		switch ( $field ) {
 			case 'id':
-				return $this->id;
+			case 'arg_overrides':
+			case 'cpt_args':
+				return $this->{$field};
 			default:
 				throw new Exception( 'Invalid ' . __CLASS__ . ' property: ' . $field );
 		}

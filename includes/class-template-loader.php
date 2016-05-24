@@ -87,7 +87,7 @@ class GCS_Template_Loader {
 		}
 
 		// Filter args before outputting template.
-		$this->args = apply_filters( "template_attributes_for_{$this->template}", $this->args );
+		$this->args = apply_filters( "template_args_for_{$this->template}", $this->args );
 
 		try {
 			ob_start();
