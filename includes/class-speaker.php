@@ -76,6 +76,8 @@ class GCS_Speaker extends GCS_Taxonomies_Base {
 			),
 		);
 
+		$this->add_image_column( __( 'Speaker Avatar', 'gc-sermons' ) );
+
 		if ( function_exists( 'gc_staff' ) ) {
 			unset( $fields['gc_sermon_speaker_connected_user'] );
 

@@ -53,6 +53,14 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	);
 
 	/**
+	 * The image column title (if applicable).
+	 *
+	 * @var string
+	 * @since  NEXT
+	 */
+	protected $img_col_title = '';
+
+	/**
 	 * Constructor
 	 * Register Taxonomy. See documentation in Taxonomy_Core, and in wp-includes/taxonomy.php
 	 *
@@ -101,6 +109,75 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 		}
 	}
 
+	/** Columns ***************************************************************/
+
+	/**
+	 * Register image columns for $this->taxonomy().
+	 *
+	 * @todo  Need to disable JJJ's term image stuff for this taxonomy.
+	 *        https://twitter.com/Jtsternberg/status/735542428522971136
+	 *
+	 * @since NEXT
+	 *
+	 * @param string  $img_col_title The title for the Image column.
+	 */
+	protected function add_image_column( $img_col_title ) {
+		$this->img_col_title = $img_col_title ? $img_col_title : __( 'Image', 'gc-sermons' );
+
+		$tax = $this->taxonomy();
+
+		add_filter( "manage_edit-{$tax}_columns", array( $this, 'add_column_header' ) );
+		add_filter( "manage_{$tax}_custom_column", array( $this, 'add_column_value'  ), 10, 3 );
+	}
+
+	/**
+	 * Add the "tax_image" column to taxonomy terms list-tables.
+	 *
+	 * @since NEXT
+	 *
+	 * @param array $columns
+	 *
+	 * @return array
+	 */
+	public function add_column_header( $columns = array() ) {
+		$columns['tax_image'] = $this->img_col_title;
+
+		return $columns;
+	}
+
+	/**
+	 * Output the value for the custom column.
+	 *
+	 * @since NEXT
+	 *
+	 * @param string $empty
+	 * @param string $custom_column
+	 * @param int    $term_id
+	 *
+	 * @return mixed
+	 */
+	public function add_column_value( $empty = '', $custom_column = '', $term_id = 0 ) {
+
+		// Bail if no taxonomy passed or not on the `tax_image` column
+		if ( empty( $_REQUEST['taxonomy'] ) || ( 'tax_image' !== $custom_column ) || ! empty( $empty ) ) {
+			return;
+		}
+
+		$retval = '&#8212;';
+
+		// Get the term data.
+		$term = $this->get( $term_id, array( 'image_size' => 'thumb' ) );
+
+		// Output image if not empty.
+		if ( isset( $term->image ) && $term->image ) {
+			$retval = $term->image;
+		}
+
+		echo $retval;
+	}
+
+	/** Required by Extended Classes  *****************************************/
+
 	/**
 	 * Initiate our hooks
 	 *
@@ -108,6 +185,8 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	 * @return void
 	 */
 	abstract function hooks();
+
+	/** Helper Methods  *******************************************************/
 
 	public function new_cmb2( $args ) {
 		$cmb_id = $args['id'];

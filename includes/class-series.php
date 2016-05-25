@@ -82,5 +82,7 @@ class GCS_Series extends GCS_Taxonomies_Base {
 				),
 			),
 		) );
+
+		$this->add_image_column( __( 'Sermon Series Image', 'gc-sermons' ) );
 	}
 }
