@@ -90,7 +90,14 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 		add_action( 'wp_async_set_sermon_terms', array( $this, 'trigger_cache_flush' ), 10, 2 );
 	}
 
-	public function filter_values( $args ) {
+	/**
+	 * Filter values before taxonomy is officially registered.
+	 *
+	 * @since  0.1.0
+	 *
+	 * @return void
+	 */
+	public function filter_values() {
 		$args = array(
 			'singular'      => $this->singular,
 			'plural'        => $this->plural,
@@ -280,7 +287,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	 * @return WP_Term|false    Term object or false
 	 */
 	public function get( $term, $args = array() ) {
-		$term = isset( $term->term_id ) ? $term : get_term_by( 'id', $term_id, $this->taxonomy() );
+		$term = isset( $term->term_id ) ? $term : get_term_by( 'id', $term, $this->taxonomy() );
 		if ( ! isset( $term->term_id ) ) {
 			return false;
 		}
