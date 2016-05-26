@@ -33,38 +33,55 @@ class GCSS_Series_Admin extends GCS_Shortcodes_Admin_Base {
 
 		$fields[] = array(
 			'name'    => __( 'Number of Series to Show Per-Page', 'gc-sermons' ),
-			'desc'    => __( 'Select an odd number if choosing to "Highlight Most Recent"', 'gc-sermons' ),
 			'type'    => 'text_small',
 			'id'      => 'series_per_page',
-			'default' => $this->atts_defaults['series_per_page'],
+			'default' => get_option( 'posts_per_page', $this->atts_defaults['series_per_page'] ),
 		);
 
 		$fields[] = array(
-			'name'    => __( 'Highlight Most Recent Series?', 'gc-sermons' ),
+			'name'    => __( 'Remove Year Date Separators', 'gc-sermons' ),
 			'type'    => 'checkbox',
-			'id'      => 'highlight_first',
-			'default' => $this->atts_defaults['highlight_first'],
+			'id'      => 'series_remove_dates',
+			'default' => false,
 		);
 
 		$fields[] = array(
-			'name'    => __( 'Add Year Date Separators', 'gc-sermons' ),
+			'name'    => __( 'Remove Pagination', 'gc-sermons' ),
 			'type'    => 'checkbox',
-			'id'      => 'date_separators',
-			'default' => $this->atts_defaults['date_separators'],
+			'id'      => 'series_remove_pagination',
+			'default' => false,
 		);
 
 		$fields[] = array(
-			'name'    => __( 'Show Thumbnail?', 'gc-sermons' ),
+			'name'    => __( 'Remove Thumbnail', 'gc-sermons' ),
 			'type'    => 'checkbox',
-			'id'      => 'do_series_thumbnail',
-			'default' => $this->atts_defaults['do_series_thumbnail'],
+			'id'      => 'series_remove_thumbnail',
+			'default' => false,
 		);
 
 		$fields[] = array(
-			'name'    => __( 'Thumbnail Size (if checking "Show Thumbnail")', 'gc-sermons' ),
+			'name'    => __( 'Thumbnail Size (if included)', 'gc-sermons' ),
 			'type'    => 'text',
 			'id'      => 'series_thumbnail_size',
 			'default' => $this->atts_defaults['series_thumbnail_size'],
+		);
+
+		$fields[] = array(
+			'name'    => __( 'Max number of columns', 'gc-sermons' ),
+			'desc'    => __( 'Will vary on device screen width', 'gc-sermons' ),
+			'type'    => 'radio_inline',
+			'options' => array( 1 => 1, 2 => 2, 3 => 3, 4 => 4 ),
+			'id'      => 'series_number_columns',
+			'default' => $this->atts_defaults['series_number_columns'],
+		);
+
+		$fields[] = array(
+			'name'            => __( 'Offset', 'gc-sermons' ),
+			'desc'            => __( 'Changes which series starts the list', 'gc-sermons' ),
+			'type'            => 'text_small',
+			'id'              => 'series_list_offset',
+			'sanitization_cb' => 'absint',
+			'default'         => $this->atts_defaults['series_list_offset'],
 		);
 
 		$fields[] = array(

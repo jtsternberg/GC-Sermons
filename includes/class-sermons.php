@@ -353,9 +353,7 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 	}
 
 	public function admin_column_css() {
-		echo '<style type="text/css" media="screen">';
-		include_once GC_Sermons_Plugin::$path . 'templates/admin-column.css';
-		echo '</style>';
+		GCS_Style_Loader::output_template( 'admin-column' );
 	}
 
 	/**

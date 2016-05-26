@@ -1,14 +1,17 @@
 #tax-series {
 	width: 150px;
 }
+
 .sermon-series.with-image a {
 	display: block;
 	position: relative;
 	text-align: center;
 }
+
 .sermon-series.with-image a:hover img {
 	opacity: .05;
 }
+
 .sermon-series.with-image a:hover:after {
 	content: attr(title);
 	position: absolute;

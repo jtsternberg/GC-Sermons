@@ -50,12 +50,12 @@ class GCS_Shortcodes {
 	 * @return void
 	 */
 	public function __construct( $plugin ) {
-		$this->play_button = new GCS_Shortcodes_Play_Button( $plugin );
-		$this->sermons = new GCS_Shortcodes_Sermons( $plugin );
-		$this->series_info = new GCS_Shortcodes_Recent_Series( $plugin );
-		$this->series_info = new GCS_Shortcodes_Recent_Speaker( $plugin );
+		$this->play_button   = new GCS_Shortcodes_Play_Button( $plugin );
+		$this->sermons       = new GCS_Shortcodes_Sermons( $plugin );
+		$this->series_info   = new GCS_Shortcodes_Recent_Series( $plugin );
+		$this->series_info   = new GCS_Shortcodes_Recent_Speaker( $plugin );
 		$this->related_links = new GCS_Shortcodes_Related_Links( $plugin );
-		$this->series = new GCS_Shortcodes_Series( $plugin );
+		$this->series        = new GCS_Shortcodes_Series( $plugin );
 	}
 
 	/**

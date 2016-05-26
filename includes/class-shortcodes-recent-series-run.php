@@ -21,18 +21,30 @@ class GCSS_Recent_Series_Run extends GCS_Shortcodes_Base {
 	 * @since 0.1.0
 	 */
 	public $atts_defaults = array(
-		'sermon_id'           => 0, // 'Blank, "recent", or "0" will play the most recent video.
-		'sermon_recent'       => 'recent', // Options: 'recent', 'audio', 'video'
-		'series_do_thumbnail' => false,
+		'sermon_id'                 => 0, // 'Blank, "recent", or "0" will play the most recent video.
+		'sermon_recent'             => 'recent', // Options: 'recent', 'audio', 'video'
+		'series_remove_thumbnail'   => true,
+		'series_thumbnail_size'     => 'medium',
+
+		// No admin
+		'series_remove_description' => true,
+		'series_wrap_classes'       => '',
 	);
 
 	/**
 	 * Shortcode Output
 	 */
 	public function shortcode() {
-		$content = gc_get_sermon_series_info( $this->get_sermon(), $this->att( 'series_do_thumbnail' ) );
+		$args = array();
+		foreach ( $this->atts_defaults as $key => $default_value ) {
+			$args[ str_replace( 'series_', '', $key ) ] = is_bool( $this->atts_defaults[ $key ] )
+				? $this->bool_att( $key, $default_value )
+				: $this->att( $key, $default_value );
+		}
 
-		return $content;
+		$args['wrap_classes'] .= ' gc-recent-series';
+
+		return gc_get_sermon_series_info( $this->get_sermon(), $args );
 	}
 
 }

@@ -380,9 +380,11 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 			$terms = array();
 			if ( $sermons->have_posts() ) {
 				foreach ( $sermons->posts as $post ) {
+					$year = get_the_date( 'Y', $post );
 					if ( $post_terms = get_the_terms( $post, $taxonomy ) ) {
 						foreach ( $post_terms as $term ) {
 							if ( ! isset( $terms[ $term->term_id ] ) ) {
+								$term->year = $year;
 								$terms[ $term->term_id ] = $term;
 							}
 						}

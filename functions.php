@@ -35,24 +35,43 @@ function gc_get_sermon_post( $sermon = 0 ) {
  * @since  NEXT
  *
  * @param  mixed   $sermon          Post object or ID or (GCS_Sermon_Post object).
- * @param  boolean $do_thumbnail    Whether to ouput thumbnail.
+ * @param  boolean $args            Args array
  * @param  array   $get_series_args Args for GCS_Sermon_Post::get_series()
  *
  * @return string Sermon series info output.
  */
-function gc_get_sermon_series_info( $sermon = 0, $do_thumbnail = true, $get_series_args = array() ) {
-	$sermon = gc_get_sermon_post( $sermon );
-
-	// If no sermon or no sermon series, bail.
-	if ( ! $sermon || ! ( $series = $sermon->get_series( $get_series_args ) ) ) {
+function gc_get_sermon_series_info( $sermon = 0, $args = array(), $get_series_args = array() ) {
+	if ( ! ( $sermon = gc_get_sermon_post( $sermon ) ) ) {
+		// If no sermon, bail.
 		return '';
 	}
 
-	$content = GCS_Template_Loader::get_template( 'sermon-series-info', array(
-		'thumbnail'    => $do_thumbnail && $series->image ? $series->image : '',
-		'series_url'   => $series->term_link,
-		'series_title' => $series->name,
+	$args = wp_parse_args( $args, array(
+		'remove_thumbnail'   => false,
+		'remove_description' => true,
+		'thumbnail_size'     => 'medium',
+		'wrap_classes'       => '',
 	) );
+
+	$get_series_args['image_size'] = isset( $get_series_args['image_size'] )
+		? $get_series_args['image_size']
+		: $args['thumbnail_size'];
+
+	if ( ! ( $series = $sermon->get_series( $get_series_args ) ) ) {
+		// If no series, bail.
+		return '';
+	}
+
+	$series->classes        = $args['wrap_classes'];
+	$series->do_image       = ! $args['remove_thumbnail'] && $series->image;
+	$series->do_description = ! $args['remove_description'] && $series->description;
+
+	$content = '';
+	$content .= GCS_Style_Loader::get_template( 'series-list-style' );
+	$content .= GCS_Template_Loader::get_template( 'series-item', (array) $series );
+
+	// Not a list item.
+	$content = str_replace( array( '<li', '</li' ), array( '<div', '</div' ), $content );
 
 	return $content;
 }
@@ -63,12 +82,32 @@ function gc_get_sermon_series_info( $sermon = 0, $do_thumbnail = true, $get_seri
  * @since  NEXT
  *
  * @param  mixed   $sermon           Post object or ID or (GCS_Sermon_Post object).
- * @param  boolean $do_thumbnail     Whether to ouput thumbnail.
+ * @param  boolean $args             Args array
  * @param  array   $get_speaker_args Args for GCS_Sermon_Post::get_speaker()
  *
  * @return string Sermon speaker info output.
  */
-function gc_get_sermon_speaker_info( $sermon = 0, $do_thumbnail = true, $get_speaker_args = array() ) {
+function gc_get_sermon_speaker_info( $sermon = 0, $args = array(), $get_speaker_args = array() ) {
+	if ( ! ( $sermon = gc_get_sermon_post( $sermon ) ) ) {
+		// If no sermon, bail.
+		return '';
+	}
+
+	$args = wp_parse_args( $args, array(
+		'remove_thumbnail'   => false,
+		'thumbnail_size'     => 'medium',
+		'wrap_classes'       => '',
+	) );
+
+	$get_speaker_args['image_size'] = isset( $get_speaker_args['image_size'] )
+		? $get_speaker_args['image_size']
+		: $args['thumbnail_size'];
+
+	if ( ! ( $speaker = $sermon->get_speaker( $get_speaker_args ) ) ) {
+		// If no speaker, bail.
+		return '';
+	}
+
 	$sermon = gc_get_sermon_post( $sermon );
 
 	// If no sermon or no sermon speaker, bail.
@@ -76,11 +115,10 @@ function gc_get_sermon_speaker_info( $sermon = 0, $do_thumbnail = true, $get_spe
 		return '';
 	}
 
-	$content = GCS_Template_Loader::get_template( 'sermon-speaker-info', array(
-		'thumbnail'    => $do_thumbnail && $speaker->image ? $speaker->image : '',
-		'speaker_url'   => $speaker->term_link,
-		'speaker_title' => $speaker->name,
-	) );
+	$speaker->image  = ! $args['remove_thumbnail'] ? $speaker->image : '';
+	$speaker->classes = $args['wrap_classes'];
+
+	$content = GCS_Template_Loader::get_template( 'sermon-speaker-info', (array) $speaker );
 
 	return $content;
 }

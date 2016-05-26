@@ -25,17 +25,13 @@ class GCSS_Play_Button_Run extends GCS_Shortcodes_Base {
 	 */
 	public $atts_defaults = array(
 		'sermon_id'  => 0,
-		'icon_class' => 'fa-youtube-play',
 		'icon_color' => '#000000',
 		'icon_size'  => 'large',
+		'icon_class' => 'fa-youtube-play',
+
+		// no admin
 		'do_scripts' => true,
 	);
-
-	/**
-	 * Whether css has been output yet.
-	 * @var bool
-	 */
-	protected static $css_done = false;
 
 	/**
 	 * Shortcode Output
@@ -52,13 +48,7 @@ class GCSS_Play_Button_Run extends GCS_Shortcodes_Base {
 			$this->do_scripts();
 		}
 
-		$output = '';
-
-		// Only output once, not once per shortcode.
-		if ( ! self::$css_done ) {
-			self::$css_done = true;
-			$output .= GCS_Template_Loader::get_template( 'play-button-shortcode-css' );
-		}
+		$output = GCS_Style_Loader::get_template( 'play-button-shortcode-style' );
 
 		list( $style, $has_icon_font_size ) = $this->get_inline_styles();
 
@@ -109,15 +99,6 @@ class GCSS_Play_Button_Run extends GCS_Shortcodes_Base {
 		}
 
 		return $classes;
-	}
-
-	public function style_block() {
-		// Only output once, not once per shortcode.
-		if ( ! self::$css_done ) {
-			self::$css_done = true;
-			return GCS_Template_Loader::get_template( 'play-button-shortcode-css' );
-		}
-
 	}
 
 	public function do_scripts() {

@@ -55,9 +55,17 @@ class GCSS_Recent_Series_Admin extends GCS_Shortcodes_Admin_Base {
 		);
 
 		$fields[] = array(
-			'name'    => __( 'Show Thumbnail?', 'gc-sermons' ),
+			'name'    => __( 'Remove Thumbnail', 'gc-sermons' ),
 			'type'    => 'checkbox',
-			'id'      => 'series_do_thumbnail',
+			'id'      => 'series_remove_thumbnail',
+			'default' => false,
+		);
+
+		$fields[] = array(
+			'name'    => __( 'Thumbnail Size (if included)', 'gc-sermons' ),
+			'type'    => 'text',
+			'id'      => 'series_thumbnail_size',
+			'default' => $this->atts_defaults['series_thumbnail_size'],
 		);
 
 		return $fields;

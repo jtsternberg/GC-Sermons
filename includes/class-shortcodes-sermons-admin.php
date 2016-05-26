@@ -39,21 +39,21 @@ class GCSS_Sermons_Admin extends GCS_Shortcodes_Admin_Base {
 		);
 
 		$fields[] = array(
-			'name'    => __( 'Show Excerpts?', 'gc-sermons' ),
+			'name'    => __( 'Remove Excerpts', 'gc-sermons' ),
 			'type'    => 'checkbox',
-			'id'      => 'do_sermon_excerpt',
-			'default' => $this->atts_defaults['do_sermon_excerpt'],
+			'id'      => 'sermon_remove_excerpt',
+			'default' => false,
 		);
 
 		$fields[] = array(
-			'name'    => __( 'Show Thumbnail?', 'gc-sermons' ),
+			'name'    => __( 'Remove Thumbnails', 'gc-sermons' ),
 			'type'    => 'checkbox',
-			'id'      => 'do_sermon_thumbnail',
-			'default' => $this->atts_defaults['do_sermon_thumbnail'],
+			'id'      => 'sermon_remove_thumbnail',
+			'default' => false,
 		);
 
 		$fields[] = array(
-			'name'    => __( 'Thumbnail Size (if checking "Show Thumbnail")', 'gc-sermons' ),
+			'name'    => __( 'Thumbnail Size (if included)', 'gc-sermons' ),
 			'type'    => 'text',
 			'id'      => 'sermon_thumbnail_size',
 			'default' => $this->atts_defaults['sermon_thumbnail_size'],
