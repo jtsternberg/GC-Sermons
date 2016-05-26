@@ -38,7 +38,7 @@
 		"webdevstudios/taxonomy_core": "^0.2.4",
 		"webdevstudios/cmb2-post-search-field": "dev-master",
 		"jtsternberg/cmb2-related-links": "^v0.1.0",
-		"webdevstudios/wds-shortcodes": "^v1.0.0",
+		"webdevstudios/wds-shortcodes": "^v1.0.1",
 		"webdevstudios/cmb2-user-select": "^v0.2.0"
 	},
 	"scripts": {
