@@ -21,13 +21,13 @@ class GCSS_Series_Run extends GCS_Shortcodes_Base {
 	 * @since 0.1.0
 	 */
 	public $atts_defaults = array(
-		'series_per_page'       => 10, // Will use WP's per-page option.
+		'series_per_page'           => 10, // Will use WP's per-page option.
 		'series_remove_dates'       => false,
 		'series_remove_thumbnail'   => false,
-		'series_thumbnail_size' => 'medium',
-		'series_number_columns' => 2,
-		'series_list_offset'    => 0,
-		'series_wrap_classes'   => '',
+		'series_thumbnail_size'     => 'medium',
+		'series_number_columns'     => 2,
+		'series_list_offset'        => 0,
+		'series_wrap_classes'       => '',
 		'series_remove_pagination'  => false,
 
 		// No admin
@@ -59,12 +59,12 @@ class GCSS_Series_Run extends GCS_Shortcodes_Base {
 
 		$args = $this->get_pagination( $total_pages );
 
-		$args['terms']               = $this->add_year_index_and_augment_terms( $allterms );
-		$args['series_remove_dates'] = $this->bool_att( 'series_remove_dates' );
-		$args['series_wrap_classes'] = $this->get_wrap_classes();
+		$args['terms']        = $this->add_year_index_and_augment_terms( $allterms );
+		$args['remove_dates'] = $this->bool_att( 'series_remove_dates' );
+		$args['wrap_classes'] = $this->get_wrap_classes();
 
 		$content = '';
-		$content .= GCS_Style_Loader::get_template( 'series-list-style' );
+		$content .= GCS_Style_Loader::get_template( 'list-item-style' );
 		$content .= GCS_Template_Loader::get_template( 'series-list', $args );
 
 		return $content;
@@ -85,7 +85,7 @@ class GCSS_Series_Run extends GCS_Shortcodes_Base {
 		$columns   = absint( $this->att( 'series_number_columns' ) );
 		$columns   = $columns < 1 ? 1 : $columns;
 
-		return $this->att( 'series_wrap_classes' ) . ' gc-' . $columns . '-cols';
+		return $this->att( 'series_wrap_classes' ) . ' gc-' . $columns . '-cols gc-series-wrap';
 	}
 
 	public function add_year_index_and_augment_terms( $allterms ) {
@@ -100,6 +100,7 @@ class GCSS_Series_Run extends GCS_Shortcodes_Base {
 
 			$term->do_image       = $do_thumb && $term->image;
 			$term->do_description = $do_desc && $term->description;
+			$term->url            = $term->term_link;
 
 			$terms[ $do_date ? $term->year : 0 ][] = $term;
 		}

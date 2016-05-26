@@ -24,7 +24,7 @@
 	clear: both;
 }
 
-.gc-series-item {
+.gc-item {
 	position: relative;
 	display: block;
 	list-style-type: none;
@@ -32,44 +32,44 @@
 	padding: .5em;
 }
 
-.gc-1-cols .gc-series-item {
+.gc-1-cols .gc-item {
 	float: none;
 }
 
-.gc-2-cols .gc-series-item {
+.gc-2-cols .gc-item {
 	width: 50%;
 }
 
-.gc-3-cols .gc-series-item {
+.gc-3-cols .gc-item {
 	width: 33.333333%;
 }
 
-.gc-4-cols .gc-series-item {
+.gc-4-cols .gc-item {
 	width: 25%;
 }
 
-.gc-4-cols .gc-series-item h3 {
+.gc-4-cols .gc-item h3 {
 	font-size: 1.5em;
 }
 
-.gc-series-item, .gc-series-item * {
+.gc-item, .gc-item * {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 }
 
-.gc-2-cols .gc-series-item:nth-child(2n+1),
-.gc-3-cols .gc-series-item:nth-child(3n+1),
-.gc-4-cols .gc-series-item:nth-child(4n+1) {
+.gc-2-cols .gc-item:nth-child(2n+1),
+.gc-3-cols .gc-item:nth-child(3n+1),
+.gc-4-cols .gc-item:nth-child(4n+1) {
 	clear: both;
 }
 
-.gc-series-item img {
+.gc-item img {
 	max-width: 100%;
 	height: auto;
 }
 
-.gc-series-link {
+.gc-item-link {
 	display: inline-block;
 	position: relative;
 	margin: 0;
@@ -77,7 +77,7 @@
 	/*overflow: hidden;*/
 }
 
-.gc-no-thumb .gc-series-link {
+.gc-no-thumb .gc-item-link {
 	background-color: rgba(0,0,0,.5);
 	padding: .9em .5em .95em;
 	-webkit-transition: background-color .3s ease-in-out;
@@ -86,18 +86,18 @@
 	-ms-transition: background-color .3s ease-in-out;
 }
 
-.gc-no-thumb .gc-series-link:hover {
+.gc-no-thumb .gc-item-link:hover {
 	background-color: rgba(0,0,0,.7);
 }
 
-.gc-thumb .gc-series-link:hover .gc-sermons-shader,
-.gc-thumb .gc-series-link:hover .gc-sermons-table-wrapper {
+.gc-thumb .gc-item-link:hover .gc-sermons-shader,
+.gc-thumb .gc-item-link:hover .gc-sermons-table-wrapper {
 	opacity: 0;
 }
 
 .gc-sermons-shader,
 .gc-sermons-table-wrapper,
-.gc-series-link table {
+.gc-item-link table {
 	position: relative;
 }
 
@@ -113,41 +113,41 @@
 
 .gc-thumb .gc-sermons-shader,
 .gc-thumb .gc-sermons-table-wrapper,
-.gc-series-link table {
+.gc-item-link table {
 	width: 100%;
 	height: 100%;
 	left: 0;
 	top: 0;
 }
 
-.gc-series-link table {
+.gc-item-link table {
 	border: 10px solid transparent;
 }
 
-.gc-series-link img {
+.gc-item-link img {
 	display: block;
 	position: relative;
 	width: 100%;
 }
 
-.gc-series-link .gc-sermons-shader {
+.gc-item-link .gc-sermons-shader {
 	background-color: rgba(0,0,0,.5);
 }
 
-.gc-series-link td {
+.gc-item-link td {
 	padding: 0;
 	vertical-align: middle;
 	background: none;
 }
 
-.gc-series-item h3 {
+.gc-item h3 {
 	color: #fff;
 	font-size: 2em;
 	position: relative;
 	padding-bottom: 1.5em;
 }
 
-.gc-series-item h3:after {
+.gc-item h3:after {
 	position: absolute;
 	content: '→';
 	font-family: monospace;
@@ -167,26 +167,26 @@
 	-ms-transition: all .1s ease-in-out;
 }
 
-.gc-no-thumb .gc-series-link:hover h3:after {
+.gc-no-thumb .gc-link:hover h3:after {
 	font-size: 2.5em;
 	bottom: .46em;
 }
 
-.gc-next-series-link {
+.gc-next-link {
 	float: right;
 }
 
-.gc-next-series-link a span, .gc-prev-series-link a:before {
+.gc-next-link a span, .gc-prev-link a:before {
 	display: inline-block;
 	font-family: monospace;
 	font-size: 2em;
 }
 
-.gc-prev-series-link a span {
+.gc-prev-link a span {
 	display: none;
 }
 
-.gc-prev-series-link a:before {
+.gc-prev-link a:before {
 	/* Because &rarr; looks better w/ monospace font, so flip it. */
 	content: '→';
 	-webkit-transform:rotateY(180deg);
@@ -195,7 +195,7 @@
 	-ms-transform:rotateY(180deg);
 }
 
-.gc-prev-next-series:after {
+.gc-prev-next:after {
 	content: '';
 	display: block;
 	clear: both;
@@ -203,11 +203,11 @@
 
 @media only screen and (max-width : 1000px) {
 
-	.gc-series-item h3 {
+	.gc-item h3 {
 		font-size: 1.5em;
 	}
 
-	.gc-4-cols .gc-series-item h3 {
+	.gc-4-cols .gc-item h3 {
 		font-size: 1em;
 	}
 
@@ -215,22 +215,22 @@
 
 @media only screen and (max-width : 775px) {
 
-	.gc-3-cols .gc-series-item,
-	.gc-4-cols .gc-series-item {
+	.gc-3-cols .gc-item,
+	.gc-4-cols .gc-item {
 		width: 50%;
 	}
 
-	.gc-3-cols .gc-series-item:nth-child(3n+1),
-	.gc-4-cols .gc-series-item:nth-child(4n+1) {
+	.gc-3-cols .gc-item:nth-child(3n+1),
+	.gc-4-cols .gc-item:nth-child(4n+1) {
 		clear: none;
 	}
 
-	.gc-3-cols .gc-series-item:nth-child(2n+1),
-	.gc-4-cols .gc-series-item:nth-child(2n+1) {
+	.gc-3-cols .gc-item:nth-child(2n+1),
+	.gc-4-cols .gc-item:nth-child(2n+1) {
 		clear: both;
 	}
 
-	.gc-4-cols .gc-series-item h3 {
+	.gc-4-cols .gc-item h3 {
 		font-size: 1.5em;
 	}
 
@@ -238,13 +238,13 @@
 
 @media only screen and (max-width : 600px) {
 
-	.gc-2-cols .gc-series-item,
-	.gc-3-cols .gc-series-item,
-	.gc-4-cols .gc-series-item {
+	.gc-2-cols .gc-item,
+	.gc-3-cols .gc-item,
+	.gc-4-cols .gc-item {
 		width: 100%;
 	}
 
-	.gc-series-item h3 {
+	.gc-item h3 {
 		font-size: 1.4em;
 	}
 

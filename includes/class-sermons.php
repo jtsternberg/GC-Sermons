@@ -447,6 +447,7 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 	public function get_many( $args ) {
 		$defaults = $this->query_args;
 		unset( $defaults['posts_per_page'] );
+		unset( $defaults['no_found_rows'] );
 		$args['augment_posts'] = true;
 
 		$args = apply_filters( 'gcs_get_sermons_args', wp_parse_args( $args, $defaults ) );

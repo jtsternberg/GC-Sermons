@@ -65,10 +65,11 @@ function gc_get_sermon_series_info( $sermon = 0, $args = array(), $get_series_ar
 	$series->classes        = $args['wrap_classes'];
 	$series->do_image       = ! $args['remove_thumbnail'] && $series->image;
 	$series->do_description = ! $args['remove_description'] && $series->description;
+	$series->url            = $series->term_link;
 
 	$content = '';
-	$content .= GCS_Style_Loader::get_template( 'series-list-style' );
-	$content .= GCS_Template_Loader::get_template( 'series-item', (array) $series );
+	$content .= GCS_Style_Loader::get_template( 'list-item-style' );
+	$content .= GCS_Template_Loader::get_template( 'list-item', (array) $series );
 
 	// Not a list item.
 	$content = str_replace( array( '<li', '</li' ), array( '<div', '</div' ), $content );

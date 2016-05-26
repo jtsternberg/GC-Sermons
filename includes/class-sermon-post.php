@@ -206,25 +206,51 @@ class GCS_Sermon_Post {
 	}
 
 	/**
-	 * Wrapper for get_permalink
+	 * Wrapper for get_permalink.
 	 *
 	 * @since  0.1.1
 	 *
-	 * @return string Sermon post permalink
+	 * @return string Sermon post permalink.
 	 */
 	public function permalink() {
 		return get_permalink( $this->ID );
 	}
 
 	/**
-	 * Wrapper for get_the_title
+	 * Wrapper for get_the_title.
 	 *
 	 * @since  0.1.1
 	 *
-	 * @return string Sermon post title
+	 * @return string Sermon post title.
 	 */
 	public function title() {
 		return get_the_title( $this->ID );
+	}
+
+	/**
+	 * Wrapper for get_the_excerpt.
+	 *
+	 * @since  NEXT
+	 *
+	 * @return string Sermon post excerpt.
+	 */
+	public function excerpt() {
+	}
+
+	/**
+	 * Wrapper for the_excerpt. Returns value. Must be used in loop.
+	 *
+	 * @since  NEXT
+	 *
+	 * @return string Sermon post excerpt.
+	 */
+	public function loop_excerpt() {
+		ob_start();
+		the_excerpt();
+		// grab the data from the output buffer and add it to our $content variable
+		$excerpt = ob_get_clean();
+
+		return $excerpt;
 	}
 
 	/**
@@ -353,8 +379,9 @@ class GCS_Sermon_Post {
 		}
 
 		$args = wp_parse_args( $args, array(
-			'post__not_in' => array( $this->ID ),
+			'post__not_in'   => array( $this->ID ),
 			'posts_per_page' => 10,
+			'no_found_rows'  => true,
 		) );
 
 		$args['tax_query'] = array(
@@ -384,8 +411,9 @@ class GCS_Sermon_Post {
 		}
 
 		$args = wp_parse_args( $args, array(
-			'post__not_in' => array( $this->ID ),
+			'post__not_in'   => array( $this->ID ),
 			'posts_per_page' => 10,
+			'no_found_rows'  => true,
 		) );
 
 		$args['tax_query'] = array(

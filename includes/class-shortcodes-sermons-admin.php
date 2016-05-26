@@ -34,15 +34,27 @@ class GCSS_Sermons_Admin extends GCS_Shortcodes_Admin_Base {
 		$fields[] = array(
 			'name'    => __( 'Number of sermons to show per-page', 'gc-sermons' ),
 			'type'    => 'text_small',
-			'id'      => 'sermons_posts_per_page',
-			'default' => get_option( 'posts_per_page', $this->atts_defaults['sermons_posts_per_page'] ),
+			'id'      => 'sermon_per_page',
+			'default' => get_option( 'posts_per_page', $this->atts_defaults['sermon_per_page'] ),
 		);
 
 		$fields[] = array(
-			'name'    => __( 'Remove Excerpts', 'gc-sermons' ),
+			'name'    => __( 'Remove Pagination', 'gc-sermons' ),
 			'type'    => 'checkbox',
-			'id'      => 'sermon_remove_excerpt',
+			'id'      => 'sermon_remove_pagination',
 			'default' => false,
+		);
+
+		$fields[] = array(
+			'name'    => __( 'Content', 'gc-sermons' ),
+			'type'    => 'radio',
+			'id'      => 'sermon_content',
+			'default' => $this->atts_defaults['sermon_content'],
+			'options' => array(
+				''        => __( 'None', 'gc-sermons' ),
+				'content' => __( 'Sermon Post Content', 'gc-sermons' ),
+				'excerpt' => __( 'Sermon Post Excerpt', 'gc-sermons' ),
+			),
 		);
 
 		$fields[] = array(
@@ -57,6 +69,24 @@ class GCSS_Sermons_Admin extends GCS_Shortcodes_Admin_Base {
 			'type'    => 'text',
 			'id'      => 'sermon_thumbnail_size',
 			'default' => $this->atts_defaults['sermon_thumbnail_size'],
+		);
+
+		$fields[] = array(
+			'name'    => __( 'Max number of columns', 'gc-sermons' ),
+			'desc'    => __( 'Will vary on device screen width', 'gc-sermons' ),
+			'type'    => 'radio_inline',
+			'options' => array( 1 => 1, 2 => 2, 3 => 3, 4 => 4 ),
+			'id'      => 'sermon_number_columns',
+			'default' => $this->atts_defaults['sermon_number_columns'],
+		);
+
+		$fields[] = array(
+			'name'            => __( 'Offset', 'gc-sermons' ),
+			'desc'            => __( 'Changes which sermon starts the list', 'gc-sermons' ),
+			'type'            => 'text_small',
+			'id'              => 'sermon_list_offset',
+			'sanitization_cb' => 'absint',
+			'default'         => $this->atts_defaults['sermon_list_offset'],
 		);
 
 		$fields[] = array(
