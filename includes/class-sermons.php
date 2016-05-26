@@ -91,7 +91,9 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 		 */
 		if ( apply_filters( 'gc_display_future_sermsons', true ) ) {
 			add_filter( 'wp_insert_post_data', array( $this, 'save_future_as_published' ), 10, 2 );
-			add_filter( 'the_title', array( $this, 'label_coming_soon' ), 10, 2 );
+			if ( ! is_admin() ) {
+				add_filter( 'the_title', array( $this, 'label_coming_soon' ), 10, 2 );
+			}
 		}
 	}
 
@@ -200,6 +202,7 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 		$now = null === $now ? gmdate( 'Y-m-d H:i:59' ) : $now;
 
 		if ( mysql2date( 'U', get_post( $post_id )->post_date_gmt, false ) > mysql2date( 'U', $now, false ) ) {
+
 			$coming_soon_prefix = apply_filters( 'gcs_sermon_coming_soon_prefix', '<span class="coming-soon-prefix">' . __( 'Coming Soon:', 'gc-sermons' ) . '</span> ', $post_id, $this );
 			$title = $coming_soon_prefix . $title ;
 		}
@@ -317,12 +320,16 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 	public function columns_display( $column, $post_id ) {
 		if ( 'tax-'. $this->plugin->series->id === $column ) {
 			add_action( 'admin_footer', array( $this, 'admin_column_css' ) );
+
 			// Get sermon post object
 			$sermon = new GCS_Sermon_Post( get_post( $post_id ) );
+
 			// If we have sermon series...
 			if ( is_array( $sermon->series ) ) {
+
 				// Then loop them (typically only one)
 				foreach ( $sermon->series as $series ) {
+
 					// Get augmented term object to get the thumbnail url
 					$series = $this->plugin->series->get( $series, array( 'image_size' => 'thumb' ) );
 
