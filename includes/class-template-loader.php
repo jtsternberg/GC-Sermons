@@ -201,6 +201,26 @@ class GCS_Template_Loader {
 	}
 
 	/**
+	 * Conditionally output one of the $args values,
+	 * if the value (or another one specified) exists.
+	 *
+	 * @since  NEXT
+	 *
+	 * @param  string  $arg          The $args key.
+	 * @param  mixed   $esc_cb       An escaping function callback.
+	 * @param  mixed   $arg_to_check Alternate arg to check instead of $arg.
+	 *
+	 * @return mixed                 Value if condition is met.
+	 */
+	public function maybe_output( $arg, $esc_cb = '', $arg_to_check = null ) {
+		$arg_to_check = null === $arg_to_check ? $arg : $arg_to_check;
+
+		if ( $this->get( $arg_to_check ) ) {
+			$this->output( $arg, $esc_cb );
+		}
+	}
+
+	/**
 	 * Magic method to fetch the rendered view when calling the call as a string.
 	 *
 	 * @since  NEXT
