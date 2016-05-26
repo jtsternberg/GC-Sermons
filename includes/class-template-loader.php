@@ -38,6 +38,14 @@ class GCS_Template_Loader {
 	public $template = '';
 
 	/**
+	 * Template file extension
+	 *
+	 * @var string
+	 * @since NEXT
+	 */
+	protected $extension = '.php';
+
+	/**
 	 * HTML view template loader constructor.
 	 *
 	 * @since  NEXT
@@ -53,7 +61,7 @@ class GCS_Template_Loader {
 			throw new Exception( 'Template variable required for '. __CLASS__ .'.' );
 		}
 
-		$file = $this->template = "{$template}.php";
+		$file = $this->template = "{$template}{$this->extension}";
 
 		if ( is_array( $name ) ) {
 			$this->args = $name;
@@ -62,7 +70,7 @@ class GCS_Template_Loader {
 
 			$name = (string) $name;
 			if ( '' !== $name ) {
-				$this->templates[] = $this->template = "{$template}-{$name}.php";
+				$this->templates[] = $this->template = "{$template}-{$name}{$this->extension}";
 			}
 		}
 
