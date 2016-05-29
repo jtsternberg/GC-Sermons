@@ -95,7 +95,7 @@ class GCS_Template_Loader {
 		}
 
 		// Filter args before outputting template.
-		$this->args = apply_filters( "template_args_for_{$this->template}", $this->args );
+		$this->args = apply_filters( "template_args_for_{$this->template}", $this->args, $this );
 
 		try {
 			ob_start();
@@ -106,6 +106,8 @@ class GCS_Template_Loader {
 		} catch ( Exception $e ) {
 			wpdie( $e->getMessage() );
 		}
+
+		$content = apply_filters( "template_output_for_{$this->template}", $content, $this );
 
 		if ( ! $echo ) {
 			return $content;
