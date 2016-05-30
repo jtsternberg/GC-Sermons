@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7efd278783093cec19b2c38375a46cfb",
-    "content-hash": "2b42d007f3d2f606ec4d8f9e1edfb7a8",
+    "hash": "bfe32f7494e65f6dfb081c5a0f154c18",
+    "content-hash": "761da31aa2e13da7d452a5a0e5fc95af",
     "packages": [
         {
             "name": "jtsternberg/cmb2-related-links",
-            "version": "v0.1.0",
+            "version": "v0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jtsternberg/CMB2-Related-Links.git",
-                "reference": "7ce4076f78b3a4e377b5409f35fe97c1361bdb7b"
+                "reference": "a26e71522eed60cfd8e8596f4a2a83a56f1b8226"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jtsternberg/CMB2-Related-Links/zipball/7ce4076f78b3a4e377b5409f35fe97c1361bdb7b",
-                "reference": "7ce4076f78b3a4e377b5409f35fe97c1361bdb7b",
+                "url": "https://api.github.com/repos/jtsternberg/CMB2-Related-Links/zipball/a26e71522eed60cfd8e8596f4a2a83a56f1b8226",
+                "reference": "a26e71522eed60cfd8e8596f4a2a83a56f1b8226",
                 "shasum": ""
             },
             "require": {
@@ -49,7 +49,7 @@
                 "meta",
                 "wordpress"
             ],
-            "time": "2016-03-28 05:40:41"
+            "time": "2016-05-30 07:10:25"
         },
         {
             "name": "jtsternberg/cmb2-term-select",
@@ -247,16 +247,16 @@
         },
         {
             "name": "webdevstudios/cmb2-post-search-field",
-            "version": "dev-master",
+            "version": "v0.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WebDevStudios/CMB2-Post-Search-field.git",
-                "reference": "50413ef784a4d1cd23e10a54bb036ea473443324"
+                "reference": "f1c0422a3de6e95f5b5597fe734f86ae51990ce8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WebDevStudios/CMB2-Post-Search-field/zipball/50413ef784a4d1cd23e10a54bb036ea473443324",
-                "reference": "50413ef784a4d1cd23e10a54bb036ea473443324",
+                "url": "https://api.github.com/repos/WebDevStudios/CMB2-Post-Search-field/zipball/f1c0422a3de6e95f5b5597fe734f86ae51990ce8",
+                "reference": "f1c0422a3de6e95f5b5597fe734f86ae51990ce8",
                 "shasum": ""
             },
             "require": {
@@ -287,7 +287,7 @@
                 "search",
                 "wordpress"
             ],
-            "time": "2016-03-28 02:50:41"
+            "time": "2016-05-30 06:58:49"
         },
         {
             "name": "webdevstudios/cmb2-user-select",
@@ -498,8 +498,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "techcrunch/wp-async-task": 20,
-        "webdevstudios/cpt-core": 20,
-        "webdevstudios/cmb2-post-search-field": 20
+        "webdevstudios/cpt-core": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

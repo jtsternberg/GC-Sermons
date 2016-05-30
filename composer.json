@@ -37,8 +37,8 @@
 		"TGMPA/TGM-Plugin-Activation": "^2.5.2",
 		"webdevstudios/cpt-core": "dev-master",
 		"webdevstudios/taxonomy_core": "^0.2.4",
-		"webdevstudios/cmb2-post-search-field": "dev-master",
-		"jtsternberg/cmb2-related-links": "^v0.1.0",
+		"webdevstudios/cmb2-post-search-field": "^v0.2.5",
+		"jtsternberg/cmb2-related-links": "^v0.1.1",
 		"jtsternberg/cmb2-term-select": "^v0.1.0",
 		"webdevstudios/wds-shortcodes": "^v1.0.2",
 		"webdevstudios/cmb2-user-select": "^v0.2.0"
