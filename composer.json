@@ -25,6 +25,7 @@
 			"vendor/webdevstudios/cmb2-user-select/cmb2-user-select.php",
 			"vendor/webdevstudios/cmb2-post-search-field/cmb2_post_search_field.php",
 			"vendor/jtsternberg/cmb2-related-links/cmb2-related-links.php",
+			"vendor/jtsternberg/cmb2-term-select/cmb2-term-select.php",
 			"vendor/webdevstudios/wds-shortcodes/wds-shortcodes.php",
 			"vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php"
 		]
@@ -38,7 +39,8 @@
 		"webdevstudios/taxonomy_core": "^0.2.4",
 		"webdevstudios/cmb2-post-search-field": "dev-master",
 		"jtsternberg/cmb2-related-links": "^v0.1.0",
-		"webdevstudios/wds-shortcodes": "^v1.0.1",
+		"jtsternberg/cmb2-term-select": "^v0.1.0",
+		"webdevstudios/wds-shortcodes": "^v1.0.2",
 		"webdevstudios/cmb2-user-select": "^v0.2.0"
 	},
 	"scripts": {

@@ -16,6 +16,27 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Base {
 	public $shortcode = 'gc_sermons';
 
 	/**
+	 * GCS_Sermons object
+	 *
+	 * @var   GCS_Sermons
+	 * @since 0.1.0
+	 */
+	public $taxonomies;
+
+	/**
+	 * Constructor
+	 *
+	 * @since NEXT
+	 *
+	 * @param GCS_Sermons $sermons
+	 * @param GCS_Taxonomies $taxonomies
+	 */
+	public function __construct( GCS_Sermons $sermons, GCS_Taxonomies $taxonomies ) {
+		$this->taxonomies = $taxonomies;
+		parent::__construct( $sermons );
+	}
+
+	/**
 	 * Default attributes applied to the shortcode.
 	 * @var array
 	 * @since 0.1.0
@@ -29,6 +50,8 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Base {
 		'list_offset'       => 0,
 		'wrap_classes'      => '',
 		'remove_pagination' => false,
+		'related_speaker'   => 0,
+		'related_series'    => 0,
 	);
 
 	/**
@@ -39,7 +62,22 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Base {
 		$paged          = (int) get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
 		$offset         = ( ( $paged - 1 ) * $posts_per_page ) + $this->att( 'list_offset', 0 );
 
-		$sermons = gc_sermons()->sermons->get_many( compact( 'posts_per_page', 'paged', 'offset' ) );
+		$args = compact( 'posts_per_page', 'paged', 'offset' );
+
+		foreach ( array(
+			'series'  => 'related_series',
+			'speaker' => 'related_speaker',
+		) as $key => $param ) {
+			if ( $term_id  = absint( $this->att( $param ) ) ) {
+				$args['tax_query'][] = array(
+					'taxonomy' => $this->taxonomies->{$key}->taxonomy(),
+					'field'    => 'id',
+					'terms'    => $term_id,
+				);
+			}
+		}
+
+		$sermons = gc_sermons()->sermons->get_many( $args );
 
 		if ( ! $sermons->have_posts() ) {
 			return '';

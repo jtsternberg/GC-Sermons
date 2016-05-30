@@ -29,8 +29,8 @@ class GCS_Shortcodes_Sermons {
 	 * @return void
 	 */
 	public function __construct( $plugin ) {
-		$this->run   = new GCSS_Sermons_Run( $plugin->sermons );
-		$this->admin = new GCSS_Sermons_Admin( $this->run );
+		$this->run   = new GCSS_Sermons_Run( $plugin->sermons, $plugin->taxonomies );
+		$this->admin = new GCSS_Sermons_Admin( $this->run, $plugin->taxonomies );
 
 		$this->run->hooks();
 		$this->admin->hooks();

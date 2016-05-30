@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "97f37f7d007cc1ebe3bd87a3a87c787f",
-    "content-hash": "f911e9f18a42fe29d3e108c6a322644d",
+    "hash": "7efd278783093cec19b2c38375a46cfb",
+    "content-hash": "2b42d007f3d2f606ec4d8f9e1edfb7a8",
     "packages": [
         {
             "name": "jtsternberg/cmb2-related-links",
@@ -50,6 +50,50 @@
                 "wordpress"
             ],
             "time": "2016-03-28 05:40:41"
+        },
+        {
+            "name": "jtsternberg/cmb2-term-select",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jtsternberg/cmb2-term-select.git",
+                "reference": "0f2344572916a2a924f0cdcd7c476a612f88bfed"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jtsternberg/cmb2-term-select/zipball/0f2344572916a2a924f0cdcd7c476a612f88bfed",
+                "reference": "0f2344572916a2a924f0cdcd7c476a612f88bfed",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "cmb2-term-select.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "jtsternberg",
+                    "email": "justin@dsgnwrks.pro",
+                    "homepage": "http://dsgnwrks.pro/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Special CMB2 Field that allows users to define an autocomplete text field for terms",
+            "homepage": "https://github.com/jtsternberg/cmb2-term-select",
+            "keywords": [
+                "CMB2",
+                "meta",
+                "wordpress"
+            ],
+            "time": "2016-05-30 06:08:55"
         },
         {
             "name": "jtsternberg/shortcode-button",
@@ -368,16 +412,16 @@
         },
         {
             "name": "webdevstudios/wds-shortcodes",
-            "version": "v1.0.1",
+            "version": "v1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WebDevStudios/WDS-Shortcodes.git",
-                "reference": "39a64bc7afacd028450253a4f79e43d86795a3c2"
+                "reference": "963e77ef6e9777d048e06a31c5fb4fcd09384712"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WebDevStudios/WDS-Shortcodes/zipball/39a64bc7afacd028450253a4f79e43d86795a3c2",
-                "reference": "39a64bc7afacd028450253a4f79e43d86795a3c2",
+                "url": "https://api.github.com/repos/WebDevStudios/WDS-Shortcodes/zipball/963e77ef6e9777d048e06a31c5fb4fcd09384712",
+                "reference": "963e77ef6e9777d048e06a31c5fb4fcd09384712",
                 "shasum": ""
             },
             "require": {
@@ -414,7 +458,7 @@
                 "wordpress",
                 "wp-api"
             ],
-            "time": "2016-05-26 04:32:01"
+            "time": "2016-05-30 00:14:06"
         },
         {
             "name": "xrstf/composer-php52",
