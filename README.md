@@ -120,7 +120,7 @@ Outputs a paginated list of all Sermon Series, in reverse chronological order.
 
 Flexible shortcode which outputs a paginated list of all sermons, optionally filtered by Sermon Series or Speaker.
 
-**Note:** All shortcodes have an equivelant action, so instead of using `do_shortcode()` in your theme, you can call `do_action()`. For example, to output the 8 most recent Sermons in the same Sermon Series, you could put this in your single template file below the `the_content()` call:
+**Note:** All shortcodes have an equivelant action, so instead of using `do_shortcode()` in your theme, you can call `do_action()`. For example, to output the 8 most recent Sermons in the same Sermon Series, you could put the following in your single template file below the `the_content()` call:
 
 ```php
 do_action( 'gc_sermons', array(
@@ -134,7 +134,7 @@ do_action( 'gc_sermons', array(
 
 ## Installation ###
 
-1. Download the zip here](https://github.com/jtsternberg/GC-Sermons/blob/master/gc-sermons.zip?raw=true)
+1. [Download the zip here](https://github.com/jtsternberg/GC-Sermons/blob/master/gc-sermons.zip?raw=true)
 1. Upload the entire `/gc-sermons` directory to the `/wp-content/plugins/` directory.
 1. Activate GC Sermons through the 'Plugins' menu in WordPress.
 
