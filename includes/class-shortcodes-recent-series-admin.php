@@ -5,7 +5,7 @@
  * @package GC Sermons
  */
 
-class GCSS_Recent_Series_Admin extends GCS_Shortcodes_Admin_Base {
+class GCSS_Recent_Series_Admin extends GCSS_Recent_Admin_Base {
 
 	/**
 	 * Shortcode prefix for field ids.
@@ -47,6 +47,7 @@ class GCSS_Recent_Series_Admin extends GCS_Shortcodes_Admin_Base {
 			'post_type'       => $this->run->sermons->post_type(),
 			'select_type'     => 'radio',
 			'select_behavior' => 'replace',
+			'row_classes'     => 'check-if-recent',
 		);
 
 		$fields[] = array(
@@ -55,6 +56,7 @@ class GCSS_Recent_Series_Admin extends GCS_Shortcodes_Admin_Base {
 			'type'        => 'select',
 			'id'          => $this->prefix . 'recent',
 			'default'     => $this->atts_defaults['recent'],
+			'row_classes' => 'hide-if-not-recent',
 			'options'     => array(
 				'recent' => __( 'Most Recent', 'gc-sermons' ),
 				'audio' => __( 'Most Recent with Audio', 'gc-sermons' ),
@@ -78,4 +80,5 @@ class GCSS_Recent_Series_Admin extends GCS_Shortcodes_Admin_Base {
 
 		return $fields;
 	}
+
 }
