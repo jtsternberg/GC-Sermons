@@ -48,7 +48,7 @@ abstract class GCS_Shortcodes_Base extends WDS_Shortcodes {
 	}
 
 	protected function most_recent_sermon() {
-		switch ( $this->att( 'sermon_recent', 'recent' ) ) {
+		switch ( $this->att( 'recent', 'recent' ) ) {
 			case 'audio':
 				return $this->sermons->most_recent_with_audio();
 

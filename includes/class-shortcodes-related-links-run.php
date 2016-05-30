@@ -21,8 +21,8 @@ class GCSS_Related_Links_Run extends GCS_Shortcodes_Base {
 	 * @since 0.1.0
 	 */
 	public $atts_defaults = array(
-		'sermon_id'     => 0, // 'Blank, "recent", or "0" will play the most recent video.
-		'sermon_recent' => 'recent', // Options: 'recent', 'audio', 'video'
+		'sermon_id' => 0, // 'Blank, "recent", or "0" will play the most recent video.
+		'recent'    => 'recent', // Options: 'recent', 'audio', 'video'
 	);
 
 	/**

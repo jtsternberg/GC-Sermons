@@ -8,6 +8,14 @@
 class GCSS_Play_Button_Admin extends GCS_Shortcodes_Admin_Base {
 
 	/**
+	 * Shortcode prefix for field ids.
+	 *
+	 * @var   string
+	 * @since NEXT
+	 */
+	protected $prefix = 'pl_btn_';
+
+	/**
 	 * Sets up the button
 	 *
 	 * @return array
@@ -33,7 +41,7 @@ class GCSS_Play_Button_Admin extends GCS_Shortcodes_Admin_Base {
 		$fields[] = array(
 			'name'            => __( 'Sermon to play', 'gc-sermons' ),
 			'desc'            => __( 'Blank, "recent", or "0" will play the most recent video. Otherwise enter a post ID. Click the magnifying glass to search for a Sermon post.', 'gc-sermons' ),
-			'id'              => 'sermon_id',
+			'id'              => $this->prefix . 'sermon_id',
 			'type'            => 'post_search_text',
 			'post_type'       => $this->run->sermons->post_type(),
 			'select_type'     => 'radio',
@@ -43,7 +51,7 @@ class GCSS_Play_Button_Admin extends GCS_Shortcodes_Admin_Base {
 		$fields[] = array(
 			'name'    => __( 'Icon Color', 'gc-sermons' ),
 			'type'    => 'colorpicker',
-			'id'      => 'icon_color',
+			'id'      => $this->prefix . 'icon_color',
 			'default' => $this->atts_defaults['icon_color'],
 		);
 
@@ -51,7 +59,7 @@ class GCSS_Play_Button_Admin extends GCS_Shortcodes_Admin_Base {
 			'name'    => __( 'Icon Size', 'gc-sermons' ),
 			'desc'    => __( 'Select a font-size (in <code>em</code>s, <strong>or</strong> enter either "medium", "large", or "small".', 'gc-sermons' ),
 			'type'    => 'text',
-			'id'      => 'icon_size',
+			'id'      => $this->prefix . 'icon_size',
 			'default' => $this->atts_defaults['icon_size'],
 		);
 
@@ -59,7 +67,7 @@ class GCSS_Play_Button_Admin extends GCS_Shortcodes_Admin_Base {
 			'name'    => __( 'Extra CSS Classes', 'gc-sermons' ),
 			'desc'    => __( 'Enter classes separated by spaces (e.g. "class1 class2")', 'gc-sermons' ),
 			'type'    => 'text',
-			'id'      => 'icon_class',
+			'id'      => $this->prefix . 'icon_class',
 			'default' => $this->atts_defaults['icon_class'],
 		);
 

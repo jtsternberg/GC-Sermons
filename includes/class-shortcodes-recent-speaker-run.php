@@ -21,17 +21,17 @@ class GCSS_Recent_Speaker_Run extends GCS_Shortcodes_Base {
 	 * @since 0.1.0
 	 */
 	public $atts_defaults = array(
-		'sermon_id'                => 0, // 'Blank, "recent", or "0" will play the most recent video.
-		'sermon_recent'            => 'recent', // Options: 'recent', 'audio', 'video'
-		'speaker_remove_thumbnail' => false,
-		'speaker_thumbnail_size'   => 'medium',
+		'sermon_id'        => 0, // 'Blank, "recent", or "0" will play the most recent video.
+		'recent'           => 'recent', // Options: 'recent', 'audio', 'video'
+		'remove_thumbnail' => false,
+		'thumbnail_size'   => 'medium',
 	);
 
 	/**
 	 * Shortcode Output
 	 */
 	public function shortcode() {
-		$content = gc_get_sermon_speaker_info( $this->get_sermon(), ! $this->bool_att( 'speaker_remove_thumbnail' ) );
+		$content = gc_get_sermon_speaker_info( $this->get_sermon(), ! $this->bool_att( 'remove_thumbnail' ) );
 
 		return $content;
 	}

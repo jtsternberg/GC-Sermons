@@ -8,6 +8,14 @@
 class GCSS_Related_Links_Admin extends GCS_Shortcodes_Admin_Base {
 
 	/**
+	 * Shortcode prefix for field ids.
+	 *
+	 * @var   string
+	 * @since NEXT
+	 */
+	protected $prefix = 're_links_';
+
+	/**
 	 * Sets up the button
 	 *
 	 * @return array
@@ -34,7 +42,7 @@ class GCSS_Related_Links_Admin extends GCS_Shortcodes_Admin_Base {
 		$fields[] = array(
 			'name'            => __( 'Sermon ID', 'gc-sermons' ),
 			'desc'            => __( 'Blank, "recent", or "0" will get the most recent sermon\'s speaker info. Otherwise enter a post ID. Click the magnifying glass to search for a Sermon post.', 'gc-sermons' ),
-			'id'              => 'sermon_id',
+			'id'              => $this->prefix . 'sermon_id',
 			'type'            => 'post_search_text',
 			'post_type'       => $this->run->sermons->post_type(),
 			'select_type'     => 'radio',
@@ -45,8 +53,8 @@ class GCSS_Related_Links_Admin extends GCS_Shortcodes_Admin_Base {
 			'name'    => __( 'Filter Most Recent Sermon By:', 'gc-sermons' ),
 			'desc'    => __( 'If setting "Sermon ID" above to blank, "recent", or "0", this setting determines which type of most recent sermon to get the related links info for.', 'gc-sermons' ),
 			'type'    => 'select',
-			'id'      => 'sermon_recent',
-			'default' => $this->atts_defaults['sermon_recent'],
+			'id'      => $this->prefix . 'recent',
+			'default' => $this->atts_defaults['recent'],
 			'options' => array(
 				'recent' => __( 'Most Recent', 'gc-sermons' ),
 				'audio' => __( 'Most Recent with Audio', 'gc-sermons' ),
