@@ -234,16 +234,6 @@ class GCS_Sermon_Post {
 	}
 
 	/**
-	 * Wrapper for get_the_excerpt.
-	 *
-	 * @since  NEXT
-	 *
-	 * @return string Sermon post excerpt.
-	 */
-	public function excerpt() {
-	}
-
-	/**
 	 * Wrapper for the_excerpt. Returns value. Must be used in loop.
 	 *
 	 * @since  NEXT
@@ -299,6 +289,17 @@ class GCS_Sermon_Post {
 	}
 
 	/**
+	 * Wrapper for get_post_thumbnail_id
+	 *
+	 * @since  0.1.0
+	 *
+	 * @return string|int Post thumbnail ID or empty string.
+	 */
+	public function featured_image_id() {
+		return get_post_thumbnail_id( $this->ID );
+	}
+
+	/**
 	 * Get the series image.
 	 *
 	 * @since  0.1.0
@@ -314,17 +315,6 @@ class GCS_Sermon_Post {
 		$series = $this->get_series( $args );
 
 		return $series->image;
-	}
-
-	/**
-	 * Wrapper for get_post_thumbnail_id
-	 *
-	 * @since  0.1.0
-	 *
-	 * @return string|int Post thumbnail ID or empty string.
-	 */
-	public function featured_image_id() {
-		return get_post_thumbnail_id( $this->ID );
 	}
 
 	/**
@@ -353,6 +343,8 @@ class GCS_Sermon_Post {
 	 * Get single series for this sermon
 	 *
 	 * @since  0.1.1
+	 *
+	 * @param  array         Args to pass to GCS_Taxonomies_Base::get()
 	 *
 	 * @return WP_Term|false Series term object.
 	 */
