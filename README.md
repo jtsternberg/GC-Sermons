@@ -25,44 +25,6 @@ The plugin sets up the permalinks and rewrite slugs using a pretty standard nami
 
 For example, you could change the series link from `/sermon-series/series-name` to `/series/series-name` with this filter:
 
-#### Shortcodes
----
-
-The plugin comes with several useful shortcodes:
-
-##### `'sermon_play_button'` - Play Button Shortcode
-
-Outputs a button to open the Sermon video in a modal.
-
-#####  `'gc_recent_series'` - Recent Series Shortcode
-
-Output A list of most recent Sermon Series.
-
-#####  `'gc_recent_speaker'` - Recent Speaker Shortcode
-
-Output A list of most recent Speakers.
-
-#####  `'gc_related_links'` - Related Links Shortcode
-
-Outputs the list of related links associated with a sermon.
-
-#####  `'gc_video_player'` - Series Shortcode
-
-Outputs the video player associated with a sermon.
-
-#####  `'gc_audio_player'` - Sermons Shortcode
-
-Outputs the audio player associated with a sermon.
-
-#####  `'gc_series'` - Series Shortcode
-
-Outputs a paginated list of all Sermon Series, in reverse chronological order.
-
-#####  `'gc_sermons'` - Sermons Shortcode
-
-Flexible shortcode which outputs a paginated list of all sermons, optionally filtered by Sermon Series or Speaker.
-
-
 ```php
 function gc_series_tax_rewrite_override( $args ) {
 	$args['arg_overrides']['rewrite']['slug'] = 'series';
@@ -120,6 +82,55 @@ add_filter( 'gcs_cmb2_box_args_speaker_gc_sermon_speaker_metabox', array( $this,
 ```
 
 _For more documentation on CMB2 Fields, [see the wiki](https://github.com/WebDevStudios/CMB2/wiki)._
+
+#### Shortcodes
+---
+
+The plugin comes with several useful shortcodes:
+
+##### `'sermon_play_button'` - Play Button Shortcode
+
+Outputs a button to open the Sermon video in a modal.
+
+#####  `'gc_recent_series'` - Recent Series Shortcode
+
+Output a list of most recent Sermon Series.
+
+#####  `'gc_recent_speaker'` - Recent Speaker Shortcode
+
+Output a list of most recent Speakers.
+
+#####  `'gc_related_links'` - Related Links Shortcode
+
+Outputs the list of related links associated with a sermon.
+
+#####  `'gc_video_player'` - Series Shortcode
+
+Outputs the video player associated with a sermon.
+
+#####  `'gc_audio_player'` - Sermons Shortcode
+
+Outputs the audio player associated with a sermon.
+
+#####  `'gc_series'` - Series Shortcode
+
+Outputs a paginated list of all Sermon Series, in reverse chronological order.
+
+#####  `'gc_sermons'` - Sermons Shortcode
+
+Flexible shortcode which outputs a paginated list of all sermons, optionally filtered by Sermon Series or Speaker.
+
+**Note:** All shortcodes have an equivelant action, so instead of using `do_shortcode()` in your theme, you can call `do_action()`. For example, to output the 8 most recent Sermons in the same Sermon Series, you could put this in your single template file below the `the_content()` call:
+
+```php
+do_action( 'gc_sermons', array(
+	'per_page' => 8,
+	'related_series' => 'this',
+	'content' => '',
+	'thumbnail_size' => 'medium',
+	'number_columns' => 4,
+) );
+```
 
 ## Installation ###
 
