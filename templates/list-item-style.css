@@ -95,6 +95,10 @@
 	opacity: 0;
 }
 
+.gc-sermons-table-wrapper {
+	overflow: hidden;
+}
+
 .gc-sermons-shader,
 .gc-sermons-table-wrapper,
 .gc-item-link table {

@@ -5,22 +5,7 @@
  * @package GC Sermons
  */
 
-class GCS_Shortcodes_Sermons {
-
-	/**
-	 * Instance of GCSS_Sermons_Run
-	 *
-	 * @var GCSS_Sermons_Run
-	 */
-	public $run;
-
-	/**
-	 * Instance of GCSS_Sermons_Admin
-	 *
-	 * @var GCSS_Sermons_Admin
-	 */
-	public $admin;
-
+class GCS_Shortcodes_Sermons extends GCS_Shortcodes_Base {
 	/**
 	 * Constructor
 	 *
@@ -32,8 +17,6 @@ class GCS_Shortcodes_Sermons {
 		$this->run   = new GCSS_Sermons_Run( $plugin->sermons, $plugin->taxonomies );
 		$this->admin = new GCSS_Sermons_Admin( $this->run, $plugin->taxonomies );
 
-		$this->run->hooks();
-		$this->admin->hooks();
+		parent::hooks();
 	}
-
 }

@@ -6,7 +6,7 @@
  * @package GC Sermons
  */
 
-abstract class GCS_Shortcodes_Base extends WDS_Shortcodes {
+abstract class GCS_Shortcodes_Run_Base extends WDS_Shortcodes {
 
 	/**
 	 * GCS_Sermons object
@@ -35,12 +35,13 @@ abstract class GCS_Shortcodes_Base extends WDS_Shortcodes {
 
 			$this->shortcode_object->set_att( 'sermon', $this->most_recent_sermon() );
 
+		} elseif ( 'this' === $sermon_id ) {
+
+			$this->shortcode_object->set_att( 'sermon', gc_get_sermon_post( get_queried_object_id() ) );
+
 		} elseif ( is_numeric( $sermon_id ) ) {
-			try {
-				$this->shortcode_object->set_att( 'sermon', new GCS_Sermon_Post( get_post( absint( $sermon_id ) ) ) );
-			} catch ( Exception $e ) {
-				$this->shortcode_object->set_att( 'sermon', false );
-			}
+
+			$this->shortcode_object->set_att( 'sermon', gc_get_sermon_post( $sermon_id ) );
 
 		}
 

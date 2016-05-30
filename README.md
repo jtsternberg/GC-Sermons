@@ -14,7 +14,7 @@ Manage sermons and sermon content in WordPress. The [GC Staff](https://github.co
 
 **Please note:** you will need to run `composer install` in order to fetch the dependenceis for this plugin/library, **or** you can [download the zip here](https://github.com/jtsternberg/GC-Sermons/blob/master/gc-sermons.zip?raw=true).
 
-## Notes
+## Documentation
 
 The plugin is customization friendly, and nearly anything can be changed with a well-placed filter.
 
@@ -24,6 +24,44 @@ The plugin is customization friendly, and nearly anything can be changed with a 
 The plugin sets up the permalinks and rewrite slugs using a pretty standard naming convention for items, but you can modify to fit your church/data.
 
 For example, you could change the series link from `/sermon-series/series-name` to `/series/series-name` with this filter:
+
+#### Shortcodes
+---
+
+The plugin comes with several useful shortcodes:
+
+##### `'sermon_play_button'` - Play Button Shortcode
+
+Outputs a button to open the Sermon video in a modal.
+
+#####  `'gc_recent_series'` - Recent Series Shortcode
+
+Output A list of most recent Sermon Series.
+
+#####  `'gc_recent_speaker'` - Recent Speaker Shortcode
+
+Output A list of most recent Speakers.
+
+#####  `'gc_related_links'` - Related Links Shortcode
+
+Outputs the list of related links associated with a sermon.
+
+#####  `'gc_video_player'` - Series Shortcode
+
+Outputs the video player associated with a sermon.
+
+#####  `'gc_audio_player'` - Sermons Shortcode
+
+Outputs the audio player associated with a sermon.
+
+#####  `'gc_series'` - Series Shortcode
+
+Outputs a paginated list of all Sermon Series, in reverse chronological order.
+
+#####  `'gc_sermons'` - Sermons Shortcode
+
+Flexible shortcode which outputs a paginated list of all sermons, optionally filtered by Sermon Series or Speaker.
+
 
 ```php
 function gc_series_tax_rewrite_override( $args ) {

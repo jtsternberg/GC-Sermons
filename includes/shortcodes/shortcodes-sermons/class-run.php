@@ -6,7 +6,7 @@
  * @package GC Sermons
  */
 
-class GCSS_Sermons_Run extends GCS_Shortcodes_Base {
+class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base {
 
 	/**
 	 * The Shortcode Tag
@@ -64,20 +64,18 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Base {
 
 		$args = compact( 'posts_per_page', 'paged', 'offset' );
 
-		foreach ( array(
-			'series'  => 'related_series',
-			'speaker' => 'related_speaker',
-		) as $key => $param ) {
-			if ( $term_id  = absint( $this->att( $param ) ) ) {
-				$args['tax_query'][] = array(
-					'taxonomy' => $this->taxonomies->{$key}->taxonomy(),
-					'field'    => 'id',
-					'terms'    => $term_id,
-				);
-			}
+		$args = $this->map_related_term_args( $args );
+
+		if ( ! $args ) {
+			// We failed the related term check.
+			return '';
 		}
 
-		$sermons = gc_sermons()->sermons->get_many( $args );
+		if ( ! isset( $args['post__not_in'] ) && is_singular( $this->sermons->post_type() ) ) {
+			$args['post__not_in'] = array( get_queried_object_id() );
+		}
+
+		$sermons = $this->sermons->get_many( $args );
 
 		if ( ! $sermons->have_posts() ) {
 			return '';
@@ -96,6 +94,68 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Base {
 		$content .= GCS_Template_Loader::get_template( 'sermons-list', $args );
 
 		return $content;
+	}
+
+	public function map_related_term_args( $args ) {
+
+		$required = false;
+		$passes   = false;
+		$keys     = array(
+			'series'  => 'related_series',
+			'speaker' => 'related_speaker',
+		);
+
+		foreach ( $keys as $key => $param ) {
+
+			if ( $term_id = absint( $this->att( $param ) ) ) {
+
+				$args['tax_query'][] = array(
+					'taxonomy' => $this->taxonomies->{$key}->taxonomy(),
+					'field'    => 'id',
+					'terms'    => $term_id,
+				);
+
+				continue;
+			}
+
+			if ( 'this' !== $this->att( $param ) ) {
+				continue;
+			}
+
+			$required = true;
+
+			try {
+				$sermon = gc_get_sermon_post( get_queried_object(), true );
+
+				$args['post__not_in'] = array( $sermon->ID );
+
+				$method = 'get_' . $key;
+				$term = $sermon->$method();
+
+				if ( ! $term ) {
+					throw new Exception( 'No '. $key . ' term.' );
+				}
+
+			} catch( Exception $e ) {
+				continue;
+			}
+
+			$passes = true;
+
+			$args['tax_query'][] = array(
+				'taxonomy' => $this->taxonomies->{$key}->taxonomy(),
+				'field'    => 'id',
+				'terms'    => $term->term_id,
+			);
+
+		}
+
+		if ( $required && ! $passes ) {
+			// They wanted sermons associated to 'this', but that's not possible.
+			return false;
+		}
+
+		return $args;
 	}
 
 	public function get_pagination( $total_pages ) {
@@ -144,6 +204,8 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Base {
 
 			$sermons[] = $sermon;
 		}
+
+		wp_reset_postdata();
 
 		return $sermons;
 	}

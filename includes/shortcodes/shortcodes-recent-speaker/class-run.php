@@ -6,7 +6,7 @@
  * @package GC Sermons
  */
 
-class GCSS_Recent_Speaker_Run extends GCS_Shortcodes_Base {
+class GCSS_Recent_Speaker_Run extends GCS_Shortcodes_Run_Base {
 
 	/**
 	 * The Shortcode Tag

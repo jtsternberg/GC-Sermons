@@ -5,21 +5,7 @@
  * @package GC Sermons
  */
 
-class GCS_Shortcodes_Play_Button {
-
-	/**
-	 * Instance of GCSS_Play_Button_Run
-	 *
-	 * @var GCSS_Play_Button_Run
-	 */
-	public $run;
-
-	/**
-	 * Instance of GCSS_Play_Button_Admin
-	 *
-	 * @var GCSS_Play_Button_Admin
-	 */
-	public $admin;
+class GCS_Shortcodes_Play_Button extends GCS_Shortcodes_Base {
 
 	/**
 	 * Constructor
@@ -32,8 +18,7 @@ class GCS_Shortcodes_Play_Button {
 		$this->run = new GCSS_Play_Button_Run( $plugin->sermons );
 		$this->admin = new GCSS_Play_Button_Admin( $this->run );
 
-		$this->run->hooks();
-		$this->admin->hooks();
+		parent::hooks();
 	}
 
 }

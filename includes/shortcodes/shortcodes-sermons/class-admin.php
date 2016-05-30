@@ -30,7 +30,7 @@ class GCSS_Sermons_Admin extends GCS_Shortcodes_Admin_Base {
 	 * @param  object $taxonomies GCS_Taxonomies object.
 	 * @return void
 	 */
-	public function __construct( GCS_Shortcodes_Base $run, GCS_Taxonomies $taxonomies ) {
+	public function __construct( GCS_Shortcodes_Run_Base $run, GCS_Taxonomies $taxonomies ) {
 		$this->taxonomies = $taxonomies;
 		parent::__construct( $run );
 
@@ -70,7 +70,7 @@ class GCSS_Sermons_Admin extends GCS_Shortcodes_Admin_Base {
 
 		$fields[] = array(
 			'name'       => sprintf( _x( 'Optionally select to limit %1$s by %2$s', 'limit sermons by sermon series.', 'gc-sermons' ), $this->run->sermons->post_type( 'plural' ), $this->taxonomies->series->taxonomy( 'plural' ) ),
-			'desc'       => __( 'Start typing to search.', 'gc-sermons' ),
+			'desc'       => sprintf( __( 'Start typing to search. Enter "this" to use this post\'s %s.', 'gc-sermons' ), $this->taxonomies->series->taxonomy( 'singular' ) ),
 			'type'       => 'term_select',
 			'apply_term' => false,
 			'id'         => $this->prefix . 'related_series',
@@ -82,11 +82,12 @@ class GCSS_Sermons_Admin extends GCS_Shortcodes_Admin_Base {
 		);
 
 		$fields[] = array(
-			'name'     => sprintf( _x( 'Optionally select to limit %1$s by %2$s', 'limit sermons by sermon speaker.', 'gc-sermons' ), $this->run->sermons->post_type( 'plural' ), $this->taxonomies->speaker->taxonomy( 'plural' ) ),
-			'desc'     => __( 'Start typing to search.', 'gc-sermons' ),
-			'type'     => 'term_select',
-			'id'       => $this->prefix . 'related_speaker',
-			'taxonomy' => $this->taxonomies->speaker->taxonomy(),
+			'name'       => sprintf( _x( 'Optionally select to limit %1$s by %2$s', 'limit sermons by sermon speaker.', 'gc-sermons' ), $this->run->sermons->post_type( 'plural' ), $this->taxonomies->speaker->taxonomy( 'plural' ) ),
+			'desc'       => sprintf( __( 'Start typing to search. Enter "this" to use this post\'s %s.', 'gc-sermons' ), $this->taxonomies->speaker->taxonomy( 'singular' ) ),
+			'type'       => 'term_select',
+			'apply_term' => false,
+			'id'         => $this->prefix . 'related_speaker',
+			'taxonomy'   => $this->taxonomies->speaker->taxonomy(),
 			'attributes' => array(
 				'data-min-length' => 2,
 				'data-delay'      => 100,
@@ -159,7 +160,11 @@ class GCSS_Sermons_Admin extends GCS_Shortcodes_Admin_Base {
 		$term_id_params = array( 'sermon_related_series', 'sermon_related_speaker' );
 		foreach ( $term_id_params as $param ) {
 			if ( isset( $updated[ $param ], $updated[ $param ]['id'] ) ) {
-				$updated[ $param ] = $updated[ $param ]['id'];
+				if ( isset( $updated[ $param ]['name'] ) && 'this' === $updated[ $param ]['name'] ) {
+					$updated[ $param ] = $updated[ $param ]['name'];
+				} else {
+					$updated[ $param ] = $updated[ $param ]['id'];
+				}
 			}
 		}
 

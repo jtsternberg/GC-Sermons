@@ -5,11 +5,12 @@
  *
  * @since  NEXT
  *
- * @param  mixed $sermon Post object or ID or (GCS_Sermon_Post object).
+ * @param  mixed $sermon         Post object or ID or (GCS_Sermon_Post object).
+ * @param  bool  $throw_on_error Use if you have exception handling in place.
  *
  * @return GCS_Sermon_Post|false GCS_Sermon_Post object if successful
  */
-function gc_get_sermon_post( $sermon = 0 ) {
+function gc_get_sermon_post( $sermon = 0, $throw_on_error = false ) {
 	if ( $sermon instanceof GCS_Sermon_Post ) {
 		return $sermon;
 	}
@@ -17,12 +18,14 @@ function gc_get_sermon_post( $sermon = 0 ) {
 	$sermon = $sermon ? $sermon : get_the_id();
 
 	try {
-		if ( $sermon instanceof WP_Post ) {
-			$sermon = new GCS_Sermon_Post( $sermon );
-		} elseif ( is_numeric( $sermon ) ) {
-			$sermon = new GCS_Sermon_Post( get_post( $sermon ) );
-		}
+
+		$sermon = $sermon instanceof WP_Post ? $sermon : get_post( $sermon );
+		$sermon = new GCS_Sermon_Post( $sermon );
+
 	} catch ( Exception $e ) {
+		if ( $throw_on_error ) {
+			throw $e;
+		}
 		$sermon = false;
 	}
 
@@ -131,7 +134,7 @@ function gc_get_sermon_speaker_info( $sermon = 0, $args = array(), $get_speaker_
  *
  * @param  mixed   $sermon Post object or ID or (GCS_Sermon_Post object).
  *
- * @return string Sermon speaker info output.
+ * @return string Sermon related links output.
  */
 function gc_get_sermon_related_links( $sermon = 0 ) {
 	$sermon = gc_get_sermon_post( $sermon );
@@ -147,5 +150,47 @@ function gc_get_sermon_related_links( $sermon = 0 ) {
 	) );
 
 	return $content;
+}
+
+/**
+ * Get's video player for the sermon.
+ *
+ * @since  NEXT
+ *
+ * @param  mixed $sermon Post object or ID or (GCS_Sermon_Post object).
+ * @param  mixed $args   Arguments passed to GCS_Sermon_Post::get_video_player().
+ *
+ * @return string Sermon video player output.
+ */
+function gc_get_sermon_video_player( $sermon = 0, $args = array() ) {
+	$sermon = gc_get_sermon_post( $sermon );
+
+	// If no sermon or no related links, bail.
+	if ( ! $sermon || ! ( $video_player = $sermon->get_video_player( $args ) ) ) {
+		return '';
+	}
+
+	return $video_player;
+}
+
+/**
+ * Get's audio player for the sermon.
+ *
+ * @since  NEXT
+ *
+ * @param  mixed $sermon Post object or ID or (GCS_Sermon_Post object).
+ * @param  mixed $args   Arguments passed to GCS_Sermon_Post::get_audio_player().
+ *
+ * @return string Sermon audio player output.
+ */
+function gc_get_sermon_audio_player( $sermon = 0, $args = array() ) {
+	$sermon = gc_get_sermon_post( $sermon );
+
+	// If no sermon or no related links, bail.
+	if ( ! $sermon || ! ( $audio_player = $sermon->get_audio_player( $args ) ) ) {
+		return '';
+	}
+
+	return $audio_player;
 }
 

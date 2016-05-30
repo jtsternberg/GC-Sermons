@@ -28,7 +28,6 @@ window.GCSermonsAdmin = window.GCSermonsAdmin || {};
 	};
 
 	app.showNotRecent = function() {
-		console.log('app.showNotRecent', $( '.scb-form-wrap .hide-if-not-recent' ).length);
 		$( '.scb-form-wrap .hide-if-not-recent' ).show();
 	};
 

@@ -9,7 +9,7 @@ abstract class GCS_Shortcodes_Admin_Base extends WDS_Shortcode_Admin {
 	/**
 	 * Parent plugin class
 	 *
-	 * @var   GCS_Shortcodes_Base
+	 * @var   GCS_Shortcodes_Run_Base
 	 * @since 0.1.0
 	 */
 	protected $run;
@@ -29,7 +29,7 @@ abstract class GCS_Shortcodes_Admin_Base extends WDS_Shortcode_Admin {
 	 * @param  object $run Main plugin object.
 	 * @return void
 	 */
-	public function __construct( GCS_Shortcodes_Base $run ) {
+	public function __construct( GCS_Shortcodes_Run_Base $run ) {
 		$this->run = $run;
 
 		parent::__construct(

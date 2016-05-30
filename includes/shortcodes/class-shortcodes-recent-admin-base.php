@@ -15,7 +15,7 @@ abstract class GCSS_Recent_Admin_Base extends GCS_Shortcodes_Admin_Base {
 	 * @param  object $taxonomies GCS_Taxonomies object.
 	 * @return void
 	 */
-	public function __construct( GCS_Shortcodes_Base $run ) {
+	public function __construct( GCS_Shortcodes_Run_Base $run ) {
 		parent::__construct( $run );
 
 		add_filter( "shortcode_button_before_modal_{$this->shortcode}", array( $this, 'enqueue_js' ) );

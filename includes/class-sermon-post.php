@@ -75,11 +75,16 @@ class GCS_Sermon_Post {
 	 * Constructor
 	 *
 	 * @since  0.1.0
-	 * @param  WP_Post $post Post object to wrap
+	 * @param  mixed $post Post object to wrap
 	 * @return void
 	 */
-	public function __construct( WP_Post $post ) {
+	public function __construct( $post ) {
+		if ( ! ( $post instanceof WP_Post ) ) {
+			throw new Exception( 'Sorry, '. __CLASS__ .' expects a WP_Post object.' );
+		}
+
 		$post_type = gc_sermons()->sermons->post_type();
+
 		if ( $post->post_type !== $post_type ) {
 			throw new Exception( 'Sorry, '. __CLASS__ .' expects a '. $post_type .' object.' );
 		}
@@ -161,6 +166,7 @@ class GCS_Sermon_Post {
 
 		$video_url = '';
 		if ( 'url' === $video['type'] ) {
+			$wp_embed->post_ID = $this->ID;
 			$video_player = $wp_embed->shortcode( $args, $video['value'] );
 		} elseif ( 'attachment_id' === $video['type'] ) {
 
