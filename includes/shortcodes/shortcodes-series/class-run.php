@@ -44,18 +44,13 @@ class GCSS_Series_Run extends GCS_Shortcodes_Run_Base {
 			return '';
 		}
 
-		$per_page    = (int) $this->att( 'per_page', get_option( 'posts_per_page' ) );
-		$total_pages = round( count( $allterms ) / $per_page, 0, PHP_ROUND_HALF_UP );
-		$page        = (int) get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
-		$offset      = ( ( $page - 1 ) * $per_page ) + $this->att( 'list_offset', 0 );
-		$allterms    = array_splice( $allterms, $offset, $per_page );
-		// $this->shortcode_object->set_att( 'number_columns', 2 );
-		// $this->shortcode_object->set_att( 'remove_thumbnail', false );
+		$args        = $this->get_initial_query_args();
+		$total_pages = round( count( $allterms ) / $args['posts_per_page'], 0, PHP_ROUND_HALF_UP );
+		$allterms    = array_splice( $allterms, $args['offset'], $args['posts_per_page'] );
 
 		if ( empty( $allterms ) ) {
 			return '';
 		}
-
 
 		$args = $this->get_pagination( $total_pages );
 
@@ -68,6 +63,14 @@ class GCSS_Series_Run extends GCS_Shortcodes_Run_Base {
 		$content .= GCS_Template_Loader::get_template( 'series-list', $args );
 
 		return $content;
+	}
+
+	public function get_initial_query_args() {
+		$posts_per_page = (int) $this->att( 'per_page', get_option( 'posts_per_page' ) );
+		$paged          = (int) get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
+		$offset         = ( ( $paged - 1 ) * $posts_per_page ) + $this->att( 'list_offset', 0 );
+
+		return compact( 'posts_per_page', 'paged', 'offset' );
 	}
 
 	public function get_pagination( $total_pages ) {
