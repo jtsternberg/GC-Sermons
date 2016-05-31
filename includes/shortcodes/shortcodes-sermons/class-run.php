@@ -16,27 +16,6 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base {
 	public $shortcode = 'gc_sermons';
 
 	/**
-	 * GCS_Sermons object
-	 *
-	 * @var   GCS_Sermons
-	 * @since 0.1.0
-	 */
-	public $taxonomies;
-
-	/**
-	 * Constructor
-	 *
-	 * @since 0.1.3
-	 *
-	 * @param GCS_Sermons $sermons
-	 * @param GCS_Taxonomies $taxonomies
-	 */
-	public function __construct( GCS_Sermons $sermons, GCS_Taxonomies $taxonomies ) {
-		$this->taxonomies = $taxonomies;
-		parent::__construct( $sermons );
-	}
-
-	/**
 	 * Default attributes applied to the shortcode.
 	 * @var array
 	 * @since 0.1.0
@@ -55,16 +34,47 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base {
 	);
 
 	/**
+	 * GCS_Sermons object
+	 *
+	 * @var   GCS_Sermons
+	 * @since 0.1.0
+	 */
+	public $taxonomies;
+
+	/**
+	 * Keep track of the levels of inception.
+	 *
+	 * @var   string
+	 * @since NEXT
+	 */
+	protected static $inception_levels = 0;
+
+	/**
+	 * Constructor
+	 *
+	 * @since 0.1.3
+	 *
+	 * @param GCS_Sermons $sermons
+	 * @param GCS_Taxonomies $taxonomies
+	 */
+	public function __construct( GCS_Sermons $sermons, GCS_Taxonomies $taxonomies ) {
+		$this->taxonomies = $taxonomies;
+		parent::__construct( $sermons );
+	}
+
+	/**
 	 * Shortcode Output
 	 */
 	public function shortcode() {
-		$posts_per_page = (int) $this->att( 'per_page', get_option( 'posts_per_page' ) );
-		$paged          = (int) get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
-		$offset         = ( ( $paged - 1 ) * $posts_per_page ) + $this->att( 'list_offset', 0 );
+		/*
+		 * Because it's possible to trigger inception, we need to keep track which
+		 * level we are in, and reset the shortcode object accordingly.
+		 *
+		 * Clever alert. The ++ happens AFTER the value is read, So $my_level starts at 0.
+		 */
+		$my_level = self::$inception_levels++;
 
-		$args = compact( 'posts_per_page', 'paged', 'offset' );
-
-		$args = $this->map_related_term_args( $args );
+		$args = $this->map_related_term_args( $this->get_initial_query_args() );
 
 		if ( ! $args ) {
 			// We failed the related term check.
@@ -81,22 +91,34 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base {
 			return '';
 		}
 
-		// $this->shortcode_object->set_att( 'number_columns', 2 );
-		// $this->shortcode_object->set_att( 'remove_thumbnail', false );
-
-		$args = $this->get_pagination( $sermons->max_num_pages );
-
-		$args['sermons']      = $this->map_sermon_args( $sermons );
-		$args['wrap_classes'] = $this->get_wrap_classes();
-
+		$max     = $sermons->max_num_pages;
+		$sermons = $this->map_sermon_args( $sermons, $my_level );
+		
 		$content = '';
-		$content .= GCS_Style_Loader::get_template( 'list-item-style' );
+		if ( 0 === $my_level ) {
+			$content .= GCS_Style_Loader::get_template( 'list-item-style' );
+		}
+
+		$args = $this->get_pagination( $max );
+		$args['wrap_classes'] = $this->get_wrap_classes();
+		$args['sermons']      = $sermons;
+
+		// error_log( '$content: '. print_r( $content, true ) );
 		$content .= GCS_Template_Loader::get_template( 'sermons-list', $args );
+
 
 		return $content;
 	}
 
-	public function map_related_term_args( $args ) {
+	public function get_initial_query_args() {
+		$posts_per_page = (int) $this->att( 'per_page', get_option( 'posts_per_page' ) );
+		$paged          = (int) get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
+		$offset         = ( ( $paged - 1 ) * $posts_per_page ) + $this->att( 'list_offset', 0 );
+
+		return compact( 'posts_per_page', 'paged', 'offset' );
+	}
+
+	protected function map_related_term_args( $args ) {
 
 		$required = false;
 		$passes   = false;
@@ -158,7 +180,7 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base {
 		return $args;
 	}
 
-	public function get_pagination( $total_pages ) {
+	protected function get_pagination( $total_pages ) {
 		$nav = array( 'prev_link' => '', 'next_link' => '' );
 
 		if ( ! $this->bool_att( 'remove_pagination' ) ) {
@@ -169,18 +191,19 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base {
 		return $nav;
 	}
 
-	public function get_wrap_classes() {
+	protected function get_wrap_classes() {
 		$columns   = absint( $this->att( 'number_columns' ) );
 		$columns   = $columns < 1 ? 1 : $columns;
 
 		return $this->att( 'wrap_classes' ) . ' gc-' . $columns . '-cols gc-sermons-wrap';
 	}
 
-	public function map_sermon_args( $all_sermons ) {
+	protected function map_sermon_args( $all_sermons, $my_level ) {
 		global $post;
 		$sermons = array();
 
 		$do_thumb        = ! $this->bool_att( 'remove_thumbnail' );
+		$do_content      = $this->bool_att( 'content' );
 		$type_of_content = $this->att( 'content' );
 		$thumb_size      = $this->att( 'thumbnail_size' );
 
@@ -195,8 +218,8 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base {
 			$sermon['image']          = $do_thumb ? $obj->featured_image( $thumb_size ) : '';
 			$sermon['do_image']       = (bool) $sermon['image'];
 			$sermon['description']    = '';
-			$sermon['do_description'] = (bool) $type_of_content;
-			if ( $sermon['do_description'] ) {
+			$sermon['do_description'] = $do_content;
+			if ( $do_content ) {
 				$sermon['description'] = 'excerpt' === $type_of_content
 					? $obj->loop_excerpt()
 					: apply_filters( 'the_content', $obj->post_content );
@@ -206,6 +229,14 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base {
 		}
 
 		wp_reset_postdata();
+
+		if ( $do_content ) {
+			/*
+			 * Reset shortcode_object as well, as calling the content/excerpt
+			 * could trigger inception and change the object under us.
+			 */
+			$this->shortcode_object = WDS_Shortcode_Instances::get( $this->shortcode, $my_level );
+		}
 
 		return $sermons;
 	}
