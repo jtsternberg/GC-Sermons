@@ -29,7 +29,9 @@ abstract class GCS_Shortcodes_Base {
 	 * @param  object $plugin Main plugin object.
 	 * @return void
 	 */
-	abstract function __construct( $plugin );
+	public function __construct( $plugin ) {
+		$this->hooks();
+	}
 
 	public function hooks() {
 		$this->run->hooks();

@@ -11,6 +11,7 @@ class GCS_Shortcodes {
 	 * Instance of GCS_Shortcodes_Play_Button
 	 *
 	 * @var GCS_Shortcodes_Play_Button
+	 * @since 0.1.0
 	 */
 	protected $play_button;
 
@@ -18,6 +19,7 @@ class GCS_Shortcodes {
 	 * Instance of GCS_Shortcodes_Sermons
 	 *
 	 * @var GCS_Shortcodes_Sermons
+	 * @since 0.1.4
 	 */
 	protected $sermons;
 
@@ -25,20 +27,23 @@ class GCS_Shortcodes {
 	 * Instance of GCS_Shortcodes_Recent_Series
 	 *
 	 * @var GCS_Shortcodes_Recent_Series
+	 * @since 0.1.4
 	 */
-	protected $series_info;
+	protected $recent_series;
 
 	/**
 	 * Instance of GCS_Shortcodes_Recent_Speaker
 	 *
 	 * @var GCS_Shortcodes_Recent_Speaker
+	 * @since 0.1.4
 	 */
-	protected $speaker_info;
+	protected $recent_speaker;
 
 	/**
 	 * Instance of GCS_Shortcodes_Related_Links
 	 *
 	 * @var GCS_Shortcodes_Related_Links
+	 * @since 0.1.4
 	 */
 	protected $related_links;
 
@@ -46,6 +51,7 @@ class GCS_Shortcodes {
 	 * Instance of GCS_Shortcodes_Video_Player
 	 *
 	 * @var GCS_Shortcodes_Video_Player
+	 * @since 0.1.4
 	 */
 	protected $video_player;
 
@@ -64,14 +70,14 @@ class GCS_Shortcodes {
 	 * @return void
 	 */
 	public function __construct( $plugin ) {
-		$this->play_button   = new GCS_Shortcodes_Play_Button( $plugin );
-		$this->sermons       = new GCS_Shortcodes_Sermons( $plugin );
-		$this->series_info   = new GCS_Shortcodes_Recent_Series( $plugin );
-		$this->series_info   = new GCS_Shortcodes_Recent_Speaker( $plugin );
-		$this->series        = new GCS_Shortcodes_Series( $plugin );
-		$this->related_links = new GCS_Shortcodes_Related_Links( $plugin );
-		$this->video_player  = new GCS_Shortcodes_Video_Player( $plugin );
-		$this->audio_player  = new GCS_Shortcodes_Audio_Player( $plugin );
+		$this->play_button    = new GCS_Shortcodes_Play_Button( $plugin );
+		$this->sermons        = new GCS_Shortcodes_Sermons( $plugin );
+		$this->recent_series  = new GCS_Shortcodes_Recent_Series( $plugin );
+		$this->recent_speaker = new GCS_Shortcodes_Recent_Speaker( $plugin );
+		$this->series         = new GCS_Shortcodes_Series( $plugin );
+		$this->related_links  = new GCS_Shortcodes_Related_Links( $plugin );
+		$this->video_player   = new GCS_Shortcodes_Video_Player( $plugin );
+		$this->audio_player   = new GCS_Shortcodes_Audio_Player( $plugin );
 	}
 
 	/**
