@@ -2,14 +2,14 @@
 /**
  * GC Sermons Template Loader
  *
- * @since NEXT
+ * @since 0.1.3
  * @package GC Sermons
  */
 
 /**
  * GC Sermons Template Loader.
  *
- * @since NEXT
+ * @since 0.1.3
  */
 class GCS_Template_Loader {
 
@@ -17,7 +17,7 @@ class GCS_Template_Loader {
 	 * Array of arguments for template
 	 *
 	 * @var array
-	 * @since NEXT
+	 * @since 0.1.3
 	 */
 	public $args = array();
 
@@ -25,7 +25,7 @@ class GCS_Template_Loader {
 	 * Template names array
 	 *
 	 * @var array
-	 * @since NEXT
+	 * @since 0.1.3
 	 */
 	public $templates = array();
 
@@ -33,7 +33,7 @@ class GCS_Template_Loader {
 	 * Template name
 	 *
 	 * @var string
-	 * @since NEXT
+	 * @since 0.1.3
 	 */
 	public $template = '';
 
@@ -41,14 +41,14 @@ class GCS_Template_Loader {
 	 * Template file extension
 	 *
 	 * @var string
-	 * @since NEXT
+	 * @since 0.1.3
 	 */
 	protected $extension = '.php';
 
 	/**
 	 * HTML view template loader constructor.
 	 *
-	 * @since  NEXT
+	 * @since  0.1.3
 	 *
 	 * @param string  $template The template file name, relative to the includes/templates/ folder - with or without .php extension
 	 * @param string  $name     The name of the specialised template. If array, will take the place of the $args.
@@ -80,7 +80,7 @@ class GCS_Template_Loader {
 	/**
 	 * Loads the view and outputs it
 	 *
-	 * @since  NEXT
+	 * @since  0.1.3
 	 *
 	 * @param  boolean $echo Whether to output or return the template
 	 *
@@ -122,7 +122,7 @@ class GCS_Template_Loader {
 	 * Searches in the STYLESHEETPATH before TEMPLATEPATH and then this plugin's /templates
 	 * so that themes which inherit from a parent theme can just overload one file.
 	 *
-	 * @since  NEXT
+	 * @since  0.1.3
 	 *
 	 * @return string The located template filename.
 	 */
@@ -141,7 +141,7 @@ class GCS_Template_Loader {
 	/**
 	 * Searches for template in 1) child theme, 2) parent theme, 3) this plugin.
 	 *
-	 * @since  NEXT
+	 * @since  0.1.3
 	 *
 	 * @param  string $template Template file to search for.
 	 *
@@ -170,7 +170,7 @@ class GCS_Template_Loader {
 	/**
 	 * Get one of the $args values.
 	 *
-	 * @since  NEXT
+	 * @since  0.1.3
 	 *
 	 * @param  string  $arg     The $args key.
 	 * @param  mixed   $default Mixed value.
@@ -188,7 +188,7 @@ class GCS_Template_Loader {
 	/**
 	 * Output one of the $args values.
 	 *
-	 * @since  NEXT
+	 * @since  0.1.3
 	 *
 	 * @param  string  $arg     The $args key.
 	 * @param  mixed   $esc_cb  An escaping function callback.
@@ -206,7 +206,7 @@ class GCS_Template_Loader {
 	 * Conditionally output one of the $args values,
 	 * if the value (or another one specified) exists.
 	 *
-	 * @since  NEXT
+	 * @since  0.1.3
 	 *
 	 * @param  string  $arg          The $args key.
 	 * @param  mixed   $esc_cb       An escaping function callback.
@@ -225,7 +225,7 @@ class GCS_Template_Loader {
 	/**
 	 * Magic method to fetch the rendered view when calling the call as a string.
 	 *
-	 * @since  NEXT
+	 * @since  0.1.3
 	 *
 	 * @return string  Rendered template's HTML output.
 	 */
@@ -236,7 +236,7 @@ class GCS_Template_Loader {
 	/**
 	 * Get a rendered HTML view with the given arguments and return the view's contents.
 	 *
-	 * @since  NEXT
+	 * @since  0.1.3
 	 *
 	 * @param string  $template The template file name, relative to the includes/templates/ folder
 	 *                          - without .php extension
@@ -253,7 +253,7 @@ class GCS_Template_Loader {
 	/**
 	 * Render an HTML view with the given arguments and output the view's contents.
 	 *
-	 * @since  NEXT
+	 * @since  0.1.3
 	 *
 	 * @param  string $template The template file name, relative to the includes/templates/ folder
 	 *                          - without .php extension

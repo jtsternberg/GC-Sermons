@@ -37,7 +37,7 @@ abstract class GCSS_Recent_Admin_Base extends GCS_Shortcodes_Admin_Base {
 	/**
 	 * Removes 'recent' shortcode attribute when it isn't applicable.
 	 *
-	 * @since  NEXT
+	 * @since  0.1.3
 	 *
 	 * @param  array  $updated Array of shortcode attributes.
 	 *

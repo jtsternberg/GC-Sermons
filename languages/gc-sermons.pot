@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GC Sermons 0.1.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/gc-sermons\n"
-"POT-Creation-Date: 2016-05-06 15:03:28+00:00\n"
+"POT-Creation-Date: 2016-05-31 02:41:30+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,47 +13,52 @@ msgstr ""
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: grunt-wp-i18n 0.5.4\n"
 
-#: gc-sermons.php:223
+#: functions.php:148 includes/class-sermons.php:288
+#: templates/related-links.php:2
+msgid "Related Links"
+msgstr ""
+
+#: gc-sermons.php:225
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:333
 #: vendor/webdevstudios/wds-shortcodes/includes/init.php:113
 #: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:333
 msgid "Install Required Plugins"
 msgstr ""
 
-#: gc-sermons.php:224
+#: gc-sermons.php:226
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:334
 #: vendor/webdevstudios/wds-shortcodes/includes/init.php:114
 #: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:334
 msgid "Install Plugins"
 msgstr ""
 
-#: gc-sermons.php:225
+#: gc-sermons.php:227
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:335
 #: vendor/webdevstudios/wds-shortcodes/includes/init.php:115
 #: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:335
 msgid "Installing Plugin: %s"
 msgstr ""
 
-#: gc-sermons.php:227
+#: gc-sermons.php:229
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:336
 #: vendor/webdevstudios/wds-shortcodes/includes/init.php:117
 #: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:336
 msgid "Something went wrong with the plugin API."
 msgstr ""
 
-#: gc-sermons.php:228 vendor/webdevstudios/wds-shortcodes/includes/init.php:118
+#: gc-sermons.php:230 vendor/webdevstudios/wds-shortcodes/includes/init.php:118
 msgid "The \"WDS Shortcodes\" plugin requires the following plugin: %1$s."
 msgid_plural "This plugin requires the following plugins: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: gc-sermons.php:230 vendor/webdevstudios/wds-shortcodes/includes/init.php:120
+#: gc-sermons.php:232 vendor/webdevstudios/wds-shortcodes/includes/init.php:120
 msgid "This plugin recommends the following plugin: %1$s."
 msgid_plural "This plugin recommends the following plugins: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: gc-sermons.php:232 vendor/webdevstudios/wds-shortcodes/includes/init.php:122
+#: gc-sermons.php:234 vendor/webdevstudios/wds-shortcodes/includes/init.php:122
 msgid ""
 "Sorry, but you do not have the correct permissions to install the %s "
 "plugin. Contact the administrator of this site for help on getting the "
@@ -65,7 +70,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: gc-sermons.php:234
+#: gc-sermons.php:236
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:367
 #: vendor/webdevstudios/wds-shortcodes/includes/init.php:124
 #: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:367
@@ -74,7 +79,7 @@ msgid_plural "The following required plugins are currently inactive: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: gc-sermons.php:236
+#: gc-sermons.php:238
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:372
 #: vendor/webdevstudios/wds-shortcodes/includes/init.php:126
 #: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:372
@@ -83,7 +88,7 @@ msgid_plural "The following recommended plugins are currently inactive: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: gc-sermons.php:238 vendor/webdevstudios/wds-shortcodes/includes/init.php:128
+#: gc-sermons.php:240 vendor/webdevstudios/wds-shortcodes/includes/init.php:128
 msgid ""
 "Sorry, but you do not have the correct permissions to activate the %s "
 "plugin. Contact the administrator of this site for help on getting the "
@@ -95,7 +100,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: gc-sermons.php:240 vendor/webdevstudios/wds-shortcodes/includes/init.php:130
+#: gc-sermons.php:242 vendor/webdevstudios/wds-shortcodes/includes/init.php:130
 msgid ""
 "The following plugin needs to be updated to its latest version to ensure "
 "maximum compatibility with this plugin: %1$s."
@@ -105,7 +110,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: gc-sermons.php:242 vendor/webdevstudios/wds-shortcodes/includes/init.php:132
+#: gc-sermons.php:244 vendor/webdevstudios/wds-shortcodes/includes/init.php:132
 msgid ""
 "Sorry, but you do not have the correct permissions to update the %s plugin. "
 "Contact the administrator of this site for help on getting the plugin "
@@ -117,7 +122,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: gc-sermons.php:244
+#: gc-sermons.php:246
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:382
 #: vendor/webdevstudios/wds-shortcodes/includes/init.php:134
 #: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:382
@@ -126,20 +131,20 @@ msgid_plural "Begin installing plugins"
 msgstr[0] ""
 msgstr[1] ""
 
-#: gc-sermons.php:245 vendor/webdevstudios/wds-shortcodes/includes/init.php:135
+#: gc-sermons.php:247 vendor/webdevstudios/wds-shortcodes/includes/init.php:135
 msgid "Activate installed plugin"
 msgid_plural "Activate installed plugins"
 msgstr[0] ""
 msgstr[1] ""
 
-#: gc-sermons.php:246
+#: gc-sermons.php:248
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:397
 #: vendor/webdevstudios/wds-shortcodes/includes/init.php:136
 #: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:397
 msgid "Return to Required Plugins Installer"
 msgstr ""
 
-#: gc-sermons.php:247
+#: gc-sermons.php:249
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:399
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3029
 #: vendor/webdevstudios/wds-shortcodes/includes/init.php:137
@@ -148,59 +153,19 @@ msgstr ""
 msgid "Plugin activated successfully."
 msgstr ""
 
-#: gc-sermons.php:248 vendor/webdevstudios/wds-shortcodes/includes/init.php:138
+#: gc-sermons.php:250 vendor/webdevstudios/wds-shortcodes/includes/init.php:138
 msgid "All plugins installed and activated successfully. %s"
 msgstr ""
 
-#: gc-sermons.php:331
+#: gc-sermons.php:333
 msgid "CMB2"
 msgstr ""
 
-#: gc-sermons.php:355
+#: gc-sermons.php:357
 msgid ""
 "GC Sermons is missing requirements and has been <a "
 "href=\"%s\">deactivated</a>. Please make sure all requirements are "
 "available. Requirements:"
-msgstr ""
-
-#: includes/class-pbs-admin.php:41
-msgid "GC Sermon Play"
-msgstr ""
-
-#: includes/class-pbs-admin.php:42
-msgid "GC Sermon Play Button"
-msgstr ""
-
-#: includes/class-pbs-admin.php:58
-msgid "Sermon to play"
-msgstr ""
-
-#: includes/class-pbs-admin.php:59
-msgid ""
-"Blank, \"recent\", or \"0\" will play the most recent video. Otherwise "
-"enter a post ID. click the magnifying glass to search for a Sermon post."
-msgstr ""
-
-#: includes/class-pbs-admin.php:68
-msgid "Icon Color"
-msgstr ""
-
-#: includes/class-pbs-admin.php:75
-msgid "Icon Size"
-msgstr ""
-
-#: includes/class-pbs-admin.php:76
-msgid ""
-"Select a font-size (in <code>em</code>s, <strong>or</strong> enter either "
-"\"medium\", \"large\", or \"small\"."
-msgstr ""
-
-#: includes/class-pbs-admin.php:83
-msgid "Extra CSS Classes"
-msgstr ""
-
-#: includes/class-pbs-admin.php:84
-msgid "Enter classes separated by spaces (e.g. \"class1 class2\")"
 msgstr ""
 
 #: includes/class-scripture.php:32
@@ -223,11 +188,15 @@ msgstr ""
 msgid "Select the series' branding image"
 msgstr ""
 
-#: includes/class-sermon-post.php:352
+#: includes/class-series.php:86
+msgid "Series Image"
+msgstr ""
+
+#: includes/class-sermon-post.php:376
 msgid "There is no series associated with this sermon."
 msgstr ""
 
-#: includes/class-sermon-post.php:383
+#: includes/class-sermon-post.php:408
 msgid "There is no speaker associated with this sermon."
 msgstr ""
 
@@ -239,30 +208,34 @@ msgstr ""
 msgid "Sermons"
 msgstr ""
 
-#: includes/class-sermons.php:112
+#: includes/class-sermons.php:216
+msgid "Coming Soon:"
+msgstr ""
+
+#: includes/class-sermons.php:235
 msgid "Video URL"
 msgstr ""
 
-#: includes/class-sermons.php:113
+#: includes/class-sermons.php:236
 msgid ""
 "Enter a youtube, or vimeo URL. Supports services listed at <a "
 "href=\"http://codex.wordpress.org/Embeds\">http://codex.wordpress.org/"
 "Embeds</a>."
 msgstr ""
 
-#: includes/class-sermons.php:118
+#: includes/class-sermons.php:241
 msgid "Video File"
 msgstr ""
 
-#: includes/class-sermons.php:119
+#: includes/class-sermons.php:242
 msgid "Alternatively upload/select video from your media library."
 msgstr ""
 
-#: includes/class-sermons.php:125
+#: includes/class-sermons.php:248
 msgid "Audio URL"
 msgstr ""
 
-#: includes/class-sermons.php:126
+#: includes/class-sermons.php:249
 msgid ""
 "Enter a soundcloud, spotify, or other oembed-supported web audio URL. "
 "Supports services listed at <a "
@@ -270,71 +243,67 @@ msgid ""
 "Embeds</a>."
 msgstr ""
 
-#: includes/class-sermons.php:131
+#: includes/class-sermons.php:254
 msgid "Audio File"
 msgstr ""
 
-#: includes/class-sermons.php:132
+#: includes/class-sermons.php:255
 msgid "Alternatively upload/select audio from your media library."
 msgstr ""
 
-#: includes/class-sermons.php:138
+#: includes/class-sermons.php:261
 msgid "Excerpt"
 msgstr ""
 
-#: includes/class-sermons.php:139
+#: includes/class-sermons.php:262
 msgid ""
 "Excerpts are optional hand-crafted summaries of your content that can be "
 "used in your theme. <a href=\"https://codex.wordpress.org/Excerpt\" "
 "target=\"_blank\">Learn more about manual excerpts.</a>"
 msgstr ""
 
-#: includes/class-sermons.php:145
+#: includes/class-sermons.php:268 includes/class-taxonomies-base.php:132
 #: vendor/webdevstudios/wds-shortcodes/tests/includes/testing-shortcode-admin.php:19
 msgid "Image"
 msgstr ""
 
-#: includes/class-sermons.php:146
+#: includes/class-sermons.php:269
 msgid "Select an image if you want to override the series image for this sermon."
 msgstr ""
 
-#: includes/class-sermons.php:151
+#: includes/class-sermons.php:274
 msgid "Sermon Notes"
 msgstr ""
 
-#: includes/class-sermons.php:158
+#: includes/class-sermons.php:281
 msgid "Sermon Details"
 msgstr ""
 
-#: includes/class-sermons.php:165
-msgid "Related Links"
-msgstr ""
-
-#: includes/class-sermons.php:172
+#: includes/class-sermons.php:295
 msgid "Add links, or select from related content by clicking the search icon."
 msgstr ""
 
-#: includes/class-sermons.php:173
+#: includes/class-sermons.php:296
 msgid "Link {#}"
 msgstr ""
 
-#: includes/class-sermons.php:174
+#: includes/class-sermons.php:297
 msgid "Title"
 msgstr ""
 
-#: includes/class-sermons.php:175
+#: includes/class-sermons.php:298
 msgid "URL"
 msgstr ""
 
-#: includes/class-sermons.php:176
+#: includes/class-sermons.php:299
 msgid "Find/Select related content"
 msgstr ""
 
-#: includes/class-sermons.php:410
+#: includes/class-sermons.php:536
 msgid "\"%s\" is not a valid taxonomy for %s."
 msgstr ""
 
-#: includes/class-speaker.php:36
+#: includes/class-speaker.php:36 templates/sermon-speaker-info.php:3
 msgid "Speaker"
 msgstr ""
 
@@ -354,7 +323,7 @@ msgid ""
 "the information here."
 msgstr ""
 
-#: includes/class-speaker.php:72
+#: includes/class-speaker.php:72 includes/class-speaker.php:79
 msgid "Speaker Avatar"
 msgstr ""
 
@@ -364,11 +333,11 @@ msgid ""
 "chosen, or if the \"Connected User\" does not have an avatar."
 msgstr ""
 
-#: includes/class-speaker.php:86
+#: includes/class-speaker.php:88
 msgid "Connected %s"
 msgstr ""
 
-#: includes/class-speaker.php:88
+#: includes/class-speaker.php:90
 msgid ""
 "Type the name of the %1$s and select from the suggested options. By "
 "associating a speaker with a %1$s, that %1$s account details (first/last "
@@ -390,6 +359,258 @@ msgstr ""
 
 #: includes/class-topic.php:28
 msgid "Topics"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-audio-player/class-shortcode.php:81
+#: includes/shortcodes/shortcodes-audio-player/class-shortcode.php:82
+msgid "GC Sermon Audio Player"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-audio-player/class-shortcode.php:99
+#: includes/shortcodes/shortcodes-recent-series/class-admin.php:43
+#: includes/shortcodes/shortcodes-recent-speaker/class-admin.php:43
+#: includes/shortcodes/shortcodes-related-links/class-shortcode.php:99
+#: includes/shortcodes/shortcodes-video-player/class-shortcode.php:99
+msgid "Sermon ID"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-audio-player/class-shortcode.php:100
+msgid ""
+"Blank, \"recent\", or \"0\" will get the most recent sermon's audio player. "
+"Otherwise enter a post ID. Click the magnifying glass to search for a "
+"Sermon post."
+msgstr ""
+
+#: includes/shortcodes/shortcodes-play-button/class-admin.php:25
+msgid "GC Sermon Play"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-play-button/class-admin.php:26
+msgid "GC Sermon Play Button"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-play-button/class-admin.php:42
+msgid "Sermon to play"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-play-button/class-admin.php:43
+msgid ""
+"Blank, \"recent\", or \"0\" will play the most recent video. Otherwise "
+"enter a post ID. Click the magnifying glass to search for a Sermon post."
+msgstr ""
+
+#: includes/shortcodes/shortcodes-play-button/class-admin.php:52
+msgid "Icon Color"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-play-button/class-admin.php:59
+msgid "Icon Size"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-play-button/class-admin.php:60
+msgid ""
+"Select a font-size (in <code>em</code>s, <strong>or</strong> enter either "
+"\"medium\", \"large\", or \"small\"."
+msgstr ""
+
+#: includes/shortcodes/shortcodes-play-button/class-admin.php:67
+msgid "Extra CSS Classes"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-play-button/class-admin.php:68
+#: includes/shortcodes/shortcodes-series/class-admin.php:97
+#: includes/shortcodes/shortcodes-sermons/class-admin.php:150
+msgid "Enter classes separated by spaces (e.g. \"class1 class2\")"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-recent-series/class-admin.php:25
+#: includes/shortcodes/shortcodes-recent-series/class-admin.php:26
+msgid "GC Recent Series"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-recent-series/class-admin.php:44
+msgid ""
+"Blank, \"recent\", or \"0\" will get the most recent sermon's series info. "
+"Otherwise enter a post ID. Click the magnifying glass to search for a "
+"Sermon post."
+msgstr ""
+
+#: includes/shortcodes/shortcodes-recent-series/class-admin.php:54
+#: includes/shortcodes/shortcodes-recent-speaker/class-admin.php:54
+#: includes/shortcodes/shortcodes-related-links/class-shortcode.php:110
+msgid "Filter Most Recent Sermon By:"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-recent-series/class-admin.php:55
+msgid ""
+"If setting \"Sermon ID\" above to blank, \"recent\", or \"0\", this setting "
+"determines which type of most recent sermon to get the series info for."
+msgstr ""
+
+#: includes/shortcodes/shortcodes-recent-series/class-admin.php:61
+#: includes/shortcodes/shortcodes-recent-speaker/class-admin.php:61
+#: includes/shortcodes/shortcodes-related-links/class-shortcode.php:117
+msgid "Most Recent"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-recent-series/class-admin.php:62
+#: includes/shortcodes/shortcodes-recent-speaker/class-admin.php:62
+#: includes/shortcodes/shortcodes-related-links/class-shortcode.php:118
+msgid "Most Recent with Audio"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-recent-series/class-admin.php:63
+#: includes/shortcodes/shortcodes-recent-speaker/class-admin.php:63
+#: includes/shortcodes/shortcodes-related-links/class-shortcode.php:119
+msgid "Most Recent with Video"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-recent-series/class-admin.php:68
+#: includes/shortcodes/shortcodes-recent-speaker/class-admin.php:68
+#: includes/shortcodes/shortcodes-series/class-admin.php:64
+msgid "Remove Thumbnail"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-recent-series/class-admin.php:75
+#: includes/shortcodes/shortcodes-recent-speaker/class-admin.php:75
+#: includes/shortcodes/shortcodes-series/class-admin.php:71
+#: includes/shortcodes/shortcodes-sermons/class-admin.php:124
+msgid "Thumbnail Size (if included)"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-recent-speaker/class-admin.php:25
+#: includes/shortcodes/shortcodes-recent-speaker/class-admin.php:26
+msgid "GC Recent Speaker"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-recent-speaker/class-admin.php:44
+#: includes/shortcodes/shortcodes-related-links/class-shortcode.php:100
+msgid ""
+"Blank, \"recent\", or \"0\" will get the most recent sermon's speaker info. "
+"Otherwise enter a post ID. Click the magnifying glass to search for a "
+"Sermon post."
+msgstr ""
+
+#: includes/shortcodes/shortcodes-recent-speaker/class-admin.php:55
+msgid ""
+"If setting \"Sermon ID\" above to blank, \"recent\", or \"0\", this setting "
+"determines which type of most recent sermon to get the speaker info for."
+msgstr ""
+
+#: includes/shortcodes/shortcodes-related-links/class-shortcode.php:81
+msgid "GC Sermon Links"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-related-links/class-shortcode.php:82
+msgid "GC Sermon Related Links"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-related-links/class-shortcode.php:111
+msgid ""
+"If setting \"Sermon ID\" above to blank, \"recent\", or \"0\", this setting "
+"determines which type of most recent sermon to get the related links info "
+"for."
+msgstr ""
+
+#: includes/shortcodes/shortcodes-series/class-admin.php:25
+#: includes/shortcodes/shortcodes-series/class-admin.php:26
+msgid "GC Series"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-series/class-admin.php:43
+msgid "Number of Series to Show Per-Page"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-series/class-admin.php:50
+msgid "Remove Year Date Separators"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-series/class-admin.php:57
+#: includes/shortcodes/shortcodes-sermons/class-admin.php:98
+msgid "Remove Pagination"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-series/class-admin.php:78
+#: includes/shortcodes/shortcodes-sermons/class-admin.php:131
+msgid "Max number of columns"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-series/class-admin.php:79
+#: includes/shortcodes/shortcodes-sermons/class-admin.php:132
+msgid "Will vary on device screen width"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-series/class-admin.php:87
+#: includes/shortcodes/shortcodes-sermons/class-admin.php:140
+msgid "Offset"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-series/class-admin.php:88
+msgid "Changes which series starts the list"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-series/class-admin.php:96
+#: includes/shortcodes/shortcodes-sermons/class-admin.php:149
+msgid "Extra Wrap CSS Classes"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-series/class-run.php:77
+#: includes/shortcodes/shortcodes-sermons/class-run.php:165
+msgid "<span>&larr;</span> Newer"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-series/class-run.php:78
+#: includes/shortcodes/shortcodes-sermons/class-run.php:166
+msgid "Older <span>&rarr;</span>"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "GC Sermons"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-sermons/class-admin.php:65
+msgid "Number of sermons to show per-page"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-sermons/class-admin.php:73
+#: includes/shortcodes/shortcodes-sermons/class-admin.php:86
+msgid "Start typing to search. Enter \"this\" to use this post's %s."
+msgstr ""
+
+#: includes/shortcodes/shortcodes-sermons/class-admin.php:105
+msgid "Content"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-sermons/class-admin.php:110
+msgid "None"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-sermons/class-admin.php:111
+msgid "Sermon Post Content"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-sermons/class-admin.php:112
+msgid "Sermon Post Excerpt"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-sermons/class-admin.php:117
+msgid "Remove Thumbnails"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-sermons/class-admin.php:141
+msgid "Changes which sermon starts the list"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-video-player/class-shortcode.php:81
+#: includes/shortcodes/shortcodes-video-player/class-shortcode.php:82
+msgid "GC Sermon Video Player"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-video-player/class-shortcode.php:100
+msgid ""
+"Blank, \"recent\", or \"0\" will get the most recent sermon's video player. "
+"Otherwise enter a post ID. Click the magnifying glass to search for a "
+"Sermon post."
 msgstr ""
 
 #: vendor/jtsternberg/shortcode-button/lib/class-shortcode-button.php:52
@@ -1012,6 +1233,42 @@ msgstr ""
 msgid "Choose from the most used %s"
 msgstr ""
 
+#: vendor/webdevstudios/wds-shortcodes/node_modules/grunt-wp-i18n/test/fixtures/basic-theme/exclude/file.php:3
+#: vendor/webdevstudios/wds-shortcodes/node_modules/grunt-wp-i18n/test/fixtures/plugin-include/plugin-include.php:6
+msgid "Exclude"
+msgstr ""
+
+#: vendor/webdevstudios/wds-shortcodes/node_modules/grunt-wp-i18n/test/fixtures/plugin-include/include/file.php:2
+msgid "Include"
+msgstr ""
+
+#: vendor/webdevstudios/wds-shortcodes/node_modules/grunt-wp-i18n/test/fixtures/text-domains/add-domain.php:2
+#: vendor/webdevstudios/wds-shortcodes/node_modules/grunt-wp-i18n/test/fixtures/text-domains/update-all-domains.php:2
+#: vendor/webdevstudios/wds-shortcodes/node_modules/grunt-wp-i18n/test/fixtures/text-domains/update-all-domains.php:3
+#: vendor/webdevstudios/wds-shortcodes/node_modules/grunt-wp-i18n/test/fixtures/text-domains/update-all-domains.php:4
+#: vendor/webdevstudios/wds-shortcodes/node_modules/grunt-wp-i18n/test/fixtures/text-domains/update-domains.php:2
+#: vendor/webdevstudios/wds-shortcodes/node_modules/grunt-wp-i18n/test/fixtures/text-domains/update-domains.php:3
+msgid "String"
+msgstr ""
+
+#: vendor/webdevstudios/wds-shortcodes/node_modules/grunt-wp-i18n/test/fixtures/text-domains/update-all-domains.php:9
+#: vendor/webdevstudios/wds-shortcodes/node_modules/grunt-wp-i18n/test/fixtures/text-domains/update-all-domains.php:10
+#: vendor/webdevstudios/wds-shortcodes/node_modules/grunt-wp-i18n/test/fixtures/text-domains/update-all-domains.php:11
+msgid "1 Star"
+msgid_plural "%s Stars"
+msgstr[0] ""
+msgstr[1] ""
+
+#: vendor/webdevstudios/wds-shortcodes/node_modules/grunt-wp-i18n/test/fixtures/translator-comments/translator-comments.php:7
+#. translators: A single line translators comment.
+msgid "A"
+msgstr ""
+
+#: vendor/webdevstudios/wds-shortcodes/node_modules/grunt-wp-i18n/test/fixtures/translator-comments/translator-comments.php:15
+#. translators: A multiline translators comment.
+msgid "B"
+msgstr ""
+
 #: vendor/webdevstudios/wds-shortcodes/tests/includes/testing-shortcode-admin.php:25
 msgid "Image Display Options"
 msgstr ""
@@ -1028,10 +1285,6 @@ msgstr ""
 msgid "Text Box on Right"
 msgstr ""
 
-#. Plugin Name of the plugin/theme
-msgid "GC Sermons"
-msgstr ""
-
 #. Author URI of the plugin/theme
 msgid "http://dsgnwrks.pro"
 msgstr ""
@@ -1042,6 +1295,16 @@ msgstr ""
 
 #. Author of the plugin/theme
 msgid "jtsternberg"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-sermons/class-admin.php:72
+msgctxt "limit sermons by sermon series."
+msgid "Optionally select to limit %1$s by %2$s"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-sermons/class-admin.php:85
+msgctxt "limit sermons by sermon speaker."
+msgid "Optionally select to limit %1$s by %2$s"
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:1116
@@ -1094,4 +1357,11 @@ msgstr ""
 #: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2500
 msgctxt "%2$s = plugin name in screen reader markup"
 msgid "Activate %2$s"
+msgstr ""
+
+#: vendor/webdevstudios/wds-shortcodes/node_modules/grunt-wp-i18n/test/fixtures/text-domains/update-all-domains.php:6
+#: vendor/webdevstudios/wds-shortcodes/node_modules/grunt-wp-i18n/test/fixtures/text-domains/update-all-domains.php:7
+#: vendor/webdevstudios/wds-shortcodes/node_modules/grunt-wp-i18n/test/fixtures/text-domains/update-all-domains.php:8
+msgctxt "a string"
+msgid "String"
 msgstr ""

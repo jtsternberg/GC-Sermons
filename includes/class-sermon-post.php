@@ -236,7 +236,7 @@ class GCS_Sermon_Post {
 	/**
 	 * Wrapper for the_excerpt. Returns value. Must be used in loop.
 	 *
-	 * @since  NEXT
+	 * @since  0.1.3
 	 *
 	 * @return string Sermon post excerpt.
 	 */

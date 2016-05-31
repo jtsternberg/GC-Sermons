@@ -11,7 +11,7 @@ class GCSS_Series_Admin extends GCS_Shortcodes_Admin_Base {
 	 * Shortcode prefix for field ids.
 	 *
 	 * @var   string
-	 * @since NEXT
+	 * @since 0.1.3
 	 */
 	protected $prefix = 'series_';
 

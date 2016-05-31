@@ -19,7 +19,7 @@ abstract class GCS_Shortcodes_Run_Base extends WDS_Shortcodes {
 	/**
 	 * Constructor
 	 *
-	 * @since NEXT
+	 * @since 0.1.3
 	 *
 	 * @param GCS_Sermons $sermons
 	 */

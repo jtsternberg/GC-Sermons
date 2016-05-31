@@ -56,7 +56,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	 * The image column title (if applicable).
 	 *
 	 * @var string
-	 * @since  NEXT
+	 * @since  0.1.3
 	 */
 	protected $img_col_title = '';
 
@@ -124,7 +124,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	 * @todo  Need to disable JJJ's term image stuff for this taxonomy.
 	 *        https://twitter.com/Jtsternberg/status/735542428522971136
 	 *
-	 * @since NEXT
+	 * @since 0.1.3
 	 *
 	 * @param string  $img_col_title The title for the Image column.
 	 */
@@ -140,7 +140,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	/**
 	 * Add the "tax-image" column to taxonomy terms list-tables.
 	 *
-	 * @since NEXT
+	 * @since 0.1.3
 	 *
 	 * @param array $columns
 	 *
@@ -155,7 +155,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	/**
 	 * Output the value for the custom column.
 	 *
-	 * @since NEXT
+	 * @since 0.1.3
 	 *
 	 * @param string $empty
 	 * @param string $custom_column

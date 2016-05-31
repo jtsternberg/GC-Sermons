@@ -18,7 +18,7 @@ abstract class GCS_Shortcodes_Admin_Base extends WDS_Shortcode_Admin {
 	 * Shortcode prefix for field ids.
 	 *
 	 * @var   string
-	 * @since NEXT
+	 * @since 0.1.3
 	 */
 	protected $prefix = '';
 
@@ -45,7 +45,7 @@ abstract class GCS_Shortcodes_Admin_Base extends WDS_Shortcode_Admin {
 	/**
 	 * If the shortcode has a prefix property, we remove it from the shortcode attributes.
 	 *
-	 * @since  NEXT
+	 * @since  0.1.3
 	 *
 	 * @param  array  $updated Array of shortcode attributes.
 	 *

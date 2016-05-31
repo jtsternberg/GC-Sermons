@@ -2,14 +2,14 @@
 /**
  * GC Sermons Style Loader
  *
- * @since NEXT
+ * @since 0.1.3
  * @package GC Sermons
  */
 
 /**
  * GC Sermons Style Loader.
  *
- * @since NEXT
+ * @since 0.1.3
  */
 class GCS_Style_Loader extends GCS_Template_Loader {
 
@@ -17,7 +17,7 @@ class GCS_Style_Loader extends GCS_Template_Loader {
 	 * Template file extension
 	 *
 	 * @var string
-	 * @since NEXT
+	 * @since 0.1.3
 	 */
 	protected $extension = '.css';
 
@@ -25,7 +25,7 @@ class GCS_Style_Loader extends GCS_Template_Loader {
 	 * Whether to force loading of an already-loaded template.
 	 *
 	 * @var bool
-	 * @since NEXT
+	 * @since 0.1.3
 	 */
 	protected $force = false;
 
@@ -33,14 +33,14 @@ class GCS_Style_Loader extends GCS_Template_Loader {
 	 * Keep CSS templates from loading more than once per page.
 	 *
 	 * @var array
-	 * @since NEXT
+	 * @since 0.1.3
 	 */
 	protected static $done = array();
 
 	/**
 	 * HTML view template loader constructor.
 	 *
-	 * @since  NEXT
+	 * @since  0.1.3
 	 *
 	 * @param string  $css_template The template file name, relative to the includes/templates/ folder - with or without .php extension
 	 * @param string  $name     The name of the specialised template. If array, will take the place of the $args.
@@ -57,7 +57,7 @@ class GCS_Style_Loader extends GCS_Template_Loader {
 	/**
 	 * Loads the view and outputs it
 	 *
-	 * @since  NEXT
+	 * @since  0.1.3
 	 *
 	 * @param  boolean $echo Whether to output or return the template
 	 *
@@ -91,7 +91,7 @@ class GCS_Style_Loader extends GCS_Template_Loader {
 	/**
 	 * Minifies css and wraps in style tag.
 	 *
-	 * @since  NEXT
+	 * @since  0.1.3
 	 *
 	 * @param  string  $content CSS content to format/wrap.
 	 *
@@ -116,7 +116,7 @@ class GCS_Style_Loader extends GCS_Template_Loader {
 	/**
 	 * Get a rendered HTML view with the given arguments and return the view's contents.
 	 *
-	 * @since  NEXT
+	 * @since  0.1.3
 	 *
 	 * @param string  $template The template file name, relative to the includes/templates/ folder
 	 *                          - without .php extension
@@ -133,7 +133,7 @@ class GCS_Style_Loader extends GCS_Template_Loader {
 	/**
 	 * Render an HTML view with the given arguments and output the view's contents.
 	 *
-	 * @since  NEXT
+	 * @since  0.1.3
 	 *
 	 * @param  string $template The template file name, relative to the includes/templates/ folder
 	 *                          - without .php extension

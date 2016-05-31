@@ -121,7 +121,7 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 	/**
 	 * Remove default excerpt/feat-image metaboxes for Sermons
 	 *
-	 * @since  NEXT
+	 * @since  0.1.3
 	 *
 	 * @return void
 	 */
@@ -138,7 +138,7 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 	 * This provides a backup featured image for sermons by checking the sermon series
 	 * for the series featured image. If a sermon has a featured image set, that will be used.
 	 *
-	 * @since  NEXT
+	 * @since  0.1.3
 	 *
 	 * @param null|array|string $value The value get_metadata() should return - a single metadata value,
 	 *                                 or an array of values.
@@ -178,7 +178,7 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 	 * When a scheduled message post is saved, change the status back to 'publish'.
 	 * This allows the future-date sermons to show on the front-end.
 	 *
-	 * @since  NEXT
+	 * @since  0.1.3
 	 *
 	 * @param  array  $data    Array of post data for update.
 	 * @param  array  $postarr Full array of post data.

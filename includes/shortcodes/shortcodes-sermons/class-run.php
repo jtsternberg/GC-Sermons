@@ -26,7 +26,7 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base {
 	/**
 	 * Constructor
 	 *
-	 * @since NEXT
+	 * @since 0.1.3
 	 *
 	 * @param GCS_Sermons $sermons
 	 * @param GCS_Taxonomies $taxonomies

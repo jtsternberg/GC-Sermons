@@ -3,7 +3,7 @@
 /**
  * Gets a GCS_Sermon_Post object from a post object or ID.
  *
- * @since  NEXT
+ * @since  0.1.3
  *
  * @param  mixed $sermon         Post object or ID or (GCS_Sermon_Post object).
  * @param  bool  $throw_on_error Use if you have exception handling in place.
@@ -35,7 +35,7 @@ function gc_get_sermon_post( $sermon = 0, $throw_on_error = false ) {
 /**
  * Get's info for a series attached to the sermon.
  *
- * @since  NEXT
+ * @since  0.1.3
  *
  * @param  mixed   $sermon          Post object or ID or (GCS_Sermon_Post object).
  * @param  boolean $args            Args array
@@ -83,7 +83,7 @@ function gc_get_sermon_series_info( $sermon = 0, $args = array(), $get_series_ar
 /**
  * Get's info for a speaker attached to the sermon.
  *
- * @since  NEXT
+ * @since  0.1.3
  *
  * @param  mixed   $sermon           Post object or ID or (GCS_Sermon_Post object).
  * @param  boolean $args             Args array
@@ -130,7 +130,7 @@ function gc_get_sermon_speaker_info( $sermon = 0, $args = array(), $get_speaker_
 /**
  * Get's related links output for the sermon.
  *
- * @since  NEXT
+ * @since  0.1.3
  *
  * @param  mixed   $sermon Post object or ID or (GCS_Sermon_Post object).
  *
@@ -155,7 +155,7 @@ function gc_get_sermon_related_links( $sermon = 0 ) {
 /**
  * Get's video player for the sermon.
  *
- * @since  NEXT
+ * @since  0.1.3
  *
  * @param  mixed $sermon Post object or ID or (GCS_Sermon_Post object).
  * @param  mixed $args   Arguments passed to GCS_Sermon_Post::get_video_player().
@@ -176,7 +176,7 @@ function gc_get_sermon_video_player( $sermon = 0, $args = array() ) {
 /**
  * Get's audio player for the sermon.
  *
- * @since  NEXT
+ * @since  0.1.3
  *
  * @param  mixed $sermon Post object or ID or (GCS_Sermon_Post object).
  * @param  mixed $args   Arguments passed to GCS_Sermon_Post::get_audio_player().

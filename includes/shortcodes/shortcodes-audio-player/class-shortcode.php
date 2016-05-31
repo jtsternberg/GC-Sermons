@@ -67,7 +67,7 @@ class GCS_Shortcodes_Audio_Player_Admin extends GCSS_Recent_Admin_Base {
 	 * Shortcode prefix for field ids.
 	 *
 	 * @var   string
-	 * @since NEXT
+	 * @since 0.1.3
 	 */
 	protected $prefix = 'gc_audplayer_';
 
