@@ -78,7 +78,17 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 		add_filter( 'cmb2_override_excerpt_meta_save', '__return_true' );
 		add_filter( 'admin_init', array( $this, 'admin_hooks' ) );
 
-		add_filter( 'get_post_metadata', array( $this, 'featured_image_fallback_to_series_image' ), 10, 3 );
+		/**
+		 * Enable image fallback. If Sermon does not have a feautured image, fall back
+		 * to the sermon series image (if it exists).
+		 *
+		 * To disable:
+		 * 	add_filter( 'gc_do_sermon_series_fallback_image', '__return_false' );
+		 *
+		 */
+		if ( apply_filters( 'gc_do_sermon_series_fallback_image', true ) ) {
+			add_filter( 'get_post_metadata', array( $this, 'featured_image_fallback_to_series_image' ), 10, 3 );
+		}
 
 		/**
 		 * Enable future posts to be displayed.
