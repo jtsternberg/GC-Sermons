@@ -262,7 +262,8 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 		if ( isset( $args['orderby'] ) && 'sermon_date' === $args['orderby'] ) {
 			$terms = $this->get_terms_in_sermon_date_order();
 		} else {
-			$terms = get_terms( $this->taxonomy(), $args );
+			$terms = self::get_terms( $this->taxonomy(), $args );
+
 		}
 
 		if ( ! $terms || is_wp_error( $terms ) ) {
@@ -423,6 +424,23 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 		}
 
 		$this->get_terms_in_sermon_date_order( 1 );
+	}
+
+	/**
+	 * Wrapper for `get_terms` to account for changes in WP 4.5 where taxonomy
+	 * is expected as part of the arguments.
+	 *
+	 * @since  NEXT
+	 *
+	 * @return mixed Array of terms on success
+	 */
+	protected static function get_terms( $taxonomy, $args = array() ) {
+		if ( version_compare( $GLOBALS['wp_version'], '4.5.0', '>=' ) ) {
+			$args['taxonomy'] = 'taxonomy';
+			return get_terms( $args );
+		}
+
+		return get_terms( $taxonomy, $args );
 	}
 
 	/**
