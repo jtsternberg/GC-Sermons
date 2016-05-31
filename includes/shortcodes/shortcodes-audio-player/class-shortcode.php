@@ -1,7 +1,7 @@
 <?php
 /**
  * GC Sermons Audio Player Shortcode
- * @version 0.1.3
+ * @version 0.1.4
  * @package GC Sermons
  */
 class GCS_Shortcodes_Audio_Player extends GCS_Shortcodes_Base {

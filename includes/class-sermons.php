@@ -2,7 +2,7 @@
 /**
  * GC Sermons Sermons
  *
- * @version 0.1.3
+ * @version 0.1.4
  * @package GC Sermons
  */
 
