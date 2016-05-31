@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "bfe32f7494e65f6dfb081c5a0f154c18",
-    "content-hash": "761da31aa2e13da7d452a5a0e5fc95af",
+    "hash": "538ae2b5393074426f09d60f3e69633d",
+    "content-hash": "d6a5574d0defecdcf0f32c70758f63ec",
     "packages": [
         {
             "name": "jtsternberg/cmb2-related-links",
@@ -412,16 +412,16 @@
         },
         {
             "name": "webdevstudios/wds-shortcodes",
-            "version": "v1.0.2",
+            "version": "v1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WebDevStudios/WDS-Shortcodes.git",
-                "reference": "963e77ef6e9777d048e06a31c5fb4fcd09384712"
+                "reference": "ac7dc661bf5ff394817d627a7893a9f2f2a7fda3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WebDevStudios/WDS-Shortcodes/zipball/963e77ef6e9777d048e06a31c5fb4fcd09384712",
-                "reference": "963e77ef6e9777d048e06a31c5fb4fcd09384712",
+                "url": "https://api.github.com/repos/WebDevStudios/WDS-Shortcodes/zipball/ac7dc661bf5ff394817d627a7893a9f2f2a7fda3",
+                "reference": "ac7dc661bf5ff394817d627a7893a9f2f2a7fda3",
                 "shasum": ""
             },
             "require": {
@@ -458,7 +458,7 @@
                 "wordpress",
                 "wp-api"
             ],
-            "time": "2016-05-30 00:14:06"
+            "time": "2016-05-31 17:46:17"
         },
         {
             "name": "xrstf/composer-php52",
