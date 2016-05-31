@@ -138,7 +138,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	}
 
 	/**
-	 * Add the "tax_image" column to taxonomy terms list-tables.
+	 * Add the "tax-image" column to taxonomy terms list-tables.
 	 *
 	 * @since NEXT
 	 *
@@ -147,7 +147,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	 * @return array
 	 */
 	public function add_column_header( $columns = array() ) {
-		$columns['tax_image'] = $this->img_col_title;
+		$columns['tax-image'] = $this->img_col_title;
 
 		return $columns;
 	}
@@ -165,8 +165,8 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	 */
 	public function add_column_value( $empty = '', $custom_column = '', $term_id = 0 ) {
 
-		// Bail if no taxonomy passed or not on the `tax_image` column
-		if ( empty( $_REQUEST['taxonomy'] ) || ( 'tax_image' !== $custom_column ) || ! empty( $empty ) ) {
+		// Bail if no taxonomy passed or not on the `tax-image` column
+		if ( empty( $_REQUEST['taxonomy'] ) || ( 'tax-image' !== $custom_column ) || ! empty( $empty ) ) {
 			return;
 		}
 
@@ -176,8 +176,16 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 		$term = $this->get( $term_id, array( 'image_size' => 'thumb' ) );
 
 		// Output image if not empty.
-		if ( isset( $term->image ) && $term->image ) {
-			$retval = $term->image;
+		if ( isset( $term->image_id ) && $term->image_id ) {
+			$retval = wp_get_attachment_image( $term->image_id, 'thumb', false, array(
+				'style' => 'max-width:100%;height: auto;',
+			) );
+
+			$link = get_edit_term_link( $term->term_id, $this->taxonomy(), $this->sermons->post_type() );
+
+			if ( $link ) {
+				$retval = '<a href="'. $link .'">'. $retval .'</a>';
+			}
 		}
 
 		echo $retval;
