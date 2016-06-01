@@ -65,7 +65,7 @@ class GCSS_Series_Run extends GCS_Shortcodes_Run_Base {
 		}
 
 		$args        = $this->get_initial_query_args();
-		$total_pages = round( count( $allterms ) / $args['posts_per_page'], 0, PHP_ROUND_HALF_UP );
+		$total_pages = ceil( count( $allterms ) / $args['posts_per_page'] );
 		$allterms    = array_splice( $allterms, $args['offset'], $args['posts_per_page'] );
 
 		if ( empty( $allterms ) ) {
