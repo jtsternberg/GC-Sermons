@@ -197,7 +197,7 @@ function gc_get_sermon_audio_player( $sermon = 0, $args = array() ) {
 /**
  * Gets the next search results page link when using the search widget.
  *
- * @since  NEXT
+ * @since  0.1.5
  *
  * @param  int $total_pages Total number of pages.
  *
@@ -222,7 +222,7 @@ function gc_search_get_next_results_link( $total_pages ) {
 /**
  * Gets the previous search results page link when using the search widget.
  *
- * @since  NEXT
+ * @since  0.1.5
  *
  * @return string           Next results page link, if there is a previous page.
  */
@@ -246,7 +246,7 @@ function gc_search_get_previous_results_link() {
 /**
  * Helper function for getting $_GET values with optional default value.
  *
- * @since  NEXT
+ * @since  0.1.5
  *
  * @param  string  $arg     Query arg to check
  * @param  mixed  $default  Optional default value. Defaults to null.

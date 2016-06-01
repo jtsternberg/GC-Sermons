@@ -2,7 +2,7 @@
 /**
  * GC Sermons Taxonomies Base
  *
- * @version 0.1.4
+ * @version 0.1.5
  * @package GC Sermons
  */
 
@@ -288,7 +288,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	/**
 	 * Wrapper for get_terms that allows searching using a wildcard name.
 	 *
-	 * @since  NEXT
+	 * @since  0.1.5
 	 *
 	 * @param  array $search_term      The search term.
 	 * @param  array $args             Array of arguments for GCS_Taxonomies_Base::get_many().
@@ -453,7 +453,7 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	 * Wrapper for `get_terms` to account for changes in WP 4.5 where taxonomy
 	 * is expected as part of the arguments.
 	 *
-	 * @since  NEXT
+	 * @since  0.1.5
 	 *
 	 * @return mixed Array of terms on success
 	 */

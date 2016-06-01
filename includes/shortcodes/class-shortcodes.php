@@ -1,7 +1,7 @@
 <?php
 /**
  * GC Sermons Shortcodes
- * @version 0.1.4
+ * @version 0.1.5
  * @package GC Sermons
  */
 
@@ -67,7 +67,7 @@ class GCS_Shortcodes {
 	 * Instance of GCS_Shortcodes_Sermon_Search
 	 *
 	 * @var GCS_Shortcodes_Sermon_Search
-	 * @since NEXT
+	 * @since 0.1.5
 	 */
 	protected $search;
 

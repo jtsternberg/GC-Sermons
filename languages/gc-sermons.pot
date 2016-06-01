@@ -2,9 +2,9 @@
 # This file is distributed under the GPLv2.
 msgid ""
 msgstr ""
-"Project-Id-Version: GC Sermons 0.1.3\n"
+"Project-Id-Version: GC Sermons 0.1.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/gc-sermons\n"
-"POT-Creation-Date: 2016-05-31 02:43:45+00:00\n"
+"POT-Creation-Date: 2016-06-01 04:58:50+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -16,6 +16,16 @@ msgstr ""
 #: functions.php:148 includes/class-sermons.php:288
 #: templates/related-links.php:2
 msgid "Related Links"
+msgstr ""
+
+#: functions.php:215 includes/shortcodes/shortcodes-series/class-run.php:101
+#: includes/shortcodes/shortcodes-sermons/class-run.php:186
+msgid "Older <span>&rarr;</span>"
+msgstr ""
+
+#: functions.php:239 includes/shortcodes/shortcodes-series/class-run.php:100
+#: includes/shortcodes/shortcodes-sermons/class-run.php:185
+msgid "<span>&larr;</span> Newer"
 msgstr ""
 
 #: gc-sermons.php:225
@@ -473,6 +483,7 @@ msgstr ""
 
 #: includes/shortcodes/shortcodes-recent-series/class-admin.php:75
 #: includes/shortcodes/shortcodes-recent-speaker/class-admin.php:75
+#: includes/shortcodes/shortcodes-search/class-admin.php:101
 #: includes/shortcodes/shortcodes-series/class-admin.php:71
 #: includes/shortcodes/shortcodes-sermons/class-admin.php:124
 msgid "Thumbnail Size (if included)"
@@ -512,6 +523,69 @@ msgid ""
 "for."
 msgstr ""
 
+#: includes/shortcodes/shortcodes-search/class-admin.php:44
+#: includes/shortcodes/shortcodes-search/class-admin.php:45
+msgid "GC Sermons Search"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-search/class-admin.php:62
+msgid "Search:"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-search/class-admin.php:63
+msgid "Select whether form allows searching %s, %s, or both."
+msgstr ""
+
+#: includes/shortcodes/shortcodes-search/class-admin.php:70
+msgid "Both"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-search/class-admin.php:75
+msgid "Number of results to show per-page"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-search/class-admin.php:82
+#: includes/shortcodes/shortcodes-sermons/class-admin.php:105
+msgid "Content"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-search/class-admin.php:87
+#: includes/shortcodes/shortcodes-sermons/class-admin.php:110
+msgid "None"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-search/class-admin.php:88
+#: includes/shortcodes/shortcodes-sermons/class-admin.php:111
+msgid "Sermon Post Content"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-search/class-admin.php:89
+#: includes/shortcodes/shortcodes-sermons/class-admin.php:112
+msgid "Sermon Post Excerpt"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-search/class-admin.php:94
+#: includes/shortcodes/shortcodes-sermons/class-admin.php:117
+msgid "Remove Thumbnails"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-search/class-admin.php:108
+#: includes/shortcodes/shortcodes-series/class-admin.php:78
+#: includes/shortcodes/shortcodes-sermons/class-admin.php:131
+msgid "Max number of columns"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-search/class-admin.php:109
+#: includes/shortcodes/shortcodes-series/class-admin.php:79
+#: includes/shortcodes/shortcodes-sermons/class-admin.php:132
+msgid "Will vary on device screen width"
+msgstr ""
+
+#: includes/shortcodes/shortcodes-search/class-run.php:149
+#: includes/shortcodes/shortcodes-search/class-run.php:172
+msgid "%s search results for: <em>%s</em>"
+msgstr ""
+
 #: includes/shortcodes/shortcodes-series/class-admin.php:25
 #: includes/shortcodes/shortcodes-series/class-admin.php:26
 msgid "GC Series"
@@ -530,16 +604,6 @@ msgstr ""
 msgid "Remove Pagination"
 msgstr ""
 
-#: includes/shortcodes/shortcodes-series/class-admin.php:78
-#: includes/shortcodes/shortcodes-sermons/class-admin.php:131
-msgid "Max number of columns"
-msgstr ""
-
-#: includes/shortcodes/shortcodes-series/class-admin.php:79
-#: includes/shortcodes/shortcodes-sermons/class-admin.php:132
-msgid "Will vary on device screen width"
-msgstr ""
-
 #: includes/shortcodes/shortcodes-series/class-admin.php:87
 #: includes/shortcodes/shortcodes-sermons/class-admin.php:140
 msgid "Offset"
@@ -554,16 +618,6 @@ msgstr ""
 msgid "Extra Wrap CSS Classes"
 msgstr ""
 
-#: includes/shortcodes/shortcodes-series/class-run.php:77
-#: includes/shortcodes/shortcodes-sermons/class-run.php:165
-msgid "<span>&larr;</span> Newer"
-msgstr ""
-
-#: includes/shortcodes/shortcodes-series/class-run.php:78
-#: includes/shortcodes/shortcodes-sermons/class-run.php:166
-msgid "Older <span>&rarr;</span>"
-msgstr ""
-
 #. Plugin Name of the plugin/theme
 msgid "GC Sermons"
 msgstr ""
@@ -575,26 +629,6 @@ msgstr ""
 #: includes/shortcodes/shortcodes-sermons/class-admin.php:73
 #: includes/shortcodes/shortcodes-sermons/class-admin.php:86
 msgid "Start typing to search. Enter \"this\" to use this post's %s."
-msgstr ""
-
-#: includes/shortcodes/shortcodes-sermons/class-admin.php:105
-msgid "Content"
-msgstr ""
-
-#: includes/shortcodes/shortcodes-sermons/class-admin.php:110
-msgid "None"
-msgstr ""
-
-#: includes/shortcodes/shortcodes-sermons/class-admin.php:111
-msgid "Sermon Post Content"
-msgstr ""
-
-#: includes/shortcodes/shortcodes-sermons/class-admin.php:112
-msgid "Sermon Post Excerpt"
-msgstr ""
-
-#: includes/shortcodes/shortcodes-sermons/class-admin.php:117
-msgid "Remove Thumbnails"
 msgstr ""
 
 #: includes/shortcodes/shortcodes-sermons/class-admin.php:141
@@ -611,6 +645,10 @@ msgid ""
 "Blank, \"recent\", or \"0\" will get the most recent sermon's video player. "
 "Otherwise enter a post ID. Click the magnifying glass to search for a "
 "Sermon post."
+msgstr ""
+
+#: templates/search-query-error.php:2
+msgid "For performance reasons, please enter at least 3 characters in your search."
 msgstr ""
 
 #: vendor/jtsternberg/shortcode-button/lib/class-shortcode-button.php:52
@@ -1305,6 +1343,31 @@ msgstr ""
 #: includes/shortcodes/shortcodes-sermons/class-admin.php:85
 msgctxt "limit sermons by sermon speaker."
 msgid "Optionally select to limit %1$s by %2$s"
+msgstr ""
+
+#: templates/searchform-xhtml.php:5 templates/searchform.php:4
+msgctxt "Search results filter"
+msgid "Show search results for:"
+msgstr ""
+
+#: templates/searchform-xhtml.php:6 templates/searchform.php:6
+msgctxt "Show search results for both sermons and sermon series."
+msgid "Both"
+msgstr ""
+
+#: templates/searchform-xhtml.php:12 templates/searchform.php:18
+msgctxt "label"
+msgid "Search for:"
+msgstr ""
+
+#: templates/searchform-xhtml.php:15 templates/searchform.php:22
+msgctxt "submit button"
+msgid "Search"
+msgstr ""
+
+#: templates/searchform.php:19
+msgctxt "placeholder"
+msgid "Search &hellip;"
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:1116

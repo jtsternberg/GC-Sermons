@@ -1,7 +1,7 @@
 <?php
 /**
  * GC Sermons Search Shortcode - Admin
- * @version 0.1.3
+ * @version 0.1.5
  * @package GC Sermons
  */
 class GCS_Shortcodes_Sermon_Search_Admin extends GCSS_Recent_Admin_Base {

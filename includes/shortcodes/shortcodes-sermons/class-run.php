@@ -2,7 +2,7 @@
 /**
  * GC Sermons Shortcode - Run
  *
- * @version 0.1.4
+ * @version 0.1.5
  * @package GC Sermons
  */
 
@@ -45,7 +45,7 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base {
 	 * Keep track of the levels of inception.
 	 *
 	 * @var   string
-	 * @since NEXT
+	 * @since 0.1.5
 	 */
 	protected static $inception_levels = 0;
 
