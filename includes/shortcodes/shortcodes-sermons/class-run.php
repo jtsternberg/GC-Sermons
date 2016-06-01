@@ -93,7 +93,7 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base {
 
 		$max     = $sermons->max_num_pages;
 		$sermons = $this->map_sermon_args( $sermons, $my_level );
-		
+
 		$content = '';
 		if ( 0 === $my_level ) {
 			$content .= GCS_Style_Loader::get_template( 'list-item-style' );
@@ -103,9 +103,7 @@ class GCSS_Sermons_Run extends GCS_Shortcodes_Run_Base {
 		$args['wrap_classes'] = $this->get_wrap_classes();
 		$args['sermons']      = $sermons;
 
-		// error_log( '$content: '. print_r( $content, true ) );
 		$content .= GCS_Template_Loader::get_template( 'sermons-list', $args );
-
 
 		return $content;
 	}
