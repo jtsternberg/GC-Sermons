@@ -1,4 +1,4 @@
-<li class="gc-item gc-<?php if ( ! $this->get( 'image' ) ) : ?>no-<?php endif; ?>thumb <?php $this->output( 'classes', 'esc_attr' ); ?>">
+<li class="gc-item gc-<?php if ( ! $this->get( 'do_image' ) ) : ?>no-<?php endif; ?>thumb <?php $this->output( 'classes', 'esc_attr' ); ?>">
 
 	<a class="gc-item-link" href="<?php $this->output( 'url', 'esc_url' ); ?>" title="<?php $this->output( 'name', 'esc_attr' ); ?>">
 		<?php $this->maybe_output( 'image', '', 'do_image' ); ?>
