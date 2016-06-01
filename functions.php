@@ -194,3 +194,65 @@ function gc_get_sermon_audio_player( $sermon = 0, $args = array() ) {
 	return $audio_player;
 }
 
+/**
+ * Gets the next search results page link when using the search widget.
+ *
+ * @since  NEXT
+ *
+ * @param  int $total_pages Total number of pages.
+ *
+ * @return string           Next results page link, if there is a next page.
+ */
+function gc_search_get_next_results_link( $total_pages ) {
+	$page = absint( gc__get_arg( 'results-page', 1 ) );
+	$link = '';
+
+	if ( ++$page <= $total_pages ) {
+		$link = sprintf(
+			'<a href="%s" %s>%s</a>',
+			esc_url( add_query_arg( 'results-page', $page ) ),
+			apply_filters( 'gc_next_results_page_link_attributes', '' ),
+			__( 'Older <span>&rarr;</span>', 'gc-sermons' )
+		);
+	}
+
+	return $link;
+}
+
+/**
+ * Gets the previous search results page link when using the search widget.
+ *
+ * @since  NEXT
+ *
+ * @return string           Next results page link, if there is a previous page.
+ */
+function gc_search_get_previous_results_link() {
+	$page = absint( gc__get_arg( 'results-page', 1 ) );
+	$link = '';
+
+	if ( $page-- > 1 ) {
+		$url = $page > 1 ? add_query_arg( 'results-page', $page ) : remove_query_arg( 'results-page' );
+		$link = sprintf(
+			'<a href="%s" %s>%s</a>',
+			esc_url( $url ),
+			apply_filters( 'gc_previous_results_page_link_attributes', '' ),
+			__( '<span>&larr;</span> Newer', 'gc-sermons' )
+		);
+	}
+
+	return $link;
+}
+
+/**
+ * Helper function for getting $_GET values with optional default value.
+ *
+ * @since  NEXT
+ *
+ * @param  string  $arg     Query arg to check
+ * @param  mixed  $default  Optional default value. Defaults to null.
+ *
+ * @return mixed            Result of query var or default.
+ */
+function gc__get_arg( $arg, $default = null ) {
+	return isset( $_GET[ $arg ] ) ? $_GET[ $arg ] : $default;
+}

@@ -59,8 +59,17 @@ class GCS_Shortcodes {
 	 * Instance of GCS_Shortcodes_Audio_Player
 	 *
 	 * @var GCS_Shortcodes_Audio_Player
+	 * @since 0.1.4
 	 */
 	protected $audio_player;
+
+	/**
+	 * Instance of GCS_Shortcodes_Sermon_Search
+	 *
+	 * @var GCS_Shortcodes_Sermon_Search
+	 * @since NEXT
+	 */
+	protected $search;
 
 	/**
 	 * Constructor
@@ -78,6 +87,7 @@ class GCS_Shortcodes {
 		$this->related_links  = new GCS_Shortcodes_Related_Links( $plugin );
 		$this->video_player   = new GCS_Shortcodes_Video_Player( $plugin );
 		$this->audio_player   = new GCS_Shortcodes_Audio_Player( $plugin );
+		$this->search         = new GCS_Shortcodes_Sermon_Search( $plugin );
 	}
 
 	/**
