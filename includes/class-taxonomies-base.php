@@ -251,7 +251,8 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	 *
 	 * @since  0.1.1
 	 *
-	 * @param  array $args Array of arguments.
+	 * @param  array $args             Array of arguments (passed to get_terms).
+	 * @param  array $single_term_args Array of arguments for GCS_Taxonomies_Base::get().
 	 *
 	 * @return array|false Array of term objects or false
 	 */
@@ -263,7 +264,6 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 			$terms = $this->get_terms_in_sermon_date_order();
 		} else {
 			$terms = self::get_terms( $this->taxonomy(), $args );
-
 		}
 
 		if ( ! $terms || is_wp_error( $terms ) ) {
@@ -435,12 +435,15 @@ abstract class GCS_Taxonomies_Base extends Taxonomy_Core {
 	 * @return mixed Array of terms on success
 	 */
 	protected static function get_terms( $taxonomy, $args = array() ) {
+		unset( $args['augment_terms'] );
 		if ( version_compare( $GLOBALS['wp_version'], '4.5.0', '>=' ) ) {
-			$args['taxonomy'] = 'taxonomy';
-			return get_terms( $args );
+			$args['taxonomy'] = $taxonomy;
+			$terms = get_terms( $args );
+		} else {
+			$terms = get_terms( $taxonomy, $args );
 		}
 
-		return get_terms( $taxonomy, $args );
+		return $terms;
 	}
 
 	/**
