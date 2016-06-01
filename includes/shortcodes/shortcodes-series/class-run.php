@@ -16,6 +16,26 @@ class GCSS_Series_Run extends GCS_Shortcodes_Run_Base {
 	public $shortcode = 'gc_series';
 
 	/**
+	 * GCS_Series object
+	 *
+	 * @var   GCS_Series
+	 * @since 0.1.0
+	 */
+	public $series;
+
+	/**
+	 * Constructor
+	 *
+	 * @since 0.1.3
+	 *
+	 * @param GCS_Sermons $sermons
+	 */
+	public function __construct( GCS_Sermons $sermons, GCS_Series $series ) {
+		$this->series  = $series;
+		parent::__construct( $sermons );
+	}
+
+	/**
 	 * Default attributes applied to the shortcode.
 	 * @var array
 	 * @since 0.1.0
@@ -38,7 +58,7 @@ class GCSS_Series_Run extends GCS_Shortcodes_Run_Base {
 	 * Shortcode Output
 	 */
 	public function shortcode() {
-		$allterms = gc_sermons()->taxonomies->series->get_many( array( 'orderby' => 'sermon_date' ) );
+		$allterms = $this->series->get_many( array( 'orderby' => 'sermon_date' ) );
 
 		if ( empty( $allterms ) ) {
 			return '';
@@ -112,7 +132,7 @@ class GCSS_Series_Run extends GCS_Shortcodes_Run_Base {
 	}
 
 	public function get_term_data( $term ) {
-		return gc_sermons()->taxonomies->series->get( $term, array( 'image_size' => $this->att( 'thumbnail_size' ) ) );
+		return $this->series->get( $term, array( 'image_size' => $this->att( 'thumbnail_size' ) ) );
 	}
 
 }

@@ -14,7 +14,7 @@ class GCS_Shortcodes_Series extends GCS_Shortcodes_Base {
 	 * @return void
 	 */
 	public function __construct( $plugin ) {
-		$this->run   = new GCSS_Series_Run( $plugin->sermons );
+		$this->run   = new GCSS_Series_Run( $plugin->sermons, $plugin->series );
 		$this->admin = new GCSS_Series_Admin( $this->run );
 
 		parent::hooks();
