@@ -144,7 +144,7 @@ class GCS_Shortcodes_Sermon_Search_Run extends GCS_Shortcodes_Run_Base {
 
 		return GCS_Template_Loader::get_template( 'sermon-search-results', array(
 			'wrap_classes'  => $this->att( 'wrap_classes' ),
-			'results'       => $search->results,
+			'results'       => empty( $search->results ) ? __( 'No results.', 'gc-sermons' ) : $search->results,
 			'search_notice' => sprintf(
 				__( '%s search results for: <em>%s</em>', 'gc-sermons' ),
 				$this->sermons->post_type( 'singular' ),
@@ -167,7 +167,7 @@ class GCS_Shortcodes_Sermon_Search_Run extends GCS_Shortcodes_Run_Base {
 
 		return GCS_Template_Loader::get_template( 'series-search-results', array(
 			'wrap_classes'  => $this->att( 'wrap_classes' ),
-			'results'       => $search->results,
+			'results'       => empty( $search->results ) ? __( 'No results.', 'gc-sermons' ) : $search->results,
 			'search_notice' => sprintf(
 				__( '%s search results for: <em>%s</em>', 'gc-sermons' ),
 				$this->taxonomies->series->taxonomy( 'singular' ),
