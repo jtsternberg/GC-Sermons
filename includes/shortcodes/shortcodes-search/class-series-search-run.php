@@ -130,6 +130,9 @@ class GCSS_Series_Search_Run extends GCSS_Series_Run {
 
 	public function orderby_post_date( $allterms ) {
 		$ordered = array();
+		if ( empty( $allterms ) ) {
+			return $ordered;
+		}
 		foreach ( $allterms as $key => $term ) {
 			$query = new WP_Query( array(
 				'post_status'      => 'publish',
