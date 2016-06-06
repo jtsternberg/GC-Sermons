@@ -158,8 +158,6 @@ class GC_Sermons_Plugin {
 		self::$basename = plugin_basename( __FILE__ );
 		self::$url      = plugin_dir_url( __FILE__ );
 		self::$path     = plugin_dir_path( __FILE__ );
-
-		$this->plugin_classes();
 	}
 
 	/**
@@ -175,6 +173,7 @@ class GC_Sermons_Plugin {
 		$this->sermons = new GCS_Sermons( $this );
 		$this->taxonomies = new GCS_Taxonomies( $this->sermons );
 		$this->async = new GCS_Async( $this );
+		$this->shortcodes = new GCS_Shortcodes( $this );
 	} // END OF PLUGIN CLASSES FUNCTION
 
 	/**
@@ -184,11 +183,11 @@ class GC_Sermons_Plugin {
 	 * @return void
 	 */
 	public function hooks() {
-		add_action( 'init', array( $this, 'init' ) );
 		if ( ! defined( 'CMB2_LOADED' ) || ! defined( 'WDS_SHORTCODES_LOADED' ) ) {
 			add_action( 'tgmpa_register', array( $this, 'register_required_plugin' ) );
 		} else {
-			$this->shortcodes = new GCS_Shortcodes( $this );
+			add_action( 'init', array( $this, 'init' ) );
+			$this->plugin_classes();
 		}
 	}
 
@@ -203,13 +202,6 @@ class GC_Sermons_Plugin {
 				'slug'               => 'cmb2',
 				'required'           => true,
 				'version'            => '2.2.1',
-			),
-			array(
-				'name'         => 'WDS Shortcodes',
-				'slug'         => 'wds-shortcodes',
-				'source'       => 'https://raw.githubusercontent.com/WebDevStudios/WDS-Shortcodes/master/wds-shortcodes.zip',
-				'required'     => true,
-				'external_url' => 'https://github.com/WebDevStudios/WDS-Shortcodes',
 			),
 		);
 
@@ -284,79 +276,7 @@ class GC_Sermons_Plugin {
 	 * @return void
 	 */
 	public function init() {
-		if ( $this->check_requirements() ) {
-			load_plugin_textdomain( 'gc-sermons', false, dirname( self::$basename ) . '/languages/' );
-		}
-	}
-
-	/**
-	 * Check if the plugin meets requirements and
-	 * disable it if they are not present.
-	 *
-	 * @since  0.1.0
-	 * @return boolean result of meets_requirements
-	 */
-	public function check_requirements() {
-		if ( ! $this->meets_requirements() ) {
-
-			// Add a dashboard notice.
-			add_action( 'all_admin_notices', array( $this, 'requirements_not_met_notice' ) );
-
-			// Deactivate our plugin.
-			// add_action( 'admin_init', array( $this, 'deactivate_me' ) );
-
-			return false;
-		}
-
-		return true;
-	}
-
-	/**
-	 * Deactivates this plugin, hook this function on admin_init.
-	 *
-	 * @since  0.1.0
-	 * @return void
-	 */
-	public function deactivate_me() {
-		deactivate_plugins( self::$basename );
-	}
-
-	/**
-	 * Check that all plugin requirements are met
-	 *
-	 * @since  0.1.0
-	 * @return boolean True if requirements are met.
-	 */
-	public function meets_requirements() {
-		$this->requirements = array(
-			array(
-				sprintf( '<a href="%s">%s</a>', network_admin_url( 'plugin-install.php?tab=search&s=cmb2' ), __( 'CMB2', 'gc-sermons' ) ),
-				defined( 'CMB2_LOADED' ),
-			)
-		);
-
-		foreach ( $this->requirements as $requirement ) {
-			list( $label, $condition ) = $requirement;
-			if ( ! $condition ) {
-				$this->missed_requirements[] = $label;
-			}
-		}
-
-		return empty( $this->missed_requirements );
-	}
-
-	/**
-	 * Adds a notice to the dashboard if the plugin requirements are not met
-	 *
-	 * @since  0.1.0
-	 * @return void
-	 */
-	public function requirements_not_met_notice() {
-		// Output our error.
-		echo '<div id="message" class="error">';
-		echo '<p>' . sprintf( __( 'GC Sermons is missing requirements and has been <a href="%s">deactivated</a>. Please make sure all requirements are available. Requirements:', 'gc-sermons' ), admin_url( 'plugins.php' ) ) . '</p>';
-		echo '<ol><li>'. implode( '</li><li>', $this->missed_requirements ) . '</li></ol>';
-		echo '</div>';
+		load_plugin_textdomain( 'gc-sermons', false, dirname( self::$basename ) . '/languages/' );
 	}
 
 	/**
