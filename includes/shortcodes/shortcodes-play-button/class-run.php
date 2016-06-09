@@ -5,7 +5,7 @@
  * @todo Add overlay/video popup JS, etc
  * @todo Use dashicons as fallback.
  *
- * @version 0.1.5
+ * @version 0.1.6
  * @package GC Sermons
  */
 

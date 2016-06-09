@@ -2,9 +2,9 @@
 # This file is distributed under the GPLv2.
 msgid ""
 msgstr ""
-"Project-Id-Version: GC Sermons 0.1.4\n"
+"Project-Id-Version: GC Sermons 0.1.5\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/gc-sermons\n"
-"POT-Creation-Date: 2016-06-01 04:58:50+00:00\n"
+"POT-Creation-Date: 2016-06-09 01:46:47+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: grunt-wp-i18n 0.5.4\n"
 
-#: functions.php:148 includes/class-sermons.php:288
+#: functions.php:148 includes/post-types/class-sermons.php:288
 #: templates/related-links.php:2
 msgid "Related Links"
 msgstr ""
@@ -28,47 +28,47 @@ msgstr ""
 msgid "<span>&larr;</span> Newer"
 msgstr ""
 
-#: gc-sermons.php:225
+#: gc-sermons.php:217
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:333
 #: vendor/webdevstudios/wds-shortcodes/includes/init.php:113
 #: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:333
 msgid "Install Required Plugins"
 msgstr ""
 
-#: gc-sermons.php:226
+#: gc-sermons.php:218
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:334
 #: vendor/webdevstudios/wds-shortcodes/includes/init.php:114
 #: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:334
 msgid "Install Plugins"
 msgstr ""
 
-#: gc-sermons.php:227
+#: gc-sermons.php:219
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:335
 #: vendor/webdevstudios/wds-shortcodes/includes/init.php:115
 #: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:335
 msgid "Installing Plugin: %s"
 msgstr ""
 
-#: gc-sermons.php:229
+#: gc-sermons.php:221
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:336
 #: vendor/webdevstudios/wds-shortcodes/includes/init.php:117
 #: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:336
 msgid "Something went wrong with the plugin API."
 msgstr ""
 
-#: gc-sermons.php:230 vendor/webdevstudios/wds-shortcodes/includes/init.php:118
+#: gc-sermons.php:222 vendor/webdevstudios/wds-shortcodes/includes/init.php:118
 msgid "The \"WDS Shortcodes\" plugin requires the following plugin: %1$s."
 msgid_plural "This plugin requires the following plugins: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: gc-sermons.php:232 vendor/webdevstudios/wds-shortcodes/includes/init.php:120
+#: gc-sermons.php:224 vendor/webdevstudios/wds-shortcodes/includes/init.php:120
 msgid "This plugin recommends the following plugin: %1$s."
 msgid_plural "This plugin recommends the following plugins: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: gc-sermons.php:234 vendor/webdevstudios/wds-shortcodes/includes/init.php:122
+#: gc-sermons.php:226 vendor/webdevstudios/wds-shortcodes/includes/init.php:122
 msgid ""
 "Sorry, but you do not have the correct permissions to install the %s "
 "plugin. Contact the administrator of this site for help on getting the "
@@ -80,7 +80,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: gc-sermons.php:236
+#: gc-sermons.php:228
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:367
 #: vendor/webdevstudios/wds-shortcodes/includes/init.php:124
 #: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:367
@@ -89,7 +89,7 @@ msgid_plural "The following required plugins are currently inactive: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: gc-sermons.php:238
+#: gc-sermons.php:230
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:372
 #: vendor/webdevstudios/wds-shortcodes/includes/init.php:126
 #: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:372
@@ -98,7 +98,7 @@ msgid_plural "The following recommended plugins are currently inactive: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: gc-sermons.php:240 vendor/webdevstudios/wds-shortcodes/includes/init.php:128
+#: gc-sermons.php:232 vendor/webdevstudios/wds-shortcodes/includes/init.php:128
 msgid ""
 "Sorry, but you do not have the correct permissions to activate the %s "
 "plugin. Contact the administrator of this site for help on getting the "
@@ -110,7 +110,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: gc-sermons.php:242 vendor/webdevstudios/wds-shortcodes/includes/init.php:130
+#: gc-sermons.php:234 vendor/webdevstudios/wds-shortcodes/includes/init.php:130
 msgid ""
 "The following plugin needs to be updated to its latest version to ensure "
 "maximum compatibility with this plugin: %1$s."
@@ -120,7 +120,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: gc-sermons.php:244 vendor/webdevstudios/wds-shortcodes/includes/init.php:132
+#: gc-sermons.php:236 vendor/webdevstudios/wds-shortcodes/includes/init.php:132
 msgid ""
 "Sorry, but you do not have the correct permissions to update the %s plugin. "
 "Contact the administrator of this site for help on getting the plugin "
@@ -132,7 +132,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: gc-sermons.php:246
+#: gc-sermons.php:238
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:382
 #: vendor/webdevstudios/wds-shortcodes/includes/init.php:134
 #: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:382
@@ -141,20 +141,20 @@ msgid_plural "Begin installing plugins"
 msgstr[0] ""
 msgstr[1] ""
 
-#: gc-sermons.php:247 vendor/webdevstudios/wds-shortcodes/includes/init.php:135
+#: gc-sermons.php:239 vendor/webdevstudios/wds-shortcodes/includes/init.php:135
 msgid "Activate installed plugin"
 msgid_plural "Activate installed plugins"
 msgstr[0] ""
 msgstr[1] ""
 
-#: gc-sermons.php:248
+#: gc-sermons.php:240
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:397
 #: vendor/webdevstudios/wds-shortcodes/includes/init.php:136
 #: vendor/webdevstudios/wds-shortcodes/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:397
 msgid "Return to Required Plugins Installer"
 msgstr ""
 
-#: gc-sermons.php:249
+#: gc-sermons.php:241
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:399
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3029
 #: vendor/webdevstudios/wds-shortcodes/includes/init.php:137
@@ -163,43 +163,8 @@ msgstr ""
 msgid "Plugin activated successfully."
 msgstr ""
 
-#: gc-sermons.php:250 vendor/webdevstudios/wds-shortcodes/includes/init.php:138
+#: gc-sermons.php:242 vendor/webdevstudios/wds-shortcodes/includes/init.php:138
 msgid "All plugins installed and activated successfully. %s"
-msgstr ""
-
-#: gc-sermons.php:333
-msgid "CMB2"
-msgstr ""
-
-#: gc-sermons.php:357
-msgid ""
-"GC Sermons is missing requirements and has been <a "
-"href=\"%s\">deactivated</a>. Please make sure all requirements are "
-"available. Requirements:"
-msgstr ""
-
-#: includes/class-scripture.php:32
-msgid "Scripture Reference"
-msgstr ""
-
-#: includes/class-scripture.php:32
-msgid "Scripture References"
-msgstr ""
-
-#: includes/class-series.php:46
-msgid "Sermon Series"
-msgstr ""
-
-#: includes/class-series.php:78
-msgid "Sermon Series Image"
-msgstr ""
-
-#: includes/class-series.php:79
-msgid "Select the series' branding image"
-msgstr ""
-
-#: includes/class-series.php:86
-msgid "Series Image"
 msgstr ""
 
 #: includes/class-sermon-post.php:376
@@ -210,42 +175,42 @@ msgstr ""
 msgid "There is no speaker associated with this sermon."
 msgstr ""
 
-#: includes/class-sermons.php:59
+#: includes/post-types/class-sermons.php:59
 msgid "Sermon"
 msgstr ""
 
-#: includes/class-sermons.php:59
+#: includes/post-types/class-sermons.php:59
 msgid "Sermons"
 msgstr ""
 
-#: includes/class-sermons.php:216
+#: includes/post-types/class-sermons.php:216
 msgid "Coming Soon:"
 msgstr ""
 
-#: includes/class-sermons.php:235
+#: includes/post-types/class-sermons.php:235
 msgid "Video URL"
 msgstr ""
 
-#: includes/class-sermons.php:236
+#: includes/post-types/class-sermons.php:236
 msgid ""
 "Enter a youtube, or vimeo URL. Supports services listed at <a "
 "href=\"http://codex.wordpress.org/Embeds\">http://codex.wordpress.org/"
 "Embeds</a>."
 msgstr ""
 
-#: includes/class-sermons.php:241
+#: includes/post-types/class-sermons.php:241
 msgid "Video File"
 msgstr ""
 
-#: includes/class-sermons.php:242
+#: includes/post-types/class-sermons.php:242
 msgid "Alternatively upload/select video from your media library."
 msgstr ""
 
-#: includes/class-sermons.php:248
+#: includes/post-types/class-sermons.php:248
 msgid "Audio URL"
 msgstr ""
 
-#: includes/class-sermons.php:249
+#: includes/post-types/class-sermons.php:249
 msgid ""
 "Enter a soundcloud, spotify, or other oembed-supported web audio URL. "
 "Supports services listed at <a "
@@ -253,122 +218,65 @@ msgid ""
 "Embeds</a>."
 msgstr ""
 
-#: includes/class-sermons.php:254
+#: includes/post-types/class-sermons.php:254
 msgid "Audio File"
 msgstr ""
 
-#: includes/class-sermons.php:255
+#: includes/post-types/class-sermons.php:255
 msgid "Alternatively upload/select audio from your media library."
 msgstr ""
 
-#: includes/class-sermons.php:261
+#: includes/post-types/class-sermons.php:261
 msgid "Excerpt"
 msgstr ""
 
-#: includes/class-sermons.php:262
+#: includes/post-types/class-sermons.php:262
 msgid ""
 "Excerpts are optional hand-crafted summaries of your content that can be "
 "used in your theme. <a href=\"https://codex.wordpress.org/Excerpt\" "
 "target=\"_blank\">Learn more about manual excerpts.</a>"
 msgstr ""
 
-#: includes/class-sermons.php:268 includes/class-taxonomies-base.php:132
+#: includes/post-types/class-sermons.php:268
+#: includes/taxonomies/class-taxonomies-base.php:132
 #: vendor/webdevstudios/wds-shortcodes/tests/includes/testing-shortcode-admin.php:19
 msgid "Image"
 msgstr ""
 
-#: includes/class-sermons.php:269
+#: includes/post-types/class-sermons.php:269
 msgid "Select an image if you want to override the series image for this sermon."
 msgstr ""
 
-#: includes/class-sermons.php:274
+#: includes/post-types/class-sermons.php:274
 msgid "Sermon Notes"
 msgstr ""
 
-#: includes/class-sermons.php:281
+#: includes/post-types/class-sermons.php:281
 msgid "Sermon Details"
 msgstr ""
 
-#: includes/class-sermons.php:295
+#: includes/post-types/class-sermons.php:295
 msgid "Add links, or select from related content by clicking the search icon."
 msgstr ""
 
-#: includes/class-sermons.php:296
+#: includes/post-types/class-sermons.php:296
 msgid "Link {#}"
 msgstr ""
 
-#: includes/class-sermons.php:297
+#: includes/post-types/class-sermons.php:297
 msgid "Title"
 msgstr ""
 
-#: includes/class-sermons.php:298
+#: includes/post-types/class-sermons.php:298
 msgid "URL"
 msgstr ""
 
-#: includes/class-sermons.php:299
+#: includes/post-types/class-sermons.php:299
 msgid "Find/Select related content"
 msgstr ""
 
-#: includes/class-sermons.php:536
+#: includes/post-types/class-sermons.php:536
 msgid "\"%s\" is not a valid taxonomy for %s."
-msgstr ""
-
-#: includes/class-speaker.php:36 templates/sermon-speaker-info.php:3
-msgid "Speaker"
-msgstr ""
-
-#: includes/class-speaker.php:36
-msgid "Speakers"
-msgstr ""
-
-#: includes/class-speaker.php:63
-msgid "Connected User"
-msgstr ""
-
-#: includes/class-speaker.php:65
-msgid ""
-"Type the name of the WordPress user and select from the suggested options. "
-"By associating a speaker with a WordPress user, that WordPress user account "
-"details (first/last name, avatar, bio, etc) will be used as a fallback to "
-"the information here."
-msgstr ""
-
-#: includes/class-speaker.php:72 includes/class-speaker.php:79
-msgid "Speaker Avatar"
-msgstr ""
-
-#: includes/class-speaker.php:73
-msgid ""
-"Select the speaker's avatar. Will only show if \"Connected User\" is not "
-"chosen, or if the \"Connected User\" does not have an avatar."
-msgstr ""
-
-#: includes/class-speaker.php:88
-msgid "Connected %s"
-msgstr ""
-
-#: includes/class-speaker.php:90
-msgid ""
-"Type the name of the %1$s and select from the suggested options. By "
-"associating a speaker with a %1$s, that %1$s account details (first/last "
-"name, image, description, etc) will be used as a fallback to the "
-"information here."
-msgstr ""
-
-#: includes/class-tag.php:28
-msgid "Tag"
-msgstr ""
-
-#: includes/class-tag.php:28
-msgid "Tags"
-msgstr ""
-
-#: includes/class-topic.php:28
-msgid "Topic"
-msgstr ""
-
-#: includes/class-topic.php:28
-msgid "Topics"
 msgstr ""
 
 #: includes/shortcodes/shortcodes-audio-player/class-shortcode.php:81
@@ -581,6 +489,11 @@ msgstr ""
 msgid "Will vary on device screen width"
 msgstr ""
 
+#: includes/shortcodes/shortcodes-search/class-run.php:147
+#: includes/shortcodes/shortcodes-search/class-run.php:170
+msgid "No results."
+msgstr ""
+
 #: includes/shortcodes/shortcodes-search/class-run.php:149
 #: includes/shortcodes/shortcodes-search/class-run.php:172
 msgid "%s search results for: <em>%s</em>"
@@ -647,47 +560,91 @@ msgid ""
 "Sermon post."
 msgstr ""
 
+#: includes/taxonomies/class-scripture.php:32
+msgid "Scripture Reference"
+msgstr ""
+
+#: includes/taxonomies/class-scripture.php:32
+msgid "Scripture References"
+msgstr ""
+
+#: includes/taxonomies/class-series.php:46
+msgid "Sermon Series"
+msgstr ""
+
+#: includes/taxonomies/class-series.php:78
+msgid "Sermon Series Image"
+msgstr ""
+
+#: includes/taxonomies/class-series.php:79
+msgid "Select the series' branding image"
+msgstr ""
+
+#: includes/taxonomies/class-series.php:86
+msgid "Series Image"
+msgstr ""
+
+#: includes/taxonomies/class-speaker.php:36 templates/sermon-speaker-info.php:3
+msgid "Speaker"
+msgstr ""
+
+#: includes/taxonomies/class-speaker.php:36
+msgid "Speakers"
+msgstr ""
+
+#: includes/taxonomies/class-speaker.php:63
+msgid "Connected User"
+msgstr ""
+
+#: includes/taxonomies/class-speaker.php:65
+msgid ""
+"Type the name of the WordPress user and select from the suggested options. "
+"By associating a speaker with a WordPress user, that WordPress user account "
+"details (first/last name, avatar, bio, etc) will be used as a fallback to "
+"the information here."
+msgstr ""
+
+#: includes/taxonomies/class-speaker.php:72
+#: includes/taxonomies/class-speaker.php:79
+msgid "Speaker Avatar"
+msgstr ""
+
+#: includes/taxonomies/class-speaker.php:73
+msgid ""
+"Select the speaker's avatar. Will only show if \"Connected User\" is not "
+"chosen, or if the \"Connected User\" does not have an avatar."
+msgstr ""
+
+#: includes/taxonomies/class-speaker.php:88
+msgid "Connected %s"
+msgstr ""
+
+#: includes/taxonomies/class-speaker.php:90
+msgid ""
+"Type the name of the %1$s and select from the suggested options. By "
+"associating a speaker with a %1$s, that %1$s account details (first/last "
+"name, image, description, etc) will be used as a fallback to the "
+"information here."
+msgstr ""
+
+#: includes/taxonomies/class-tag.php:28
+msgid "Tag"
+msgstr ""
+
+#: includes/taxonomies/class-tag.php:28
+msgid "Tags"
+msgstr ""
+
+#: includes/taxonomies/class-topic.php:28
+msgid "Topic"
+msgstr ""
+
+#: includes/taxonomies/class-topic.php:28
+msgid "Topics"
+msgstr ""
+
 #: templates/search-query-error.php:2
 msgid "For performance reasons, please enter at least 3 characters in your search."
-msgstr ""
-
-#: vendor/jtsternberg/shortcode-button/lib/class-shortcode-button.php:52
-#: vendor/webdevstudios/wds-shortcodes/includes/shortcode-admin.php:62
-#: vendor/webdevstudios/wds-shortcodes/vendor/jtsternberg/shortcode-button/lib/class-shortcode-button.php:52
-msgid "Cancel"
-msgstr ""
-
-#: vendor/jtsternberg/shortcode-button/lib/class-shortcode-button.php:53
-#: vendor/webdevstudios/wds-shortcodes/includes/shortcode-admin.php:63
-#: vendor/webdevstudios/wds-shortcodes/vendor/jtsternberg/shortcode-button/lib/class-shortcode-button.php:53
-msgid "Insert Shortcode"
-msgstr ""
-
-#: vendor/jtsternberg/shortcode-button/lib/class-shortcode-button.php:54
-#: vendor/webdevstudios/wds-shortcodes/vendor/jtsternberg/shortcode-button/lib/class-shortcode-button.php:54
-msgid "Update Shortcode"
-msgstr ""
-
-#: vendor/jtsternberg/shortcode-button/lib/class-shortcode-button.php:55
-#: vendor/webdevstudios/wds-shortcodes/vendor/jtsternberg/shortcode-button/lib/class-shortcode-button.php:55
-msgid "Shortcode Contents"
-msgstr ""
-
-#: vendor/jtsternberg/shortcode-button/lib/class-shortcode-button.php:341
-#: vendor/webdevstudios/wds-shortcodes/vendor/jtsternberg/shortcode-button/lib/class-shortcode-button.php:341
-msgid "failed verification"
-msgstr ""
-
-#: vendor/jtsternberg/shortcode-button/lib/class-shortcode-button.php:434
-#: vendor/webdevstudios/wds-shortcodes/vendor/jtsternberg/shortcode-button/lib/class-shortcode-button.php:434
-msgid "No items found."
-msgstr ""
-
-#: vendor/jtsternberg/shortcode-button/templates/modal.php:6
-#: vendor/jtsternberg/shortcode-button/templates/modal.php:9
-#: vendor/webdevstudios/wds-shortcodes/vendor/jtsternberg/shortcode-button/templates/modal.php:6
-#: vendor/webdevstudios/wds-shortcodes/vendor/jtsternberg/shortcode-button/templates/modal.php:9
-msgid "Close"
 msgstr ""
 
 #: vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:337
@@ -1271,6 +1228,16 @@ msgstr ""
 msgid "Choose from the most used %s"
 msgstr ""
 
+#: vendor/webdevstudios/wds-shortcodes/includes/shortcode-admin.php:62
+#: vendor/webdevstudios/wds-shortcodes/vendor/jtsternberg/shortcode-button/lib/class-shortcode-button.php:52
+msgid "Cancel"
+msgstr ""
+
+#: vendor/webdevstudios/wds-shortcodes/includes/shortcode-admin.php:63
+#: vendor/webdevstudios/wds-shortcodes/vendor/jtsternberg/shortcode-button/lib/class-shortcode-button.php:53
+msgid "Insert Shortcode"
+msgstr ""
+
 #: vendor/webdevstudios/wds-shortcodes/node_modules/grunt-wp-i18n/test/fixtures/basic-theme/exclude/file.php:3
 #: vendor/webdevstudios/wds-shortcodes/node_modules/grunt-wp-i18n/test/fixtures/plugin-include/plugin-include.php:6
 msgid "Exclude"
@@ -1321,6 +1288,27 @@ msgstr ""
 
 #: vendor/webdevstudios/wds-shortcodes/tests/includes/testing-shortcode-admin.php:31
 msgid "Text Box on Right"
+msgstr ""
+
+#: vendor/webdevstudios/wds-shortcodes/vendor/jtsternberg/shortcode-button/lib/class-shortcode-button.php:54
+msgid "Update Shortcode"
+msgstr ""
+
+#: vendor/webdevstudios/wds-shortcodes/vendor/jtsternberg/shortcode-button/lib/class-shortcode-button.php:55
+msgid "Shortcode Contents"
+msgstr ""
+
+#: vendor/webdevstudios/wds-shortcodes/vendor/jtsternberg/shortcode-button/lib/class-shortcode-button.php:341
+msgid "failed verification"
+msgstr ""
+
+#: vendor/webdevstudios/wds-shortcodes/vendor/jtsternberg/shortcode-button/lib/class-shortcode-button.php:434
+msgid "No items found."
+msgstr ""
+
+#: vendor/webdevstudios/wds-shortcodes/vendor/jtsternberg/shortcode-button/templates/modal.php:7
+#: vendor/webdevstudios/wds-shortcodes/vendor/jtsternberg/shortcode-button/templates/modal.php:10
+msgid "Close"
 msgstr ""
 
 #. Author URI of the plugin/theme

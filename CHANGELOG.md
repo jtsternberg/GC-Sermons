@@ -7,6 +7,19 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
+## 0.1.6 - 2016-06-08
+
+### Enhancements
+
+* Move loading of plugin's classes to the `'plugins_loaded'` hook for more flexibility.
+* Output "No results" string when Sermon/Series search results are empty.
+* Update shortcode-button dependency to fix modal displaying before CSS loads.
+
+### Bug Fixes
+
+* Fix required plugins notices. WDS Shortcodes is now bundled and not required for installation.
+* Fix php notice caused by looping an empty array.
+
 ## 0.1.5 - 2016-06-01
 
 ### Enhancements

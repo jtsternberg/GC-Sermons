@@ -137,7 +137,8 @@ module.exports = function( grunt ) {
 							'!**/**composer.json',
 							'!**/**composer.lock',
 							'!**/**bower.json',
- 							'!vendor/tgmpa/tgm-plugin-activation/plugins/**'
+ 							'!vendor/tgmpa/tgm-plugin-activation/plugins/**',
+ 							'!vendor/jtsternberg/shortcode-button/**'
 						],
 						dest: '/gc-sermons'
 				} ]
