@@ -33,6 +33,116 @@ function gc_get_sermon_post( $sermon = 0, $throw_on_error = false ) {
 }
 
 /**
+ * Gets a GCS_Series augmented term object from a term object or ID.
+ *
+ * @since  0.1.7
+ *
+ * @param  mixed $term Term object or ID.
+ * @param  array       $args Array of arguments.
+ *
+ * @return GCS_Series|false GCS_Series object if successful.
+ */
+function gc_get_series_object( $term = 0, $args = array() ) {
+	if ( ! $term ) {
+		$term = is_tax( gc_sermons()->taxonomies->series->taxonomy() ) ? get_queried_object() : 0;
+	}
+
+	if ( $term ) {
+		return gc_sermons()->taxonomies->series->get( $term, $args );
+	}
+
+	return false;
+}
+
+/**
+ * Gets a GCS_Speaker augmented term object from a term object or ID.
+ *
+ * @since  0.1.7
+ *
+ * @param  mixed $term Term object or ID.
+ * @param  array       $args Array of arguments.
+ *
+ * @return GCS_Speaker|false GCS_Speaker object if successful.
+ */
+function gc_get_speaker_object( $term = 0, $args = array() ) {
+	if ( ! $term ) {
+		$term = is_tax( gc_sermons()->taxonomies->speaker->taxonomy() ) ? get_queried_object() : 0;
+	}
+
+	if ( $term ) {
+		return gc_sermons()->taxonomies->speaker->get( $term, $args );
+	}
+
+	return false;
+}
+
+/**
+ * Gets a GCS_Topic augmented term object from a term object or ID.
+ *
+ * @since  0.1.7
+ *
+ * @param  mixed $term Term object or ID.
+ * @param  array       $args Array of arguments.
+ *
+ * @return GCS_Topic|false GCS_Topic object if successful.
+ */
+function gc_get_topic_object( $term = 0, $args = array() ) {
+	if ( ! $term ) {
+		$term = is_tax( gc_sermons()->taxonomies->topic->taxonomy() ) ? get_queried_object() : 0;
+	}
+
+	if ( $term ) {
+		return gc_sermons()->taxonomies->topic->get( $term, $args );
+	}
+
+	return false;
+}
+
+/**
+ * Gets a GCS_Tag augmented term object from a term object or ID.
+ *
+ * @since  0.1.7
+ *
+ * @param  mixed $term Term object or ID.
+ * @param  array       $args Array of arguments.
+ *
+ * @return GCS_Tag|false GCS_Tag object if successful.
+ */
+function gc_get_tag_object( $term = 0, $args = array() ) {
+	if ( ! $term ) {
+		$term = is_tax( gc_sermons()->taxonomies->tag->taxonomy() ) ? get_queried_object() : 0;
+	}
+
+	if ( $term ) {
+		return gc_sermons()->taxonomies->tag->get( $term, $args );
+	}
+
+	return false;
+}
+
+/**
+ * Gets a GCS_Scripture augmented term object from a term object or ID.
+ *
+ * @since  0.1.7
+ *
+ * @param  mixed $term Term object or ID.
+ * @param  array       $args Array of arguments.
+ *
+ * @return GCS_Scripture|false GCS_Scripture object if successful.
+ */
+function gc_get_scripture_object( $term = 0, $args = array() ) {
+	if ( ! $term ) {
+		$term = is_tax( gc_sermons()->taxonomies->scripture->taxonomy() ) ? get_queried_object() : 0;
+	}
+
+	if ( $term ) {
+		return gc_sermons()->taxonomies->scripture->get( $term, $args );
+	}
+
+	return false;
+}
+
+/**
  * Get's info for a series attached to the sermon.
  *
  * @since  0.1.3

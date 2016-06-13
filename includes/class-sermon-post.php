@@ -333,7 +333,7 @@ class GCS_Sermon_Post {
 		}
 
 		if ( null === $this->speaker ) {
-			$this->speaker = gc_sermons()->taxonomies->speaker->get( $speakers[0], $args );
+			$this->speaker = gc_get_speaker_object( $speakers[0], $args );
 		}
 
 		return $this->speaker;
@@ -355,7 +355,7 @@ class GCS_Sermon_Post {
 		}
 
 		if ( null === $this->single_series ) {
-			$this->single_series = gc_sermons()->taxonomies->series->get( $series[0], $args );
+			$this->single_series = gc_get_series_object( $series[0], $args );
 		}
 
 		return $this->single_series;
