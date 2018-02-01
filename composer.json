@@ -4,7 +4,7 @@
 	"description": "Manage sermons and sermon content in WordPress",
 	"keywords": ["wordpress", "plugin", "generator-plugin-wp", "sermons"],
 	"homepage": "https://github.com/jtsternberg/GC-Sermons",
-	"license": "GPLv2",
+	"license": "GPL-2.0-or-later",
 	"authors": [
 	{
 		"name": "jtsternberg",
