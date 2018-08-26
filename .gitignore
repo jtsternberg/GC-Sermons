@@ -72,3 +72,4 @@ composer.phar
 .sass-cache
 
 dandelion.yml
+phploy.ini
