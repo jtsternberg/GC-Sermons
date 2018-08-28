@@ -60,4 +60,64 @@ All notable changes to this project will be documented in this file.
 
 ### Enhancements
 
-* Shortcodes, shortcodes, shortcodes. Also, this changelog.
+- Shortcodes, shortcodes, shortcodes. Also, this changelog.
+- Update readme, pointing to the wiki.
+- Filter, `gc_do_sermon_series_fallback_image`, to disable image fallback.
+- Update the term-image column and add a term-edit link.
+- Move shortcode files around, and add video/audio player shortcodes.
+- Clean up "recent" shortcodes and nicer UX.
+- Update dependencies to fix some JS issues.
+- Add speaker/series filters to the sermon shortcode.
+- Add a prefix to shortcode fields, and method to de-prefix before inserting shortcode.
+- Add a filter on the template content output.
+- Update sermons shortcode, and make things more generic to be shared.
+- Revamp/cleanup shortcodes and finalize the series shortcodes.
+- Update wds-shortcodes dependency to get the bool_att method, for getting boolean values from shortcode values.
+- Add `GCS_Template_Loader::maybe_output` for doing condtional output in templates.
+- Update Template Loader.
+- Clean up some typos.
+- Add image column to speakers/series taxonomies.
+- Add several shortcodes, series image fallback for sermson, allow future posts, etc.
+- Rename file to match file/class nameing convention.
+- Enable future posts to be displayed (with "coming soon") text on the front-end.
+- Make audio player wrap class consistent.
+- Make `GCS_Shortcodes_Play_Button` properties accessible.
+- Implement template loader to allow overriding in themes, etc.
+
+## 0.1.3 - 2016-06-01
+
+- Add scripture taxonomy.
+
+## 0.1.2 - 2016-04-14
+
+- Move css to separate css templates.
+- `most_recent_with_audio` method should search for audio, not video.
+
+## 0.1.1 - 2016-04-14
+
+- Specify rewite slugs for all taxonomies.
+- When calling `get_audio_player`, init media.
+- Be more discerning when removing metaboxes, and replace the featured image metabox.
+- Use `plugins_loaded` hook to filter the post-type/taxonomy values so that the filter happens early (before init).
+- Update to series column. Replace with image, if one is set.
+- Check if `gc_staff` is loaded, and change speaker connected field and augmented data.
+- Fix textdomains.
+- Add sermon `get` and `get_many` methods.
+- build a series image when we only have a url.
+- Only get the user avatar if there is no speaker image set.
+- on post save, asynchronously save the sermon series terms in order of recent sermons.
+- Allow a `series_image_fallback`.
+- New `GCS_Sermon_Post` methods, `permalink`, `title`, `series_image`, `get_others_in_series`, `get_others_by_speaker`.
+- Make play button shortcode enqueue scripts/styles and for the video modal to actually work.
+- Add `get_video_player` method to sermon post class.
+- make `url`, `path`, `dir` publicly accessible variables.
+- Add `wds-shortcodes` as dependency.
+- Add `GCS_Sermon_Post` method for getting the sermon post meta.
+- Add `GCS_Sermon_Post` method for getting the sermon audio player.
+- Add methods to `GCS_Sermon_Post` for getting the post's series or speaker's term object.
+- Add addional CMB2 field types and add related links, etc to sermon CPT.
+- Add several utility methods for getting taxonomy term objects, and augmenting with additional info.
+- Update rewrite for sermons.
+- Fix a bug with taxonomy `most_recent`.
+- Differentiate between taxonomy/post-type slug, and the object identifier (since slug can be changed via filter).
+- clean up composer.json.
