@@ -35,7 +35,7 @@ function gc_get_sermon_post( $sermon = 0, $throw_on_error = false ) {
 /**
  * Gets a GCS_Series augmented term object from a term object or ID.
  *
- * @since  0.1.7
+ * @since  0.2.0
  *
  * @param  mixed $term Term object or ID.
  * @param  array       $args Array of arguments.
@@ -57,7 +57,7 @@ function gc_get_series_object( $term = 0, $args = array() ) {
 /**
  * Gets a GCS_Speaker augmented term object from a term object or ID.
  *
- * @since  0.1.7
+ * @since  0.2.0
  *
  * @param  mixed $term Term object or ID.
  * @param  array       $args Array of arguments.
@@ -79,7 +79,7 @@ function gc_get_speaker_object( $term = 0, $args = array() ) {
 /**
  * Gets a GCS_Topic augmented term object from a term object or ID.
  *
- * @since  0.1.7
+ * @since  0.2.0
  *
  * @param  mixed $term Term object or ID.
  * @param  array       $args Array of arguments.
@@ -101,7 +101,7 @@ function gc_get_topic_object( $term = 0, $args = array() ) {
 /**
  * Gets a GCS_Tag augmented term object from a term object or ID.
  *
- * @since  0.1.7
+ * @since  0.2.0
  *
  * @param  mixed $term Term object or ID.
  * @param  array       $args Array of arguments.
@@ -123,7 +123,7 @@ function gc_get_tag_object( $term = 0, $args = array() ) {
 /**
  * Gets a GCS_Scripture augmented term object from a term object or ID.
  *
- * @since  0.1.7
+ * @since  0.2.0
  *
  * @param  mixed $term Term object or ID.
  * @param  array       $args Array of arguments.

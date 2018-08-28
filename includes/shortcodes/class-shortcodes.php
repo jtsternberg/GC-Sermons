@@ -1,7 +1,7 @@
 <?php
 /**
  * GC Sermons Shortcodes
- * @version 0.1.6
+ *
  * @package GC Sermons
  */
 

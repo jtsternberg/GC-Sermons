@@ -2,7 +2,6 @@
 /**
  * GC Sermons Search
  *
- * @version 0.1.6
  * @package GC Sermons
  */
 

@@ -4,7 +4,6 @@
  *
  * @todo Use Javascript/Ajax pagination/filtering.
  *
- * @version 0.1.6
  * @package GC Sermons
  */
 class GCS_Shortcodes_Sermon_Search_Run extends GCS_Shortcodes_Run_Base {

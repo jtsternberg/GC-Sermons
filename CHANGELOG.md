@@ -3,9 +3,22 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased][unreleased]
 
+## 0.2.0 - 2018-08-28
+
 ### Enhancements
 
+- Helper functions for getting the GC Sermons augmented taxonomy term objects.
+- New helper functions: 
+	- `gc_get_series_object( $term = 0, $args = array() )`
+	- `gc_get_speaker_object( $term = 0, $args = array() )`
+	- `gc_get_topic_object( $term = 0, $args = array() )`
+	- `gc_get_tag_object( $term = 0, $args = array() )`
+	- `gc_get_scripture_object( $term = 0, $args = array() )`
+
 ### Bug Fixes
+
+- Make sure `GCS_Taxonomies_Base::filter_values` runs (so that custom post-type and taxonomy overrides work).
+- fix composer.json license value to be compatible with packagist
 
 ## 0.1.6 - 2016-06-08
 
