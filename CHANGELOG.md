@@ -86,7 +86,8 @@ All notable changes to this project will be documented in this file.
 
 ## 0.1.3 - 2016-06-01
 
-- Add scripture taxonomy.
+- Add "Scripture" Taxonomy.
+- Fix `"gcs_cmb2_box_args_{$this->id}_{$cmb_id}"` filter.
 
 ## 0.1.2 - 2016-04-14
 
