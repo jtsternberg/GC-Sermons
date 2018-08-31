@@ -198,25 +198,33 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 		return $data;
 	}
 
+	/**
+	 * Possibly add a "Coming Soon" prefix to future sermon titles.
+	 *
+	 * @since  0.2.1
+	 *
+	 * @param  string $title
+	 * @param  int    $post_id
+	 *
+	 * @return string
+	 */
 	public function label_coming_soon( $title, $post_id = 0 ) {
 		static $now = null;
-		static $done = array();
 
-		$post_id = $post_id ? $post_id : get_the_id();
+		$post = get_post( $post_id ? $post_id : get_the_ID() );
 
-		if ( isset( $done[ $post_id ] ) ) {
-			return $done[ $post_id ];
+		if ( empty( $post->post_type ) || $this->post_type() !== $post->post_type ) {
+			return $title;
 		}
 
-		$now = null === $now ? gmdate( 'Y-m-d H:i:59' ) : $now;
+		$now = null === $now ? mysql2date( 'U', gmdate( 'Y-m-d H:i:59' ), false ) : $now;
 
-		if ( mysql2date( 'U', get_post( $post_id )->post_date_gmt, false ) > mysql2date( 'U', $now, false ) ) {
+		if ( mysql2date( 'U', $post->post_date_gmt, false ) > $now ) {
 
-			$coming_soon_prefix = apply_filters( 'gcs_sermon_coming_soon_prefix', '<span class="coming-soon-prefix">' . __( 'Coming Soon:', 'gc-sermons' ) . '</span> ', $post_id, $this );
+			$coming_soon_prefix = apply_filters( 'gcs_sermon_coming_soon_prefix', '<span class="coming-soon-prefix">' . __( 'Coming Soon:', 'gc-sermons' ) . '</span> ', $post->ID, $this, $post );
+
 			$title = $coming_soon_prefix . $title ;
 		}
-
-		$done[ $post_id ] = $title;
 
 		return $title;
 	}
