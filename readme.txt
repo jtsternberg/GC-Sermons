@@ -4,7 +4,7 @@ Donate link:       http://dsgnwrks.pro
 Tags:
 Requires at least: 4.4
 Tested up to:      4.9.8
-Stable tag:        0.2.0
+Stable tag:        0.2.1
 License:           GPLv2
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 

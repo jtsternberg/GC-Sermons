@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased][unreleased]
 
+## 0.2.1 - 2018-08-31
+
+- Fix the `label_coming_soon` method and only check for posts in our post-type
+- Use `$this->post_type()`, not (wrong) hard-coded post-type string
+- Fix `get_the_id`
+
 ## 0.2.0 - 2018-08-28
 
 ### Enhancements
