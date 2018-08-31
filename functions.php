@@ -15,7 +15,7 @@ function gc_get_sermon_post( $sermon = 0, $throw_on_error = false ) {
 		return $sermon;
 	}
 
-	$sermon = $sermon ? $sermon : get_the_id();
+	$sermon = $sermon ? $sermon : get_the_ID();
 
 	try {
 
