@@ -113,7 +113,7 @@ class GCS_Sermons extends GCS_Post_Types_Base {
 	 * @return void
 	 */
 	public function admin_hooks() {
-		add_action( 'dbx_post_advanced', array( $this, 'remove_default_boxes_for_sermons' ) );
+		add_action( 'add_meta_boxes', array( $this, 'remove_default_boxes_for_sermons' ), 0 );
 		add_filter( "manage_edit-{$this->post_type()}_columns", array( $this, 'columns' ) );
 	}
 
