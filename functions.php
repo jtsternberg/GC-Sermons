@@ -222,8 +222,6 @@ function gc_get_sermon_speaker_info( $sermon = 0, $args = array(), $get_speaker_
 		return '';
 	}
 
-	$sermon = gc_get_sermon_post( $sermon );
-
 	// If no sermon or no sermon speaker, bail.
 	if ( ! $sermon || ! ( $speaker = $sermon->get_speaker( $get_speaker_args ) ) ) {
 		return '';
