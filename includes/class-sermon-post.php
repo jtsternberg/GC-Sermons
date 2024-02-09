@@ -72,6 +72,13 @@ class GCS_Sermon_Post {
 	protected $tags = array();
 
 	/**
+	 * Scriptures terms for the sermon post.
+	 *
+	 * @var array
+	 */
+	protected $scriptures = array();
+
+	/**
 	 * Constructor
 	 *
 	 * @since  0.1.0
@@ -486,6 +493,21 @@ class GCS_Sermon_Post {
 	}
 
 	/**
+	 * Wrapper for get_the_terms for the scripture taxonomy
+	 *
+	 * @since  0.1.0
+	 *
+	 * @return array  Array of scripture terms
+	 */
+	public function scriptures() {
+		if ( empty( $this->scriptures ) ) {
+			$this->scriptures = $this->init_taxonomy( 'scripture' );
+		}
+
+		return $this->scriptures;
+	}
+
+	/**
 	 * Initate the taxonomy.
 	 *
 	 * @since  0.1.0
@@ -528,6 +550,7 @@ class GCS_Sermon_Post {
 			case 'speakers':
 			case 'topics':
 			case 'tags':
+			case 'scriptures':
 				return $this->{$property}();
 			case 'post':
 				return $this->{$property};
@@ -564,6 +587,7 @@ class GCS_Sermon_Post {
 			case 'speakers':
 			case 'topics':
 			case 'tags':
+			case 'scriptures':
 				$terms = $this->{$property}();
 				return ! empty( $terms );
 			default:
@@ -594,6 +618,9 @@ class GCS_Sermon_Post {
 				break;
 			case 'tag':
 				$property = 'tags';
+				break;
+			case 'scripture':
+				$property = 'scriptures';
 				break;
 		}
 

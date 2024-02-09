@@ -70,6 +70,7 @@ class GCS_Taxonomies {
 			case 'speaker':
 			case 'topic':
 			case 'tag':
+			case 'scripture':
 				return $this->{$field};
 			default:
 				throw new Exception( 'Invalid ' . __CLASS__ . ' property: ' . $field );

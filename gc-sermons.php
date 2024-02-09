@@ -299,6 +299,7 @@ class GC_Sermons_Plugin {
 			case 'speaker':
 			case 'topic':
 			case 'tag':
+			case 'scripture':
 				return $this->taxonomies->{$field};
 			default:
 				throw new Exception( 'Invalid '. __CLASS__ .' property: ' . $field );
