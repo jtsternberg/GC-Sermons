@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4bb8bf1fd2d163f5fd5edda7439cb4ff",
+    "content-hash": "d0c4b77d0d0536dcdbcf79caba0e3786",
     "packages": [
         {
             "name": "jtsternberg/cmb2-related-links",
@@ -48,6 +48,10 @@
                 "meta",
                 "wordpress"
             ],
+            "support": {
+                "issues": "https://github.com/jtsternberg/CMB2-Related-Links/issues",
+                "source": "https://github.com/jtsternberg/CMB2-Related-Links"
+            },
             "time": "2016-05-30T07:10:25+00:00"
         },
         {
@@ -92,6 +96,10 @@
                 "meta",
                 "wordpress"
             ],
+            "support": {
+                "issues": "https://github.com/jtsternberg/cmb2-term-select/issues",
+                "source": "https://github.com/jtsternberg/cmb2-term-select"
+            },
             "time": "2016-05-30T06:08:55+00:00"
         },
         {
@@ -136,6 +144,10 @@
                 "shortcodes",
                 "wordpress"
             ],
+            "support": {
+                "issues": "https://github.com/jtsternberg/Shortcode_Button/issues",
+                "source": "https://github.com/jtsternberg/Shortcode_Button"
+            },
             "time": "2017-06-07T15:59:21+00:00"
         },
         {
@@ -156,6 +168,7 @@
                 "10up/wp_mock": "dev-master",
                 "phpunit/phpunit": "*@stable"
             },
+            "default-branch": true,
             "type": "wordpress-plugin",
             "autoload": {
                 "classmap": [
@@ -187,6 +200,10 @@
                 }
             ],
             "description": "Run asynchronous tasks for long-running operations in WordPress",
+            "support": {
+                "issues": "https://github.com/techcrunch/wp-async-task/issues",
+                "source": "https://github.com/techcrunch/wp-async-task/tree/master"
+            },
             "time": "2016-03-10T17:37:13+00:00"
         },
         {
@@ -242,6 +259,10 @@
                 "theme",
                 "wordpress"
             ],
+            "support": {
+                "issues": "https://github.com/TGMPA/TGM-Plugin-Activation/issues",
+                "source": "https://github.com/TGMPA/TGM-Plugin-Activation"
+            },
             "time": "2015-07-16T08:59:11+00:00"
         },
         {
@@ -286,6 +307,10 @@
                 "search",
                 "wordpress"
             ],
+            "support": {
+                "issues": "https://github.com/WebDevStudios/CMB2-Post-Search-field/issues",
+                "source": "https://github.com/WebDevStudios/CMB2-Post-Search-field"
+            },
             "time": "2016-05-30T06:58:49+00:00"
         },
         {
@@ -330,6 +355,10 @@
                 "meta",
                 "wordpress"
             ],
+            "support": {
+                "issues": "https://github.com/WebDevStudios/CMB2-User-Select/issues",
+                "source": "https://github.com/WebDevStudios/CMB2-User-Select"
+            },
             "time": "2017-06-07T15:30:01+00:00"
         },
         {
@@ -349,6 +378,7 @@
             "suggest": {
                 "composer/installers": "~1.0"
             },
+            "default-branch": true,
             "type": "wordpress-plugin",
             "autoload": {
                 "files": [
@@ -374,6 +404,10 @@
                 "plugin",
                 "wordpress"
             ],
+            "support": {
+                "issues": "https://github.com/WebDevStudios/CPT_Core/issues",
+                "source": "https://github.com/WebDevStudios/CPT_Core/tree/master"
+            },
             "time": "2018-04-17T20:17:24+00:00"
         },
         {
@@ -407,6 +441,10 @@
                 }
             ],
             "description": "A tool to make custom taxonomy registration just a bit simpler. Automatically registers taxonomy labels, and provides helpful methods.",
+            "support": {
+                "issues": "https://github.com/WebDevStudios/Taxonomy_Core/issues",
+                "source": "https://github.com/WebDevStudios/Taxonomy_Core/tree/v0.2.4"
+            },
             "time": "2016-02-27T20:21:38+00:00"
         },
         {
@@ -430,12 +468,12 @@
             },
             "type": "wordpress-plugin",
             "autoload": {
+                "files": [
+                    "vendor/jtsternberg/shortcode-button/shortcode-button.php"
+                ],
                 "classmap": [
                     "includes",
                     "vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php"
-                ],
-                "files": [
-                    "vendor/jtsternberg/shortcode-button/shortcode-button.php"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -457,20 +495,24 @@
                 "wordpress",
                 "wp-api"
             ],
+            "support": {
+                "issues": "https://github.com/WebDevStudios/WDS-Shortcodes/issues",
+                "source": "https://github.com/WebDevStudios/WDS-Shortcodes"
+            },
             "time": "2017-06-07T16:02:24+00:00"
         },
         {
             "name": "xrstf/composer-php52",
-            "version": "v1.0.20",
+            "version": "v1.0.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer-php52/composer-php52.git",
-                "reference": "bd41459d5e27df8d33057842b32377c39e97a5a8"
+                "reference": "670ac996f93792f8de0427605cfef342b3429ff3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer-php52/composer-php52/zipball/bd41459d5e27df8d33057842b32377c39e97a5a8",
-                "reference": "bd41459d5e27df8d33057842b32377c39e97a5a8",
+                "url": "https://api.github.com/repos/composer-php52/composer-php52/zipball/670ac996f93792f8de0427605cfef342b3429ff3",
+                "reference": "670ac996f93792f8de0427605cfef342b3429ff3",
                 "shasum": ""
             },
             "type": "library",
@@ -488,7 +530,11 @@
             "license": [
                 "MIT"
             ],
-            "time": "2016-04-16T21:52:24+00:00"
+            "support": {
+                "issues": "https://github.com/composer-php52/composer-php52/issues",
+                "source": "https://github.com/composer-php52/composer-php52"
+            },
+            "time": "2022-06-08T03:23:46+00:00"
         }
     ],
     "packages-dev": [],
@@ -503,5 +549,6 @@
     "platform": {
         "php": ">=5.2"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
 }
